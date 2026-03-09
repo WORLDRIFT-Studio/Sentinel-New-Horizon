@@ -29,7 +29,7 @@ func _ready() -> void:
 	btn_autorzy.pressed.connect(_on_autorzy_pressed)
 	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
 
-	%Przycisk_NowaGra.grab_focus() 
+	%NowaGra.grab_focus() 
 
 func _on_nowa_gra_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu_nowa_gra.tscn")
