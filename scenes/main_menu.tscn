@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eoxljb7e4155"]
 
-[ext_resource type="Texture2D" uid="uid://duva8g248nwh4" path="res://assets/menu/bg_main.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://duva8g248nwh4" path="res://assets/menu/main.png" id="2_wu84c"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_8ln24"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
@@ -47,6 +47,7 @@ offset_bottom = 602.0
 theme_override_constants/separation = 15
 
 [node name="NowaGra" type="Button" parent="MainButtons" unique_id=1761248478]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
@@ -78,7 +79,7 @@ theme_override_fonts/font = ExtResource("3_8ln24")
 theme_override_font_sizes/font_size = 28
 text = "AUTORZY"
 
-[node name="Button" type="Button" parent="MainButtons" unique_id=1155104570]
+[node name="Wyjscie" type="Button" parent="MainButtons" unique_id=1155104570]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)

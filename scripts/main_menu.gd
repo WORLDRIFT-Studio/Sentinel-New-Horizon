@@ -1,10 +1,10 @@
 extends Control
 
-@onready var btn_nowa_gra:     Button = %Przycisk_NowaGra
-@onready var btn_kontynuuj:    Button = %Przycisk_Kontynuuj
-@onready var btn_ustawienia:   Button = %Przycisk_Ustawienia
-@onready var btn_autorzy:      Button = %Przycisk_Autorzy
-@onready var btn_wyjscie:      Button = %Przycisk_Wyjscie
+@onready var btn_nowa_gra:     Button = %NowaGra
+@onready var btn_kontynuuj:    Button = %Kontynuuj
+@onready var btn_ustawienia:   Button = %Ustawienia
+@onready var btn_autorzy:      Button = %Autorzy
+@onready var btn_wyjscie:      Button = %Wyjscie
 
 func _ready() -> void:
 	if btn_nowa_gra == null:
