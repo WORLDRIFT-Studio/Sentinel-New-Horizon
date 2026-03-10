@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Sentinel:NewHorizons"
-run/main_scene="uid://eoxljb7e4155"
+run/main_scene="uid://7vrqfimkp4kc"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 
@@ -21,3 +25,4 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true
