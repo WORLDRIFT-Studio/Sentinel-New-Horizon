@@ -16,8 +16,15 @@ texture = ExtResource("1_uwrxv")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=508650196]
 unique_name_in_owner = true
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.495, 0.495)
+limit_left = -780
+limit_top = -442
+limit_right = 1140
+limit_bottom = 638
+limit_smoothed = true
+position_smoothing_enabled = true
 script = ExtResource("2_yqjtg")
+SLIDE_SPEED = 500.0
 
 [node name="NavigasionArea" type="NavigationRegion2D" parent="." unique_id=1019167563]
 visible = false

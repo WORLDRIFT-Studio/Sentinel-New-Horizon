@@ -1,13 +1,16 @@
 extends Camera2D
+@export var SLIDE_SPEED: float
 
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ScrollIn"):
-		if get_zoom() < Vector2(1.5, 1.5):
-			set_zoom(get_zoom() + Vector2(0.1, 0.1))
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ScrollIn"):
+		if zoom < Vector2(1.5, 1.5):
+			zoom += Vector2(0.05, 0.05)
 		return
 		
-	if event.is_action_pressed("ScrollOut"):
-		if get_zoom() > Vector2(0.5, 0.5):
-			set_zoom(get_zoom() - Vector2(0.1, 0.1))
+	if Input.is_action_just_pressed("ScrollOut"):
+		if zoom > Vector2(0.6, 0.6):
+			zoom -= Vector2(0.05, 0.05)
 		return
+	
+	var direction = Input.get_vector("Left", "Right", "Up", "Down")
+	position += direction * delta * SLIDE_SPEED
