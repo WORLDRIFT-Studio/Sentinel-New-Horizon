@@ -1,13 +1,13 @@
 extends Control
 
-@onready var btn_autorzy:      Button = %Autorzy
+@onready var btn_wyjscie:      Button = %Wyjscie
 
 func _ready() -> void:
-	if btn_autorzy == null:
-		push_error("Autorzy not found! Check unique name.")
+	if btn_wyjscie == null:
+		push_error("Przycisk_Wyjscie not found! Check unique name.")
 		return  
 		
-	btn_autorzy.pressed.connect(_on_autorzy_pressed)
+	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
 	
 func _on_wyjscie_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu_autorzy.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

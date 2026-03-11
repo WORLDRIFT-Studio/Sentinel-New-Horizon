@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpoo4360t1her"]
 
-[ext_resource type="Texture2D" uid="uid://bt47vbh3ajyhq" path="res://assets/menu/kontynuuj.png" id="1_alddd"]
+[ext_resource type="Texture2D" uid="uid://dtuqjyqf5annk" path="res://assets/menu/kontynuuj.png" id="1_alddd"]
 [ext_resource type="Script" uid="uid://u7bss4sp1r62" path="res://scripts/main_menu_kontynuuj.gd" id="1_jlw6t"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_wisws"]
 
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6rsth")
 
-[node name="Przycisk_Wyjscie" type="Button" parent="Background" unique_id=1373292430]
+[node name="Wyjscie" type="Button" parent="Background" unique_id=1373292430]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
