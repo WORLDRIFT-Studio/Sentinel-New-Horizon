@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cbt4futvdti7b"]
+
+[ext_resource type="Texture2D" path="res://assets/map.png" id="1_uwrxv"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="2_yqjtg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_paxxb"]
+vertices = PackedVector2Array(1130, 628, -770, 628, -770, -432, 1130, -432)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-780, 638, 1140, 638, 1140, -442, -780, -442)])
+
+[node name="Game" type="Node2D" unique_id=211452031]
+
+[node name="Map" type="Sprite2D" parent="." unique_id=35735412]
+position = Vector2(960, 540)
+texture = ExtResource("1_uwrxv")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=508650196]
+unique_name_in_owner = true
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("2_yqjtg")
+SLIDE_SPEED = 500.0
+
+[node name="NavigasionArea" type="NavigationRegion2D" parent="." unique_id=1019167563]
+visible = false
+position = Vector2(780, 442)
+navigation_polygon = SubResource("NavigationPolygon_paxxb")
