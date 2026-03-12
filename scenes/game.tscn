@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dnfp2t37ech6k"]
+[gd_scene format=3 uid="uid://cbt4futvdti7b"]
 
 [ext_resource type="Texture2D" uid="uid://dg0gjeshvh1pu" path="res://assets/map.png" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://dwdf468ndxmbh" path="res://scenes/camera.gd" id="2_yqjtg"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="2_yqjtg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_paxxb"]
 vertices = PackedVector2Array(1130, 628, -770, 628, -770, -432, 1130, -432)
