@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbt4futvdti7b"]
 
-[ext_resource type="Texture2D" uid="uid://wna4dnyf8t2m" path="res://assets/map/map.png" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://cb1pqjk22iyc4" path="res://assets/map/map.png" id="1_yqjtg"]
 [ext_resource type="Script" path="res://scenes/camera.gd" id="2_yqjtg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_paxxb"]
