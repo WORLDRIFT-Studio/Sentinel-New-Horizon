@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://eoxljb7e4155"]
 
 [ext_resource type="Script" uid="uid://7077mhbd2g7t" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://bwrregbu5683a" path="res://assets/menu/main.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://krq7ukfbgfa5" path="res://assets/menu/main.png" id="2_wu84c"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_8ln24"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
