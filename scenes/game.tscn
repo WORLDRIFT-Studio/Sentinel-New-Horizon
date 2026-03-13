@@ -1,7 +1,25 @@
 [gd_scene format=3 uid="uid://cbt4futvdti7b"]
 
-[ext_resource type="Texture2D" uid="uid://wna4dnyf8t2m" path="res://assets/map/map.png" id="1_yqjtg"]
-[ext_resource type="Script" path="res://scenes/camera.gd" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://cb1pqjk22iyc4" path="res://assets/map/map.png" id="1_yqjtg"]
+
+[sub_resource type="GDScript" id="GDScript_uwrxv"]
+script/source = "extends Camera2D
+@export var SLIDE_SPEED: float
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"ScrollIn\"):
+		if zoom < Vector2(1.5, 1.5):
+			zoom += Vector2(0.05, 0.05)
+		return
+		
+	if Input.is_action_just_pressed(\"ScrollOut\"):
+		if zoom > Vector2(0.6, 0.6):
+			zoom -= Vector2(0.05, 0.05)
+		return
+	
+	var direction = Input.get_vector(\"Left\", \"Right\", \"Up\", \"Down\")
+	position += direction * delta * SLIDE_SPEED
+"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_paxxb"]
 vertices = PackedVector2Array(1130, 628, -770, 628, -770, -432, 1130, -432)
@@ -24,7 +42,7 @@ limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
-script = ExtResource("2_yqjtg")
+script = SubResource("GDScript_uwrxv")
 SLIDE_SPEED = 500.0
 
 [node name="NavigasionArea" type="NavigationRegion2D" parent="." unique_id=1019167563]
