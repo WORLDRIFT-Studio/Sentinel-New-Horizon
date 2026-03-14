@@ -29,21 +29,24 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-780, 638, 1140, 638, 1
 [node name="Game" type="Node2D" unique_id=211452031]
 
 [node name="Map" type="Sprite2D" parent="." unique_id=35735412]
-position = Vector2(960, 540)
+position = Vector2(-2604.4446, -1465)
+scale = Vector2(4.712963, 4.712963)
 texture = ExtResource("1_yqjtg")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=508650196]
 unique_name_in_owner = true
+position = Vector2(-2663, -1479)
+zoom = Vector2(0.375, 0.375)
 process_callback = 0
-limit_left = 0
-limit_top = 0
+limit_left = -7129
+limit_top = -4010
 limit_right = 1920
 limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = SubResource("GDScript_uwrxv")
-SLIDE_SPEED = 500.0
+SLIDE_SPEED = 1500.0
 
 [node name="NavigasionArea" type="NavigationRegion2D" parent="." unique_id=1019167563]
 visible = false
