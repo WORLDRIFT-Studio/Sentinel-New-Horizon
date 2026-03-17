@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://otgrjibn6gqo"]
 
 [ext_resource type="Texture2D" uid="uid://dyd1p8pbecpel" path="res://assets/assets/icons/upgrades/shop-icon.svg" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://b6ij5fyq4ve2j" path="res://assets/assets/icons/day_counter.svg" id="1_hd3ao"]
 [ext_resource type="Texture2D" uid="uid://cq678nb8vxl75" path="res://assets/assets/icons/upgrades/shop-icon-pressed.svg" id="2_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://ctj7vl2i2udxa" path="res://assets/assets/icons/upgrades/shop-icon-hover.svg" id="2_oo0fn"]
-[ext_resource type="Texture2D" uid="uid://c7qh6h21n4g31" path="res://assets/assets/day-counter.svg" id="4_6fi6k"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://bywvuwbxb3cgg" path="res://assets/assets/icons/settings/settings.svg" id="6_hd3ao"]
 [ext_resource type="Texture2D" uid="uid://dklt4jqk5kj72" path="res://assets/assets/icons/settings/settings-pressed.svg" id="7_0i1j5"]
@@ -15,10 +15,10 @@
 
 [node name="Bar" type="TextureRect" parent="DayCounter" unique_id=946449255]
 offset_left = 24.0
-offset_top = 23.0
-offset_right = 499.0
-offset_bottom = 147.0
-texture = ExtResource("4_6fi6k")
+offset_top = 21.0
+offset_right = 659.0
+offset_bottom = 222.0
+texture = ExtResource("1_hd3ao")
 stretch_mode = 2
 
 [node name="Day" type="Label" parent="DayCounter/Bar" unique_id=1942784623]
@@ -28,10 +28,10 @@ anchor_left = 0.018000001
 anchor_top = 0.068
 anchor_right = 0.018000001
 anchor_bottom = 0.068
-offset_left = -0.050473213
-offset_top = -0.037592888
-offset_right = 459.2658
-offset_bottom = 107.16781
+offset_left = 141.31
+offset_top = 46.331997
+offset_right = 600.6263
+offset_bottom = 153.53745
 theme_override_fonts/font = ExtResource("5_uo2fv")
 theme_override_font_sizes/font_size = 84
 text = "Dzień: 1"
