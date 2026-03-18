@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dewdf3xvaxxxv"]
+
+[ext_resource type="Texture2D" uid="uid://d27mc4wlkobj3" path="res://assets/map/road.jpg" id="1_ymhas"]
+
+[node name="MiniGame" type="Node2D" unique_id=1380433955]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=977025872]
+position = Vector2(549.2344, 428.0469)
+scale = Vector2(1.8852234, 1.7989197)
+texture = ExtResource("1_ymhas")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=151160244]
+unique_name_in_owner = true
+position = Vector2(551, 430)
