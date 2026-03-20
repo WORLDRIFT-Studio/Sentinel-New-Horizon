@@ -1,14 +1,48 @@
 [gd_scene format=3 uid="uid://dewdf3xvaxxxv"]
 
 [ext_resource type="Texture2D" uid="uid://d27mc4wlkobj3" path="res://assets/map/road.jpg" id="1_ymhas"]
+[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/traffic command/Path_follow.gd" id="2_co0fe"]
+[ext_resource type="Texture2D" uid="uid://dhofbwk64v71l" path="res://assets/assets/car.png" id="2_xbsf2"]
+[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/traffic command/Area2D.gd" id="3_avl7u"]
+
+[sub_resource type="Curve2D" id="Curve2D_ym1ef"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -65, -508, 0, 0, 0, 0, -62, -208, 138.50388, -1.6105102, -138.50388, 1.6105102, -197, -74, 0, 0, 0, 0, -534, -71)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym1ef"]
+size = Vector2(142.95575, 66.33226)
 
 [node name="MiniGame" type="Node2D" unique_id=1380433955]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=977025872]
-position = Vector2(549.2344, 428.0469)
-scale = Vector2(1.8852234, 1.7989197)
+[node name="Map" type="Sprite2D" parent="." unique_id=977025872]
+scale = Vector2(1.048, 1)
 texture = ExtResource("1_ymhas")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=151160244]
+[node name="Camera" type="Camera2D" parent="." unique_id=151160244]
 unique_name_in_owner = true
-position = Vector2(551, 430)
+
+[node name="Path1" type="Path2D" parent="." unique_id=1745278048]
+position = Vector2(0.5253906, -6.974823)
+scale = Vector2(1.0084746, 0.98627)
+curve = SubResource("Curve2D_ym1ef")
+
+[node name="PathFollow" type="PathFollow2D" parent="Path1" unique_id=1107474368]
+position = Vector2(-65, -508)
+rotation = 1.5607966
+script = ExtResource("2_co0fe")
+
+[node name="Area2D" type="Area2D" parent="Path1/PathFollow" unique_id=771756303]
+script = ExtResource("3_avl7u")
+
+[node name="Texture" type="Sprite2D" parent="Path1/PathFollow/Area2D" unique_id=1930861028]
+position = Vector2(-2.543579, -2.5553932)
+rotation = 1.5707964
+scale = Vector2(0.5730593, 0.5477528)
+texture = ExtResource("2_xbsf2")
+
+[node name="HitBox" type="CollisionShape2D" parent="Path1/PathFollow/Area2D" unique_id=2146724840]
+position = Vector2(2.544983, -3.1509056)
+scale = Vector2(0.99999964, 0.9999993)
+shape = SubResource("RectangleShape2D_ym1ef")
