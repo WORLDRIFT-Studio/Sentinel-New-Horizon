@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://y8ut1p15atl5"]
+[gd_scene format=3 uid="uid://e0804h7nchhk"]
 
 [ext_resource type="Texture2D" uid="uid://ck52d1hb445ey" path="res://assets/assets/icons/panel/day_counter.png" id="1_0i1j5"]
 [ext_resource type="AudioStream" uid="uid://d37ylk71tlpdk" path="res://assets/sounds/master.mp3" id="1_0m4u7"]
@@ -13,41 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://b85sk0jwv4in0" path="res://assets/assets/icons/settings/button-settings-h.png" id="8_0m4u7"]
 [ext_resource type="Texture2D" uid="uid://c3wsj5dmgooer" path="res://assets/assets/icons/shop/button-shop-h.png" id="9_mphia"]
 
-[sub_resource type="Animation" id="Animation_5n1hp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/UpgradesMenu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(1920, 0)]
-}
+[sub_resource type="GDScript" id="GDScript_apjy4"]
+script/source = "extends Popup
 
-[sub_resource type="Animation" id="Animation_apjy4"]
-resource_name = "menu_show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/UpgradesMenu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333335, 0.76666665),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2i(1920, 0), Vector2i(-400, 0), Vector2i(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5n1hp"]
-_data = {
-&"RESET": SubResource("Animation_5n1hp"),
-&"menu_show": SubResource("Animation_apjy4")
-}
+func _on_shop_pressed() -> void:
+	self.show()
+"
 
 [sub_resource type="GDScript" id="GDScript_0m4u7"]
 script/source = "extends TextureRect
@@ -71,6 +42,27 @@ stream = ExtResource("1_0m4u7")
 autoplay = true
 playback_type = 1
 parameters/looping = true
+
+[node name="Overlay" type="TextureRect" parent="." unique_id=522304739]
+offset_right = 1920.0
+offset_bottom = 1081.0
+texture = ExtResource("1_mphia")
+
+[node name="Title" type="Label" parent="Overlay" unique_id=920864114]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.95093
+offset_top = -5.405266
+offset_right = 197.04907
+offset_bottom = 55.749275
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_uo2fv")
+theme_override_font_sizes/font_size = 48
+text = "City: Lorem Ipsum"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="Control" type="Control" parent="." unique_id=1795378241]
 layout_mode = 3
@@ -103,11 +95,8 @@ texture_normal = ExtResource("8_0i1j5")
 texture_hover = ExtResource("9_mphia")
 stretch_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Shop" unique_id=580885909]
-libraries/ = SubResource("AnimationLibrary_5n1hp")
-
-[node name="UpgradesMenu" parent="Control/Shop/AnimationPlayer" unique_id=1784852679 instance=ExtResource("6_apjy4")]
-position = Vector2i(1920, 0)
+[node name="UpgradesMenu" parent="Control/Shop" unique_id=1784852679 instance=ExtResource("6_apjy4")]
+script = SubResource("GDScript_apjy4")
 
 [node name="Bar" type="TextureRect" parent="." unique_id=329981727]
 offset_left = 40.0
@@ -158,23 +147,4 @@ text = "Dzień: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Overlay" type="TextureRect" parent="." unique_id=522304739]
-offset_right = 1920.0
-offset_bottom = 1081.0
-texture = ExtResource("1_mphia")
-
-[node name="Title" type="Label" parent="Overlay" unique_id=920864114]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -192.95093
-offset_top = -5.405266
-offset_right = 197.04907
-offset_bottom = 55.749275
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("5_uo2fv")
-theme_override_font_sizes/font_size = 48
-text = "City: Lorem Ipsum"
-horizontal_alignment = 1
-uppercase = true
+[connection signal="pressed" from="Control/Shop" to="Control/Shop/UpgradesMenu" method="_on_shop_pressed"]

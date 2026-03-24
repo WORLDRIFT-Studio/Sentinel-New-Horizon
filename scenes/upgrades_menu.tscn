@@ -1,20 +1,31 @@
 [gd_scene format=3 uid="uid://c7fuykroxti3e"]
 
-[ext_resource type="Texture2D" uid="uid://dan8fa5ee144w" path="res://assets/popup-menu.png" id="1_w5joc"]
+[ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_upvkg"]
+[ext_resource type="Texture2D" path="res://assets/popup-menu.png" id="1_w5joc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
+shader = ExtResource("1_upvkg")
+shader_parameter/strength = 1.0
+shader_parameter/opacity = 0.45
+shader_parameter/radius = 0.85
 
 [node name="UpgradesMenu" type="Popup" unique_id=1784852679]
+process_mode = 3
+transparent_bg = true
 oversampling_override = 1.0
 mode = 3
 size = Vector2i(1920, 1080)
 visible = true
+always_on_top = true
+transparent = true
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=425071320]
+[node name="Background" type="ColorRect" parent="." unique_id=827922727]
+material = SubResource("ShaderMaterial_0vea8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.18, 0.18, 0.18, 0.39607844)
 
 [node name="Menu" type="TextureRect" parent="." unique_id=305032778]
 anchors_preset = 8

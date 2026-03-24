@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://cb1pqjk22iyc4" path="res://assets/map/map.png" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://y8ut1p15atl5" path="res://scenes/hud.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_lbhrr"]
 
 [sub_resource type="GDScript" id="GDScript_uwrxv"]
 script/source = "extends Camera2D
