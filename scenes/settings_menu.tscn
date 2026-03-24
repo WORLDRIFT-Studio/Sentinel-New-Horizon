@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://c7fuykroxti3e"]
+[gd_scene format=3 uid="uid://scbdubmnau0o"]
 
-[ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_upvkg"]
-[ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/assets/icons/popup/popup_menu.png" id="2_upvkg"]
-[ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_0vea8"]
-[ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/exit_button.gd" id="4_6prvl"]
+[ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
+[ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/assets/icons/popup/popup_menu.png" id="2_lwwgp"]
+[ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_bgjg7"]
+[ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/exit_button.gd" id="4_48ojb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
-shader = ExtResource("1_upvkg")
+shader = ExtResource("1_labj1")
 shader_parameter/strength = 1.0
 shader_parameter/opacity = 0.45
 shader_parameter/radius = 0.85
 
-[node name="UpgradesMenu" type="Popup" unique_id=1784852679]
+[node name="SettingsMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
 transparent_bg = true
 oversampling_override = 1.0
@@ -41,7 +41,7 @@ offset_right = 830.5
 offset_bottom = 410.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_upvkg")
+texture = ExtResource("2_lwwgp")
 
 [node name="ExitButton" type="TextureButton" parent="Menu" unique_id=1679601297]
 process_mode = 3
@@ -50,6 +50,6 @@ offset_left = 14.5
 offset_top = 14.5
 offset_right = 106.5
 offset_bottom = 106.5
-texture_normal = ExtResource("3_0vea8")
+texture_normal = ExtResource("3_bgjg7")
 stretch_mode = 0
-script = ExtResource("4_6prvl")
+script = ExtResource("4_48ojb")

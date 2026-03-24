@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bqh17luh7pmhe" path="res://assets/assets/icons/panel/clock_progress.png" id="4_apjy4"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/upgrades_menu.tscn" id="6_apjy4"]
+[ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/settings_menu.tscn" id="6_eld54"]
+[ext_resource type="Script" uid="uid://2qwcolr0joku" path="res://scenes/settings_menu.gd" id="7_3swnk"]
 [ext_resource type="Texture2D" uid="uid://2jnafo5nueky" path="res://assets/assets/icons/settings/button-settings-n.png" id="7_mphia"]
 [ext_resource type="Texture2D" uid="uid://d1csqn1667xo8" path="res://assets/assets/icons/shop/button-shop-n.png" id="8_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://b85sk0jwv4in0" path="res://assets/assets/icons/settings/button-settings-h.png" id="8_0m4u7"]
@@ -80,6 +82,9 @@ texture_normal = ExtResource("7_mphia")
 texture_hover = ExtResource("8_0m4u7")
 stretch_mode = 3
 
+[node name="SettingsMenu" parent="Control/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
+script = ExtResource("7_3swnk")
+
 [node name="Shop" type="TextureButton" parent="Control" unique_id=1736348984]
 layout_mode = 0
 offset_left = 252.81818
@@ -90,7 +95,7 @@ texture_normal = ExtResource("8_0i1j5")
 texture_hover = ExtResource("9_mphia")
 stretch_mode = 3
 
-[node name="UpgradesMenu" parent="Control/Shop" unique_id=1784852679 instance=ExtResource("6_apjy4")]
+[node name="UpgradesMenu" parent="Control/Shop" unique_id=498256039 instance=ExtResource("6_apjy4")]
 script = ExtResource("9_5n1hp")
 
 [node name="Bar" type="TextureRect" parent="." unique_id=329981727]
@@ -143,4 +148,5 @@ text = "Dzień: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="Control/Settings" to="Control/Settings/SettingsMenu" method="_on_settings_pressed"]
 [connection signal="pressed" from="Control/Shop" to="Control/Shop/UpgradesMenu" method="_on_shop_pressed"]

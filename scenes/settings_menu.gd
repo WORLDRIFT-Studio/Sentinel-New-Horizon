@@ -1,9 +1,10 @@
 extends Popup
 
+
 func _ready() -> void:
 	GameEvents.menu_closed.connect(_menu_closed)
 	
-func _on_shop_pressed() -> void:
+func _on_settings_pressed() -> void:
 	GameEvents.menu_opened.emit(!get_tree().paused)
 	self.show()
 	
