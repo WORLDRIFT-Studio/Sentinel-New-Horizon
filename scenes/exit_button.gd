@@ -1,4 +1,4 @@
 extends TextureButton
 
 func _pressed() -> void:
-	GameEvents.menu_switched.emit(true)
+	GameEvents.menu_closed.emit(false)

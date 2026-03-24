@@ -1,9 +1,11 @@
 extends Node2D
 
 func _ready() -> void:
-	GameEvents.menu_switched.connect(_on_menu_switched)
+	GameEvents.menu_opened.connect(_menu_opened)
+	GameEvents.menu_closed.connect(_menu_closed)
 	
-func _on_menu_switched(is_open:bool) -> void:
+func _menu_opened(is_open:bool) -> void:
 	get_tree().paused = is_open
-	pass
 	
+func _menu_closed(is_open: bool) -> void:
+	get_tree().paused = is_open
