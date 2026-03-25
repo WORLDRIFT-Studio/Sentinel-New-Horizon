@@ -1,32 +1,24 @@
 extends PathFollow2D
 
 @export var speed: float = 150.0
-@export var stop_points: Array[float] = []
+@export var stop_ratio: float = 0.25
 
-var moving: bool = true
-var current_stop_index: int = 0
+var moving: bool = false
+
+signal reached_stop
+
+func _ready() -> void:
+	moving = true
 
 func _process(delta: float) -> void:
 	if not moving:
 		return
-	
 	progress += speed * delta
-	_check_stop_points()
-
-func _check_stop_points() -> void:
-	if current_stop_index >= stop_points.size():
-		return
 	
-	var next_stop = stop_points[current_stop_index]
-	
-	if progress_ratio >= next_stop:
-		progress_ratio = next_stop
+	if progress_ratio >= stop_ratio:
+		progress_ratio = stop_ratio
 		moving = false
-		current_stop_index += 1
-		emit_signal("reached_stop_point", current_stop_index - 1)
+		emit_signal("reached_stop")
 
-signal reached_stop_point(index: int)
-
-# Wywołaj to po wyborze gracza
 func continue_moving() -> void:
 	moving = true

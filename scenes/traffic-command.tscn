@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dewdf3xvaxxxv"]
 
+[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/traffic command/Game_Manager.gd" id="1_ym1ef"]
 [ext_resource type="Texture2D" uid="uid://d27mc4wlkobj3" path="res://assets/map/road.jpg" id="1_ymhas"]
 [ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/traffic command/Path_follow.gd" id="2_co0fe"]
 [ext_resource type="Texture2D" uid="uid://dhofbwk64v71l" path="res://assets/assets/car.png" id="2_xbsf2"]
@@ -14,7 +15,20 @@ point_count = 4
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym1ef"]
 size = Vector2(142.95575, 66.33226)
 
+[sub_resource type="Curve2D" id="Curve2D_avl7u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, -506, 0, 0, 0, 0, -64, 511)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_p3o70"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -65, -509, 0, 0, 0, 0, -62, -209, -299.10236, 1.3310001, 299.10236, -1.3310001, 288, 42, 0, 0, 0, 0, 535, 41)
+}
+point_count = 4
+
 [node name="MiniGame" type="Node2D" unique_id=1380433955]
+script = ExtResource("1_ym1ef")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=977025872]
 scale = Vector2(1.048, 1)
@@ -23,26 +37,103 @@ texture = ExtResource("1_ymhas")
 [node name="Camera" type="Camera2D" parent="." unique_id=151160244]
 unique_name_in_owner = true
 
-[node name="Path1" type="Path2D" parent="." unique_id=1745278048]
+[node name="Path2D_1" type="Path2D" parent="." unique_id=1745278048]
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_ym1ef")
 
-[node name="PathFollow" type="PathFollow2D" parent="Path1" unique_id=1107474368]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D_1" unique_id=1107474368]
 position = Vector2(-65, -508)
 rotation = 1.5607966
 script = ExtResource("2_co0fe")
 
-[node name="Area2D" type="Area2D" parent="Path1/PathFollow" unique_id=771756303]
-script = ExtResource("3_avl7u")
+[node name="Node2D" type="Node2D" parent="Path2D_1/PathFollow2D" unique_id=869755335]
+position = Vector2(515.6909, -59.32531)
+rotation = -1.5607966
+scale = Vector2(0.9915965, 1.013921)
 
-[node name="Texture" type="Sprite2D" parent="Path1/PathFollow/Area2D" unique_id=1930861028]
-position = Vector2(-2.543579, -2.5553932)
-rotation = 1.5707964
-scale = Vector2(0.5730593, 0.5477528)
+[node name="Sprite2D" type="Sprite2D" parent="Path2D_1/PathFollow2D/Node2D" unique_id=1930861028]
+position = Vector2(-62.474197, -510.5336)
+rotation = 3.131813
+scale = Vector2(0.5779144, 0.54023343)
+skew = -0.0004453659
 texture = ExtResource("2_xbsf2")
 
-[node name="HitBox" type="CollisionShape2D" parent="Path1/PathFollow/Area2D" unique_id=2146724840]
-position = Vector2(2.544983, -3.1509056)
-scale = Vector2(0.99999964, 0.9999993)
+[node name="Area2D" type="Area2D" parent="Path2D_1/PathFollow2D/Node2D" unique_id=771756303]
+position = Vector2(-65.02546, -508)
+rotation = 1.5605716
+scale = Vector2(0.9862723, 1.0084723)
+skew = 0.0004452467
+script = ExtResource("3_avl7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D_1/PathFollow2D/Node2D/Area2D" unique_id=2146724840]
+position = Vector2(2.545105, -3.150898)
+rotation = 3.141129
+scale = Vector2(0.9999995, 0.999999)
+shape = SubResource("RectangleShape2D_ym1ef")
+
+[node name="Path2D_2" type="Path2D" parent="." unique_id=681432035]
+curve = SubResource("Curve2D_avl7u")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D_2" unique_id=427101753]
+position = Vector2(-64, -506)
+rotation = 1.5707964
+script = ExtResource("2_co0fe")
+
+[node name="Node2D" type="Node2D" parent="Path2D_2/PathFollow2D" unique_id=643938692]
+position = Vector2(505.99997, -64.000015)
+rotation = -1.5707964
+scale = Vector2(0.9999999, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D_2/PathFollow2D/Node2D" unique_id=1145897348]
+position = Vector2(-62.474197, -510.5336)
+rotation = 3.131813
+scale = Vector2(0.5779144, 0.54023343)
+skew = -0.0004453659
+texture = ExtResource("2_xbsf2")
+
+[node name="Area2D" type="Area2D" parent="Path2D_2/PathFollow2D/Node2D" unique_id=601029420]
+position = Vector2(-65.02546, -508)
+rotation = 1.5605716
+scale = Vector2(0.9862723, 1.0084723)
+skew = 0.0004452467
+script = ExtResource("3_avl7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D_2/PathFollow2D/Node2D/Area2D" unique_id=59458164]
+position = Vector2(2.545105, -3.150898)
+rotation = 3.141129
+scale = Vector2(0.9999995, 0.999999)
+shape = SubResource("RectangleShape2D_ym1ef")
+
+[node name="Path2D_3" type="Path2D" parent="." unique_id=46521878]
+curve = SubResource("Curve2D_p3o70")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D_3" unique_id=1531026876]
+position = Vector2(-65, -509)
+rotation = 1.5607966
+script = ExtResource("2_co0fe")
+
+[node name="Node2D" type="Node2D" parent="Path2D_3/PathFollow2D" unique_id=1990923459]
+position = Vector2(509.62448, -59.906975)
+rotation = -1.5607966
+scale = Vector2(0.9999999, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D_3/PathFollow2D/Node2D" unique_id=2034561137]
+position = Vector2(-62.474197, -510.5336)
+rotation = 3.131813
+scale = Vector2(0.5779144, 0.54023343)
+skew = -0.0004453659
+texture = ExtResource("2_xbsf2")
+
+[node name="Area2D" type="Area2D" parent="Path2D_3/PathFollow2D/Node2D" unique_id=58174297]
+position = Vector2(-65.02546, -508)
+rotation = 1.5605716
+scale = Vector2(0.9862723, 1.0084723)
+skew = 0.0004452467
+script = ExtResource("3_avl7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D_3/PathFollow2D/Node2D/Area2D" unique_id=866820824]
+position = Vector2(2.545105, -3.150898)
+rotation = 3.141129
+scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
