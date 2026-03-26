@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/upgrades_menu.tscn" id="6_apjy4"]
 [ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/settings_menu.tscn" id="6_eld54"]
-[ext_resource type="Script" uid="uid://2qwcolr0joku" path="res://scenes/settings_menu.gd" id="7_3swnk"]
+[ext_resource type="Script" uid="uid://2qwcolr0joku" path="res://settings_menu.gd" id="7_3swnk"]
 [ext_resource type="Texture2D" uid="uid://2jnafo5nueky" path="res://assets/assets/icons/settings/button-settings-n.png" id="7_mphia"]
 [ext_resource type="Texture2D" uid="uid://d1csqn1667xo8" path="res://assets/assets/icons/shop/button-shop-n.png" id="8_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://b85sk0jwv4in0" path="res://assets/assets/icons/settings/button-settings-h.png" id="8_0m4u7"]

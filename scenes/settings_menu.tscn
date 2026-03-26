@@ -16,35 +16,38 @@ process_mode = 3
 transparent_bg = true
 oversampling_override = 1.0
 mode = 3
-size = Vector2i(1920, 1080)
+size = Vector2i(2229, 1080)
 visible = true
 always_on_top = true
 transparent = true
 
 [node name="Background" type="ColorRect" parent="." unique_id=827922727]
+visible = false
 material = SubResource("ShaderMaterial_0vea8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 14.928238
 offset_top = -2.3325348
-offset_right = 14.928223
+offset_right = -308.58313
 offset_bottom = -2.3325195
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Menu" type="TextureRect" parent="." unique_id=305032778]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -830.5
+offset_left = -985.0
 offset_top = -410.5
-offset_right = 830.5
+offset_right = 676.0
 offset_bottom = 410.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("2_lwwgp")
 
 [node name="ExitButton" type="TextureButton" parent="Menu" unique_id=1679601297]
@@ -58,23 +61,28 @@ texture_normal = ExtResource("3_bgjg7")
 stretch_mode = 0
 script = ExtResource("4_48ojb")
 
-[node name="Control" type="Control" parent="." unique_id=996983941]
-layout_mode = 3
-anchors_preset = 0
+[node name="Main" type="HBoxContainer" parent="." unique_id=914065988]
+visible = false
 offset_left = 129.5
 offset_top = 129.5
 offset_right = 1790.5
-offset_bottom = 950.5
+offset_bottom = 950.0
 
-[node name="Main" type="VBoxContainer" parent="Control" unique_id=800029178]
-layout_mode = 0
-offset_right = 1661.0
-offset_bottom = 813.0
+[node name="VLeft" type="VBoxContainer" parent="Main" unique_id=1124018090]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Main" unique_id=898595240]
+[node name="MarginContainer" type="MarginContainer" parent="Main/VLeft" unique_id=1479476094]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Main" unique_id=1461897962]
+[node name="VRight" type="VBoxContainer" parent="Main" unique_id=2080261940]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="Main/VRight" unique_id=1043599948]
+layout_mode = 2
