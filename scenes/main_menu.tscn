@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eoxljb7e4155"]
 
-[ext_resource type="Script" uid="uid://7077mhbd2g7t" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://7077mhbd2g7t" path="res://scenes/scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://krq7ukfbgfa5" path="res://assets/menu/main.png" id="2_wu84c"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_8ln24"]
 
@@ -43,10 +43,10 @@ expand_mode = 2
 [node name="MainButtons" type="VBoxContainer" parent="." unique_id=1693686918]
 layout_mode = 0
 offset_left = 147.0
-offset_top = 296.0
-offset_right = 362.0
-offset_bottom = 698.0
-theme_override_constants/separation = 15
+offset_top = 317.0
+offset_right = 504.0
+offset_bottom = 870.0
+theme_override_constants/separation = 25
 
 [node name="NowaGra" type="Button" parent="MainButtons" unique_id=1761248478]
 unique_name_in_owner = true
@@ -55,7 +55,7 @@ size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 68
 text = "NOWA GRA"
 flat = true
 
@@ -66,7 +66,7 @@ size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 68
 text = "KONTYNUJ"
 flat = true
 
@@ -77,7 +77,7 @@ size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 68
 text = "USTAWIENIA"
 flat = true
 
@@ -99,7 +99,7 @@ size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_colors/font_hover_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_fonts/font = ExtResource("3_8ln24")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 68
 text = "WYJŚCIE"
 flat = true
 

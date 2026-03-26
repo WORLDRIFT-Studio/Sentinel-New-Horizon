@@ -1,5 +1,5 @@
 extends Control
-
+	
 @onready var btn_nowa_gra:     Button = %NowaGra
 @onready var btn_kontynuuj:    Button = %Kontynuuj
 @onready var btn_ustawienia:   Button = %Ustawienia
@@ -32,16 +32,16 @@ func _ready() -> void:
 	%NowaGra.grab_focus() 
 
 func _on_nowa_gra_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu_nowa_gra.tscn")
+	$Scene_TransitionController.fade_to_scene("res://scenes/main_menu_nowa_gra.tscn", 0.8)
 	
 func _on_kontynuuj_pressed() -> void:
-	get_tree().change_scene_to_file	("res://scenes/main_menu_kontynuuj.tscn")
+	$TransitionController.fade_to_scene("res://scenes/main_menu_kontynuuj.tscn", 0.8)
 
 func _on_ustawienia_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu_ustawienia.tscn")
+	$TransitionController.fade_to_scene("res://scenes/main_menu_ustawienia.tscn", 0.8)
 	
 func _on_autorzy_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu_autorzy.tscn")
+	$TransitionController.fade_to_scene("res://scenes/main_menu_autorzy.tscn", 0.8)
 	
 func _on_wyjscie_pressed() -> void:
 	get_tree().quit()

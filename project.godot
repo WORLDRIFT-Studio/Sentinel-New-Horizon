@@ -11,8 +11,11 @@ config_version=5
 [application]
 
 config/name="Sentinel:NewHorizons"
-run/main_scene="uid://cbt4futvdti7b"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+Scene_TransitionController="*uid://clurxfsyqk6pk"
 
 [display]
 

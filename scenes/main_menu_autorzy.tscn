@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvr8lacbh7kt0"]
 
-[ext_resource type="Script" uid="uid://vm6vwxm2n4bf" path="res://scripts/main_menu_autorzy.gd" id="1_d7usk"]
+[ext_resource type="Script" uid="uid://vm6vwxm2n4bf" path="res://scenes/scripts/main_menu_autorzy.gd" id="1_d7usk"]
 [ext_resource type="Texture2D" uid="uid://cytjhpnofyuha" path="res://assets/menu/autorzy.png" id="1_nh12h"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_otrup"]
 
@@ -25,20 +25,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6swr6")
 
-[node name="Wyjscie" type="Button" parent="Background" unique_id=2049102152]
-unique_name_in_owner = true
+[node name="Wyjscie" type="Button" parent="Background" unique_id=387149358]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -78.0
-offset_top = 32.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = -105.5
+offset_top = 56.0
+offset_right = 105.5
+offset_bottom = 137.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_fonts/font = ExtResource("3_otrup")
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 60
 text = "Wyjście"
 flat = true

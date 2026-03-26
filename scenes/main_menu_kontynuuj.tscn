@@ -1,8 +1,48 @@
 [gd_scene format=3 uid="uid://bpoo4360t1her"]
 
 [ext_resource type="Texture2D" uid="uid://dtuqjyqf5annk" path="res://assets/menu/kontynuuj.png" id="1_alddd"]
-[ext_resource type="Script" uid="uid://u7bss4sp1r62" path="res://scripts/main_menu_kontynuuj.gd" id="1_jlw6t"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_wisws"]
+
+[sub_resource type="GDScript" id="GDScript_6rsth"]
+script/source = "extends Control
+
+@onready var btn_wyjscie: Button = %Wyjscie
+
+func _ready() -> void:
+	if btn_wyjscie == null:
+		push_error(\"Przycisk_Wyjscie not found! Check unique name.\")
+		return
+
+	# ── AUTOMATIC FADE-IN ──
+	# (only runs when arriving via transition from another scene)
+	if Scene_TransitionController.is_transitioning:
+		Scene_TransitionController.background.visible = true
+		Scene_TransitionController.background.color = Color.BLACK
+		
+		Scene_TransitionController.animation_player.play(\"FadeIn\")
+		
+		await Scene_TransitionController.animation_player.animation_finished
+		
+		Scene_TransitionController.background.visible = false
+		Scene_TransitionController.is_transitioning = false
+		
+		print(\"Fade-in complete!\")
+
+	# Connect button AFTER fade-in logic
+	# → prevents accidental clicks during the fade
+	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
+
+	# Optional – you can add more initialization here, e.g.:
+	# btn_wyjscie.grab_focus()
+	# ... other buttons, variables, etc. ...
+
+func _on_wyjscie_pressed() -> void:
+	# If you want smooth transition back → use the transition system
+	# SceneTransitionController.fade_to_scene(\"res://scenes/main_menu.tscn\", 0.8)
+	
+	# If you want instant change (as it was originally):
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rsth"]
 texture = ExtResource("1_alddd")
@@ -14,7 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jlw6t")
+script = SubResource("GDScript_6rsth")
 
 [node name="Background" type="Panel" parent="." unique_id=1254388119]
 layout_mode = 1
@@ -31,14 +71,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -78.0
-offset_top = 32.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = -105.5
+offset_top = 56.0
+offset_right = 105.5
+offset_bottom = 137.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_fonts/font = ExtResource("3_wisws")
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 60
 text = "Wyjście"
 flat = true

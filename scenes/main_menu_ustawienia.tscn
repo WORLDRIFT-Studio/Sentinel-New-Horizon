@@ -1,8 +1,23 @@
 [gd_scene format=3 uid="uid://b15rchhs1iets"]
 
-[ext_resource type="Script" uid="uid://d4ndifwb06qvy" path="res://scripts/main_menu_ustawienia.gd" id="1_54531"]
 [ext_resource type="Texture2D" uid="uid://bmcuc35l2u3q0" path="res://assets/menu/ustawienia.png" id="1_svblv"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_f5onx"]
+
+[sub_resource type="GDScript" id="GDScript_lngwo"]
+script/source = "extends Control
+
+@onready var btn_wyjscie:      Button = %Wyjscie
+
+func _ready() -> void:
+	if btn_wyjscie == null:
+		push_error(\"Przycisk_Wyjscie not found! Check unique name.\")
+		return  
+		
+	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
+	
+func _on_wyjscie_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lngwo"]
 texture = ExtResource("1_svblv")
@@ -14,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_54531")
+script = SubResource("GDScript_lngwo")
 
 [node name="Background" type="Panel" parent="." unique_id=1446907662]
 layout_mode = 1
@@ -25,20 +40,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lngwo")
 
-[node name="Wyjscie" type="Button" parent="Background" unique_id=766747226]
-unique_name_in_owner = true
+[node name="Wyjscie" type="Button" parent="Background" unique_id=1501701979]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -78.0
-offset_top = 32.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = -105.5
+offset_top = 56.0
+offset_right = 105.5
+offset_bottom = 137.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_fonts/font = ExtResource("3_f5onx")
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 60
 text = "Wyjście"
 flat = true
