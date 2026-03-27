@@ -11,6 +11,31 @@ shader_parameter/strength = 1.0
 shader_parameter/opacity = 0.45
 shader_parameter/radius = 0.85
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgjg7"]
+bg_color = Color(0.5002257, 0.55151844, 0.9900376, 1)
+border_width_left = 70
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_right = 8
+corner_radius_bottom_right = 3
+corner_detail = 20
+expand_margin_left = 70.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
+bg_color = Color(3.465414e-06, 0.6632155, 0.8282734, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwgp"]
+bg_color = Color(0.3348, 0.3348, 0.93, 1)
+
 [node name="SettingsMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
 transparent_bg = true
@@ -22,7 +47,6 @@ always_on_top = true
 transparent = true
 
 [node name="Background" type="ColorRect" parent="." unique_id=827922727]
-visible = false
 material = SubResource("ShaderMaterial_0vea8")
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +58,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Menu" type="TextureRect" parent="." unique_id=305032778]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -62,27 +85,42 @@ stretch_mode = 0
 script = ExtResource("4_48ojb")
 
 [node name="Main" type="HBoxContainer" parent="." unique_id=914065988]
-visible = false
 offset_left = 129.5
 offset_top = 129.5
 offset_right = 1790.5
 offset_bottom = 950.0
 
-[node name="VLeft" type="VBoxContainer" parent="Main" unique_id=1124018090]
+[node name="MarginContainer" type="MarginContainer" parent="Main" unique_id=1479476094]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Main/VLeft" unique_id=1479476094]
-layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VRight" type="VBoxContainer" parent="Main" unique_id=2080261940]
+[node name="VLeft" type="VBoxContainer" parent="Main/MarginContainer" unique_id=1124018090]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HSlider" type="HSlider" parent="Main/VRight" unique_id=1043599948]
+[node name="HSlider" type="HSlider" parent="Main/MarginContainer/VLeft" unique_id=986985908]
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Main" unique_id=771481064]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 20
+
+[node name="VRight" type="VBoxContainer" parent="Main/MarginContainer2" unique_id=2080261940]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="Main/MarginContainer2/VRight" unique_id=436062797]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_bgjg7")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_labj1")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lwwgp")
+value = 50.0

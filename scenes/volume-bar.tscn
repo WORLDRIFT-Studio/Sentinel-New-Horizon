@@ -22,7 +22,7 @@ offset_bottom = 40.0
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer" unique_id=1222701397]
 unique_name_in_owner = true
 layout_mode = 2
-value = 75.0
+value = 100.0
 texture_under = ExtResource("1_w4hog")
 texture_over = ExtResource("2_22rec")
 texture_progress = ExtResource("3_dt2p2")
