@@ -3,7 +3,8 @@
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
 [ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/assets/icons/popup/popup_menu.png" id="2_lwwgp"]
 [ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_bgjg7"]
-[ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/exit_button.gd" id="4_48ojb"]
+[ext_resource type="Script" path="res://scripts/exit_button.gd" id="4_48ojb"]
+[ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="5_lwwgp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
 shader = ExtResource("1_labj1")
@@ -11,30 +12,24 @@ shader_parameter/strength = 1.0
 shader_parameter/opacity = 0.45
 shader_parameter/radius = 0.85
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgjg7"]
-bg_color = Color(0.5002257, 0.55151844, 0.9900376, 1)
-border_width_left = 70
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
+border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-corner_radius_top_right = 8
-corner_radius_bottom_right = 3
-corner_detail = 20
-expand_margin_left = 70.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
-bg_color = Color(3.465414e-06, 0.6632155, 0.8282734, 1)
-corner_radius_top_left = 200
-corner_radius_top_right = 200
-corner_radius_bottom_right = 200
-corner_radius_bottom_left = 200
-corner_detail = 20
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwgp"]
-bg_color = Color(0.3348, 0.3348, 0.93, 1)
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 
 [node name="SettingsMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
@@ -84,43 +79,50 @@ texture_normal = ExtResource("3_bgjg7")
 stretch_mode = 0
 script = ExtResource("4_48ojb")
 
-[node name="Main" type="HBoxContainer" parent="." unique_id=914065988]
-offset_left = 129.5
-offset_top = 129.5
-offset_right = 1790.5
-offset_bottom = 950.0
+[node name="ColorRect" type="Panel" parent="." unique_id=1316528740]
+offset_right = 383.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
 
-[node name="MarginContainer" type="MarginContainer" parent="Main" unique_id=1479476094]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=52487888]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/HBoxContainer" unique_id=780026081]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 120
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+size_flags_stretch_ratio = 1.5
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="VLeft" type="VBoxContainer" parent="Main/MarginContainer" unique_id=1124018090]
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer/MarginContainer" unique_id=1321400173]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("5_lwwgp")
+theme_override_font_sizes/font_size = 28
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Main/MarginContainer/VLeft" unique_id=986985908]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="Main" unique_id=771481064]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 120
-theme_override_constants/margin_bottom = 20
-
-[node name="VRight" type="VBoxContainer" parent="Main/MarginContainer2" unique_id=2080261940]
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/HBoxContainer" unique_id=1975174416]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
 
-[node name="HSlider" type="HSlider" parent="Main/MarginContainer2/VRight" unique_id=436062797]
+[node name="HSlider" type="HSlider" parent="ColorRect/HBoxContainer/MarginContainer2" unique_id=644194024]
 layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxFlat_bgjg7")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_labj1")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lwwgp")
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_lwwgp")
 value = 50.0

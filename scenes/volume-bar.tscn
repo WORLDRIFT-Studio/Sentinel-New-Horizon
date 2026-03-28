@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://bwwcj32pugqh7"]
+[gd_scene format=3 uid="uid://da4bqfvady0l1"]
 
 [ext_resource type="Texture2D" uid="uid://c2228783x72e" path="res://assets/assets/icons/settings/settings-volume-range.png" id="1_w4hog"]
 [ext_resource type="Texture2D" uid="uid://canbf42h6bhln" path="res://assets/assets/icons/settings/settings-volume-decorations.png" id="2_22rec"]
 [ext_resource type="Texture2D" uid="uid://dj67otqvtva86" path="res://assets/assets/icons/settings/settings-volume-bar.png" id="3_dt2p2"]
 [ext_resource type="Texture2D" uid="uid://dlcmn0gqhjval" path="res://assets/assets/icons/settings/settings-volume-slider.png" id="4_2hdrw"]
-[ext_resource type="Script" uid="uid://70q6utcm5reb" path="res://scripts/texture_progress_bar.gd" id="4_22rec"]
+[ext_resource type="Script" path="res://scripts/texture_progress_bar.gd" id="4_22rec"]
 
 [node name="Control" type="Control" unique_id=1431072248]
 layout_mode = 3

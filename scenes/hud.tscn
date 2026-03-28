@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://e0804h7nchhk"]
+[gd_scene format=3 uid="uid://diqn8125f0jpv"]
 
 [ext_resource type="Texture2D" uid="uid://ck52d1hb445ey" path="res://assets/assets/icons/panel/day_counter.png" id="1_0i1j5"]
 [ext_resource type="AudioStream" uid="uid://d37ylk71tlpdk" path="res://assets/sounds/master.mp3" id="1_0m4u7"]
@@ -9,11 +9,11 @@
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/upgrades_menu.tscn" id="6_apjy4"]
 [ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/settings_menu.tscn" id="6_eld54"]
-[ext_resource type="Script" uid="uid://2qwcolr0joku" path="res://settings_menu.gd" id="7_3swnk"]
+[ext_resource type="Script" uid="uid://2qwcolr0joku" path="res://scripts/settings_menu.gd" id="7_3swnk"]
 [ext_resource type="Texture2D" uid="uid://2jnafo5nueky" path="res://assets/assets/icons/settings/button-settings-n.png" id="7_mphia"]
 [ext_resource type="Texture2D" uid="uid://d1csqn1667xo8" path="res://assets/assets/icons/shop/button-shop-n.png" id="8_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://b85sk0jwv4in0" path="res://assets/assets/icons/settings/button-settings-h.png" id="8_0m4u7"]
-[ext_resource type="Script" uid="uid://dbrifp0rbviky" path="res://scripts/upgrades_menu.gd" id="9_5n1hp"]
+[ext_resource type="Script" path="res://scripts/upgrades_menu.gd" id="9_5n1hp"]
 [ext_resource type="Texture2D" uid="uid://c3wsj5dmgooer" path="res://assets/assets/icons/shop/button-shop-h.png" id="9_mphia"]
 
 [sub_resource type="GDScript" id="GDScript_0m4u7"]
