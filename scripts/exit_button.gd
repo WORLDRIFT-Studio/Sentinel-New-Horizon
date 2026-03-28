@@ -1,4 +1,4 @@
 extends TextureButton
 
-func _pressed() -> void:
-	GameEvents.menu_closed.emit(false)
+func _on_pressed() -> void:
+	GameEvents.menu_closed.emit()

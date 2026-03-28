@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbt4futvdti7b"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://dyk7w858jcfaa" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://cb1pqjk22iyc4" path="res://assets/map/map.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://diqn8125f0jpv" path="res://scenes/hud.tscn" id="3_lbhrr"]
 

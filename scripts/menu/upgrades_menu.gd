@@ -4,8 +4,8 @@ func _ready() -> void:
 	GameEvents.menu_closed.connect(_menu_closed)
 	
 func _on_shop_pressed() -> void:
-	GameEvents.menu_opened.emit(!get_tree().paused)
+	GameEvents.menu_opened.emit()
 	self.show()
 	
-func _menu_closed(_is_closed: bool) -> void:
+func _menu_closed() -> void:
 	self.hide()
