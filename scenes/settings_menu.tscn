@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/assets/icons/popup/popup_menu.png" id="2_lwwgp"]
 [ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_bgjg7"]
 [ext_resource type="Script" path="res://scripts/exit_button.gd" id="4_48ojb"]
-[ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="5_lwwgp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
 shader = ExtResource("1_labj1")
 shader_parameter/strength = 1.0
 shader_parameter/opacity = 0.45
 shader_parameter/radius = 0.85
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_labj1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
 border_width_left = 5
@@ -23,13 +24,24 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwgp"]
-bg_color = Color(1, 0, 0, 1)
+bg_color = Color(0, 0.25167894, 0.42411947, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgjg7"]
+bg_color = Color(0.24781293, 0.64597297, 0.99999994, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwwgp"]
 
 [node name="SettingsMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
@@ -79,12 +91,45 @@ texture_normal = ExtResource("3_bgjg7")
 stretch_mode = 0
 script = ExtResource("4_48ojb")
 
-[node name="ColorRect" type="Panel" parent="." unique_id=1316528740]
-offset_right = 383.0
-offset_bottom = 40.0
+[node name="Control" type="Control" parent="." unique_id=671198971]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 130.0
+offset_top = 130.0
+offset_right = 1791.0
+offset_bottom = 951.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=590744864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=311636094]
+layout_mode = 2
+
+[node name="SoundSliders" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1832669298]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_labj1")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders" unique_id=508689353]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Master" type="Panel" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer" unique_id=2031670709]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=52487888]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/Master" unique_id=310522548]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,7 +138,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/HBoxContainer" unique_id=780026081]
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/Master/HBoxContainer" unique_id=1784115340]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
@@ -102,17 +147,16 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="ColorRect/HBoxContainer/MarginContainer" unique_id=1321400173]
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/Master/HBoxContainer/MarginContainer" unique_id=53706249]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("5_lwwgp")
-theme_override_font_sizes/font_size = 28
-text = "Music"
+theme_override_font_sizes/font_size = 24
+text = "Master"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/HBoxContainer" unique_id=1975174416]
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/Master/HBoxContainer" unique_id=761823295]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.0
@@ -120,9 +164,122 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="HSlider" type="HSlider" parent="ColorRect/HBoxContainer/MarginContainer2" unique_id=644194024]
+[node name="HSlider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/Master/HBoxContainer/MarginContainer2" unique_id=2026098647]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_styles/slider = SubResource("StyleBoxFlat_lwwgp")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bgjg7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_bgjg7")
 value = 50.0
+
+[node name="MusicSFX" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer" unique_id=1430454615]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="Music" type="Panel" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX" unique_id=1316528740]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music" unique_id=52487888]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music/HBoxContainer" unique_id=780026081]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music/HBoxContainer/MarginContainer" unique_id=1321400173]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music/HBoxContainer" unique_id=1975174416]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music/HBoxContainer/MarginContainer2" unique_id=644194024]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_lwwgp")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bgjg7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_bgjg7")
+value = 50.0
+
+[node name="Music2" type="Panel" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX" unique_id=92883638]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music2" unique_id=1791236338]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music2/HBoxContainer" unique_id=2026035354]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music2/HBoxContainer/MarginContainer" unique_id=169862521]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music2/HBoxContainer" unique_id=1595949471]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/SoundSliders/HBoxContainer/MusicSFX/Music2/HBoxContainer/MarginContainer2" unique_id=424470905]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_lwwgp")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bgjg7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_bgjg7")
+value = 50.0
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer/VBoxContainer" unique_id=992777457]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lwwgp")

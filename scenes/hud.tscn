@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://diqn8125f0jpv"]
 
 [ext_resource type="Texture2D" uid="uid://ck52d1hb445ey" path="res://assets/assets/icons/panel/day_counter.png" id="1_0i1j5"]
-[ext_resource type="AudioStream" uid="uid://d37ylk71tlpdk" path="res://assets/sounds/master.mp3" id="1_0m4u7"]
+[ext_resource type="AudioStream" uid="uid://d37ylk71tlpdk" path="res://assets/sounds/music.mp3" id="1_0m4u7"]
 [ext_resource type="Texture2D" uid="uid://bn7v5s4t4jmcr" path="res://assets/assets/icons/overlay.png" id="1_mphia"]
 [ext_resource type="Texture2D" uid="uid://dnf05t6t25g0a" path="res://assets/assets/icons/panel/clock_under.png" id="2_mphia"]
 [ext_resource type="Texture2D" uid="uid://casw7h7j25wwf" path="res://assets/assets/icons/panel/clock_over.png" id="3_0m4u7"]
@@ -37,6 +37,7 @@ process_mode = 3
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=508719458]
 stream = ExtResource("1_0m4u7")
 autoplay = true
+bus = &"Music"
 playback_type = 1
 parameters/looping = true
 
@@ -83,6 +84,7 @@ texture_hover = ExtResource("8_0m4u7")
 stretch_mode = 3
 
 [node name="SettingsMenu" parent="Control/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
+visible = false
 script = ExtResource("7_3swnk")
 
 [node name="Shop" type="TextureButton" parent="Control" unique_id=1736348984]
@@ -96,6 +98,7 @@ texture_hover = ExtResource("9_mphia")
 stretch_mode = 3
 
 [node name="UpgradesMenu" parent="Control/Shop" unique_id=498256039 instance=ExtResource("6_apjy4")]
+visible = false
 script = ExtResource("9_5n1hp")
 
 [node name="Bar" type="TextureRect" parent="." unique_id=329981727]
