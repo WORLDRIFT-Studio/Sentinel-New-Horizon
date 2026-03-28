@@ -10,4 +10,4 @@ func _ready() -> void:
 	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
 	
 func _on_wyjscie_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	TransitionScene.fade_to_scene("res://scenes/main_menu.tscn")

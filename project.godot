@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-Scene_TransitionController="*uid://clurxfsyqk6pk"
+TransitionScene="*uid://yjc0bg83ii6e"
 
 [display]
 

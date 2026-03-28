@@ -1,45 +1,11 @@
 [gd_scene format=3 uid="uid://b0v5lennsm7mb"]
 
-<<<<<<< HEAD
+[ext_resource type="Script" uid="uid://4k0j2sydtf2i" path="res://scenes/scripts/main_menu_nowa_gra.gd" id="1_b4kph"]
 [ext_resource type="Texture2D" uid="uid://cl3k7mcy833bo" path="res://assets/menu/nowa_gra.png" id="1_dmb7y"]
-=======
-[ext_resource type="Script" uid="uid://4k0j2sydtf2i" path="res://scripts/main_menu_nowa_gra.gd" id="1_b4kph"]
-[ext_resource type="Texture2D" uid="uid://g5tvq1t1h4py" path="res://assets/menu/nowa_gra.png" id="1_dmb7y"]
->>>>>>> 035af84b7ca1046a6b819001eaa7504b5e8066f0
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_70xyi"]
-
-[sub_resource type="GDScript" id="GDScript_qdakt"]
-script/source = "extends Control
-
-@onready var btn_wyjscie:      Button = %Wyjscie
-
-func _ready() -> void:
-	if btn_wyjscie == null:
-		push_error(\"Przycisk_Wyjscie not found! Check unique name.\")
-		return  
-		
-	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
-	
-func _on_wyjscie_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
-"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdakt"]
 texture = ExtResource("1_dmb7y")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4kph"]
-bg_color = Color(0.05882353, 0.078431375, 0.1254902, 0.7607843)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.1944243, 0.21427357, 0.27373165, 1)
-border_blend = true
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 16
 
 [node name="Nowa Gra" type="Control" unique_id=42322598]
 layout_mode = 3
@@ -48,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_qdakt")
+script = ExtResource("1_b4kph")
 
 [node name="Background" type="Panel" parent="." unique_id=1514553044]
 layout_mode = 1
@@ -59,7 +25,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_qdakt")
 
-[node name="Wyjscie" type="Button" parent="Background" unique_id=627842309]
+[node name="Wyjscie" type="Button" parent="Background" unique_id=529225249]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -75,11 +42,3 @@ theme_override_fonts/font = ExtResource("3_70xyi")
 theme_override_font_sizes/font_size = 60
 text = "Wyjście"
 flat = true
-
-[node name="Save1" type="PanelContainer" parent="." unique_id=1652520305]
-layout_mode = 0
-offset_left = 107.0
-offset_top = 191.0
-offset_right = 513.0
-offset_bottom = 835.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_b4kph")

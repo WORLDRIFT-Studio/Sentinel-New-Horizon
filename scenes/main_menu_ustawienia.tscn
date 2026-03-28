@@ -16,7 +16,7 @@ func _ready() -> void:
 	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
 	
 func _on_wyjscie_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+	TransitionScene.fade_to_scene(\"res://scenes/main_menu.tscn\")
 "
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lngwo"]
@@ -41,6 +41,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lngwo")
 
 [node name="Wyjscie" type="Button" parent="Background" unique_id=1501701979]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
