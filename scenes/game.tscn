@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cbt4futvdti7b"]
 
-[ext_resource type="Script" uid="uid://dyk7w858jcfaa" path="res://scripts/game.gd" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://dyk7w858jcfaa" path="res://scenes/scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://cb1pqjk22iyc4" path="res://assets/map/map.png" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://diqn8125f0jpv" path="res://scenes/hud.tscn" id="3_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://dhkyimepundcf" path="res://assets/assets/rain.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://otgrjibn6gqo" path="res://scenes/hud.tscn" id="3_lbhrr"]
 
 [sub_resource type="GDScript" id="GDScript_uwrxv"]
 script/source = "extends Camera2D
@@ -22,6 +23,10 @@ func _process(delta: float) -> void:
 	var direction = Input.get_vector(\"Left\", \"Right\", \"Up\", \"Down\")
 	position += direction * delta * SLIDE_SPEED
 "
+
+[sub_resource type="Curve" id="Curve_lnu2h"]
+_data = [Vector2(0, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0.75280905), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_paxxb"]
 vertices = PackedVector2Array(1130, 628, -770, 628, -770, -432, 1130, -432)
@@ -52,6 +57,18 @@ script = SubResource("GDScript_uwrxv")
 SLIDE_SPEED = 1500.0
 
 [node name="HUD" parent="Camera" unique_id=1423471652 instance=ExtResource("3_lbhrr")]
+
+[node name="Rain" type="CPUParticles2D" parent="." unique_id=912313755]
+position = Vector2(-2577, -4068)
+scale = Vector2(1.5509131, 0.37844276)
+amount = 150
+texture = ExtResource("2_yqjtg")
+lifetime = 3.5
+emission_shape = 3
+emission_rect_extents = Vector2(3000, 30)
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_lnu2h")
 
 [node name="NavigasionArea" type="NavigationRegion2D" parent="." unique_id=1019167563]
 visible = false

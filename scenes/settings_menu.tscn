@@ -3,7 +3,8 @@
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
 [ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/assets/icons/popup/popup_menu.png" id="2_lwwgp"]
 [ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_bgjg7"]
-[ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/exit_button.gd" id="4_48ojb"]
+[ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/settings/exit_button.gd" id="4_48ojb"]
+[ext_resource type="PackedScene" uid="uid://c4n8kk6qtoo4k" path="res://scenes/checkbox.tscn" id="5_48ojb"]
 [ext_resource type="PackedScene" uid="uid://bc5mmcb831xwi" path="res://scenes/volume-slider.tscn" id="5_lwwgp"]
 [ext_resource type="StyleBox" uid="uid://c66pkwxi7fgav" path="res://styles/container_style.tres" id="6_bgjg7"]
 
@@ -76,6 +77,7 @@ theme_override_constants/separation = 10
 [node name="SoundSliders" type="PanelContainer" parent="Menu/Control/MarginContainer/Main" unique_id=1832669298]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("6_bgjg7")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders" unique_id=2105253446]
 layout_mode = 2
@@ -129,9 +131,41 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer" unique_id=889695592]
 layout_mode = 2
 
+[node name="OptionSwitch" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1906285266 instance=ExtResource("5_48ojb")]
+layout_mode = 2
+settings = "Fullscreeen"
+default = true
+
+[node name="OptionSwitch2" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1169727777 instance=ExtResource("5_48ojb")]
+layout_mode = 2
+
+[node name="OptionSwitch3" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=863307188 instance=ExtResource("5_48ojb")]
+layout_mode = 2
+
+[node name="OptionSwitch5" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1944865202 instance=ExtResource("5_48ojb")]
+layout_mode = 2
+
+[node name="OptionSwitch6" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1314000116 instance=ExtResource("5_48ojb")]
+layout_mode = 2
+
+[node name="OptionSwitch7" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=2017058429 instance=ExtResource("5_48ojb")]
+layout_mode = 2
+
+[node name="OptionSwitch8" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=2066391588 instance=ExtResource("5_48ojb")]
+layout_mode = 2
+
+[node name="OptionSwitch4" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=855827009 instance=ExtResource("5_48ojb")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=282204553]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.05
+
 [node name="Right" type="PanelContainer" parent="Menu/Control/MarginContainer/Main/2Rows" unique_id=739098586]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("6_bgjg7")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Right" unique_id=280541986]
 layout_mode = 2

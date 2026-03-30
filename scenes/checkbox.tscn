@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bc5mmcb831xwi"]
+[gd_scene format=3 uid="uid://c4n8kk6qtoo4k"]
 
-[ext_resource type="Script" uid="uid://gthncc1s4n85" path="res://scripts/settings/volume_slider.gd" id="1_4vkr2"]
+[ext_resource type="Script" uid="uid://chyw8qb0xp2x6" path="res://scripts/settings/option_checkbox.gd" id="1_qt2fl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
 border_width_left = 5
@@ -12,30 +12,11 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwgp"]
-bg_color = Color(0, 0.25167894, 0.42411947, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgjg7"]
-bg_color = Color(0.24781293, 0.64597297, 0.99999994, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
-
 [node name="Master" type="Panel" unique_id=1254362795]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
-script = ExtResource("1_4vkr2")
-text = "Test"
+script = ExtResource("1_qt2fl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=873683531]
 layout_mode = 1
@@ -48,9 +29,9 @@ theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=1005441667]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 size_flags_stretch_ratio = 1.5
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
@@ -67,21 +48,15 @@ vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=1402580096]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 size_flags_stretch_ratio = 5.0
+theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
-[node name="HSlider" type="HSlider" parent="HBoxContainer/MarginContainer2" unique_id=719460810]
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/MarginContainer2" unique_id=1563814955]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_styles/slider = SubResource("StyleBoxFlat_lwwgp")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bgjg7")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_bgjg7")
-max_value = 1.0
-step = 0.01
-value = 0.75
 
-[connection signal="value_changed" from="HBoxContainer/MarginContainer2/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="HBoxContainer/MarginContainer2/CheckButton" to="." method="_on_check_button_toggled"]
