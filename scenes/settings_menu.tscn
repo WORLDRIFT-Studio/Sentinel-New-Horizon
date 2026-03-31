@@ -138,6 +138,8 @@ default = true
 
 [node name="OptionSwitch2" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1169727777 instance=ExtResource("5_48ojb")]
 layout_mode = 2
+settings = "v-sync"
+default = true
 
 [node name="OptionSwitch3" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=863307188 instance=ExtResource("5_48ojb")]
 layout_mode = 2

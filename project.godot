@@ -21,6 +21,7 @@ buses/default_bus_layout="uid://bomx7657rep0a"
 [autoload]
 
 GameEvents="*uid://dvcpvx6nvxko5"
+SettingsManager="*uid://ckmvkk0cm2uap"
 
 [display]
 
