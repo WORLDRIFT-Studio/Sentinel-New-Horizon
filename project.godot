@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Sentinel:NewHorizons"
-run/main_scene="uid://cbt4futvdti7b"
+run/main_scene="uid://eoxljb7e4155"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [audio]
@@ -22,11 +22,16 @@ buses/default_bus_layout="uid://bomx7657rep0a"
 
 GameEvents="*uid://dvcpvx6nvxko5"
 SettingsManager="*uid://ckmvkk0cm2uap"
+TransitionScene="*uid://yjc0bg83ii6e"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 [editor_plugins]
 
