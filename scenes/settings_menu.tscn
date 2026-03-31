@@ -1,187 +1,44 @@
-[gd_scene format=3 uid="uid://scbdubmnau0o"]
+[gd_scene format=3 uid="uid://bfgtwskcr46de"]
 
-[ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
-[ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/assets/icons/popup/popup_menu.png" id="2_lwwgp"]
-[ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_bgjg7"]
-[ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/settings/exit_button.gd" id="4_48ojb"]
-[ext_resource type="PackedScene" uid="uid://c4n8kk6qtoo4k" path="res://scenes/checkbox.tscn" id="5_48ojb"]
-[ext_resource type="PackedScene" uid="uid://bc5mmcb831xwi" path="res://scenes/volume-slider.tscn" id="5_lwwgp"]
-[ext_resource type="StyleBox" uid="uid://c66pkwxi7fgav" path="res://styles/container_style.tres" id="6_bgjg7"]
+[ext_resource type="Script" path="res://scripts/main_menu_autorzy.gd" id="1_wswnh"]
+[ext_resource type="Texture2D" uid="uid://cixivflwg0ded" path="res://assets/menu/autorzy.png" id="2_labj1"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_lwwgp"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
-shader = ExtResource("1_labj1")
-shader_parameter/strength = 1.0
-shader_parameter/opacity = 0.45
-shader_parameter/radius = 0.85
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swr6"]
+texture = ExtResource("2_labj1")
 
-[node name="SettingsMenu" type="Popup" unique_id=1784852679]
-process_mode = 3
-transparent_bg = true
-oversampling_override = 1.0
-mode = 3
-size = Vector2i(2229, 1080)
-visible = true
-always_on_top = true
-transparent = true
-
-[node name="Background" type="ColorRect" parent="." unique_id=827922727]
-material = SubResource("ShaderMaterial_0vea8")
+[node name="Autorzy" type="Control" unique_id=1747104085]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.3325348
-offset_right = -308.58313
-offset_bottom = -2.3325195
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wswnh")
 
-[node name="Menu" type="TextureRect" parent="." unique_id=305032778]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -985.0
-offset_top = -410.5
-offset_right = 676.0
-offset_bottom = 410.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_lwwgp")
-
-[node name="Control" type="Control" parent="Menu" unique_id=671198971]
-anchors_preset = 0
-offset_left = 0.5
-offset_top = 0.5
-offset_right = 1661.5
-offset_bottom = 821.5
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Control" unique_id=590744864]
+[node name="Background" type="Panel" parent="." unique_id=1632516306]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 120
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 120
-theme_override_constants/margin_bottom = 40
+theme_override_styles/panel = SubResource("StyleBoxTexture_6swr6")
 
-[node name="Main" type="VBoxContainer" parent="Menu/Control/MarginContainer" unique_id=311636094]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="SoundSliders" type="PanelContainer" parent="Menu/Control/MarginContainer/Main" unique_id=1832669298]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("6_bgjg7")
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders" unique_id=2105253446]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Box" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer" unique_id=508689353]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Master" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box" unique_id=1254362795 instance=ExtResource("5_lwwgp")]
-layout_mode = 2
-BUS = "Master"
-
-[node name="Music SFX" type="HBoxContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box" unique_id=1430454615]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 10
-
-[node name="Music" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box/Music SFX" unique_id=223638659 instance=ExtResource("5_lwwgp")]
-layout_mode = 2
-BUS = "Music"
-
-[node name="SFX" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box/Music SFX" unique_id=1637332581 instance=ExtResource("5_lwwgp")]
-layout_mode = 2
-BUS = "SFX"
-
-[node name="2Rows" type="HBoxContainer" parent="Menu/Control/MarginContainer/Main" unique_id=483923962]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 5.0
-theme_override_constants/separation = 7
-
-[node name="Left" type="PanelContainer" parent="Menu/Control/MarginContainer/Main/2Rows" unique_id=421374278]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("6_bgjg7")
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Left" unique_id=490555294]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer" unique_id=889695592]
-layout_mode = 2
-
-[node name="OptionSwitch" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1906285266 instance=ExtResource("5_48ojb")]
-layout_mode = 2
-settings = "Fullscreeen"
-default = true
-
-[node name="OptionSwitch2" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1169727777 instance=ExtResource("5_48ojb")]
-layout_mode = 2
-settings = "V-Sync"
-default = true
-
-[node name="OptionSwitch5" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1944865202 instance=ExtResource("5_48ojb")]
-layout_mode = 2
-
-[node name="OptionSwitch6" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1314000116 instance=ExtResource("5_48ojb")]
-layout_mode = 2
-
-[node name="OptionSwitch7" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=2017058429 instance=ExtResource("5_48ojb")]
-layout_mode = 2
-
-[node name="OptionSwitch8" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=2066391588 instance=ExtResource("5_48ojb")]
-layout_mode = 2
-
-[node name="OptionSwitch4" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=855827009 instance=ExtResource("5_48ojb")]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=282204553]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.05
-
-[node name="Right" type="PanelContainer" parent="Menu/Control/MarginContainer/Main/2Rows" unique_id=739098586]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("6_bgjg7")
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Right" unique_id=280541986]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Right/MarginContainer" unique_id=2052315840]
-layout_mode = 2
-
-[node name="ExitButton" type="TextureButton" parent="Menu" unique_id=1679601297]
-process_mode = 3
-layout_mode = 0
-offset_left = 14.5
-offset_top = 14.5
-offset_right = 106.5
-offset_bottom = 106.5
-texture_normal = ExtResource("3_bgjg7")
-stretch_mode = 4
-script = ExtResource("4_48ojb")
-
-[connection signal="pressed" from="Menu/ExitButton" to="Menu/ExitButton" method="_on_pressed"]
+[node name="Wyjscie" type="Button" parent="Background" unique_id=387149358]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.5
+offset_top = 56.0
+offset_right = 105.5
+offset_bottom = 137.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("3_lwwgp")
+theme_override_font_sizes/font_size = 60
+text = "Wyjście"
+flat = true
