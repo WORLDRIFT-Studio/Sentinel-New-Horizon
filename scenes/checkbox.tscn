@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c4n8kk6qtoo4k"]
+
+[ext_resource type="Script" uid="uid://chyw8qb0xp2x6" path="res://scripts/settings/option_checkbox.gd" id="1_qt2fl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Master" type="Panel" unique_id=1254362795]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
+script = ExtResource("1_qt2fl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=873683531]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=1005441667]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 1.5
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer" unique_id=211657850]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=1402580096]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 5.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/MarginContainer2" unique_id=1563814955]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="toggled" from="HBoxContainer/MarginContainer2/CheckButton" to="." method="_on_check_button_toggled"]

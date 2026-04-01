@@ -9,16 +9,16 @@ func _ready() -> void:
 
 	# ── AUTOMATIC FADE-IN ──
 	# (only runs when arriving via transition from another scene)
-	if Scene_TransitionController.is_transitioning:
-		Scene_TransitionController.background.visible = true
-		Scene_TransitionController.background.color = Color.BLACK
+	if TransitionScene.is_transitioning:
+		TransitionScene.background.visible = true
+		TransitionScene.background.color = Color.BLACK
 		
-		Scene_TransitionController.animation_player.play("FadeIn")
+		TransitionScene.animation_player.play("FadeIn")
 		
-		await Scene_TransitionController.animation_player.animation_finished
+		await TransitionScene.animation_player.animation_finished
 		
-		Scene_TransitionController.background.visible = false
-		Scene_TransitionController.is_transitioning = false
+		TransitionScene.background.visible = false
+		TransitionScene.is_transitioning = false
 		
 		print("Fade-in complete!")
 

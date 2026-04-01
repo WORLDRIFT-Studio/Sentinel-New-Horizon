@@ -28,7 +28,10 @@ TransitionScene="*uid://yjc0bg83ii6e"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 [editor_plugins]
 

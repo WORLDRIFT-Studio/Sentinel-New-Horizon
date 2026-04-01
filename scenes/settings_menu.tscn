@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://cvr8lacbh7kt0"]
+[gd_scene format=3 uid="uid://bfgtwskcr46de"]
 
-[ext_resource type="Script" uid="uid://vm6vwxm2n4bf" path="res://scripts/menu/main_menu_autorzy.gd" id="1_d7usk"]
-[ext_resource type="Texture2D" uid="uid://cixivflwg0ded" path="res://assets/menu/autorzy.png" id="1_nh12h"]
-[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_otrup"]
+[ext_resource type="Script" path="res://scripts/main_menu_autorzy.gd" id="1_wswnh"]
+[ext_resource type="Texture2D" uid="uid://cixivflwg0ded" path="res://assets/menu/autorzy.png" id="2_labj1"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_lwwgp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swr6"]
-texture = ExtResource("1_nh12h")
+texture = ExtResource("2_labj1")
 
 [node name="Autorzy" type="Control" unique_id=1747104085]
 layout_mode = 3
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_d7usk")
+script = ExtResource("1_wswnh")
 
 [node name="Background" type="Panel" parent="." unique_id=1632516306]
 layout_mode = 1
@@ -38,7 +38,7 @@ offset_bottom = 137.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
-theme_override_fonts/font = ExtResource("3_otrup")
+theme_override_fonts/font = ExtResource("3_lwwgp")
 theme_override_font_sizes/font_size = 60
 text = "Wyjście"
 flat = true

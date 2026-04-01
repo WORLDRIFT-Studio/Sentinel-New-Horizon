@@ -1,14 +1,20 @@
-[gd_scene format=3 uid="uid://otgrjibn6gqo"]
+[gd_scene format=3 uid="uid://diqn8125f0jpv"]
 
 [ext_resource type="Texture2D" uid="uid://ck52d1hb445ey" path="res://assets/assets/icons/panel/day_counter.png" id="1_0i1j5"]
+[ext_resource type="AudioStream" uid="uid://d37ylk71tlpdk" path="res://assets/sounds/music.mp3" id="1_0m4u7"]
+[ext_resource type="Texture2D" uid="uid://bn7v5s4t4jmcr" path="res://assets/assets/icons/overlay.png" id="1_mphia"]
 [ext_resource type="Texture2D" uid="uid://dnf05t6t25g0a" path="res://assets/assets/icons/panel/clock_under.png" id="2_mphia"]
 [ext_resource type="Texture2D" uid="uid://casw7h7j25wwf" path="res://assets/assets/icons/panel/clock_over.png" id="3_0m4u7"]
 [ext_resource type="Texture2D" uid="uid://bqh17luh7pmhe" path="res://assets/assets/icons/panel/clock_progress.png" id="4_apjy4"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
+[ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/upgrades_menu.tscn" id="6_apjy4"]
+[ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/settings_menu.tscn" id="6_eld54"]
+[ext_resource type="Script" uid="uid://2qwcolr0joku" path="res://scripts/menu/settings_menu.gd" id="7_3swnk"]
+[ext_resource type="Texture2D" uid="uid://2jnafo5nueky" path="res://assets/assets/icons/settings/button-settings-n.png" id="7_mphia"]
 [ext_resource type="Texture2D" uid="uid://d1csqn1667xo8" path="res://assets/assets/icons/shop/button-shop-n.png" id="8_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://b85sk0jwv4in0" path="res://assets/assets/icons/settings/button-settings-h.png" id="8_0m4u7"]
+[ext_resource type="Script" uid="uid://dbrifp0rbviky" path="res://scripts/menu/upgrades_menu.gd" id="9_5n1hp"]
 [ext_resource type="Texture2D" uid="uid://c3wsj5dmgooer" path="res://assets/assets/icons/shop/button-shop-h.png" id="9_mphia"]
-[ext_resource type="Texture2D" uid="uid://bnmad4kqsn7sv" path="res://assets/assets/icons/settings/settings-shop-h.png" id="10_mphia"]
-[ext_resource type="Texture2D" uid="uid://dg25rers44jtm" path="res://assets/assets/icons/settings/settings-shop-n.png" id="14_3swnk"]
 
 [sub_resource type="GDScript" id="GDScript_0m4u7"]
 script/source = "extends TextureRect
@@ -26,54 +32,35 @@ func _process(delta: float) -> void:
 "
 
 [node name="HUD" type="CanvasLayer" unique_id=1423471652]
+process_mode = 3
 
-[node name="Bar" type="TextureRect" parent="." unique_id=329981727]
-offset_left = -14.746094
-offset_right = 690.2539
-offset_bottom = 227.0
-texture = ExtResource("1_0i1j5")
-stretch_mode = 2
-script = SubResource("GDScript_0m4u7")
-day_duration = 20.0
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=508719458]
+stream = ExtResource("1_0m4u7")
+autoplay = true
+bus = &"Music"
+playback_type = 1
+parameters/looping = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Bar" unique_id=779386582]
-unique_name_in_owner = true
+[node name="Overlay" type="TextureRect" parent="." unique_id=522304739]
+offset_right = 1920.0
+offset_bottom = 1081.0
+texture = ExtResource("1_mphia")
+
+[node name="Title" type="Label" parent="Overlay" unique_id=920864114]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.437
-anchor_top = 0.5
-anchor_right = 0.437
-anchor_bottom = 0.5
-offset_left = -265.0883
-offset_top = -70.5
-offset_right = -128.08829
-offset_bottom = 66.5
-max_value = 1.0
-step = 0.0
-fill_mode = 4
-texture_under = ExtResource("2_mphia")
-texture_over = ExtResource("3_0m4u7")
-texture_progress = ExtResource("4_apjy4")
-
-[node name="Day" type="Label" parent="Bar" unique_id=1210453090]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.018000001
-anchor_top = 0.068
-anchor_right = 0.018000001
-anchor_bottom = 0.068
-offset_left = 123.31
-offset_top = 27.564
-offset_right = 582.6263
-offset_bottom = 160.564
-theme_override_colors/font_shadow_color = Color(0.07058824, 0.23137255, 0.42745098, 0.6784314)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.95093
+offset_top = -5.405266
+offset_right = 197.04907
+offset_bottom = 55.749275
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_uo2fv")
-theme_override_font_sizes/font_size = 110
-text = "Dzień: 1"
+theme_override_font_sizes/font_size = 48
+text = "City: Lorem Ipsum"
 horizontal_alignment = 1
-vertical_alignment = 1
+uppercase = true
 
 [node name="Control" type="Control" parent="." unique_id=1795378241]
 layout_mode = 3
@@ -88,20 +75,81 @@ anchor_left = 3.9
 anchor_top = 23.321001
 anchor_right = 3.9
 anchor_bottom = 23.321001
-offset_left = -140.0
-offset_top = -84.84003
-offset_right = 82.0
-offset_bottom = 133.15997
-texture_normal = ExtResource("14_3swnk")
-texture_hover = ExtResource("10_mphia")
+offset_left = -80.18182
+offset_top = -65.903625
+offset_right = 96.81818
+offset_bottom = 108.096375
+texture_normal = ExtResource("7_mphia")
+texture_hover = ExtResource("8_0m4u7")
 stretch_mode = 3
+
+[node name="SettingsMenu" parent="Control/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
+visible = false
+script = ExtResource("7_3swnk")
 
 [node name="Shop" type="TextureButton" parent="Control" unique_id=1736348984]
 layout_mode = 0
-offset_left = 238.0
-offset_top = 848.0
-offset_right = 460.0
-offset_bottom = 1066.0
+offset_left = 252.81818
+offset_top = 866.9364
+offset_right = 429.81818
+offset_bottom = 1040.9364
 texture_normal = ExtResource("8_0i1j5")
 texture_hover = ExtResource("9_mphia")
 stretch_mode = 3
+
+[node name="UpgradesMenu" parent="Control/Shop" unique_id=498256039 instance=ExtResource("6_apjy4")]
+visible = false
+script = ExtResource("9_5n1hp")
+
+[node name="Bar" type="TextureRect" parent="." unique_id=329981727]
+process_mode = 1
+offset_left = 40.0
+offset_top = -19.400024
+offset_right = 604.0
+offset_bottom = 214.59998
+texture = ExtResource("1_0i1j5")
+stretch_mode = 2
+script = SubResource("GDScript_0m4u7")
+day_duration = 20.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Bar" unique_id=779386582]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.437
+anchor_top = 0.5
+anchor_right = 0.437
+anchor_bottom = 0.5
+offset_left = -207.7142
+offset_top = -26.874046
+offset_right = -93.7142
+offset_bottom = 87.125946
+max_value = 1.0
+step = 0.0
+fill_mode = 4
+texture_under = ExtResource("2_mphia")
+texture_over = ExtResource("3_0m4u7")
+texture_progress = ExtResource("4_apjy4")
+
+[node name="Day" type="Label" parent="Bar" unique_id=1210453090]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018000001
+anchor_top = 0.068
+anchor_right = 0.018000001
+anchor_bottom = 0.068
+offset_left = 117.98603
+offset_top = 67.49399
+offset_right = 445.53323
+offset_bottom = 200.49399
+theme_override_colors/font_shadow_color = Color(0.07058824, 0.23137255, 0.42745098, 0.6784314)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("5_uo2fv")
+theme_override_font_sizes/font_size = 70
+text = "Dzień: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/Settings" to="Control/Settings/SettingsMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/Shop" to="Control/Shop/UpgradesMenu" method="_on_shop_pressed"]
