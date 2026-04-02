@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp7r0gogjrtmv"]
 
-[ext_resource type="Texture2D" uid="uid://dgsjb7ap3admh" path="res://assets/menu/ustawienia.png" id="1_svblv"]
+[ext_resource type="Texture2D" uid="uid://bmcuc35l2u3q0" path="res://assets/menu/ustawienia.png" id="1_svblv"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_f5onx"]
 
 [sub_resource type="GDScript" id="GDScript_lngwo"]
@@ -16,7 +16,7 @@ func _ready() -> void:
 	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
 	
 func _on_wyjscie_pressed() -> void:
-	TransitionScene.fade_to_scene(\"res://scenes/main_menu.tscn\")
+	TransitionScene.fade_to_scene(\"res://scenes/menu/main_menu.tscn\")
 "
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lngwo"]
