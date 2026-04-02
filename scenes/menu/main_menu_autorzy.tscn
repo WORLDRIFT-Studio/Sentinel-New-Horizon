@@ -7,6 +7,18 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swr6"]
 texture = ExtResource("1_nh12h")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjgll"]
+bg_color = Color(0.08627451, 0.1254902, 0.2, 0.49411765)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16078432, 0.19215687, 0.25882354, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [node name="Autorzy" type="Control" unique_id=1747104085]
 layout_mode = 3
 anchors_preset = 15
@@ -37,8 +49,39 @@ offset_right = 105.5
 offset_bottom = 137.0
 grow_horizontal = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
+theme_override_colors/font_color = Color(0.5764706, 0.49803922, 0.9137255, 1)
 theme_override_fonts/font = ExtResource("3_otrup")
 theme_override_font_sizes/font_size = 60
 text = "Wyjście"
 flat = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1766085060]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 203.0
+offset_right = 935.0
+offset_bottom = 524.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cjgll")
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=1537015234]
+layout_mode = 0
+offset_top = 347.0
+offset_right = 841.0
+offset_bottom = 668.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cjgll")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1358680124]
+layout_mode = 0
+offset_left = 1026.0
+offset_top = 235.0
+offset_right = 1789.0
+offset_bottom = 698.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cjgll")
+
+[node name="Panel4" type="Panel" parent="." unique_id=2051096770]
+layout_mode = 0
+offset_left = 1022.0
+offset_top = 736.0
+offset_right = 1785.0
+offset_bottom = 844.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cjgll")
