@@ -35,4 +35,4 @@ func _on_wyjscie_pressed() -> void:
 	# SceneTransitionController.fade_to_scene("res://scenes/main_menu.tscn", 0.8)
 	
 	# If you want instant change (as it was originally):
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/main_menu.tscn")
