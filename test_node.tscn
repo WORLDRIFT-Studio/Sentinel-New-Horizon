@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfna1y6b1fab8"]
+
+[ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/airport_logic.gd" id="1_6uery"]
+
+[node name="Node" type="Node" unique_id=1070832706]
+script = ExtResource("1_6uery")
