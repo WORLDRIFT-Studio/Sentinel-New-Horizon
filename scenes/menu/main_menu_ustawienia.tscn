@@ -1,23 +1,8 @@
 [gd_scene format=3 uid="uid://bp7r0gogjrtmv"]
 
+[ext_resource type="Script" uid="uid://d4ndifwb06qvy" path="res://scripts/menu/main_menu_ustawienia.gd" id="1_emxyu"]
 [ext_resource type="Texture2D" uid="uid://bmcuc35l2u3q0" path="res://assets/menu/ustawienia.png" id="1_svblv"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_f5onx"]
-
-[sub_resource type="GDScript" id="GDScript_lngwo"]
-script/source = "extends Control
-
-@onready var btn_wyjscie:      Button = %Wyjscie
-
-func _ready() -> void:
-	if btn_wyjscie == null:
-		push_error(\"Przycisk_Wyjscie not found! Check unique name.\")
-		return  
-		
-	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
-	
-func _on_wyjscie_pressed() -> void:
-	TransitionScene.fade_to_scene(\"res://scenes/menu/main_menu.tscn\")
-"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lngwo"]
 texture = ExtResource("1_svblv")
@@ -29,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_lngwo")
+script = ExtResource("1_emxyu")
 
 [node name="Background" type="Panel" parent="." unique_id=1446907662]
 layout_mode = 1

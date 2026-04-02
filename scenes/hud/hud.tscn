@@ -37,6 +37,7 @@ process_mode = 3
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=508719458]
 stream = ExtResource("1_0m4u7")
 autoplay = true
+bus = &"Music"
 playback_type = 1
 parameters/looping = true
 

@@ -1,9 +1,3 @@
 # Godot 4+ specific ignores
 .godot/
-.import/
-addons/script-ide
 /android/
-*.import
-*.tmp
-*.cache
-*.godot

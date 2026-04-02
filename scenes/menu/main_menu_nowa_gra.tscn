@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5547qqccmsm3"]
 
-[ext_resource type="Script" uid="uid://4k0j2sydtf2i" path="res://scripts/main_menu_nowa_gra.gd" id="1_b4kph"]
+[ext_resource type="Script" uid="uid://4k0j2sydtf2i" path="res://scripts/menu/main_menu_nowa_gra.gd" id="1_b02xu"]
 [ext_resource type="Texture2D" uid="uid://cl3k7mcy833bo" path="res://assets/menu/nowa_gra.png" id="1_dmb7y"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_70xyi"]
 
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_b4kph")
+script = ExtResource("1_b02xu")
 
 [node name="Background" type="Panel" parent="." unique_id=1514553044]
 layout_mode = 1
