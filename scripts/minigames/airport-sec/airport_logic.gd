@@ -10,10 +10,10 @@ var option:Array		= ["male", "female", "neutral"]
 func _ready() -> void:
 	var npc_list:Array		= random_npc_data()
 	var anomalys_list:Array	= anomaly(npc_list)
-	print(npc_list)
-	print("================================")
-	print(anomalys_list)
-
+	#print(npc_list)
+	#print("================================")
+	#print(anomalys_list)
+	
 func random_npc_data() -> Array:
 	var npc:Array
 	
@@ -56,3 +56,9 @@ func anomaly(original:Array) -> Array:
 		anomaly_list.append(character)
 	
 	return	anomaly_list
+
+func check(first:Dictionary, second:Dictionary, comparator:String):
+	if first[comparator] == second[comparator]:
+		print("Correct")
+	else:
+		print("Anomaly")
