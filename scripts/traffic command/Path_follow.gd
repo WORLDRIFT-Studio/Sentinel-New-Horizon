@@ -1,12 +1,14 @@
 extends PathFollow2D
 
 @export var speed: float = 150.0
-@export var stop_ratio: float = 0.25
+@export var stop_points: Array[float] = []
 
 var moving: bool = false
-var stopped: bool = false
+var current_stop_index: int = 0
+var last_progress: float = 0.0
 
 signal reached_stop
+signal route_finished
 
 func _ready() -> void:
 	moving = true
@@ -17,12 +19,29 @@ func _process(delta: float) -> void:
 	
 	progress += speed * delta
 	
-	if not stopped and progress_ratio >= stop_ratio:
-		progress_ratio = stop_ratio
+	if progress_ratio < last_progress - 0.5:
+		current_stop_index = 0
+		emit_signal("route_finished")
+	
+	last_progress = progress_ratio
+	
+	if current_stop_index >= stop_points.size():
+		return
+	
+	var next_stop = stop_points[current_stop_index]
+	
+	if progress_ratio >= next_stop:
+		progress_ratio = next_stop
 		moving = false
-		stopped = true
+		current_stop_index += 1
 		emit_signal("reached_stop")
 
 func continue_moving() -> void:
-	stopped = true
+	moving = true
+
+func reset() -> void:
+	progress = 0.0
+	progress_ratio = 0.0
+	current_stop_index = 0
+	last_progress = 0.0
 	moving = true
