@@ -1,5 +1,8 @@
 extends Node
 
+@onready var character_1: OptionButton = $Character1
+@onready var checker: OptionButton = $Checker
+@onready var character_2: OptionButton = $Character2
 
 var path_to_data = "res://assets/resources/airport.json"
 var file = FileAccess.open(path_to_data, FileAccess.READ)
@@ -10,10 +13,9 @@ var option:Array		= ["male", "female", "neutral"]
 func _ready() -> void:
 	var npc_list:Array		= random_npc_data()
 	var anomalys_list:Array	= anomaly(npc_list)
-	#print(npc_list)
-	#print("================================")
-	#print(anomalys_list)
-	
+	for npc in npc_list:
+		var text = "name: %s\n surname: %s\nid: %s" % [npc["name"], npc["surname"], npc["id"]]
+		character_1.add_item(text)	
 func random_npc_data() -> Array:
 	var npc:Array
 	

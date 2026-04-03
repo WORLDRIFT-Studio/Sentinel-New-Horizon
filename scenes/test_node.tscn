@@ -2,5 +2,28 @@
 
 [ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_6uery"]
 
-[node name="Node" type="Node" unique_id=1070832706]
+[node name="Node" type="Control" unique_id=2116161531]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_6uery")
+
+[node name="Character1" type="OptionButton" parent="." unique_id=529504236]
+layout_mode = 0
+offset_right = 109.0
+offset_bottom = 31.0
+
+[node name="Checker" type="OptionButton" parent="." unique_id=2011980546]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+item_count = 3
+popup/item_0/text = "name"
+popup/item_0/id = 0
+popup/item_1/text = "surname"
+popup/item_1/id = 1
+popup/item_2/id = 2
+
+[node name="Character2" type="OptionButton" parent="." unique_id=1549900935]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
