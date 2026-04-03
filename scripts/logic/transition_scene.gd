@@ -18,7 +18,7 @@ func transition():
 func fade_to_scene(scene_path: String):
 	target_scene = scene_path
 	transition()
-
+\
 
 func _on_animation_finished(anim_name):
 	if anim_name == "fade_to_black":

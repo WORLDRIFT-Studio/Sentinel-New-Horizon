@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ch4wttmno5i6n"]
+[gd_scene format=3 uid="uid://cc13ne0ctrqln"]
 
-[ext_resource type="Script" uid="uid://bqle6o2c7qdsj" path="res://transition_scene.gd" id="1_6hpjq"]
+[ext_resource type="Script" uid="uid://bqle6o2c7qdsj" path="res://scripts/logic/transition_scene.gd" id="1_6hpjq"]
 
 [sub_resource type="Animation" id="Animation_a7egq"]
 length = 0.001
@@ -66,6 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1436534273]
