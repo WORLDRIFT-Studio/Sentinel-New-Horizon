@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://d38pd5kxwebh0"]
+
+[ext_resource type="Script" uid="uid://d11xou6k5dfxw" path="res://scripts/menu/main_menu_autorzy_side.gd" id="1_bqjwk"]
+[ext_resource type="Texture2D" uid="uid://cytjhpnofyuha" path="res://assets/menu/autorzy.png" id="2_u1da5"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_skos3"]
+[ext_resource type="Texture2D" uid="uid://bffw4xw0yyfeg" path="res://assets/menu/arrow.svg" id="4_vgaqt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swr6"]
+texture = ExtResource("2_u1da5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqjwk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1da5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_skos3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vgaqt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgq0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyc4d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qj22r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gw0mm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wmff1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yxmxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_elq6r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqjwk"]
+bg_color = Color(0.08627451, 0.1254902, 0.2, 0.49411765)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16078432, 0.19215687, 0.25882354, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Autorzy_Sub" type="Control" unique_id=1747104085]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqjwk")
+
+[node name="Background" type="Panel" parent="." unique_id=1632516306]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6swr6")
+
+[node name="Wyjscie" type="Button" parent="Background" unique_id=387149358]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.5
+offset_top = 56.0
+offset_right = 105.5
+offset_bottom = 137.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.5764706, 0.49803922, 0.9137255, 1)
+theme_override_fonts/font = ExtResource("3_skos3")
+theme_override_font_sizes/font_size = 60
+text = "Wyjście"
+flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1847291349]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -159.0
+offset_right = 100.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=966168312]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+texture = ExtResource("4_vgaqt")
+flip_h = true
+
+[node name="Back" type="Button" parent="HBoxContainer2/TextureRect" unique_id=402960545]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 12.0
+offset_right = 2.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bqjwk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_u1da5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_skos3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vgaqt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sgq0l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xyc4d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qj22r")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_gw0mm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wmff1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yxmxb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_elq6r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=379464456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = 223.0
+offset_right = -83.0
+offset_bottom = -147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mikołaj" type="Panel" parent="HBoxContainer" unique_id=1216854549]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqjwk")
+
+[node name="Label" type="Label" parent="HBoxContainer/Mikołaj" unique_id=1540933891]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -454.0
+offset_top = -320.0
+offset_right = 454.0
+offset_bottom = -239.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_skos3")
+theme_override_font_sizes/font_size = 61
+text = "SPECIAL THANKS"
+horizontal_alignment = 1
