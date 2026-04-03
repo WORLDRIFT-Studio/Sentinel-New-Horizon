@@ -21,8 +21,8 @@ buses/default_bus_layout="uid://doikg5skco0yv"
 [autoload]
 
 GameEvents="*uid://dvcpvx6nvxko5"
-TransitionScene="*uid://yjc0bg83ii6e"
 SettingsManager="*uid://ckmvkk0cm2uap"
+TransitionScene="*uid://cc13ne0ctrqln"
 
 [display]
 
