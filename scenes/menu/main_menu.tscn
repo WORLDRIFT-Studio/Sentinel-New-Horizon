@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://7077mhbd2g7t" path="res://scripts/menu/main_menu.gd" id="1_247la"]
 [ext_resource type="Texture2D" uid="uid://krq7ukfbgfa5" path="res://assets/menu/main.png" id="2_wu84c"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_8ln24"]
+[ext_resource type="AudioStream" uid="uid://cby8fem52koh" path="res://assets/sounds/btn_click.wav" id="4_kiqgm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -118,3 +119,6 @@ size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer" unique_id=1123607792]
 layout_mode = 2
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=847019476]
+stream = ExtResource("4_kiqgm")

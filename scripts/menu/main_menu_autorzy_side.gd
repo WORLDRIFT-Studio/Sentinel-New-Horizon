@@ -3,6 +3,8 @@ extends Control
 @onready var btn_wyjscie:      Button = %Wyjscie
 @onready var btn_back:      Button = %Back
 
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+
 func _ready() -> void:
 	if btn_wyjscie == null:
 		push_error("Przycisk_Wyjscie not found! Check unique name.")
@@ -17,7 +19,9 @@ func _ready() -> void:
 	btn_back.pressed.connect(_on_back_pressed)
 	
 func _on_wyjscie_pressed() -> void:
+	click_sound.play()
 	TransitionScene.fade_to_scene("res://scenes/menu/main_menu.tscn")
 
 func _on_back_pressed() -> void:
+	click_sound.play()
 	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_autorzy.tscn")

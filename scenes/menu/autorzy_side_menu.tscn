@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cytjhpnofyuha" path="res://assets/menu/autorzy.png" id="2_u1da5"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_skos3"]
 [ext_resource type="Texture2D" uid="uid://bffw4xw0yyfeg" path="res://assets/menu/arrow.svg" id="4_vgaqt"]
+[ext_resource type="AudioStream" uid="uid://cby8fem52koh" path="res://assets/sounds/btn_click.wav" id="5_u1da5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swr6"]
 texture = ExtResource("2_u1da5")
@@ -160,3 +161,6 @@ theme_override_fonts/font = ExtResource("3_skos3")
 theme_override_font_sizes/font_size = 61
 text = "SPECIAL THANKS"
 horizontal_alignment = 1
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=155208675]
+stream = ExtResource("5_u1da5")
