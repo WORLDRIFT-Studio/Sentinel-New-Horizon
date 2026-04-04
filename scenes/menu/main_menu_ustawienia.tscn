@@ -8,6 +8,31 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lngwo"]
 texture = ExtResource("1_svblv")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij50f"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebkff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j848g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6imcs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5qxe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufwgy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxiow"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ptcfw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jn0ri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eq2cu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwqj4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lenev"]
+
 [node name="Ustawienia" type="Control" unique_id=1707551552]
 layout_mode = 3
 anchors_preset = 15
@@ -26,23 +51,140 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lngwo")
 
-[node name="Wyjscie" type="Button" parent="Background" unique_id=1501701979]
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1018811008]
+stream = ExtResource("4_ij50f")
+
+[node name="Wyjscie" type="Button" parent="." unique_id=1501701979]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -105.5
-offset_top = 56.0
+offset_top = 31.0
 offset_right = 105.5
-offset_bottom = 137.0
+offset_bottom = 112.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.827451, 0.32156864, 0.29803923, 1)
 theme_override_fonts/font = ExtResource("3_f5onx")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ij50f")
 text = "Wyjście"
 flat = true
 
-[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1018811008]
-stream = ExtResource("4_ij50f")
+[node name="Apply" type="HBoxContainer" parent="." unique_id=1090778833]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27291667
+anchor_top = -0.09907407
+anchor_right = -0.0052083335
+offset_left = 1015.0
+offset_top = 1055.0
+offset_right = 1873.0
+offset_bottom = 1055.0
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Apply" unique_id=2062408642]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="Apply" type="Button" parent="Apply/TextureRect" unique_id=1068601036]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -7.0
+offset_right = -1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ebkff")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_j848g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6imcs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b5qxe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ufwgy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rxiow")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ptcfw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jn0ri")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eq2cu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cwqj4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lenev")
+
+[node name="Back" type="HBoxContainer" parent="." unique_id=833081805]
+layout_mode = 0
+offset_left = 1347.0
+offset_top = 943.0
+offset_right = 1538.0
+offset_bottom = 1043.0
+size_flags_horizontal = 8
+
+[node name="TextureRect" type="TextureRect" parent="Back" unique_id=680900594]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="Back/TextureRect" unique_id=293024261]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ebkff")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_j848g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6imcs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b5qxe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ufwgy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rxiow")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ptcfw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jn0ri")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eq2cu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cwqj4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lenev")
+
+[node name="Reset" type="HBoxContainer" parent="." unique_id=1992761600]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.013888889
+anchor_right = -0.27604166
+offset_left = 1015.0
+offset_top = 935.0
+offset_right = 1873.0
+offset_bottom = 1055.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Reset" unique_id=1966038775]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="Reset" type="Button" parent="Reset/TextureRect" unique_id=1904264646]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ebkff")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_j848g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6imcs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b5qxe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ufwgy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rxiow")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ptcfw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jn0ri")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eq2cu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cwqj4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lenev")
