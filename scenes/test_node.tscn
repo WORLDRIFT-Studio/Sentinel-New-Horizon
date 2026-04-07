@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bfna1y6b1fab8"]
+[gd_scene format=3 uid="uid://g4qxupmbxd4d"]
 
 [ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_6uery"]
 
@@ -9,13 +9,17 @@ script = ExtResource("1_6uery")
 
 [node name="Character1" type="OptionButton" parent="." unique_id=529504236]
 layout_mode = 0
-offset_right = 109.0
-offset_bottom = 31.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 112.0
+offset_bottom = 33.0
 
 [node name="Checker" type="OptionButton" parent="." unique_id=2011980546]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
+offset_left = 116.0
+offset_top = 1.0
+offset_right = 217.0
+offset_bottom = 32.0
 item_count = 3
 popup/item_0/text = "name"
 popup/item_0/id = 0
@@ -26,5 +30,32 @@ popup/item_2/id = 2
 
 [node name="Character2" type="OptionButton" parent="." unique_id=1549900935]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
+offset_left = 233.0
+offset_top = 7.0
+offset_right = 265.0
+offset_bottom = 27.0
+
+[node name="CorrectName" type="Label" parent="." unique_id=949623621]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 82.0
+offset_right = 47.0
+offset_bottom = 105.0
+
+[node name="IncorrectName2" type="Label" parent="." unique_id=2054038677]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 83.0
+offset_right = 331.0
+offset_bottom = 106.0
+
+[node name="Button" type="Button" parent="." unique_id=1153048794]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 40.0
+offset_right = 169.0
+offset_bottom = 71.0
+text = "Next
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,30 @@
+[
+	{
+		"category": "DATA_MISSMATCH",
+		"type": "wrong_id",
+		"field": "id",
+		"apply": "break_id_format",
+		"confilcts": []
+	},
+	{
+		"category": "DATA_MISSMATCH",
+		"type": "wrong_name",
+		"field": "name",
+		"apply": "name_difference",
+		"confilcts": []
+	},
+	{
+		"category": "DATA_MISSMATCH",
+		"type": "wrong_surname",
+		"field": "surname",
+		"apply": "surname_difference",
+		"confilcts": []
+	},
+	{
+		"category": "IDENTITY",
+		"type": "wanted",
+		"field": "wanted_db",
+		"apply": "on_wanted_database",
+		"confilcts": []
+	}
+]

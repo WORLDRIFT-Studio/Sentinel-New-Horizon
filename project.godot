@@ -22,7 +22,7 @@ buses/default_bus_layout="uid://doikg5skco0yv"
 
 GameEvents="*uid://dvcpvx6nvxko5"
 SettingsManager="*uid://ckmvkk0cm2uap"
-TransitionScene="*uid://cc13ne0ctrqln"
+TransitionScene="*uid://dm3626wk2of2n"
 
 [display]
 
