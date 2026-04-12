@@ -71,8 +71,8 @@ func _image(category:String) -> String:
 		img_path = "%s/%s" % [path, correct_imgs.pick_random()]
 	return img_path
 
-func _caesar(first:String, second:String, id:String) -> String:
-	var shift:int		= int(id[0]) # izoluje przesuniecie z ID
+func _caesar(first:String, second:String, npc_id:String) -> String:
+	var shift:int		= int(npc_id[0]) # izoluje przesuniecie z ID
 	var f_char:String	= first[0].to_upper() 
 	var s_char:String	= second[0].to_upper()	
 	var output:String	= char((ord(f_char) - 65 + shift) % 26 + 65) + \

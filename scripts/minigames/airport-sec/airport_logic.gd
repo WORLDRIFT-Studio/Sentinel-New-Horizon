@@ -1,8 +1,12 @@
 # Kod wspomagany AI
+# =================
+# Główny skrypt Airport Security
+
 extends Node
 
 #region GlobalScopeVariable
 
+@export	var categories:PackedStringArray
 var list: Array = []
 var current_index: int = 0
 
@@ -34,8 +38,6 @@ var current_index: int = 0
 #endregion
 
 #region AdditionalFunctions
-
-@export	var categories:PackedStringArray =  ['img', 'name', 'surname', 'bday', 'id'] 
 
 func display_current_npc() -> void:
 	var npc: NPC = list[current_index]

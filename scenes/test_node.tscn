@@ -8,6 +8,7 @@
 
 [node name="Node" type="Node" unique_id=360961051]
 script = ExtResource("1_6uery")
+categories = PackedStringArray("img", "name", "surname", "bday", "id")
 
 [node name="Background" type="TextureRect" parent="." unique_id=599378455]
 anchors_preset = 15
@@ -76,12 +77,12 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="ColorRect" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1445294313]
+[node name="Img" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1445294313]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/ColorRect" unique_id=112125345]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img" unique_id=112125345]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,7 +94,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="ImgDocument" type="TextureRect" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/MarginContainer" unique_id=929712909 groups=["img"]]
+[node name="ImgDocument" type="TextureRect" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img/MarginContainer" unique_id=929712909 groups=["img"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -106,18 +107,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Label" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1482911724]
+[node name="Title" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1482911724]
 layout_mode = 2
 text = "Dowód Osobisty"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=532556501]
+[node name="Name" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=532556501]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel" unique_id=1488157369]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name" unique_id=1488157369]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -129,7 +130,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="NameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer" unique_id=213342157 groups=["name"]]
+[node name="NameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name/MarginContainer" unique_id=213342157 groups=["name"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -137,12 +138,12 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=186121469]
+[node name="Surname" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=186121469]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2" unique_id=1182843758]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname" unique_id=1182843758]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -154,7 +155,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="SurnameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer" unique_id=794129647 groups=["surname"]]
+[node name="SurnameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname/MarginContainer" unique_id=794129647 groups=["surname"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -162,12 +163,12 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="Panel3" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=356939218]
+[node name="Bday" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=356939218]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3" unique_id=1273767628]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday" unique_id=1273767628]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,7 +180,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="BdayDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3/MarginContainer" unique_id=1174085971 groups=["bday"]]
+[node name="BdayDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday/MarginContainer" unique_id=1174085971 groups=["bday"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -187,12 +188,12 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="Panel4" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1075700028]
+[node name="ID" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1075700028]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4" unique_id=444999836]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID" unique_id=444999836]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,7 +205,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="IdDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4/MarginContainer" unique_id=56944457 groups=["id"]]
+[node name="IdDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID/MarginContainer" unique_id=56944457 groups=["id"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -241,12 +242,12 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="ColorRect" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1043033321]
+[node name="Img" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1043033321]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/ColorRect" unique_id=1314561493]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/Img" unique_id=1314561493]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,7 +259,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="ImgPassport" type="TextureRect" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/MarginContainer" unique_id=997150013 groups=["img"]]
+[node name="ImgPassport" type="TextureRect" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/Img/MarginContainer" unique_id=997150013 groups=["img"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -271,18 +272,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Label" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=467325414]
+[node name="Title" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=467325414]
 layout_mode = 2
 text = "Paszport Obywatelski"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1781822052]
+[node name="Name" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1781822052]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel" unique_id=224794177]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name" unique_id=224794177]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -294,7 +295,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="NamePassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer" unique_id=352115352 groups=["name"]]
+[node name="NamePassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name/MarginContainer" unique_id=352115352 groups=["name"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -302,12 +303,12 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=17035532]
+[node name="Surname" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=17035532]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2" unique_id=1857484071]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname" unique_id=1857484071]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -319,7 +320,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="SurnamePassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer" unique_id=245433744 groups=["surname"]]
+[node name="SurnamePassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname/MarginContainer" unique_id=245433744 groups=["surname"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -327,12 +328,12 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="Panel3" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=518956353]
+[node name="Bday" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=518956353]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3" unique_id=1092883572]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday" unique_id=1092883572]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -344,7 +345,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="BdayPassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3/MarginContainer" unique_id=265031763 groups=["bday"]]
+[node name="BdayPassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday/MarginContainer" unique_id=265031763 groups=["bday"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -352,12 +353,12 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="Panel4" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=978369910]
+[node name="ID" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=978369910]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_l3ryl")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4" unique_id=602472325]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID" unique_id=602472325]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -369,7 +370,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="IdPassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4/MarginContainer" unique_id=808671867 groups=["id"]]
+[node name="IdPassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID/MarginContainer" unique_id=808671867 groups=["id"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
