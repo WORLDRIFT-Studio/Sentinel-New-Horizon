@@ -25,11 +25,9 @@ corner_radius_bottom_left = 5
 [sub_resource type="ImageTexture" id="ImageTexture_lnjle"]
 
 [node name="Panel" type="Panel" unique_id=1830987935]
-custom_minimum_size = Vector2(0, 66)
-offset_right = 588.0
+custom_minimum_size = Vector2(0, 50)
+offset_right = 542.0
 offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_7xf5k")
 script = ExtResource("1_lbu2j")
 
@@ -54,7 +52,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 3.0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Lorem ipsum:"
 
 [node name="TrueBox" type="CheckBox" parent="MarginContainer/HBoxContainer" unique_id=2001511221]

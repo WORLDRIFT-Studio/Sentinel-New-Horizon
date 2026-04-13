@@ -408,7 +408,7 @@ theme_override_constants/margin_bottom = 15
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CheckboxList/MarginContainer" unique_id=1404869316]
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="Control/CheckboxList/MarginContainer/VBoxContainer" unique_id=1761879440 node_paths=PackedStringArray("childrens_parent")]
+[node name="LineEdit" type="LineEdit" parent="Control/CheckboxList/MarginContainer/VBoxContainer" unique_id=1761879440 node_paths=PackedStringArray("no_data", "childrens_parent")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
@@ -416,12 +416,23 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
 placeholder_text = "Wyszukaj..."
 max_length = 32
 script = ExtResource("6_14rh7")
+no_data = NodePath("../ScrollContainer/Label")
 childrens_parent = NodePath("../ScrollContainer/VBoxContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/CheckboxList/MarginContainer/VBoxContainer" unique_id=1025046969]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.15
+
+[node name="Label" type="Label" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1014381807]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.288518, 0.28851798, 0.28851798, 1)
+text = "Brak danych..."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer" unique_id=760664736]
 clip_contents = true
@@ -454,6 +465,11 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne ID:"
 
+[node name="Panel6" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=915468289 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Poszukiwany:"
+
 [node name="Wanted" type="Panel" parent="Control" unique_id=1977829117]
 layout_mode = 1
 anchors_preset = -1
@@ -477,10 +493,39 @@ theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/Wanted/MarginContainer" unique_id=1145409879]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer" unique_id=1781528145]
+clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer/ScrollContainer" unique_id=1781528145]
+[node name="LineEdit" type="LineEdit" parent="Control/Wanted/MarginContainer/VBoxContainer" unique_id=1396785014 node_paths=PackedStringArray("no_data", "childrens_parent")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
+placeholder_text = "Wyszukaj..."
+max_length = 32
+script = ExtResource("6_14rh7")
+no_data = NodePath("../ScrollContainer/Label")
+childrens_parent = NodePath("../ScrollContainer/VBoxContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Wanted/MarginContainer/VBoxContainer" unique_id=524865415]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.15
+
+[node name="Label" type="Label" parent="Control/Wanted/MarginContainer/VBoxContainer/ScrollContainer" unique_id=645256873]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.288518, 0.28851798, 0.28851798, 1)
+text = "Brak danych..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer/VBoxContainer/ScrollContainer" unique_id=945450466]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -488,12 +533,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Control" unique_id=229316031]
 layout_mode = 0
-offset_left = 696.0
-offset_top = 155.0
-offset_right = 745.0
-offset_bottom = 186.0
+offset_left = 386.0
+offset_right = 435.0
+offset_bottom = 31.0
 action_mode = 0
 text = "NEXT"
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
+[connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
