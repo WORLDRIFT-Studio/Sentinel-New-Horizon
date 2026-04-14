@@ -9,6 +9,10 @@ extends Node
 @export	var categories:PackedStringArray
 var list: Array = []
 var current_index: int = 0
+var playerAccept: Array
+var playerReject: Array
+var accept: Array
+var reject: Array
 
 #endregion 
 
@@ -39,7 +43,7 @@ var current_index: int = 0
 
 #region AdditionalFunctions
 
-func display_current_npc() -> void:
+func display_next_npc() -> void:
 	var npc: NPC = list[current_index]
 	for category in categories:
 		_load_category(npc, category)
@@ -62,15 +66,25 @@ func _load_category(character:NPC, category:Variant) -> void:
 	else:
 		for node in group_nodes:
 			node.text = character.get(category)
-		
+	
+func _return_npc() -> NPC:
+	var npc:NPC = list[current_index]
+	return npc
 #endregion
 
 
 func _ready() -> void:
 	#load_game_data()
 	list = generate_list(10)
-	display_current_npc()
+	display_next_npc()
 
-func _on_button_pressed() -> void:
+func _on_accept_pressed() -> void:
 	current_index = (current_index + 1) % list.size()
-	display_current_npc()
+	playerAccept.append(current_index)
+	display_next_npc()
+
+
+func _on_reject_pressed() -> void:
+	current_index = (current_index + 1) % list.size()
+	playerReject.append(current_index)
+	display_next_npc()

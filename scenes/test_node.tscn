@@ -587,4 +587,5 @@ text = "Odrzuć"
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
-[connection signal="pressed" from="Control/Accept" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Control/Reject" to="." method="_on_reject_pressed"]
