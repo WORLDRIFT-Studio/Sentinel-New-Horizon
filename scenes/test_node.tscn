@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://g4qxupmbxd4d"]
+[gd_scene format=3 uid="uid://bfna1y6b1fab8"]
 
 [ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_6uery"]
 [ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_wvxne"]
 [ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="3_dlrc4"]
 [ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="4_l3ryl"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="5_14rh7"]
-[ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scenes/search.gd" id="6_14rh7"]
+[ext_resource type="Script" path="res://scenes/search.gd" id="6_14rh7"]
 [ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="6_l3ryl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
@@ -14,6 +14,32 @@ border_width_bottom = 2
 border_color = Color(0, 0.9019608, 0.62352943, 1)
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t2ka"]
+bg_color = Color(0.22352941, 0.22352941, 0.32941177, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4562322, 0.93048644, 0.9999998, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14rh7"]
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4562322, 0.93048644, 0.9999998, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
 
 [node name="Node" type="Node" unique_id=360961051]
 script = ExtResource("1_6uery")
@@ -37,10 +63,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -181.00006
-offset_top = -231.47736
-offset_right = 372.25537
-offset_bottom = 937.4778
+offset_left = -171.00006
+offset_top = -216.0
+offset_right = 382.25537
+offset_bottom = 952.9551
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6759989, 0.6759989)
@@ -531,14 +557,34 @@ layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Control" unique_id=229316031]
+[node name="Accept" type="Button" parent="Control" unique_id=229316031]
 layout_mode = 0
-offset_left = 386.0
-offset_right = 435.0
-offset_bottom = 31.0
+offset_left = 583.0
+offset_top = 955.0
+offset_right = 948.0
+offset_bottom = 1046.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("3_dlrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
 action_mode = 0
-text = "NEXT"
+text = "Potwierdź"
+
+[node name="Reject" type="Button" parent="Control" unique_id=1330136753]
+layout_mode = 0
+offset_left = 962.0
+offset_top = 953.0
+offset_right = 1327.0
+offset_bottom = 1044.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("3_dlrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
+action_mode = 0
+text = "Odrzuć"
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Accept" to="." method="_on_button_pressed"]
