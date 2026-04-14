@@ -1,10 +1,5 @@
 [
 	{
-		"type": "wrong_id",
-		"field": "id",
-		"confilcts": []
-	},
-	{
 		"type": "wrong_name",
 		"field": "name",
 		"confilcts": []
@@ -12,11 +7,6 @@
 	{
 		"type": "wrong_surname",
 		"field": "surname",
-		"confilcts": []
-	},
-	{
-		"type": "wanted",
-		"field": "wanted_db",
 		"confilcts": []
 	}
 ]

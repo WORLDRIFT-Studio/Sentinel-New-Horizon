@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://bfna1y6b1fab8"]
+[gd_scene format=3 uid="uid://g4qxupmbxd4d"]
 
 [ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_6uery"]
 [ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_wvxne"]
 [ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="3_dlrc4"]
 [ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="4_l3ryl"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="5_14rh7"]
-[ext_resource type="Script" path="res://scenes/search.gd" id="6_14rh7"]
+[ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scenes/search.gd" id="6_14rh7"]
 [ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="6_l3ryl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
@@ -584,6 +584,20 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
 action_mode = 0
 text = "Odrzuć"
+
+[node name="Debug" type="Label" parent="Control" unique_id=1573123637]
+layout_mode = 0
+offset_left = 1474.0
+offset_top = 672.0
+offset_right = 1823.0
+offset_bottom = 993.0
+
+[node name="Debug2" type="Label" parent="Control" unique_id=1979112516]
+layout_mode = 0
+offset_left = 1474.0
+offset_top = 672.0
+offset_right = 1823.0
+offset_bottom = 993.0
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
