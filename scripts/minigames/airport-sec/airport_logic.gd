@@ -33,7 +33,7 @@ var reject: Array = []
 func display_next_npc() -> void:
 	var npc: NPC = list[current_index]
 	for category in categories:
-		_load_category(npc, category)
+		load_category(npc, category)
 	
 func generate_list(count: int) -> Array:
 	var npc_list: Array = []
@@ -44,22 +44,26 @@ func generate_list(count: int) -> Array:
 		npc_list.append(npc)
 	return npc_list
 
-func _load_category(character:NPC, category:Variant) -> void:
-	var group_nodes:Array[Node]
-	group_nodes = get_tree().get_nodes_in_group(category)
+func load_category(character:NPC, category:Variant, last:bool = false) -> void:
+	var group_nodes:Array[Node] = []
+	if not last:
+		group_nodes = get_tree().get_nodes_in_group(category)
+			
+		if category == 'img':
+			for node in group_nodes:
+				node.texture = load(character.img)
+		else:
+			for node in group_nodes:
+				node.text = character.get(category)
 		
-	if category == 'img':
-		for node in group_nodes:
-			node.texture = load(character.img)
+		load_anomalies(character, category, group_nodes)
 	else:
-		for node in group_nodes:
-			node.text = character.get(category)
-	
-	_load_anomalies(character, category, group_nodes)
-
+		pass
+		
+		
 					
 		
-func _return_npc() -> NPC:
+func return_npc() -> NPC:
 	var npc:NPC = list[current_index]
 	return npc
 #endregion
@@ -71,23 +75,24 @@ func _ready() -> void:
 	display_next_npc()
 
 func _on_accept_pressed() -> void:
-	current_index = (current_index + 1) % list.size()
+	current_index += 1
 	playerAccept.append(current_index)
 	display_next_npc()
 
 func _on_reject_pressed() -> void:
-	current_index = (current_index + 1) % list.size()
+	current_index += 1 
+	if list[current_index] == list[-1]:
+		pass
 	playerReject.append(current_index)
 	display_next_npc()
 
-func _load_anomalies(character: NPC, category: String, group: Array) -> void:
+func load_anomalies(character: NPC, category: String, group: Array) -> void:
 	if category in character.anomalies and anomaly_methods.has(category):
 		if group.is_empty(): 
 			return
 			
 		var node = group.pick_random()
 		if category != "img":
-			# Upewniamy się, że metoda istnieje w NPC przed wywołaniem
 			if character.has_method(anomaly_methods[category]):
 				var ntext = character.call(anomaly_methods[category])
 				node.text = str(ntext)
