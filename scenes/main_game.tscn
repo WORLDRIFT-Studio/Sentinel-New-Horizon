@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cbt4futvdti7b"]
 
-[ext_resource type="Script" uid="uid://dyk7w858jcfaa" path="res://scripts/logic/game.gd" id="1_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://wna4dnyf8t2m" path="res://assets/map/map.png" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://dwdf468ndxmbh" path="res://scripts/logic/camera.gd" id="3_iywne"]
-[ext_resource type="PackedScene" uid="uid://ki70gho6lyw5" path="res://scenes/hud/hud.tscn" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://dyk7w858jcfaa" path="res://scripts/logic/game.gd" id="1_0rdsr"]
+[ext_resource type="Texture2D" uid="uid://wna4dnyf8t2m" path="res://assets/map/map.png" id="2_ipu61"]
+[ext_resource type="Script" uid="uid://dwdf468ndxmbh" path="res://scripts/logic/camera.gd" id="3_ygxny"]
+[ext_resource type="PackedScene" uid="uid://ki70gho6lyw5" path="res://scenes/hud/hud.tscn" id="4_wi4c7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_paxxb"]
 vertices = PackedVector2Array(1130, 628, -770, 628, -770, -432, 1130, -432)
@@ -11,12 +11,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-780, 638, 1140, 638, 1140, -442, -780, -442)])
 
 [node name="Game" type="Node2D" unique_id=211452031]
-script = ExtResource("1_lbhrr")
+script = ExtResource("1_0rdsr")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=35735412]
 position = Vector2(-2604.4446, -1465)
 scale = Vector2(4.712963, 4.712963)
-texture = ExtResource("1_yqjtg")
+texture = ExtResource("2_ipu61")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=508650196]
 unique_name_in_owner = true
@@ -30,9 +30,9 @@ limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
-script = ExtResource("3_iywne")
+script = ExtResource("3_ygxny")
 
-[node name="HUD" parent="Camera" unique_id=1423471652 instance=ExtResource("3_lbhrr")]
+[node name="HUD" parent="Camera" unique_id=1423471652 instance=ExtResource("4_wi4c7")]
 
 [node name="NavigasionArea" type="NavigationRegion2D" parent="." unique_id=1019167563]
 visible = false

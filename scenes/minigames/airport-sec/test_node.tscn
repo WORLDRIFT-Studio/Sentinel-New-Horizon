@@ -1,12 +1,46 @@
 [gd_scene format=3 uid="uid://g4qxupmbxd4d"]
 
-[ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_6uery"]
-[ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_wvxne"]
-[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="3_dlrc4"]
-[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="4_l3ryl"]
-[ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="5_14rh7"]
-[ext_resource type="Script" path="res://scenes/search.gd" id="6_14rh7"]
-[ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="6_l3ryl"]
+[ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_xopce"]
+[ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_qwtxs"]
+[ext_resource type="Shader" uid="uid://dt1pldbiwhlu7" path="res://shaders/runnning-light.gdshader" id="3_qwtxs"]
+[ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="3_r6h2x"]
+[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="4_fe7s4"]
+[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="5_vygrc"]
+[ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scripts/logic/search.gd" id="6_jie5e"]
+[ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="7_f0x35"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6h2x"]
+shader = ExtResource("3_qwtxs")
+shader_parameter/neon_color = Color(0, 1, 0.6901961, 1)
+shader_parameter/speed = 0.59200002812
+shader_parameter/intensity = 3.3530001592675
+shader_parameter/light_width = 0.686000032585
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xopce"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwtxs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6h2x"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 10.0
+content_margin_bottom = 3.0
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 0.8666667)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -41,8 +75,13 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 corner_detail = 20
 
+[sub_resource type="Environment" id="Environment_qwtxs"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
 [node name="Node" type="Node" unique_id=360961051]
-script = ExtResource("1_6uery")
+script = ExtResource("1_xopce")
 categories = PackedStringArray("img", "name", "surname", "bday", "id")
 
 [node name="Background" type="TextureRect" parent="." unique_id=599378455]
@@ -51,31 +90,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_wvxne")
+texture = ExtResource("2_qwtxs")
 expand_mode = 1
 
 [node name="Node" type="Node" parent="." unique_id=1116703107]
 
-[node name="TextureNPC" type="TextureRect" parent="Node" unique_id=1120169704]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -171.00006
-offset_top = -216.0
-offset_right = 382.25537
-offset_bottom = 952.9551
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.6759989, 0.6759989)
-texture = ExtResource("5_14rh7")
-stretch_mode = 5
-
 [node name="SoundNPC" type="AudioStreamPlayer2D" parent="Node" unique_id=1019563585]
 unique_name_in_owner = true
 position = Vector2(179, 109)
+
+[node name="PanelContainer" type="PanelContainer" parent="Node" unique_id=151088593]
+material = SubResource("ShaderMaterial_r6h2x")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -251.0
+offset_top = -916.0
+offset_right = 266.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xopce")
+
+[node name="MarginContainer" type="MarginContainer" parent="Node/PanelContainer" unique_id=1481968186]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Panel" type="PanelContainer" parent="Node/PanelContainer/MarginContainer" unique_id=1527131382]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qwtxs")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureNPC" type="TextureRect" parent="Node/PanelContainer/MarginContainer/Panel" unique_id=1120169704]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_r6h2x")
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="Node/PanelContainer" unique_id=126380988]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+
+[node name="NPCDecorator" type="Label" parent="Node/PanelContainer/MarginContainer2" unique_id=404013398]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_r6h2x")
+text = "Object: Human"
 
 [node name="Control" type="Control" parent="." unique_id=1058752315]
 layout_mode = 3
@@ -89,7 +159,7 @@ offset_left = 40.0
 offset_top = 40.0
 offset_right = 460.0
 offset_bottom = 240.0
-theme_override_styles/panel = ExtResource("3_dlrc4")
+theme_override_styles/panel = ExtResource("4_fe7s4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport" unique_id=606259532]
 layout_mode = 1
@@ -114,7 +184,7 @@ theme_override_constants/separation = 15
 [node name="Img" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1043033321]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/Img" unique_id=1314561493]
 layout_mode = 1
@@ -132,7 +202,7 @@ theme_override_constants/margin_bottom = 8
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("5_14rh7")
+texture = ExtResource("3_r6h2x")
 expand_mode = 1
 stretch_mode = 5
 
@@ -150,7 +220,7 @@ vertical_alignment = 1
 [node name="Name" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1781822052]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name" unique_id=224794177]
 layout_mode = 1
@@ -175,7 +245,7 @@ vertical_alignment = 1
 [node name="Surname" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=17035532]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname" unique_id=1857484071]
 layout_mode = 1
@@ -200,7 +270,7 @@ vertical_alignment = 1
 [node name="Bday" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=518956353]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday" unique_id=1092883572]
 layout_mode = 1
@@ -225,7 +295,7 @@ vertical_alignment = 1
 [node name="ID" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=978369910]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID" unique_id=602472325]
 layout_mode = 1
@@ -253,7 +323,7 @@ offset_left = 40.0
 offset_top = 255.0
 offset_right = 460.0
 offset_bottom = 455.0
-theme_override_styles/panel = ExtResource("3_dlrc4")
+theme_override_styles/panel = ExtResource("4_fe7s4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Document" unique_id=516018702]
 layout_mode = 1
@@ -278,7 +348,7 @@ theme_override_constants/separation = 15
 [node name="Img" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1445294313]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img" unique_id=112125345]
 layout_mode = 1
@@ -296,7 +366,7 @@ theme_override_constants/margin_bottom = 8
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("5_14rh7")
+texture = ExtResource("3_r6h2x")
 expand_mode = 1
 stretch_mode = 5
 
@@ -314,7 +384,7 @@ vertical_alignment = 1
 [node name="Name" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=532556501]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name" unique_id=1488157369]
 layout_mode = 1
@@ -339,7 +409,7 @@ vertical_alignment = 1
 [node name="Surname" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=186121469]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname" unique_id=1182843758]
 layout_mode = 1
@@ -364,7 +434,7 @@ vertical_alignment = 1
 [node name="Bday" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=356939218]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday" unique_id=1273767628]
 layout_mode = 1
@@ -389,7 +459,7 @@ vertical_alignment = 1
 [node name="ID" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1075700028]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("4_l3ryl")
+theme_override_styles/panel = ExtResource("5_vygrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID" unique_id=444999836]
 layout_mode = 1
@@ -417,7 +487,7 @@ offset_left = 40.0
 offset_top = 471.0
 offset_right = 460.0
 offset_bottom = 781.0
-theme_override_styles/panel = ExtResource("3_dlrc4")
+theme_override_styles/panel = ExtResource("4_fe7s4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/CheckboxList" unique_id=1500523530]
 layout_mode = 1
@@ -441,7 +511,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
 placeholder_text = "Wyszukaj..."
 max_length = 32
-script = ExtResource("6_14rh7")
+script = ExtResource("6_jie5e")
 no_data = NodePath("../ScrollContainer/Label")
 childrens_parent = NodePath("../ScrollContainer/VBoxContainer")
 
@@ -466,32 +536,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1830987935 instance=ExtResource("6_l3ryl")]
+[node name="Panel" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1830987935 instance=ExtResource("7_f0x35")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne imię:"
 
-[node name="Panel2" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=882848582 instance=ExtResource("6_l3ryl")]
+[node name="Panel2" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=882848582 instance=ExtResource("7_f0x35")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne nazwisko:"
 
-[node name="Panel3" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1411571234 instance=ExtResource("6_l3ryl")]
+[node name="Panel3" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1411571234 instance=ExtResource("7_f0x35")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne zdjęcie:"
 
-[node name="Panel4" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1892827280 instance=ExtResource("6_l3ryl")]
+[node name="Panel4" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1892827280 instance=ExtResource("7_f0x35")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędna data ur.:"
 
-[node name="Panel5" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=800624701 instance=ExtResource("6_l3ryl")]
+[node name="Panel5" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=800624701 instance=ExtResource("7_f0x35")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne ID:"
 
-[node name="Panel6" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=915468289 instance=ExtResource("6_l3ryl")]
+[node name="Panel6" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=915468289 instance=ExtResource("7_f0x35")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Poszukiwany:"
@@ -504,7 +574,7 @@ anchor_top = 1.0
 anchor_right = 46.775
 anchor_bottom = 14.300001
 offset_bottom = -6.1035156e-05
-theme_override_styles/panel = ExtResource("3_dlrc4")
+theme_override_styles/panel = ExtResource("4_fe7s4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Wanted" unique_id=579393110]
 layout_mode = 1
@@ -532,7 +602,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
 placeholder_text = "Wyszukaj..."
 max_length = 32
-script = ExtResource("6_14rh7")
+script = ExtResource("6_jie5e")
 no_data = NodePath("../ScrollContainer/Label")
 childrens_parent = NodePath("../ScrollContainer/VBoxContainer")
 
@@ -558,13 +628,18 @@ size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Accept" type="Button" parent="Control" unique_id=229316031]
-layout_mode = 0
-offset_left = 583.0
-offset_top = 955.0
-offset_right = 948.0
-offset_bottom = 1046.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.8
+anchor_right = 33.2
+anchor_bottom = 25.6
+offset_left = 80.0
+offset_top = 952.0
+offset_right = -386.0
+offset_bottom = 1.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("3_dlrc4")
+theme_override_styles/normal = ExtResource("4_fe7s4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
 theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
@@ -573,31 +648,20 @@ text = "Potwierdź"
 
 [node name="Reject" type="Button" parent="Control" unique_id=1330136753]
 layout_mode = 0
-offset_left = 962.0
-offset_top = 953.0
-offset_right = 1327.0
-offset_bottom = 1044.0
+offset_left = 976.0
+offset_top = 952.0
+offset_right = 1326.0
+offset_bottom = 1025.0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("3_dlrc4")
+theme_override_styles/normal = ExtResource("4_fe7s4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
 theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
 action_mode = 0
 text = "Odrzuć"
 
-[node name="Debug" type="Label" parent="Control" unique_id=1573123637]
-layout_mode = 0
-offset_left = 1474.0
-offset_top = 672.0
-offset_right = 1823.0
-offset_bottom = 993.0
-
-[node name="Debug2" type="Label" parent="Control" unique_id=1979112516]
-layout_mode = 0
-offset_left = 1474.0
-offset_top = 672.0
-offset_right = 1823.0
-offset_bottom = 993.0
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=891899239]
+environment = SubResource("Environment_qwtxs")
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
