@@ -32,6 +32,13 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwtxs"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6h2x"]
+bg_color = Color(0.10980392, 0.10980392, 0.17254902, 1)
+border_width_top = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 2
@@ -130,10 +137,10 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_qwtxs")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureNPC" type="TextureRect" parent="Node/PanelContainer/MarginContainer/Panel" unique_id=1120169704]
+[node name="TextureNPC" type="TextureRect" parent="Node/PanelContainer/MarginContainer/Panel" unique_id=1120169704 groups=["img"]]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("3_r6h2x")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="Node/PanelContainer" unique_id=126380988]
@@ -144,10 +151,18 @@ theme_override_constants/margin_right = 10
 
 [node name="Control" type="Control" parent="." unique_id=1058752315]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1880.0
-offset_bottom = -1040.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1257644194]
+layout_mode = 0
+offset_top = 880.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6h2x")
 
 [node name="Pasport" type="Panel" parent="Control" unique_id=692023560]
 layout_mode = 0
@@ -156,6 +171,7 @@ offset_top = 40.0
 offset_right = 460.0
 offset_bottom = 240.0
 theme_override_styles/panel = ExtResource("4_fe7s4")
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport" unique_id=606259532]
 layout_mode = 1
@@ -320,6 +336,7 @@ offset_top = 255.0
 offset_right = 460.0
 offset_bottom = 455.0
 theme_override_styles/panel = ExtResource("4_fe7s4")
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Document" unique_id=516018702]
 layout_mode = 1
@@ -480,14 +497,16 @@ vertical_alignment = 1
 [node name="CheckboxList" type="Panel" parent="Control" unique_id=527351674]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 11.775001
-anchor_right = 11.500001
-anchor_bottom = 19.575
+anchor_left = 0.020833334
+anchor_top = 0.45370373
+anchor_right = 0.23958334
+anchor_bottom = 0.712963
 offset_top = -3.0517578e-05
 offset_right = -3.0517578e-05
 offset_bottom = -2.0
 theme_override_styles/panel = ExtResource("4_fe7s4")
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/CheckboxList" unique_id=1500523530]
 layout_mode = 1
@@ -569,12 +588,14 @@ text = "Poszukiwany:"
 [node name="Wanted" type="Panel" parent="Control" unique_id=1977829117]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 36.275
-anchor_top = 1.0
-anchor_right = 46.775
-anchor_bottom = 14.300001
+anchor_left = 0.74583334
+anchor_top = 0.037037037
+anchor_right = 0.9635417
+anchor_bottom = 0.60648155
 offset_bottom = -6.1035156e-05
 theme_override_styles/panel = ExtResource("4_fe7s4")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Wanted" unique_id=579393110]
 layout_mode = 1
@@ -627,24 +648,24 @@ layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=602404991]
+[node name="Buttons" type="VBoxContainer" parent="Control" unique_id=602404991]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 18.0
 anchor_bottom = 1.825
 offset_left = 600.0
 offset_top = 896.0
-offset_right = 600.0
-offset_bottom = 983.0
+offset_right = -33240.0
+offset_bottom = -905.0
 theme_override_constants/separation = 10
 metadata/_edit_group_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1117151756]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Buttons" unique_id=1117151756]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Accept" type="Button" parent="Control/VBoxContainer/HBoxContainer" unique_id=229316031]
+[node name="Accept" type="Button" parent="Control/Buttons/HBoxContainer" unique_id=229316031]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -655,7 +676,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
 action_mode = 0
 text = "Potwierdź"
 
-[node name="Reject" type="Button" parent="Control/VBoxContainer/HBoxContainer" unique_id=1330136753]
+[node name="Reject" type="Button" parent="Control/Buttons/HBoxContainer" unique_id=1330136753]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -666,12 +687,12 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
 action_mode = 0
 text = "Odrzuć"
 
-[node name="Panel" type="Panel" parent="Control/VBoxContainer" unique_id=916820225]
+[node name="Panel" type="Panel" parent="Control/Buttons" unique_id=916820225]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_fe7s4")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/Panel" unique_id=669772398]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Buttons/Panel" unique_id=669772398]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -679,10 +700,97 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/Panel/MarginContainer" unique_id=595377632]
+[node name="Label" type="Label" parent="Control/Buttons/Panel/MarginContainer" unique_id=595377632]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 text = "Pozostało do sprawdzenia: 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndGame" type="Panel" parent="Control" unique_id=1470628606]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -413.0
+offset_right = 360.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("4_fe7s4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/EndGame" unique_id=881580850]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/EndGame/MarginContainer" unique_id=639699463]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Panel" type="Panel" parent="Control/EndGame/MarginContainer/VBoxContainer" unique_id=959063797]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_vygrc")
+
+[node name="Label" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Panel" unique_id=764715293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Minigra ukończona !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Control/EndGame/MarginContainer/VBoxContainer" unique_id=1226064473]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_vygrc")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Panel2" unique_id=1656357075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5803922, 0.5803922, 0.5882353, 1)
+theme_override_font_sizes/font_size = 24
+text = "Kliknij aby zobaczyć raport"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Control/EndGame/MarginContainer/VBoxContainer" unique_id=1237798388]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_vygrc")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Panel3" unique_id=1214281425]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5803922, 0.5803922, 0.5882353, 1)
+theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -691,5 +799,5 @@ environment = SubResource("Environment_qwtxs")
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
-[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Reject" to="." method="_on_reject_pressed"]
+[connection signal="pressed" from="Control/Buttons/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Control/Buttons/HBoxContainer/Reject" to="." method="_on_reject_pressed"]

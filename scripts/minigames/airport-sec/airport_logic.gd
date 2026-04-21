@@ -7,7 +7,9 @@ extends Node
 var anomaly_methods:Dictionary = {
 	"name": "wrong_name",
 	"surname": "wrong_surname",
-	"id": "wrong_id"
+	"id": "wrong_id",
+	"img": "wrong_img",
+	"bday": "wrong_bday"
 }
 
 #region GlobalScopeVariable
@@ -40,9 +42,14 @@ func load_anomalies(character: NPC, category: String, group: Array) -> void:
 			if character.has_method(anomaly_methods[category]):
 				var ntext = character.call(anomaly_methods[category])
 				node.text = str(ntext)
+				
+		if category == "img":
+			if character.has_method(anomaly_methods[category]):
+				node.texture = load(character.call(anomaly_methods["img"]))
 
 func display_next_npc() -> void:
 	var npc: NPC = list[current_index]
+	
 	for category in categories:
 		load_category(npc, category)
 
@@ -76,6 +83,19 @@ func load_category(character:NPC, category:Variant) -> void:
 func return_npc() -> NPC:
 	var npc:NPC = list[current_index]
 	return npc
+	
+func process_decision(is_accsepted:bool) -> void:
+	if is_accsepted:
+		playerAccept.append(current_index)
+	else:
+		playerReject.append(current_index)
+		
+	if current_index >= list.size() - 1:
+		#_show_end_game_popup()
+		pass
+	else:
+		current_index += 1
+		display_next_npc()
 #endregion
 
 
@@ -88,6 +108,7 @@ func _on_accept_pressed() -> void:
 	current_index += 1
 	playerAccept.append(current_index)
 	display_next_npc()
+	
 
 func _on_reject_pressed() -> void:
 	if current_index % list.size() == 1:

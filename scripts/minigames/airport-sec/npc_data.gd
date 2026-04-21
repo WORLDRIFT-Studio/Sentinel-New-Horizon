@@ -29,11 +29,6 @@ var _option:Array	= ["male", "female", "neutral"]
 
 var category:String
 
-func string() -> String:
-	return "NPC %s %s, bday: %s, id: %s, anomalies: %s" % [
-		name, surname, bday, id, anomalies
-	]
-	
 
 func generate_npc() -> void:
 		category = _option.pick_random()
@@ -91,7 +86,7 @@ func _caesar(first:String, second:String, npc_id:String) -> String:
 	
 func _anomaly() -> Array:
 	var result_list: Array = []
-	var pool: Array = ["name", "surname", "id"]
+	var pool: Array = ["name", "surname", "id", "bday", "img"]
 	if randf() < 0.35:
 		var count = randi_range(1, 2) # Zmieniono na 1-2, żeby nie slice'ować 0
 		pool.shuffle()
@@ -112,7 +107,41 @@ func wrong_surname() -> String:
 	var filtered_surnames = all_surnames.filter(func(s): return s != surname)
 	return filtered_surnames.pick_random()
 	
-func wrong_id() -> String: # USUNIĘTO ARGUMENT, aby pasował do reszty
+func wrong_id() -> String: 
 	return id.substr(0, id.length() - 1) + str(randi_range(0,9)) + "X"
+
+#region AnomalyFunctions
+
+func wrong_img() -> String:
+	var path = "res://assets/assets/airport-sec/npc/"
+	if category == 'male' || category == 'female':
+		path += category
+	else:
+		path = img.get_base_dir()
+	
+	var dir = DirAccess.open(path)
+	var all_files = dir.get_files()
+	var valid_imgs: Array[String] = []
+	
+	for f in all_files:
+		var full_path = path + "/" + f
+		if f.ends_with(".png") and full_path != img:
+			valid_imgs.append(full_path)
+	
+	if valid_imgs.is_empty():
+		return img 
+		
+	return valid_imgs.pick_random()
+
+func wrong_bday() -> String:
+	var new_bday = ""
+	while true:
+		var year = randi_range(1970, 2005)
+		var month = randi_range(1, 12)
+		var day = randi_range(1, 28)
+		new_bday = "%d.%d.%d" % [day, month, year]
+		if new_bday != bday:
+			break
+	return new_bday
 
 #endregion
