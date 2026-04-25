@@ -88,3 +88,11 @@ func _on_reject_pressed() -> void:
 	current_index = (current_index + 1) % list.size()
 	playerReject.append(current_index)
 	display_next_npc()
+
+#============================NOWE==================================#
+@onready var wanted_panel = $Control/Wanted  # ścieżka do Listów gończych. I guess
+
+func _on_new_npc_spawned() -> void:
+	var npc = NPC.new()
+	npc.generate_npc()
+	wanted_panel.load_npc(npc)   # przekazujesz gotowego typka do panelu

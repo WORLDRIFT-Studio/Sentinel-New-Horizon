@@ -508,9 +508,9 @@ theme_override_styles/panel = ExtResource("3_dlrc4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Wanted" unique_id=579393110]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.46804512
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 15
@@ -530,7 +530,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
-placeholder_text = "Wyszukaj..."
+placeholder_text = "    ID"
 max_length = 32
 script = ExtResource("6_14rh7")
 no_data = NodePath("../ScrollContainer/Label")
@@ -552,6 +552,58 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer/VBoxContainer/ScrollContainer" unique_id=945450466]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/Wanted" unique_id=62767531]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.49624062
+anchor_right = 1.0
+anchor_bottom = 0.96428573
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer2" unique_id=238650702]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="Control/Wanted/MarginContainer2/VBoxContainer" unique_id=997642423 node_paths=PackedStringArray("no_data", "childrens_parent")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
+placeholder_text = "    Imię"
+max_length = 32
+script = ExtResource("6_14rh7")
+no_data = NodePath("../ScrollContainer/Label")
+childrens_parent = NodePath("../ScrollContainer/VBoxContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Wanted/MarginContainer2/VBoxContainer" unique_id=1255514845]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.15
+
+[node name="Label" type="Label" parent="Control/Wanted/MarginContainer2/VBoxContainer/ScrollContainer" unique_id=511367142]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.288518, 0.28851798, 0.28851798, 1)
+text = "Brak danych..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer2/VBoxContainer/ScrollContainer" unique_id=129273084]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -587,5 +639,6 @@ text = "Odrzuć"
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
+[connection signal="text_changed" from="Control/Wanted/MarginContainer2/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer2/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="pressed" from="Control/Accept" to="." method="_on_accept_pressed"]
 [connection signal="pressed" from="Control/Reject" to="." method="_on_reject_pressed"]

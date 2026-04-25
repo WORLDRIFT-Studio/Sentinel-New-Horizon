@@ -14,6 +14,8 @@ var bday:		String
 var id:			String
 var anomalies:	Array
 var debug:		int
+var is_wanted:  bool      # NOWE
+var wanted_by:  String    # NOWE
 #endregion
 
 #region ZmiennePlików
@@ -45,6 +47,10 @@ func generate_npc() -> void:
 		id		= _caesar(name, surname, bday)
 		anomalies	= _anomaly()
 		img = _image(category)
+		#====================================NOWE====================================#
+		is_wanted = randf() < 0.10
+		if is_wanted:
+			wanted_by = ["name", "id"].pick_random()
 #endregion
 
 #region FunkcjePomocnicze
