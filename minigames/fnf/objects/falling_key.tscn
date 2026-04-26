@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://ehgfto65bnay"]
-
-[ext_resource type="Texture2D" uid="uid://bdaay7v0wkyk1" path="res://minigames/fnf/art/arrows.webp" id="1_1sbte"]
-
-[node name="FallingKey" type="Sprite2D" unique_id=153922898]
-texture = ExtResource("1_1sbte")
-hframes = 4
-vframes = 3
-frame = 4
