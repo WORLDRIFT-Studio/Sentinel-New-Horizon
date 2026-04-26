@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhd4ryxvlopo"
-path="res://.godot/imported/helicopter.svg-ec1b2ee8d2494d8ee6bd0f1a0bd39e2b.ctex"
+uid="uid://bvaomsxmwcm4x"
+path="res://.godot/imported/button-shop-n.png-3483740cf059f6a70ab29dea0b104d10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/helicopter.svg"
-dest_files=["res://.godot/imported/helicopter.svg-ec1b2ee8d2494d8ee6bd0f1a0bd39e2b.ctex"]
+source_file="res://assets/icons/shop/button-shop-n.png"
+dest_files=["res://.godot/imported/button-shop-n.png-3483740cf059f6a70ab29dea0b104d10.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

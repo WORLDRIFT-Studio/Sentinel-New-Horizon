@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://40oiyiorr1m2"
-path="res://.godot/imported/marker-green.svg-ea49569b0d40e1f8ec3b05e4836f822b.ctex"
+uid="uid://2jnafo5nueky"
+path="res://.godot/imported/button-settings-n.png-47310ab4eec4878d01bbcb5018ee891f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/marker-green.svg"
-dest_files=["res://.godot/imported/marker-green.svg-ea49569b0d40e1f8ec3b05e4836f822b.ctex"]
+source_file="res://assets/icons/settings/button-settings-n.png"
+dest_files=["res://.godot/imported/button-settings-n.png-47310ab4eec4878d01bbcb5018ee891f.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

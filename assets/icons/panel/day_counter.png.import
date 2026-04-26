@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eoiy7i2cvwrt"
-path="res://.godot/imported/clock_over.png-a9f55f5d49f013745f9e9d87091e10bc.ctex"
+uid="uid://cuq5rwty4if6i"
+path="res://.godot/imported/day_counter.png-da1201ee69231a085a0f170efc30acea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/icons/panel/clock_over.png"
-dest_files=["res://.godot/imported/clock_over.png-a9f55f5d49f013745f9e9d87091e10bc.ctex"]
+source_file="res://assets/icons/panel/day_counter.png"
+dest_files=["res://.godot/imported/day_counter.png-da1201ee69231a085a0f170efc30acea.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://scbdubmnau0o"]
 
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
-[ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/assets/icons/popup/popup_menu.png" id="2_lwwgp"]
-[ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_bgjg7"]
+[ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/icons/popup/popup_menu.png" id="2_lwwgp"]
+[ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/icons/popup/popup_exit.png" id="3_bgjg7"]
 [ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/settings/exit_button.gd" id="4_48ojb"]
 [ext_resource type="PackedScene" uid="uid://btw8v5y6p1lxx" path="res://scenes/hud/checkbox.tscn" id="5_48ojb"]
 [ext_resource type="PackedScene" uid="uid://6piwt5qyj171" path="res://scenes/hud/volume-slider.tscn" id="5_lwwgp"]

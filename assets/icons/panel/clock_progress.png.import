@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://canbf42h6bhln"
-path="res://.godot/imported/settings-volume-decorations.png-8d5f6da7093ddd314805e18e8bf2d836.ctex"
+uid="uid://clt0g8yagviwg"
+path="res://.godot/imported/clock_progress.png-c8944abab48e8fb245b7afbe5edc24fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/icons/settings/settings-volume-decorations.png"
-dest_files=["res://.godot/imported/settings-volume-decorations.png-8d5f6da7093ddd314805e18e8bf2d836.ctex"]
+source_file="res://assets/icons/panel/clock_progress.png"
+dest_files=["res://.godot/imported/clock_progress.png-c8944abab48e8fb245b7afbe5edc24fc.ctex"]
 
 [params]
 

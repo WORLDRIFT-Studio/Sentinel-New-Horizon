@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dwe1tmvabubx8"]
+
+[ext_resource type="PackedScene" uid="uid://bchepewbw13n" path="res://minigames/fnf/objects/key_listener.tscn" id="1_gs3by"]
+
+[node name="GameLevel" type="Node2D" unique_id=1482176590]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=645204990]
+
+[node name="KeyListener" parent="." unique_id=266001423 instance=ExtResource("1_gs3by")]
+position = Vector2(-120, 280)
+key_name = "button_A"
+
+[node name="KeyListener2" parent="." unique_id=1200679754 instance=ExtResource("1_gs3by")]
+position = Vector2(-40, 280)
+frame = 1
+key_name = "button_S"
+
+[node name="KeyListener3" parent="." unique_id=1523276091 instance=ExtResource("1_gs3by")]
+position = Vector2(40, 280)
+frame = 2
+key_name = "button_W"
+
+[node name="KeyListener4" parent="." unique_id=1737561633 instance=ExtResource("1_gs3by")]
+position = Vector2(120, 280)
+frame = 3
+key_name = "button_D"

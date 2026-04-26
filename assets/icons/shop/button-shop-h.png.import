@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clt0g8yagviwg"
-path="res://.godot/imported/clock_progress.png-621e68c521d87452b8d568877acbe370.ctex"
+uid="uid://8owvvblbu6i0"
+path="res://.godot/imported/button-shop-h.png-35315601cab2305fbb6033fb84318b07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/icons/panel/clock_progress.png"
-dest_files=["res://.godot/imported/clock_progress.png-621e68c521d87452b8d568877acbe370.ctex"]
+source_file="res://assets/icons/shop/button-shop-h.png"
+dest_files=["res://.godot/imported/button-shop-h.png-35315601cab2305fbb6033fb84318b07.ctex"]
 
 [params]
 

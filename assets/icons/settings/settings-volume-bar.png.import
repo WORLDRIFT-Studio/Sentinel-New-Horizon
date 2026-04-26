@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhkyimepundcf"
-path="res://.godot/imported/rain.png-2adc31274d8b0d640ee548cf99db2192.ctex"
+uid="uid://cwr23nxvmrdy2"
+path="res://.godot/imported/settings-volume-bar.png-16b316681f887fc0d39349930104602f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/rain.png"
-dest_files=["res://.godot/imported/rain.png-2adc31274d8b0d640ee548cf99db2192.ctex"]
+source_file="res://assets/icons/settings/settings-volume-bar.png"
+dest_files=["res://.godot/imported/settings-volume-bar.png-16b316681f887fc0d39349930104602f.ctex"]
 
 [params]
 

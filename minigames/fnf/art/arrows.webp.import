@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8owvvblbu6i0"
-path="res://.godot/imported/button-shop-h.png-7b5cade5976e375f79b6f49e45ba6486.ctex"
+uid="uid://bdaay7v0wkyk1"
+path="res://.godot/imported/arrows.webp-ec1869c84ad2a2299de0467d2a13e5d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/icons/shop/button-shop-h.png"
-dest_files=["res://.godot/imported/button-shop-h.png-7b5cade5976e375f79b6f49e45ba6486.ctex"]
+source_file="res://minigames/fnf/art/arrows.webp"
+dest_files=["res://.godot/imported/arrows.webp-ec1869c84ad2a2299de0467d2a13e5d6.ctex"]
 
 [params]
 
