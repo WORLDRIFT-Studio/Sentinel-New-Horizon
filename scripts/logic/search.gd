@@ -1,28 +1,39 @@
+# Kod wspomagany AI
+# =================
+# Skrypt wyszuwkiwarki
+
 extends LineEdit
 
-@export var no_data:Label
-@export var childrens_parent:Node
+@export var no_data: Label           # Label "Brak wyników"
+@export var childrens_parent: Node    # VBoxContainer z wpisami
 
 func _on_text_changed(new_text: String) -> void:
-	new_text.to_lower()
+	var search_term = new_text.strip_edges().to_lower()
 	
-	if new_text == "":
-		for child in childrens_parent.get_children():
-			child.visible = true
-	
-	else:
-		for child in childrens_parent.get_children():
-			var label = child.get_node("MarginContainer/HBoxContainer/Label")
-			var option_text = label.text.to_lower()
-			
-			child.visible = option_text.contains(new_text)
-			
+	if search_term == "":
+		_set_all_visible(true)
+		no_data.visible = false
+		return
+
 	var any_visible = false
-	
+
 	for child in childrens_parent.get_children():
-		if child.visible:
+		var is_match = _check_match(child, search_term)
+		child.visible = is_match
+		
+		if is_match:
 			any_visible = true
 
 	no_data.visible = !any_visible
 
+func _check_match(item: Node, term: String) -> bool:
+	for label in item.find_children("*", "Label", true, false):
+		if label.text.to_lower().contains(term):
+			return true
 			
+	return false
+# Skrytpt wyszukwiarki
+
+func _set_all_visible(state: bool) -> void:
+	for child in childrens_parent.get_children():
+		child.visible = state

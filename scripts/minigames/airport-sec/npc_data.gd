@@ -20,8 +20,6 @@ var debug:		int
 var _path_to_data 	= "res://assets/resources/person_data.json"
 var _data_file 		= FileAccess.open(_path_to_data, FileAccess.READ)
 var _data:Dictionary= JSON.parse_string(_data_file.get_as_text())
-var _anomalies_file = FileAccess.open("res://assets/resources/anomalies.json", FileAccess.READ)
-var _anomalies:Array = JSON.parse_string(_anomalies_file.get_as_text())
 var _option:Array	= ["male", "female", "neutral"]
 #endregion
 
@@ -86,9 +84,9 @@ func _caesar(first:String, second:String, npc_id:String) -> String:
 	
 func _anomaly() -> Array:
 	var result_list: Array = []
-	var pool: Array = ["name", "surname", "id", "bday", "img"]
-	if randf() < 0.35:
-		var count = randi_range(1, 2) # Zmieniono na 1-2, żeby nie slice'ować 0
+	var pool: Array = ["name", "surname", "id", "bday", "img", "wanted"]
+	if randf() < 0.55:
+		var count = randi_range(1, pool.size() + 1) # Zmieniono na 1-2, żeby nie slice'ować 0
 		pool.shuffle()
 		result_list = pool.slice(0, count)
 	return result_list

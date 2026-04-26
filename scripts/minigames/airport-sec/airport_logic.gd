@@ -4,13 +4,6 @@
 
 extends Node
 
-var anomaly_methods:Dictionary = {
-	"name": "wrong_name",
-	"surname": "wrong_surname",
-	"id": "wrong_id",
-	"img": "wrong_img",
-	"bday": "wrong_bday"
-}
 
 #region GlobalScopeVariable
 
@@ -21,7 +14,15 @@ var playerAccept: Array = []
 var playerReject: Array = []
 var accept: Array = []
 var reject: Array = []
-
+var anomaly_methods:Dictionary = {
+	"name": "wrong_name",
+	"surname": "wrong_surname",
+	"id": "wrong_id",
+	"img": "wrong_img",
+	"bday": "wrong_bday",
+}
+@export var wanted_conatiner: VBoxContainer
+@export var wanted_template: PackedScene
 #endregion 
 
 #region NPC
@@ -31,7 +32,43 @@ var reject: Array = []
 #endregion
 
 #region AdditionalFunctions
+func shuffle_list() -> void:
+	var temp = wanted_conatiner.get_children()
+	temp.shuffle()
+	for i in range(temp.size()):
+		wanted_conatiner.move_child(temp[i], i)
 
+func gen_wanted_list() -> void:
+	var number = randi_range(20, 40)
+	for num in range(number):
+		gen_wanted_filler()
+
+	for npc:NPC in list:
+		if npc.anomalies.has("wanted"):
+			gen_wanted_anomalie(npc)
+			
+	shuffle_list()
+			
+func gen_wanted_filler() -> void:
+	var data = NPC.new()
+	data.generate_npc()
+	var instance = wanted_template.instantiate()
+	instance.get_node("%WantedName").text = data.name
+	instance.get_node("%WantedSurname").text = data.surname
+	instance.get_node("%WantedId").text = data.id
+	instance.get_node("%WantedImg").texture = load(data.img)
+	wanted_conatiner.add_child(instance)
+	
+	
+func gen_wanted_anomalie(npc:NPC) -> void:
+	var instance = wanted_template.instantiate()
+	instance.get_node("%WantedName").text = npc.name
+	instance.get_node("%WantedSurname").text = npc.surname
+	instance.get_node("%WantedId").text = npc.id
+	instance.get_node("%WantedImg").texture = load(npc.img)
+	wanted_conatiner.add_child(instance)	
+	
+	
 func load_anomalies(character: NPC, category: String, group: Array) -> void:
 	if category in character.anomalies and anomaly_methods.has(category):
 		if group.is_empty(): 
@@ -52,10 +89,6 @@ func display_next_npc() -> void:
 	
 	for category in categories:
 		load_category(npc, category)
-
-func last_npc() -> void:
-	
-	pass
 
 func generate_list(count: int) -> Array:
 	var npc_list: Array = []
@@ -98,17 +131,17 @@ func process_decision(is_accsepted:bool) -> void:
 		display_next_npc()
 #endregion
 
-
+#region Main
 func _ready() -> void:
 	#load_game_data()
 	list = generate_list(10)
+	gen_wanted_list()
 	display_next_npc()
 
 func _on_accept_pressed() -> void:
 	current_index += 1
 	playerAccept.append(current_index)
 	display_next_npc()
-	
 
 func _on_reject_pressed() -> void:
 	if current_index % list.size() == 1:
@@ -117,3 +150,4 @@ func _on_reject_pressed() -> void:
 		current_index += 1 		
 		playerReject.append(current_index)
 		display_next_npc()
+#endregion
