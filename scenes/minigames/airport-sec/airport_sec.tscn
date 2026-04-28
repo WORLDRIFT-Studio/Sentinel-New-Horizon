@@ -4,12 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_f3nuu"]
 [ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="3_btq6p"]
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="4_e547k"]
-[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="5_hwgkw"]
 [ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="6_6dwx7"]
+[ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="6_e547k"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="7_evfw4"]
 [ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="9_1swfa"]
-[ext_resource type="AudioStream" uid="uid://ii2bcmit4yqe" path="res://assets/sounds/clock.mp3" id="11_btq6p"]
+[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="11_btq6p"]
+[ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="11_e547k"]
 [ext_resource type="PackedScene" uid="uid://d3lkapn6bmnll" path="res://scenes/minigames/airport-sec/wanted_block.tscn" id="11_f3nuu"]
+[ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="11_hwgkw"]
+[ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="12_6dwx7"]
 [ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scripts/logic/search.gd" id="12_btq6p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6h2x"]
@@ -47,32 +50,6 @@ border_color = Color(0, 0.9019608, 0.62352943, 1)
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t2ka"]
-bg_color = Color(0.22352941, 0.22352941, 0.32941177, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.4562322, 0.93048644, 0.9999998, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14rh7"]
-bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.4562322, 0.93048644, 0.9999998, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-corner_detail = 20
-
 [sub_resource type="Environment" id="Environment_qwtxs"]
 background_mode = 3
 glow_enabled = true
@@ -84,7 +61,6 @@ data = PackedByteArray("//vUZAAKhgxuvJMMNfJjKBeVGCN0og3W8q09noFzKaDYYI2YAAWjQZEU
 [node name="Node" type="Node" unique_id=360961051 node_paths=PackedStringArray("wanted_conatiner")]
 process_mode = 1
 script = ExtResource("1_ebq34")
-time_left = 60.0
 categories = PackedStringArray("img", "name", "surname", "bday", "id")
 wanted_conatiner = NodePath("Control/Wanted/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer")
 wanted_template = ExtResource("11_f3nuu")
@@ -181,7 +157,7 @@ offset_left = 40.0
 offset_top = 40.0
 offset_right = 419.68
 offset_bottom = 200.04001
-theme_override_styles/panel = ExtResource("5_hwgkw")
+theme_override_styles/panel = ExtResource("6_e547k")
 metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Pasport" unique_id=606259532]
@@ -349,7 +325,7 @@ offset_left = 40.0
 offset_top = 255.0
 offset_right = 419.68
 offset_bottom = 415.04
-theme_override_styles/panel = ExtResource("5_hwgkw")
+theme_override_styles/panel = ExtResource("6_e547k")
 metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Document" unique_id=516018702]
@@ -517,7 +493,7 @@ offset_left = 40.0
 offset_top = 490.0
 offset_right = 419.68
 offset_bottom = 728.04
-theme_override_styles/panel = ExtResource("5_hwgkw")
+theme_override_styles/panel = ExtResource("6_e547k")
 metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
 
@@ -618,7 +594,7 @@ anchor_top = 0.037037037
 anchor_right = 0.9635417
 anchor_bottom = 0.60648155
 offset_bottom = -6.1035156e-05
-theme_override_styles/panel = ExtResource("5_hwgkw")
+theme_override_styles/panel = ExtResource("6_e547k")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
@@ -694,17 +670,17 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("5_hwgkw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
-theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
+theme_override_styles/normal = ExtResource("6_e547k")
+theme_override_styles/pressed = ExtResource("11_hwgkw")
+theme_override_styles/hover = ExtResource("12_6dwx7")
+theme_override_styles/hover_pressed = ExtResource("11_hwgkw")
 action_mode = 0
 text = "Następny"
 
 [node name="Panel" type="Panel" parent="Control/Buttons" unique_id=916820225]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("5_hwgkw")
+theme_override_styles/panel = ExtResource("6_e547k")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Buttons/Panel" unique_id=669772398]
 layout_mode = 1
@@ -740,7 +716,7 @@ offset_bottom = 328.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/panel = ExtResource("5_hwgkw")
+theme_override_styles/panel = ExtResource("6_e547k")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/EndGame" unique_id=881580850]
 layout_mode = 1
@@ -777,7 +753,6 @@ vertical_alignment = 1
 
 [node name="ClickToShow" type="Panel" parent="Control/EndGame/MarginContainer/VBoxContainer" unique_id=1226064473]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("6_6dwx7")
@@ -798,6 +773,7 @@ vertical_alignment = 1
 
 [node name="Report" type="Panel" parent="Control/EndGame/MarginContainer/VBoxContainer" unique_id=1237798388]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("6_6dwx7")
@@ -810,7 +786,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
@@ -818,21 +794,25 @@ theme_override_constants/margin_bottom = 15
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer" unique_id=1356466127]
 layout_mode = 2
 
-[node name="StatsValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1263226353]
-unique_name_in_owner = true
+[node name="PanelContainer" type="VBoxContainer" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1654914443]
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 32
-text = "Pozostały czas:"
+size_flags_vertical = 3
 
-[node name="TimeBonusValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1332834936]
+[node name="TimeBonusValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1332834936]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Mnożnik czasu: "
 
-[node name="TotalValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1903292786]
+[node name="StatsValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=380124228]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "Bonus:"
+
+[node name="TotalValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1903292786]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
@@ -840,14 +820,23 @@ theme_override_colors/font_color = Color(1, 0.21176471, 0.3137255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Suma punktów:"
 
-[node name="GradeValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1136592783]
+[node name="GradeValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1136592783]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Sprawdzono: "
 
-[node name="SoundStamp" type="AudioStreamPlayer" parent="Control/EndGame" unique_id=1384210084]
+[node name="BackToMain" type="Button" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1521740125]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = ExtResource("6_e547k")
+theme_override_styles/pressed = ExtResource("11_hwgkw")
+theme_override_styles/hover = ExtResource("12_6dwx7")
+theme_override_styles/hover_pressed = ExtResource("11_e547k")
+text = "Wróć do gry"
+
+[node name="Fanfare" type="AudioStreamPlayer" parent="Control/EndGame" unique_id=1384210084]
 unique_name_in_owner = true
 stream = ExtResource("11_btq6p")
 bus = &"SFX"
@@ -862,7 +851,7 @@ offset_top = 12.0
 offset_right = 144.0
 offset_bottom = 81.0
 grow_horizontal = 2
-theme_override_styles/panel = ExtResource("5_hwgkw")
+theme_override_styles/panel = ExtResource("6_e547k")
 
 [node name="TimerLabel" type="Label" parent="Control/Timer" unique_id=2057756290]
 unique_name_in_owner = true
@@ -889,3 +878,4 @@ bus = &"SFX"
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="pressed" from="Control/Buttons/HBoxContainer/Next" to="." method="_on_next_pressed"]
 [connection signal="gui_input" from="Control/EndGame/MarginContainer/VBoxContainer/ClickToShow" to="." method="_on_click_to_show_gui_input"]
+[connection signal="pressed" from="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/BackToMain" to="." method="_on_back_to_main_pressed"]

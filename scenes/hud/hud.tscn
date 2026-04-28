@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ki70gho6lyw5"]
 
 [ext_resource type="Texture2D" uid="uid://cuq5rwty4if6i" path="res://assets/assets/icons/panel/day_counter.png" id="1_0i1j5"]
-[ext_resource type="AudioStream" uid="uid://cpy3ojl68e182" path="res://assets/sounds/music.mp3" id="1_0m4u7"]
 [ext_resource type="Texture2D" uid="uid://d40yf2njbld7" path="res://assets/assets/icons/overlay.png" id="1_mphia"]
 [ext_resource type="Texture2D" uid="uid://b5hpw3dvx7a0l" path="res://assets/assets/icons/panel/clock_under.png" id="2_mphia"]
 [ext_resource type="Texture2D" uid="uid://eoiy7i2cvwrt" path="res://assets/assets/icons/panel/clock_over.png" id="3_0m4u7"]
@@ -33,13 +32,6 @@ func _process(delta: float) -> void:
 
 [node name="HUD" type="CanvasLayer" unique_id=1423471652]
 process_mode = 3
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=508719458]
-stream = ExtResource("1_0m4u7")
-autoplay = true
-bus = &"Music"
-playback_type = 1
-parameters/looping = true
 
 [node name="Overlay" type="TextureRect" parent="." unique_id=522304739]
 offset_right = 1920.0

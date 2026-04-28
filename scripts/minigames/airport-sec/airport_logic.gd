@@ -5,6 +5,9 @@
 # Clock Sound Effect by DRAGON-STUDIO from Pixaba2y
 # Butons Sound Effect by freesound_community from Pixabay
 # Theme Music by SunoAi
+# Fanfare Sound Effect by Benjamin Adams from Pixabay
+
+
 extends Node
 @onready var panel_name: Panel = %PanelName
 @onready var panel_surname: Panel = %PanelSurname
@@ -40,6 +43,8 @@ var anomaly_methods:Dictionary = {
 # Stats
 var checked: int = 0
 var perfect: int = 0
+var fanfare_played: bool = false
+var points: int = 0
 #endregion 
 
 #region NPC
@@ -158,7 +163,7 @@ func _on_next_pressed() -> void:
 		reset_ui_panel() # Funkcja czyszcząca checkboxy
 		display_next_npc()
 	else:
-		show_final_summary()
+		points = show_final_summary()
 
 #endregion
 
@@ -172,7 +177,7 @@ func send_answers() -> Dictionary:
 			
 	return answers
 	
-func show_final_summary() -> void:
+func show_final_summary() -> int:
 	get_tree().paused = true
 	
 	# --- OBLICZENIA ---
@@ -200,7 +205,7 @@ func show_final_summary() -> void:
 	
 	# Komentarz zwrotny zależny od punktów
 	var evaluation = ""
-	if final_score > 2000: evaluation = "STATUS: EKSPERT BEZPIECZEŃSTWA"
+	if final_score > 5600: evaluation = "STATUS: EKSPERT BEZPIECZEŃSTWA"
 	elif final_score > 0: evaluation = "STATUS: KONTROLER ZATWIERDZONY"
 	else: evaluation = "STATUS: DO PONOWNEGO SZKOLENIA"
 	
@@ -229,7 +234,7 @@ func show_final_summary() -> void:
 	%GradeValue.modulate.a = 0
 	%GradeValue.show()
 	tween.tween_property(%GradeValue, "modulate:a", 1.0, 0.8)
-	
+	return final_score
 func check_single_npc(npc: NPC, answer: Dictionary) -> int:
 	var score: int = 0
 	var table = npc.truth_table
@@ -259,8 +264,8 @@ func _process(delta: float) -> void:
 		game_over = true
 		_time_is_up()
 	if time_left <= 8 and clock_played == false:
-		%Clock.play()
 		clock_played = true
+		%Clock.play()
 		
 	if time_left <= 8.0: # Miganie włącza się poniżej 8 sekund
 		timer += delta
@@ -279,8 +284,14 @@ func _update_timer_label() -> void:
 	%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
 	
 func _time_is_up() -> void:
-	print("Czas minął!")
-	# Wywołaj podsumowanie wyników
+	print("Czas minął! Kończę rundę...")
+	
+	if %Clock.is_playing():
+		%Clock.stop()
+	
+	chbx_container.propagate_call("set_disabled", [true])
+	
+	points = show_final_summary()
 #endregion
 
 
@@ -288,3 +299,12 @@ func _on_click_to_show_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		%ClickToShow.hide()
 		%Report.show()
+		if !fanfare_played:
+			%Fanfare.play()
+			fanfare_played = true
+
+
+func _on_back_to_main_pressed() -> void:
+	get_tree().paused = false
+	GlobalData.save_score(points)
+	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
