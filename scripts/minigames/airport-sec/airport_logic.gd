@@ -2,6 +2,7 @@
 # =================
 # Główny skrypt Airport Security
 
+# Clock Sound Effect by DRAGON-STUDIO from Pixabay
 extends Node
 @onready var panel_name: Panel = %PanelName
 @onready var panel_surname: Panel = %PanelSurname
@@ -181,3 +182,44 @@ func reset_ui_panel() -> void:
 	for node in  chbx_container.get_children():
 		node.get_node("%FalseBox").set_pressed(false)
 		node.get_node("%TrueBox").set_pressed(false)
+
+
+var time_left: float = 15.0 # Czas w sekundach
+var game_over: bool = false
+var clock_played: bool = false
+var timer: float = 0.0
+
+
+func _process(delta: float) -> void:
+	if time_left > 0:
+		time_left -= delta
+		_update_timer_label()
+	elif not game_over:
+		game_over = true
+		_time_is_up()
+	if time_left <= 8 and clock_played == false:
+		%Clock.play()
+		clock_played = true
+		
+	if time_left <= 8.0: # Miganie włącza się poniżej 8 sekund
+		timer += delta
+		# floor(timer * 2) zmienia wartość co 0.5 sekundy (cykl 1s: biały -> czerwony)
+		if int(timer * 2) % 2 == 0:
+			%TimerLabel.modulate = Color.WHITE
+		else:
+			%TimerLabel.modulate = Color.RED
+	else:
+		%TimerLabel.modulate = Color.WHITE # Reset do białego powyżej 8s
+	
+	
+func _update_timer_label() -> void:
+	# Formatowanie sekund na MM:SS
+	var minutes = int(time_left) / 60
+	var seconds = int(time_left) % 60
+	%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
+		
+
+
+func _time_is_up() -> void:
+	print("Czas minął!")
+	# Wywołaj podsumowanie wyników

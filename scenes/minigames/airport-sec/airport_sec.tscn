@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="6_6dwx7"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="7_evfw4"]
 [ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="9_1swfa"]
+[ext_resource type="AudioStream" uid="uid://165u4ux6hsi3" path="res://assets/sounds/clock.mp3" id="11_btq6p"]
 [ext_resource type="PackedScene" uid="uid://d3lkapn6bmnll" path="res://scenes/minigames/airport-sec/wanted_block.tscn" id="11_f3nuu"]
 [ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scripts/logic/search.gd" id="12_btq6p"]
 
@@ -815,7 +816,8 @@ offset_bottom = 81.0
 grow_horizontal = 2
 theme_override_styles/panel = ExtResource("5_hwgkw")
 
-[node name="Label" type="Label" parent="Control/Timer" unique_id=2057756290]
+[node name="TimerLabel" type="Label" parent="Control/Timer" unique_id=2057756290]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -829,6 +831,11 @@ vertical_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=891899239]
 environment = SubResource("Environment_qwtxs")
+
+[node name="Clock" type="AudioStreamPlayer" parent="." unique_id=1602957500]
+unique_name_in_owner = true
+stream = ExtResource("11_btq6p")
+bus = &"SFX"
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
