@@ -13,7 +13,8 @@ var surname:	String
 var bday:		String
 var id:			String
 var anomalies:	Array
-var debug:		int
+var truth_table:Dictionary
+var debug:		int 
 #endregion
 
 #region ZmiennePlików
@@ -41,6 +42,7 @@ func generate_npc() -> void:
 		id		= _caesar(name, surname, bday)
 		anomalies	= _anomaly()
 		img = _image(category)
+		truth_table = gen_truth_table()
 #endregion
 
 #region FunkcjePomocnicze
@@ -108,8 +110,6 @@ func wrong_surname() -> String:
 func wrong_id() -> String: 
 	return id.substr(0, id.length() - 1) + str(randi_range(0,9)) + "X"
 
-#region AnomalyFunctions
-
 func wrong_img() -> String:
 	var path = "res://assets/assets/airport-sec/npc/"
 	if category == 'male' || category == 'female':
@@ -143,3 +143,14 @@ func wrong_bday() -> String:
 	return new_bday
 
 #endregion
+
+func gen_truth_table() -> Dictionary:
+	var dict = {
+		"name": anomalies.has("name"),      # true = jest błąd
+		"surname": anomalies.has("surname"),
+		"img": anomalies.has("img"),
+		"bday": anomalies.has("bday"),
+		"id": anomalies.has("id"),
+		"wanted": anomalies.has("wanted")
+	}
+	return dict

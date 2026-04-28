@@ -3,17 +3,21 @@
 # Główny skrypt Airport Security
 
 extends Node
+@onready var panel_name: Panel = %PanelName
+@onready var panel_surname: Panel = %PanelSurname
+@onready var panel_img: Panel = %PanelImg
+@onready var panel_bday: Panel = %PanelBday
+@onready var panel_id: Panel = %PanelId
+@onready var panel_wanted: Panel = %PanelWanted
+@onready var chbx_container: VBoxContainer = $Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer
 
 
 #region GlobalScopeVariable
 
 @export	var categories:PackedStringArray
 var list: Array = []
+var total_score: int = 0
 var current_index: int = 0
-var playerAccept: Array = []
-var playerReject: Array = []
-var accept: Array = []
-var reject: Array = []
 var anomaly_methods:Dictionary = {
 	"name": "wrong_name",
 	"surname": "wrong_surname",
@@ -117,18 +121,7 @@ func return_npc() -> NPC:
 	var npc:NPC = list[current_index]
 	return npc
 	
-func process_decision(is_accsepted:bool) -> void:
-	if is_accsepted:
-		playerAccept.append(current_index)
-	else:
-		playerReject.append(current_index)
-		
-	if current_index >= list.size() - 1:
-		#_show_end_game_popup()
-		pass
-	else:
-		current_index += 1
-		display_next_npc()
+
 #endregion
 
 #region Main
@@ -138,16 +131,53 @@ func _ready() -> void:
 	gen_wanted_list()
 	display_next_npc()
 
-func _on_accept_pressed() -> void:
-	current_index += 1
-	playerAccept.append(current_index)
-	display_next_npc()
-
-func _on_reject_pressed() -> void:
-	if current_index % list.size() == 1:
-		pass
-	else:
-		current_index += 1 		
-		playerReject.append(current_index)
+func _on_next_pressed() -> void:
+	var npc = list[current_index]
+	var player_answers = send_answers() # Pobiera Dictionary { "id": true, "name": false ... }
+	
+	# 1. Oblicz punkty za tego konkretnego NPC
+	var points_this_round = check_single_npc(npc, player_answers)
+	total_score += points_this_round
+	
+	print("NPC nr %d oceniony. Punkty: %d | Suma: %d" % [current_index, points_this_round, total_score])
+	
+	# 2. Sprawdź, czy to koniec listy
+	if current_index < list.size() - 1:
+		current_index += 1
+		reset_ui_panel() # Funkcja czyszcząca checkboxy
 		display_next_npc()
+	else:
+		show_final_summary()
+
 #endregion
+
+func send_answers() -> Dictionary:
+	var answers:Dictionary = {}
+	for node in  chbx_container.get_children():
+		if node.get_node("%FalseBox").pressed:
+			answers[node.category] = true
+		else:
+			answers[node.category] = false
+			
+	return answers
+	
+
+func show_final_summary() -> void:
+	pass
+	
+func check_single_npc(npc: NPC, answer: Dictionary) -> int:
+	var score: int = 0
+	var table = npc.truth_table
+	
+	for option in table.keys():
+		# Sprawdzamy czy to co u NPC (table[option]) zgadza się z tym co u gracza (answer[option])
+		if table[option] == answer.get(option, false):
+			score += 100
+		else:
+			score -= 150
+	return score
+	
+func reset_ui_panel() -> void:
+	for node in  chbx_container.get_children():
+		node.get_node("%FalseBox").set_pressed(false)
+		node.get_node("%TrueBox").set_pressed(false)

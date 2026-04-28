@@ -167,11 +167,14 @@ offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_r6h2x")
 
 [node name="Pasport" type="Panel" parent="Control" unique_id=692023560]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021000002
+anchor_bottom = 0.037
 offset_left = 40.0
 offset_top = 40.0
-offset_right = 460.0
-offset_bottom = 240.0
+offset_right = 419.68
+offset_bottom = 200.04001
 theme_override_styles/panel = ExtResource("5_hwgkw")
 metadata/_edit_group_ = true
 
@@ -332,11 +335,14 @@ theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
 [node name="Document" type="Panel" parent="Control" unique_id=1650745019]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021000002
+anchor_bottom = 0.037
 offset_left = 40.0
 offset_top = 255.0
-offset_right = 460.0
-offset_bottom = 455.0
+offset_right = 419.68
+offset_bottom = 415.04
 theme_override_styles/panel = ExtResource("5_hwgkw")
 metadata/_edit_group_ = true
 
@@ -499,13 +505,12 @@ vertical_alignment = 1
 [node name="CheckboxList" type="Panel" parent="Control" unique_id=527351674]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.020833334
-anchor_top = 0.45370373
-anchor_right = 0.23958334
-anchor_bottom = 0.712963
-offset_top = -3.0517578e-05
-offset_right = -3.0517578e-05
-offset_bottom = -2.0
+anchor_right = 0.021000002
+anchor_bottom = 0.037
+offset_left = 40.0
+offset_top = 490.0
+offset_right = 419.68
+offset_bottom = 728.04
 theme_override_styles/panel = ExtResource("5_hwgkw")
 metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
@@ -557,35 +562,47 @@ layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1830987935 instance=ExtResource("9_1swfa")]
+[node name="PanelName" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1830987935 instance=ExtResource("9_1swfa")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne imię:"
+category = "name"
 
-[node name="Panel2" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=882848582 instance=ExtResource("9_1swfa")]
+[node name="PanelSurname" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=882848582 instance=ExtResource("9_1swfa")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne nazwisko:"
+category = "surname"
 
-[node name="Panel3" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1411571234 instance=ExtResource("9_1swfa")]
+[node name="PanelImg" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1411571234 instance=ExtResource("9_1swfa")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne zdjęcie:"
+category = "img"
 
-[node name="Panel4" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1892827280 instance=ExtResource("9_1swfa")]
+[node name="PanelBday" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1892827280 instance=ExtResource("9_1swfa")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędna data ur.:"
+category = "bday"
 
-[node name="Panel5" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=800624701 instance=ExtResource("9_1swfa")]
+[node name="PanelId" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=800624701 instance=ExtResource("9_1swfa")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Błędne ID:"
+category = "id"
 
-[node name="Panel6" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=915468289 instance=ExtResource("9_1swfa")]
+[node name="PanelWanted" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=915468289 instance=ExtResource("9_1swfa")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Poszukiwany:"
+category = "wanted"
 
 [node name="Wanted" type="Panel" parent="Control" unique_id=1977829117]
 layout_mode = 1
@@ -666,27 +683,17 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Accept" type="Button" parent="Control/Buttons/HBoxContainer" unique_id=229316031]
+[node name="Next" type="Button" parent="Control/Buttons/HBoxContainer" unique_id=1330136753]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("5_hwgkw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
 theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
 action_mode = 0
-text = "Potwierdź"
-
-[node name="Reject" type="Button" parent="Control/Buttons/HBoxContainer" unique_id=1330136753]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("5_hwgkw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
-theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
-action_mode = 0
-text = "Odrzuć"
+text = "Następny"
 
 [node name="Panel" type="Panel" parent="Control/Buttons" unique_id=916820225]
 custom_minimum_size = Vector2(0, 80)
@@ -796,10 +803,33 @@ theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Panel" parent="Control" unique_id=931954498]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_top = 12.0
+offset_right = 144.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("5_hwgkw")
+
+[node name="Label" type="Label" parent="Control/Timer" unique_id=2057756290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 31
+text = "1:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=891899239]
 environment = SubResource("Environment_qwtxs")
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
-[connection signal="pressed" from="Control/Buttons/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
-[connection signal="pressed" from="Control/Buttons/HBoxContainer/Reject" to="." method="_on_reject_pressed"]
+[connection signal="pressed" from="Control/Buttons/HBoxContainer/Next" to="." method="_on_next_pressed"]
