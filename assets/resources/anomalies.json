@@ -1,0 +1,12 @@
+[
+	{
+		"type": "wrong_name",
+		"field": "name",
+		"confilcts": []
+	},
+	{
+		"type": "wrong_surname",
+		"field": "surname",
+		"confilcts": []
+	}
+]

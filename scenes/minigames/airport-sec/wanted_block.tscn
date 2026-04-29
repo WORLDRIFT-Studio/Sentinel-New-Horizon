@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://d3lkapn6bmnll"]
+
+[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="1_34xwk"]
+[ext_resource type="Texture2D" uid="uid://bnuiysr0spyuh" path="res://assets/assets/airport-sec/npc/male/postac2.png" id="2_1mr8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btq6p"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 15
+
+[node name="Panel" type="Panel" unique_id=365097166]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = -1
+anchor_top = 0.4074074
+anchor_right = 0.25052083
+anchor_bottom = 0.5925926
+offset_top = 50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_34xwk")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1185605615]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1152166664]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=291001168]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="WantedName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=628798284]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "Name"
+
+[node name="WantedSurname" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1906735799]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "Surname"
+
+[node name="WantedId" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1920326782]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "Id"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=990355064]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_btq6p")
+
+[node name="WantedImg" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer" unique_id=1115045850]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_1mr8w")
+expand_mode = 1
+stretch_mode = 5

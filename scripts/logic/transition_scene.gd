@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var color_rect = $ColorRect
-@onready var animation_player = $AnimationPlayer
+@onready var color_rect = %ColorRect
+@onready var animation_player = %AnimationPlayer
 
 var target_scene: String = ""
 

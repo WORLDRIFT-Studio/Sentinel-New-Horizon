@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dp8ebx8olnsac"]
+
+[ext_resource type="Script" uid="uid://dj0ege6r3qbql" path="res://scripts/minigames/airport-sec/true_false.gd" id="1_lbu2j"]
+[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="2_7xf5k"]
+[ext_resource type="Texture2D" uid="uid://ch3p5y8663g7h" path="res://assets/icons/checker-true.png" id="3_rnc4u"]
+[ext_resource type="Texture2D" uid="uid://u4fjbhd1m5bv" path="res://assets/icons/checker-false.png" id="4_7xf5k"]
+[ext_resource type="ButtonGroup" uid="uid://c0tgk3fp2yewp" path="res://assets/resources/true_false_group.tres" id="4_rnc4u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnjle"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.9019608, 0.62352943, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ImageTexture" id="ImageTexture_lnjle"]
+
+[node name="Panel" type="Panel" unique_id=1830987935]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 542.0
+offset_bottom = 66.0
+theme_override_styles/panel = ExtResource("2_7xf5k")
+script = ExtResource("1_lbu2j")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1645972353]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1927837592]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=617721274]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 3.0
+theme_override_font_sizes/font_size = 18
+text = "Lorem ipsum:"
+
+[node name="TrueBox" type="CheckBox" parent="MarginContainer/HBoxContainer" unique_id=2001511221]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_lnjle")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lnjle")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lnjle")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_lnjle")
+theme_override_icons/radio_checked = ExtResource("3_rnc4u")
+theme_override_icons/radio_unchecked = SubResource("ImageTexture_lnjle")
+button_group = ExtResource("4_rnc4u")
+
+[node name="FalseBox" type="CheckBox" parent="MarginContainer/HBoxContainer" unique_id=1000064162]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_lnjle")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lnjle")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lnjle")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_lnjle")
+theme_override_icons/radio_checked = ExtResource("4_7xf5k")
+theme_override_icons/radio_unchecked = SubResource("ImageTexture_lnjle")
+button_group = ExtResource("4_rnc4u")

@@ -9,6 +9,10 @@ extends Control
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 
 
+func _input(event):
+	if event is InputEventMouseButton:
+		print("klik globalny")
+		
 func _ready() -> void:
 	btn_nowa_gra.pressed.connect(_on_nowa_gra_pressed)
 	btn_kontynuuj.pressed.connect(_on_kontynuuj_pressed)

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cc13ne0ctrqln"]
+[gd_scene format=3 uid="uid://dida4s0n1jhx5"]
 
 [ext_resource type="Script" uid="uid://bqle6o2c7qdsj" path="res://scripts/logic/transition_scene.gd" id="1_6hpjq"]
 
@@ -60,6 +60,7 @@ _data = {
 script = ExtResource("1_6hpjq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=745864072]
+unique_name_in_owner = true
 modulate = Color(0, 0, 0, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,4 +71,5 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1436534273]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_4jaod")
