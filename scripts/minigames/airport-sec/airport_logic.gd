@@ -111,7 +111,9 @@ func display_next_npc() -> void:
 	
 	for category in categories:
 		load_category(npc, category)
-
+	
+	%NPCLeft.text = "Pozostało do sprawdzenia: %02d" % (len(list) - current_index)
+	print((len(list) - current_index))
 func generate_list(count: int) -> Array:
 	var npc_list: Array = []
 	for i in range(count):
@@ -308,3 +310,5 @@ func _on_back_to_main_pressed() -> void:
 	get_tree().paused = false
 	GlobalData.save_score(points)
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
+	
+	

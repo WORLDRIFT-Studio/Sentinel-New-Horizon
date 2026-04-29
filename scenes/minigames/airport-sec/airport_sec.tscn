@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_ebq34"]
 [ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_f3nuu"]
 [ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="3_btq6p"]
-[ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="4_e547k"]
+[ext_resource type="Shader" uid="uid://dt1pldbiwhlu7" path="res://shaders/runnning-light.gdshader" id="5_hwgkw"]
 [ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="6_6dwx7"]
 [ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="6_e547k"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="7_evfw4"]
@@ -16,10 +16,11 @@
 [ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scripts/logic/search.gd" id="12_btq6p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6h2x"]
-shader = ExtResource("4_e547k")
-shader_parameter/strength = 1.0
-shader_parameter/opacity = 0.45
-shader_parameter/radius = 0.85
+shader = ExtResource("5_hwgkw")
+shader_parameter/neon_color = Color(0, 1, 0.6901961, 1)
+shader_parameter/speed = 2.0
+shader_parameter/intensity = 4.0250001911875
+shader_parameter/light_width = 0.400000019
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xopce"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -61,6 +62,7 @@ data = PackedByteArray("//vUZAAKhgxuvJMMNfJjKBeVGCN0og3W8q09noFzKaDYYI2YAAWjQZEU
 [node name="Node" type="Node" unique_id=360961051 node_paths=PackedStringArray("wanted_conatiner")]
 process_mode = 1
 script = ExtResource("1_ebq34")
+time_left = 150.0
 categories = PackedStringArray("img", "name", "surname", "bday", "id")
 wanted_conatiner = NodePath("Control/Wanted/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer")
 wanted_template = ExtResource("11_f3nuu")
@@ -690,7 +692,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/Buttons/Panel/MarginContainer" unique_id=595377632]
+[node name="NPCLeft" type="Label" parent="Control/Buttons/Panel/MarginContainer" unique_id=595377632]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 text = "Pozostało do sprawdzenia: 10"

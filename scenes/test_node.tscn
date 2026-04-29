@@ -1,0 +1,605 @@
+[gd_scene format=3 uid="uid://mj1tprn2b352"]
+
+[ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_6uery"]
+[ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_wvxne"]
+[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="3_dlrc4"]
+[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="4_l3ryl"]
+[ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="5_14rh7"]
+[ext_resource type="Script" path="res://scenes/search.gd" id="6_14rh7"]
+[ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="6_l3ryl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0, 0.9019608, 0.62352943, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t2ka"]
+bg_color = Color(0.22352941, 0.22352941, 0.32941177, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4562322, 0.93048644, 0.9999998, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14rh7"]
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4562322, 0.93048644, 0.9999998, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[node name="Node" type="Node" unique_id=360961051]
+script = ExtResource("1_6uery")
+categories = PackedStringArray("img", "name", "surname", "bday", "id")
+
+[node name="Background" type="TextureRect" parent="." unique_id=599378455]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wvxne")
+expand_mode = 1
+
+[node name="Node" type="Node" parent="." unique_id=1116703107]
+
+[node name="TextureNPC" type="TextureRect" parent="Node" unique_id=1120169704]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.00006
+offset_top = -216.0
+offset_right = 382.25537
+offset_bottom = 952.9551
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6759989, 0.6759989)
+texture = ExtResource("5_14rh7")
+stretch_mode = 5
+
+[node name="SoundNPC" type="AudioStreamPlayer2D" parent="Node" unique_id=1019563585]
+unique_name_in_owner = true
+position = Vector2(179, 109)
+
+[node name="Control" type="Control" parent="." unique_id=1058752315]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pasport" type="Panel" parent="Control" unique_id=692023560]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 460.0
+offset_bottom = 240.0
+theme_override_styles/panel = ExtResource("3_dlrc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport" unique_id=606259532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Pasport/MarginContainer" unique_id=853919061]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Pasport/MarginContainer/VBoxContainer" unique_id=2139743526]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Img" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1043033321]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/Img" unique_id=1314561493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ImgPassport" type="TextureRect" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/Img/MarginContainer" unique_id=997150013 groups=["img"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_14rh7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer" unique_id=151843068]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Title" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=467325414]
+layout_mode = 2
+text = "Paszport Obywatelski"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1781822052]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name" unique_id=224794177]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="NamePassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name/MarginContainer" unique_id=352115352 groups=["name"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Surname" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=17035532]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname" unique_id=1857484071]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="SurnamePassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname/MarginContainer" unique_id=245433744 groups=["surname"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Bday" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=518956353]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday" unique_id=1092883572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BdayPassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday/MarginContainer" unique_id=265031763 groups=["bday"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="ID" type="Panel" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=978369910]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID" unique_id=602472325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="IdPassport" type="Label" parent="Control/Pasport/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID/MarginContainer" unique_id=808671867 groups=["id"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Document" type="Panel" parent="Control" unique_id=1650745019]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 255.0
+offset_right = 460.0
+offset_bottom = 455.0
+theme_override_styles/panel = ExtResource("3_dlrc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document" unique_id=516018702]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Document/MarginContainer" unique_id=1952213001]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Document/MarginContainer/VBoxContainer" unique_id=155330804]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Img" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1445294313]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img" unique_id=112125345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ImgDocument" type="TextureRect" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/Img/MarginContainer" unique_id=929712909 groups=["img"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_14rh7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1939727745]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Title" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1482911724]
+layout_mode = 2
+text = "Dowód Osobisty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=532556501]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name" unique_id=1488157369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="NameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Name/MarginContainer" unique_id=213342157 groups=["name"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Surname" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=186121469]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname" unique_id=1182843758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="SurnameDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Surname/MarginContainer" unique_id=794129647 groups=["surname"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Bday" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=356939218]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday" unique_id=1273767628]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BdayDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Bday/MarginContainer" unique_id=1174085971 groups=["bday"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="ID" type="Panel" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1075700028]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_l3ryl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID" unique_id=444999836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="IdDocument" type="Label" parent="Control/Document/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ID/MarginContainer" unique_id=56944457 groups=["id"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="CheckboxList" type="Panel" parent="Control" unique_id=527351674]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 471.0
+offset_right = 460.0
+offset_bottom = 781.0
+theme_override_styles/panel = ExtResource("3_dlrc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CheckboxList" unique_id=1500523530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CheckboxList/MarginContainer" unique_id=1404869316]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Control/CheckboxList/MarginContainer/VBoxContainer" unique_id=1761879440 node_paths=PackedStringArray("no_data", "childrens_parent")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
+placeholder_text = "Wyszukaj..."
+max_length = 32
+script = ExtResource("6_14rh7")
+no_data = NodePath("../ScrollContainer/Label")
+childrens_parent = NodePath("../ScrollContainer/VBoxContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/CheckboxList/MarginContainer/VBoxContainer" unique_id=1025046969]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.15
+
+[node name="Label" type="Label" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1014381807]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.288518, 0.28851798, 0.28851798, 1)
+text = "Brak danych..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer" unique_id=760664736]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1830987935 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędne imię:"
+
+[node name="Panel2" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=882848582 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędne nazwisko:"
+
+[node name="Panel3" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1411571234 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędne zdjęcie:"
+
+[node name="Panel4" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1892827280 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędna data ur.:"
+
+[node name="Panel5" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=800624701 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Błędne ID:"
+
+[node name="Panel6" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=915468289 instance=ExtResource("6_l3ryl")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Poszukiwany:"
+
+[node name="Wanted" type="Panel" parent="Control" unique_id=1977829117]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 36.275
+anchor_top = 1.0
+anchor_right = 46.775
+anchor_bottom = 14.300001
+offset_bottom = -6.1035156e-05
+theme_override_styles/panel = ExtResource("3_dlrc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Wanted" unique_id=579393110]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer" unique_id=1781528145]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="Control/Wanted/MarginContainer/VBoxContainer" unique_id=1396785014 node_paths=PackedStringArray("no_data", "childrens_parent")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3ryl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l3ryl")
+placeholder_text = "Wyszukaj..."
+max_length = 32
+script = ExtResource("6_14rh7")
+no_data = NodePath("../ScrollContainer/Label")
+childrens_parent = NodePath("../ScrollContainer/VBoxContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Wanted/MarginContainer/VBoxContainer" unique_id=524865415]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.15
+
+[node name="Label" type="Label" parent="Control/Wanted/MarginContainer/VBoxContainer/ScrollContainer" unique_id=645256873]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.288518, 0.28851798, 0.28851798, 1)
+text = "Brak danych..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wanted/MarginContainer/VBoxContainer/ScrollContainer" unique_id=945450466]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Accept" type="Button" parent="Control" unique_id=229316031]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 955.0
+offset_right = 948.0
+offset_bottom = 1046.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("3_dlrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
+action_mode = 0
+text = "Potwierdź"
+
+[node name="Reject" type="Button" parent="Control" unique_id=1330136753]
+layout_mode = 0
+offset_left = 962.0
+offset_top = 953.0
+offset_right = 1327.0
+offset_bottom = 1044.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("3_dlrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8t2ka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_14rh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8t2ka")
+action_mode = 0
+text = "Odrzuć"
+
+[node name="Debug" type="Label" parent="Control" unique_id=1573123637]
+layout_mode = 0
+offset_left = 1474.0
+offset_top = 672.0
+offset_right = 1823.0
+offset_bottom = 993.0
+
+[node name="Debug2" type="Label" parent="Control" unique_id=1979112516]
+layout_mode = 0
+offset_left = 1474.0
+offset_top = 672.0
+offset_right = 1823.0
+offset_bottom = 993.0
+
+[connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
+[connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
+[connection signal="pressed" from="Control/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Control/Reject" to="." method="_on_reject_pressed"]
