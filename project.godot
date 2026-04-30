@@ -25,8 +25,8 @@ SettingsManager="*uid://ckmvkk0cm2uap"
 Signals="*uid://da7o6msmrto8m"
 AudioManager="*uid://sb75jvnxxr1n"
 GlobalData="*uid://g277xbbdc3lt"
-BackgroundMusic="*uid://bqs0sysn1amst"
 TransitionScene="*uid://dida4s0n1jhx5"
+BackgroundMusic="*uid://bqs0sysn1amst"
 
 [display]
 
