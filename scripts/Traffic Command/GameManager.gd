@@ -1,20 +1,20 @@
 extends Node2D
 
-@onready var k1_followers = [$Left/Path2D_1/PathFollow2D, $Left/Path2D_2/PathFollow2D, $Left/Path2D_3/PathFollow2D]
-@onready var k1_paths = [$Left/Path2D_1, $Left/Path2D_2, $Left/Path2D_3]
-@onready var k1_vehicle = $Left/Path2D_1/PathFollow2D/Node2D
+@onready var k1_followers = [$Left/Right/PathFollow2D, $Left/Straight/PathFollow2D, $Left/Left/PathFollow2D]
+@onready var k1_paths = [$Left/Right, $Left/Straight, $Left/Left]
+@onready var k1_vehicle = $Left/Right/PathFollow2D/Node2D
 
-@onready var k2_followers = [$Down/Path2D_1/PathFollow2D, $Down/Path2D_2/PathFollow2D, $Down/Path2D_3/PathFollow2D]
-@onready var k2_paths = [$Down/Path2D_1, $Down/Path2D_2, $Down/Path2D_3]
-@onready var k2_vehicle = $Down/Path2D_1/PathFollow2D/Node2D
+@onready var k2_followers = [$Down/Right/PathFollow2D, $Down/Straight/PathFollow2D, $Down/Left/PathFollow2D]
+@onready var k2_paths = [$Down/Right, $Down/Straight, $Down/Left]
+@onready var k2_vehicle = $Down/Right/PathFollow2D/Node2D
 
-@onready var k3_followers = [$Right/Path2D_1/PathFollow2D, $Right/Path2D_2/PathFollow2D, $Right/Path2D_3/PathFollow2D]
-@onready var k3_paths = [$Right/Path2D_1, $Right/Path2D_2, $Right/Path2D_3]
-@onready var k3_vehicle = $Right/Path2D_1/PathFollow2D/Node2D
+@onready var k3_followers = [$Right/Right/PathFollow2D, $Right/Straight/PathFollow2D, $Right/Left/PathFollow2D]
+@onready var k3_paths = [$Right/Right, $Right/Straight, $Right/Left]
+@onready var k3_vehicle = $Right/Right/PathFollow2D/Node2D
 
-@onready var k4_followers = [$Up/Path2D_1/PathFollow2D, $Up/Path2D_2/PathFollow2D, $Up/Path2D_3/PathFollow2D]
-@onready var k4_paths = [$Up/Path2D_1, $Up/Path2D_2, $Up/Path2D_3]
-@onready var k4_vehicle = $Up/Path2D_1/PathFollow2D/Node2D
+@onready var k4_followers = [$Up/Right/PathFollow2D, $Up/Straight/PathFollow2D, $Up/Left/PathFollow2D]
+@onready var k4_paths = [$Up/Right, $Up/Straight, $Up/Left]
+@onready var k4_vehicle = $Up/Right/PathFollow2D/Node2D
 
 var direction_timers: Array[float] = [10.0, 10.0, 10.0, 10.0]
 var timer_limits: Array[float] = [10.0, 10.0, 10.0, 10.0]

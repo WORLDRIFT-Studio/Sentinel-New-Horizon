@@ -1,8 +1,8 @@
 extends Control
 
 @onready var timer = $Timer
-@onready var TimerLabel = $TimerLabel
-@onready var VehicleNumberLabel = $VehicleNumberLabel
+@onready var TimerLabel = %TimerLabel
+@onready var VehicleNumberLabel = %VehicleNumberLabel
 
 var time_left = 60
 var vehicles_finished = 0
