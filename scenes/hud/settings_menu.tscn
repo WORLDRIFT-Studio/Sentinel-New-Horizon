@@ -1,18 +1,30 @@
 [gd_scene format=3 uid="uid://scbdubmnau0o"]
 
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
-[ext_resource type="Texture2D" uid="uid://crnkmc86l0gnf" path="res://assets/assets/icons/popup/popup_menu.png" id="2_lwwgp"]
+[ext_resource type="StyleBox" path="res://styles/new_container.tres" id="2_mc4l6"]
 [ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_bgjg7"]
 [ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/settings/exit_button.gd" id="4_48ojb"]
 [ext_resource type="PackedScene" uid="uid://btw8v5y6p1lxx" path="res://scenes/hud/checkbox.tscn" id="5_48ojb"]
 [ext_resource type="PackedScene" uid="uid://6piwt5qyj171" path="res://scenes/hud/volume-slider.tscn" id="5_lwwgp"]
-[ext_resource type="StyleBox" uid="uid://c66pkwxi7fgav" path="res://styles/container_style.tres" id="6_bgjg7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
 shader = ExtResource("1_labj1")
 shader_parameter/strength = 1.0
 shader_parameter/opacity = 0.45
 shader_parameter/radius = 0.85
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc4l6"]
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
 
 [node name="SettingsMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
@@ -35,7 +47,7 @@ offset_bottom = -2.3325195
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menu" type="TextureRect" parent="." unique_id=305032778]
+[node name="Menu" type="Panel" parent="." unique_id=1902027011]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -49,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_lwwgp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mc4l6")
 
 [node name="Control" type="Control" parent="Menu" unique_id=671198971]
 anchors_preset = 0
@@ -77,7 +89,7 @@ theme_override_constants/separation = 10
 [node name="SoundSliders" type="PanelContainer" parent="Menu/Control/MarginContainer/Main" unique_id=1832669298]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("6_bgjg7")
+theme_override_styles/panel = ExtResource("2_mc4l6")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders" unique_id=2105253446]
 layout_mode = 2
@@ -116,7 +128,7 @@ theme_override_constants/separation = 7
 [node name="Left" type="PanelContainer" parent="Menu/Control/MarginContainer/Main/2Rows" unique_id=421374278]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("6_bgjg7")
+theme_override_styles/panel = ExtResource("2_mc4l6")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Left" unique_id=490555294]
 layout_mode = 2
@@ -127,6 +139,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer" unique_id=889695592]
 layout_mode = 2
+theme_override_constants/separation = 12
 
 [node name="OptionSwitch" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1906285266 instance=ExtResource("5_48ojb")]
 layout_mode = 2
@@ -161,7 +174,7 @@ size_flags_stretch_ratio = 2.05
 [node name="Right" type="PanelContainer" parent="Menu/Control/MarginContainer/Main/2Rows" unique_id=739098586]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("6_bgjg7")
+theme_override_styles/panel = ExtResource("2_mc4l6")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Right" unique_id=280541986]
 layout_mode = 2
