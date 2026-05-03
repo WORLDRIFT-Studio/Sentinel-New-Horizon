@@ -154,12 +154,10 @@ func _ready() -> void:
 func _on_next_pressed() -> void:
 	var npc = list[current_index]
 	var player_answers = send_answers() # Pobiera Dictionary { "id": true, "name": false ... }
-	# 1. Oblicz punkty za tego konkretnego NPC
 	var points_this_round = check_single_npc(npc, player_answers)
 	total_score += points_this_round
 	
 	
-	# 2. Sprawdź, czy to koniec listy
 	if current_index < list.size() - 1:
 		current_index += 1
 		reset_ui_panel() # Funkcja czyszcząca checkboxy

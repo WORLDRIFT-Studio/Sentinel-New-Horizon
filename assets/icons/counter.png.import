@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u4fjbhd1m5bv"
-path="res://.godot/imported/checker-false.png-25f9eb589a98e13e6567fca968584cd7.ctex"
+uid="uid://hcnhebgyfrwo"
+path="res://.godot/imported/counter.png-3d06d82025ec7d14c31302893b010bf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/checker-false.png"
-dest_files=["res://.godot/imported/checker-false.png-25f9eb589a98e13e6567fca968584cd7.ctex"]
+source_file="res://assets/icons/counter.png"
+dest_files=["res://.godot/imported/counter.png-3d06d82025ec7d14c31302893b010bf1.ctex"]
 
 [params]
 

@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://2onjtdxsygqu"]
 
-[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/minigames/traffic-command/game_manager.gd" id="1_ekx8n"]
+[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/Traffic Command/GameManager.gd" id="1_ekx8n"]
 [ext_resource type="Texture2D" uid="uid://bnx45spr0iqyl" path="res://assets/assets/Traffic Command/Crossroad.jpg" id="2_03clw"]
-[ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/minigames/traffic-command/path_line.gd" id="3_uei48"]
-[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/minigames/traffic-command/path_follow.gd" id="4_8ojpj"]
+[ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/Traffic Command/Path_line.gd" id="3_uei48"]
+[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/Traffic Command/Path_follow.gd" id="4_8ojpj"]
 [ext_resource type="PackedScene" uid="uid://cjn8w0xalgbcs" path="res://assets/assets/Traffic Command/car.tscn" id="5_03clw"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_q8vh0"]
-[ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/minigames/traffic-command/menu/menu_manager.gd" id="8_skpun"]
+[ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/Traffic Command/Menu/MenuManager.gd" id="8_skpun"]
 
 [sub_resource type="Curve2D" id="Curve2D_ym1ef"]
 _data = {

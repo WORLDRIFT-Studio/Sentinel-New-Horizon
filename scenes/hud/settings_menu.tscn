@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://scbdubmnau0o"]
 
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
-[ext_resource type="StyleBox" path="res://styles/new_container.tres" id="2_mc4l6"]
-[ext_resource type="Texture2D" uid="uid://bpxq8rq0ibjqj" path="res://assets/assets/icons/popup/popup_exit.png" id="3_bgjg7"]
+[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="2_mc4l6"]
 [ext_resource type="Script" uid="uid://c0d71xbcyg8h6" path="res://scripts/settings/exit_button.gd" id="4_48ojb"]
 [ext_resource type="PackedScene" uid="uid://btw8v5y6p1lxx" path="res://scenes/hud/checkbox.tscn" id="5_48ojb"]
 [ext_resource type="PackedScene" uid="uid://6piwt5qyj171" path="res://scenes/hud/volume-slider.tscn" id="5_lwwgp"]
+[ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="5_yikl8"]
+[ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="6_861jc"]
+[ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="7_ucg5u"]
+[ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="8_7nmf5"]
+[ext_resource type="Texture2D" uid="uid://nvo31s642gia" path="res://assets/icons/cancel.png" id="9_orf7j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
 shader = ExtResource("1_labj1")
@@ -186,15 +190,19 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Right/MarginContainer" unique_id=2052315840]
 layout_mode = 2
 
-[node name="ExitButton" type="TextureButton" parent="Menu" unique_id=1679601297]
+[node name="ExitButton" type="Button" parent="Menu" unique_id=453768323]
 process_mode = 3
 layout_mode = 0
-offset_left = 14.5
-offset_top = 14.5
-offset_right = 106.5
-offset_bottom = 106.5
-texture_normal = ExtResource("3_bgjg7")
-stretch_mode = 4
+offset_left = 4.5
+offset_top = 4.5
+offset_right = 95.5
+offset_bottom = 95.5
+theme_override_styles/normal = ExtResource("5_yikl8")
+theme_override_styles/pressed = ExtResource("6_861jc")
+theme_override_styles/hover = ExtResource("7_ucg5u")
+theme_override_styles/hover_pressed = ExtResource("8_7nmf5")
+icon = ExtResource("9_orf7j")
+icon_alignment = 1
 script = ExtResource("4_48ojb")
 
 [connection signal="pressed" from="Menu/ExitButton" to="Menu/ExitButton" method="_on_pressed"]

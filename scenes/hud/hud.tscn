@@ -1,159 +1,157 @@
 [gd_scene format=3 uid="uid://ki70gho6lyw5"]
 
-[ext_resource type="Texture2D" uid="uid://cuq5rwty4if6i" path="res://assets/assets/icons/panel/day_counter.png" id="1_0i1j5"]
-[ext_resource type="Shader" uid="uid://ukr2usbewk7y" path="res://shaders/gradient.gdshader" id="1_iioc1"]
-[ext_resource type="Texture2D" uid="uid://d40yf2njbld7" path="res://assets/assets/icons/overlay.png" id="1_mphia"]
-[ext_resource type="Texture2D" uid="uid://b5hpw3dvx7a0l" path="res://assets/assets/icons/panel/clock_under.png" id="2_mphia"]
-[ext_resource type="Texture2D" uid="uid://eoiy7i2cvwrt" path="res://assets/assets/icons/panel/clock_over.png" id="3_0m4u7"]
-[ext_resource type="Texture2D" uid="uid://clt0g8yagviwg" path="res://assets/assets/icons/panel/clock_progress.png" id="4_apjy4"]
+[ext_resource type="Texture2D" uid="uid://hcnhebgyfrwo" path="res://assets/icons/counter.png" id="1_567j1"]
+[ext_resource type="Script" uid="uid://bf3h8brw85el7" path="res://scripts/menu/show_popu_menu.gd" id="3_go0ap"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/hud/upgrades_menu.tscn" id="6_apjy4"]
 [ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/hud/settings_menu.tscn" id="6_eld54"]
-[ext_resource type="Script" uid="uid://2qwcolr0joku" path="res://scripts/menu/settings_menu.gd" id="7_3swnk"]
-[ext_resource type="Texture2D" uid="uid://2jnafo5nueky" path="res://assets/assets/icons/settings/button-settings-n.png" id="7_mphia"]
-[ext_resource type="Texture2D" uid="uid://bvaomsxmwcm4x" path="res://assets/assets/icons/shop/button-shop-n.png" id="8_0i1j5"]
-[ext_resource type="Texture2D" uid="uid://bvr55d50yohx4" path="res://assets/assets/icons/settings/button-settings-h.png" id="8_0m4u7"]
-[ext_resource type="Script" uid="uid://dbrifp0rbviky" path="res://scripts/menu/upgrades_menu.gd" id="9_5n1hp"]
-[ext_resource type="Texture2D" uid="uid://8owvvblbu6i0" path="res://assets/assets/icons/shop/button-shop-h.png" id="9_mphia"]
+[ext_resource type="Texture2D" uid="uid://ca0fen08d24bq" path="res://assets/icons/settings.png" id="9_iioc1"]
+[ext_resource type="Texture2D" uid="uid://cg56rnubx2c86" path="res://assets/icons/upgrades.png" id="10_4m1a1"]
+[ext_resource type="Script" uid="uid://cca7dvvshb3ah" path="res://scenes/hud/counters.gd" id="13_558d4"]
+[ext_resource type="Texture2D" uid="uid://blcg42furcje4" path="res://assets/icons/achivements.png" id="13_iioc1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
-shader = ExtResource("1_iioc1")
-shader_parameter/color_start = Color(0, 1, 0.69, 1)
-shader_parameter/color_end = Color(0, 0.2, 0.5, 1)
-shader_parameter/base_alpha = 0.07200000342
-shader_parameter/point_start = Vector2(-1.35, 0.5)
-shader_parameter/point_end = Vector2(1, 0.5)
-shader_parameter/piaskowy_intensity = 0.5270000250325
-shader_parameter/grain_scale = 31.4450014461375
 
-[sub_resource type="GDScript" id="GDScript_0m4u7"]
-script/source = "extends TextureRect
-
-@onready var clock = %TextureProgressBar
-@export var day_duration:float 
-var game_duration:float = 0.0
-
-func _process(delta: float) -> void:
-	game_duration += delta
-	if game_duration >= day_duration:
-		game_duration = 0
-		
-	clock.value = game_duration / day_duration
-"
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_567j1"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1423471652]
 process_mode = 3
 
-[node name="Overlay" type="TextureRect" parent="." unique_id=522304739]
-material = SubResource("ShaderMaterial_567j1")
-offset_right = 1920.0
-offset_bottom = 1081.0
-texture = ExtResource("1_mphia")
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=592437620]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
 
-[node name="Title" type="Label" parent="Overlay" unique_id=920864114]
+[node name="Overlay" type="TextureRect" parent="MarginContainer" unique_id=522304739]
+material = SubResource("ShaderMaterial_567j1")
+layout_mode = 2
+texture = ExtResource("1_567j1")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Overlay" unique_id=1455983708]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -192.95093
-offset_top = -5.405266
-offset_right = 197.04907
-offset_bottom = 55.749275
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Overlay/HBoxContainer" unique_id=1802114440]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer" unique_id=1423563369]
+custom_minimum_size = Vector2(0, 58.5)
+layout_mode = 2
+size_flags_horizontal = 9
+size_flags_vertical = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1885330844]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Settings" type="TextureButton" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1908194614]
+custom_minimum_size = Vector2(38.43, 0)
+layout_mode = 2
+texture_normal = ExtResource("9_iioc1")
+texture_pressed = ExtResource("9_iioc1")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_go0ap")
+
+[node name="SettingsMenu" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
+process_mode = 0
+visible = false
+
+[node name="Upgrades" type="TextureButton" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=11489350]
+custom_minimum_size = Vector2(36.23, 0)
+layout_mode = 2
+texture_normal = ExtResource("10_4m1a1")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_go0ap")
+
+[node name="UpgradesMenu" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/Upgrades" unique_id=498256039 instance=ExtResource("6_apjy4")]
+visible = false
+
+[node name="Achivements" type="TextureButton" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=93847451]
+custom_minimum_size = Vector2(41.215, 0)
+layout_mode = 2
+texture_normal = ExtResource("13_iioc1")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_go0ap")
+
+[node name="UpgradesMenu" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/Achivements" unique_id=1667791801 instance=ExtResource("6_apjy4")]
+visible = false
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/Overlay/HBoxContainer" unique_id=144855484]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme_override_styles/panel = SubResource("StyleBoxEmpty_567j1")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Overlay/HBoxContainer/PanelContainer2" unique_id=1939459762]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Overlay/HBoxContainer/PanelContainer2/MarginContainer" unique_id=905752645]
+layout_mode = 2
+script = ExtResource("13_558d4")
+end_hour = 12
+clock_wait_time = 5.0
+
+[node name="Day" type="Label" parent="MarginContainer/Overlay/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=920864114]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("5_uo2fv")
-theme_override_font_sizes/font_size = 48
-text = "City: Lorem Ipsum"
+theme_override_font_sizes/font_size = 32
+text = "Dzień X"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Control" type="Control" parent="." unique_id=1795378241]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Settings" type="TextureButton" parent="Control" unique_id=271484443]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.9
-anchor_top = 23.321001
-anchor_right = 3.9
-anchor_bottom = 23.321001
-offset_left = -80.18182
-offset_top = -65.903625
-offset_right = 96.81818
-offset_bottom = 108.096375
-texture_normal = ExtResource("7_mphia")
-texture_hover = ExtResource("8_0m4u7")
-stretch_mode = 3
-
-[node name="SettingsMenu" parent="Control/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
-process_mode = 0
-script = ExtResource("7_3swnk")
-
-[node name="Shop" type="TextureButton" parent="Control" unique_id=1736348984]
-layout_mode = 0
-offset_left = 252.81818
-offset_top = 866.9364
-offset_right = 429.81818
-offset_bottom = 1040.9364
-texture_normal = ExtResource("8_0i1j5")
-texture_hover = ExtResource("9_mphia")
-stretch_mode = 3
-
-[node name="UpgradesMenu" parent="Control/Shop" unique_id=498256039 instance=ExtResource("6_apjy4")]
-visible = false
-script = ExtResource("9_5n1hp")
-
-[node name="Bar" type="TextureRect" parent="." unique_id=329981727]
-process_mode = 1
-offset_left = 40.0
-offset_top = -19.400024
-offset_right = 604.0
-offset_bottom = 214.59998
-texture = ExtResource("1_0i1j5")
-stretch_mode = 2
-script = SubResource("GDScript_0m4u7")
-day_duration = 20.0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Bar" unique_id=779386582]
+[node name="Clock" type="Label" parent="MarginContainer/Overlay/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" unique_id=746826376]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.437
-anchor_top = 0.5
-anchor_right = 0.437
-anchor_bottom = 0.5
-offset_left = -207.7142
-offset_top = -26.874046
-offset_right = -93.7142
-offset_bottom = 87.125946
-max_value = 1.0
-step = 0.0
-fill_mode = 4
-texture_under = ExtResource("2_mphia")
-texture_over = ExtResource("3_0m4u7")
-texture_progress = ExtResource("4_apjy4")
-
-[node name="Day" type="Label" parent="Bar" unique_id=1210453090]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.018000001
-anchor_top = 0.068
-anchor_right = 0.018000001
-anchor_bottom = 0.068
-offset_left = 117.98603
-offset_top = 67.49399
-offset_right = 445.53323
-offset_bottom = 200.49399
-theme_override_colors/font_shadow_color = Color(0.07058824, 0.23137255, 0.42745098, 0.6784314)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("5_uo2fv")
-theme_override_font_sizes/font_size = 70
-text = "Dzień: 1"
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "HH:MM"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[connection signal="pressed" from="Control/Settings" to="Control/Settings/SettingsMenu" method="_on_settings_pressed"]
-[connection signal="pressed" from="Control/Shop" to="Control/Shop/UpgradesMenu" method="_on_shop_pressed"]
+[node name="Timer" type="Timer" parent="MarginContainer/Overlay/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/Clock" unique_id=2060925665]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Overlay/HBoxContainer" unique_id=132871089]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer2" unique_id=1676563671]
+custom_minimum_size = Vector2(0, 58.5)
+layout_mode = 2
+size_flags_horizontal = 9
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer2/MarginContainer" unique_id=1360100197]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Overlay/HBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=1522592247]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+texture = ExtResource("9_iioc1")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="timeout" from="MarginContainer/Overlay/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/Clock/Timer" to="MarginContainer/Overlay/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer" method="_on_timer_timeout"]

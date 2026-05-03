@@ -22,10 +22,10 @@ buses/default_bus_layout="uid://doikg5skco0yv"
 
 GameEvents="*uid://dvcpvx6nvxko5"
 SettingsManager="*uid://ckmvkk0cm2uap"
-AudioManager="*uid://sb75jvnxxr1n"
 GlobalData="*uid://g277xbbdc3lt"
-TransitionScene="*uid://dida4s0n1jhx5"
-BackgroundMusic="*uid://bqs0sysn1amst"
+AudioManager="*uid://sb75jvnxxr1n"
+TransitionScene="*uid://dn3w6jc5wnh0l"
+BackgroundMusic="*uid://dv4g8nem350va"
 
 [display]
 
@@ -120,5 +120,7 @@ locale/locale_filter_mode=0
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 rendering_device/driver.windows="d3d12"
+textures/default_filters/anisotropic_filtering_level=4
 viewport/hdr_2d=true
