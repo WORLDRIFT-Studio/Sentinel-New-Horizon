@@ -1,19 +1,13 @@
 [gd_scene format=3 uid="uid://c7fuykroxti3e"]
 
 [ext_resource type="Script" uid="uid://cdipld5s8jirl" path="res://scripts/menu/popup_menu.gd" id="1_fkpcm"]
-[ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_upvkg"]
 [ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="2_maivf"]
 [ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="3_j4o8j"]
 [ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="4_fkpcm"]
 [ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="5_b7e55"]
 [ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="6_y3kab"]
 [ext_resource type="Texture2D" uid="uid://nvo31s642gia" path="res://assets/icons/cancel.png" id="7_j4o8j"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
-shader = ExtResource("1_upvkg")
-shader_parameter/strength = 1.0
-shader_parameter/opacity = 0.45
-shader_parameter/radius = 0.85
+[ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="8_j4o8j"]
 
 [node name="UpgradesMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
@@ -26,39 +20,33 @@ always_on_top = true
 transparent = true
 script = ExtResource("1_fkpcm")
 
-[node name="Background" type="ColorRect" parent="." unique_id=827922727]
-material = SubResource("ShaderMaterial_0vea8")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 1916.0
-offset_bottom = 1076.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Menu" type="Panel" parent="." unique_id=2143825523]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -830.5
-offset_top = -410.5
-offset_right = 830.5
-offset_bottom = 410.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("2_maivf")
 
 [node name="Close" type="Button" parent="Menu" unique_id=520370973]
 process_mode = 3
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 14.5
 offset_top = 14.5
 offset_right = 108.5
 offset_bottom = 108.5
+pivot_offset = Vector2(282.5, 2.5)
 theme_override_styles/normal = ExtResource("3_j4o8j")
 theme_override_styles/pressed = ExtResource("4_fkpcm")
 theme_override_styles/hover = ExtResource("5_b7e55")
@@ -66,14 +54,8 @@ theme_override_styles/hover_pressed = ExtResource("6_y3kab")
 icon = ExtResource("7_j4o8j")
 icon_alignment = 1
 
-[node name="Label" type="Label" parent="Menu" unique_id=657766869]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 613
-text = "Test"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1800047558]
+unique_name_in_owner = true
+libraries/Panels = ExtResource("8_j4o8j")
 
 [connection signal="pressed" from="Menu/Close" to="." method="_on_close_pressed"]

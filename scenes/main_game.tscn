@@ -5,11 +5,6 @@
 [ext_resource type="Script" uid="uid://dwdf468ndxmbh" path="res://scripts/logic/camera.gd" id="3_ygxny"]
 [ext_resource type="PackedScene" uid="uid://ki70gho6lyw5" path="res://scenes/hud/hud.tscn" id="4_wi4c7"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_paxxb"]
-vertices = PackedVector2Array(1130, 628, -770, 628, -770, -432, 1130, -432)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-780, 638, 1140, 638, 1140, -442, -780, -442)])
-
 [node name="Game" type="Node2D" unique_id=211452031]
 script = ExtResource("1_0rdsr")
 
@@ -38,8 +33,3 @@ map_limit_bottom = 1080
 speed = 1250.0
 
 [node name="HUD" parent="Camera" unique_id=1423471652 instance=ExtResource("4_wi4c7")]
-
-[node name="NavigasionArea" type="NavigationRegion2D" parent="." unique_id=1019167563]
-visible = false
-position = Vector2(780, 442)
-navigation_polygon = SubResource("NavigationPolygon_paxxb")

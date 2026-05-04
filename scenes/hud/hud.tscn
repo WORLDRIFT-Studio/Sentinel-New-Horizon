@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://hcnhebgyfrwo" path="res://assets/icons/counter.png" id="1_567j1"]
 [ext_resource type="PackedScene" uid="uid://bvp52n8v2u26p" path="res://scenes/hud/notification.tscn" id="2_567j1"]
 [ext_resource type="Script" uid="uid://bf3h8brw85el7" path="res://scripts/menu/show_popu_menu.gd" id="3_go0ap"]
+[ext_resource type="AnimationLibrary" uid="uid://7b585illi1hc" path="res://resources/HUD.res" id="3_jjjd2"]
+[ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="3_nsgyl"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/hud/upgrades_menu.tscn" id="6_apjy4"]
 [ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/hud/settings_menu.tscn" id="6_eld54"]
@@ -17,259 +19,6 @@
 [ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="14_nsgyl"]
 [ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="15_jjjd2"]
 
-[sub_resource type="Animation" id="Animation_nhd55"]
-resource_name = "PanelShowUp"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
-"transitions": PackedFloat32Array(1, 1, 2),
-"update": 0,
-"values": [Vector2(22, 22.5), Vector2(802, 112), Vector2(802, 794)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
-"transitions": PackedFloat32Array(1, 1, 2),
-"update": 0,
-"values": [Vector2(949, 528.75), Vector2(559, 484), Vector2(559, 184)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.39999998),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MainContainer/VBoxContainer/Panel2:custom_minimum_size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.6, 0.8333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 500)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MainContainer/VBoxContainer/HBoxContainer:custom_minimum_size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.6, 0.8333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 75)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MainContainer:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MainContainer/VBoxContainer/HBoxContainer/ContinueButton:theme_override_colors/font_color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.8333333, 1.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MainContainer/VBoxContainer/HBoxContainer/UpgradesButton:theme_override_colors/font_color")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.8333333, 1.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("MainContainer/VBoxContainer/Panel/Label:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.8333333, 1.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("PanelSound:playing")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0.033333335),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_q6mn5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(22, 22.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(949, 528.75)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MainContainer/VBoxContainer/Panel2:custom_minimum_size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MainContainer/VBoxContainer/HBoxContainer:custom_minimum_size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MainContainer:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MainContainer/VBoxContainer/HBoxContainer/ContinueButton:theme_override_colors/font_color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MainContainer/VBoxContainer/HBoxContainer/UpgradesButton:theme_override_colors/font_color")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("MainContainer/VBoxContainer/Panel/Label:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("PanelSound:playing")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8nkf1"]
-_data = {
-&"PanelShowUp": SubResource("Animation_nhd55"),
-&"RESET": SubResource("Animation_q6mn5")
-}
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_567j1"]
@@ -277,16 +26,18 @@ _data = {
 [node name="HUD" type="CanvasLayer" unique_id=1423471652 node_paths=PackedStringArray("notify_container")]
 process_mode = 3
 script = ExtResource("13_558d4")
-end_hour = 11
+start_hour = 8
+end_hour = 10
 step = 60
 clock_wait_time = 2.0
 notify_tscn = ExtResource("2_567j1")
 notify_container = NodePath("NotificationContainer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=473016491]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=285725192]
 unique_name_in_owner = true
 root_node = NodePath("../Summary")
-libraries/ = SubResource("AnimationLibrary_8nkf1")
+libraries/HUD = ExtResource("3_jjjd2")
+libraries/panels = ExtResource("3_nsgyl")
 
 [node name="NavBar" type="MarginContainer" parent="." unique_id=592437620]
 unique_name_in_owner = true
@@ -438,10 +189,12 @@ theme_override_styles/panel = ExtResource("10_nhd55")
 metadata/_edit_group_ = true
 
 [node name="PanelSound" type="AudioStreamPlayer" parent="Summary" unique_id=38933155]
+unique_name_in_owner = true
 stream = ExtResource("11_8nkf1")
 bus = &"SFX"
 
 [node name="MainContainer" type="MarginContainer" parent="Summary" unique_id=661476250]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -511,6 +264,7 @@ text = "Ulepszenia"
 
 [node name="NotificationContainer" type="VBoxContainer" parent="." unique_id=312451308]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -524,7 +278,6 @@ alignment = 2
 
 [node name="UpgradesMenu" parent="." unique_id=450696650 instance=ExtResource("6_apjy4")]
 unique_name_in_owner = true
-visible = false
 
 [connection signal="timeout" from="NavBar/Overlay/HBoxContainer/Center/MarginContainer/VBoxContainer/Clock/Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_down" from="Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]

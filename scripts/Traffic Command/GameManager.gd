@@ -1,20 +1,11 @@
 extends Node2D
 
-@onready var k1_followers = [$Left/Right/PathFollow2D, $Left/Straight/PathFollow2D, $Left/Left/PathFollow2D]
-@onready var k1_paths = [$Left/Right, $Left/Straight, $Left/Left]
-@onready var k1_vehicle = $Left/Right/PathFollow2D/Node2D
-
-@onready var k2_followers = [$Down/Right/PathFollow2D, $Down/Straight/PathFollow2D, $Down/Left/PathFollow2D]
-@onready var k2_paths = [$Down/Right, $Down/Straight, $Down/Left]
-@onready var k2_vehicle = $Down/Right/PathFollow2D/Node2D
-
-@onready var k3_followers = [$Right/Right/PathFollow2D, $Right/Straight/PathFollow2D, $Right/Left/PathFollow2D]
-@onready var k3_paths = [$Right/Right, $Right/Straight, $Right/Left]
-@onready var k3_vehicle = $Right/Right/PathFollow2D/Node2D
-
-@onready var k4_followers = [$Up/Right/PathFollow2D, $Up/Straight/PathFollow2D, $Up/Left/PathFollow2D]
-@onready var k4_paths = [$Up/Right, $Up/Straight, $Up/Left]
-@onready var k4_vehicle = $Up/Right/PathFollow2D/Node2D
+@onready var directions = [
+	{ "followers": [$Left/Right/PathFollow2D, $Left/Straight/PathFollow2D, $Left/Left/PathFollow2D], "paths": [$Left/Right, $Left/Straight, $Left/Left], "vehicle": $Left/Right/PathFollow2D/Node2D, "active_index": -1, "active_follower": null },
+	{ "followers": [$Down/Right/PathFollow2D, $Down/Straight/PathFollow2D, $Down/Left/PathFollow2D], "paths": [$Down/Right, $Down/Straight, $Down/Left], "vehicle": $Down/Right/PathFollow2D/Node2D, "active_index": -1, "active_follower": null },
+	{ "followers": [$Right/Right/PathFollow2D, $Right/Straight/PathFollow2D, $Right/Left/PathFollow2D], "paths": [$Right/Right, $Right/Straight, $Right/Left], "vehicle": $Right/Right/PathFollow2D/Node2D, "active_index": -1, "active_follower": null },
+	{ "followers": [$Up/Right/PathFollow2D, $Up/Straight/PathFollow2D, $Up/Left/PathFollow2D], "paths": [$Up/Right, $Up/Straight, $Up/Left], "vehicle": $Up/Right/PathFollow2D/Node2D, "active_index": -1, "active_follower": null }
+]
 
 var direction_timers: Array[float] = [10.0, 10.0, 10.0, 10.0]
 var timer_limits: Array[float] = [10.0, 10.0, 10.0, 10.0]
@@ -22,121 +13,124 @@ var timer_active: Array[bool] = [false, false, false, false]
 
 @onready var ui = $Menu
 
-var directions: Array = []
+func _ready() -> void:
+	directions = [
+		{ 
+			"followers": [$Left/Right/PathFollow2D, $Left/Straight/PathFollow2D, $Left/Left/PathFollow2D], 
+			"paths": [$Left/Right, $Left/Straight, $Left/Left], 
+			"vehicle": $Left/Right/PathFollow2D/Node2D, 
+			"active_index": -1, 
+			"active_follower": null 
+		},
+		{ 
+			"followers": [$Down/Right/PathFollow2D, $Down/Straight/PathFollow2D, $Down/Left/PathFollow2D], 
+			"paths": [$Down/Right, $Down/Straight, $Down/Left], 
+			"vehicle": $Down/Right/PathFollow2D/Node2D, 
+			"active_index": -1, 
+			"active_follower": null 
+		},
+		{ 
+			"followers": [$Right/Right/PathFollow2D, $Right/Straight/PathFollow2D, $Right/Left/PathFollow2D], 
+			"paths": [$Right/Right, $Right/Straight, $Right/Left], 
+			"vehicle": $Right/Right/PathFollow2D/Node2D, 
+			"active_index": -1, 
+			"active_follower": null 
+		},
+		{ 
+			"followers": [$Up/Right/PathFollow2D, $Up/Straight/PathFollow2D, $Up/Left/PathFollow2D], 
+			"paths": [$Up/Right, $Up/Straight, $Up/Left], 
+			"vehicle": $Up/Right/PathFollow2D/Node2D, 
+			"active_index": -1, 
+			"active_follower": null 
+		}
+	]
+	for i in range(directions.size()):
+		var d = directions[i]
+		d["vehicle"].get_node("Area2D").crashed.connect(_on_crash)
+		_pick_random(i)
 
 func _process(delta: float) -> void:
 	for i in range(directions.size()):
-		if not timer_active[i]:
-			continue
-		var TimerLabel = directions[i]["vehicle"].get_node("Timer")
-		direction_timers[i] -= delta
-		TimerLabel.text = str(snapped(direction_timers[i], 0.01))
+		if not timer_active[i]: continue
 		
+		direction_timers[i] -= delta
+		var vehicle = directions[i]["vehicle"]
+		vehicle.get_node("Timer").text = str(snapped(direction_timers[i], 0.1))
+		
+		# Proste mruganie na czerwono poniżej 5s
 		if direction_timers[i] <= 5.0:
-			var sprite = directions[i]["vehicle"].get_node("Sprite2D")
-			sprite.modulate = Color(1, 0, 0)
+			var pulse = floor(direction_timers[i] * 10)
+			vehicle.get_node("Sprite2D").modulate = Color.RED if int(pulse) % 2 == 0 else Color.WHITE
 		
 		if direction_timers[i] <= 0:
-			direction_timers[i] = 0
-			timer_active[i] = false
 			_force_continue(i)
-
-func _force_continue(index: int) -> void:
-	var d = directions[index]
-	if d["active_follower"] == null:
-		return
-	
-	var area = d["vehicle"].get_node("Area2D")
-	area.clickable = false
-	area.input_pickable = false
-	
-	var TimerLabel = d["vehicle"].get_node("Timer")
-	TimerLabel.visible = false
-	
-	d["active_follower"].continue_moving()
-
-func _ready() -> void:
-	directions = [
-		{ "followers": k1_followers, "paths": k1_paths, "vehicle": k1_vehicle, "active_index": -1, "active_follower": null },
-		{ "followers": k2_followers, "paths": k2_paths, "vehicle": k2_vehicle, "active_index": -1, "active_follower": null },
-		{ "followers": k3_followers, "paths": k3_paths, "vehicle": k3_vehicle, "active_index": -1, "active_follower": null },
-		{ "followers": k4_followers, "paths": k4_paths, "vehicle": k4_vehicle, "active_index": -1, "active_follower": null },
-	]
-	
-	for d in directions:
-		var area = d["vehicle"].get_node("Area2D")
-		area.crashed.connect(_on_crash)
-	
-	for i in range(directions.size()):
-		_pick_random(i)
 
 func _pick_random(index: int) -> void:
 	var d = directions[index]
 	
-	if d["active_index"] != -1:
+	# Odłączanie starych sygnałów - używamy .bind() zamiast lambdy, aby móc się rozłączyć
+	if d["active_follower"] != null:
 		d["paths"][d["active_index"]].hide_path()
+		var area = d["vehicle"].get_node("Area2D")
 		
-		var old_follower = d["active_follower"]
-		if old_follower.reached_stop.is_connected(func(): _on_reached_stop(index)):
-			old_follower.reached_stop.disconnect(func(): _on_reached_stop(index))
-		if old_follower.route_finished.is_connected(func(): _pick_random(index)):
-			old_follower.route_finished.disconnect(func(): _pick_random(index))
-		
-		var old_area = d["vehicle"].get_node("Area2D")
-		if old_area.clicked.is_connected(func(): _on_vehicle_clicked(index)):
-			old_area.clicked.disconnect(func(): _on_vehicle_clicked(index))
-	
-	var new_index = d["active_index"]
-	while new_index == d["active_index"]:
-		new_index = randi() % 3
+		# Rozłączamy wszystko, co było podpięte pod ten konkretny index
+		if d["active_follower"].reached_stop.is_connected(_on_reached_stop.bind(index)):
+			d["active_follower"].reached_stop.disconnect(_on_reached_stop.bind(index))
+		if d["active_follower"].route_finished.is_connected(_on_route_finished.bind(index)):
+			d["active_follower"].route_finished.disconnect(_on_route_finished.bind(index))
+		if area.clicked.is_connected(_on_vehicle_clicked.bind(index)):
+			area.clicked.disconnect(_on_vehicle_clicked.bind(index))
+
+	# Losowanie nowej trasy
+	var new_index = randi() % 3
+	while new_index == d["active_index"]: new_index = randi() % 3
 	
 	d["active_index"] = new_index
-	d["active_follower"] = d["followers"][d["active_index"]]
+	d["active_follower"] = d["followers"][new_index]
 	
-	var vehicle = d["vehicle"]
-	vehicle.reparent(d["active_follower"], false)
-	vehicle.position = Vector2.ZERO
+	# Reparenting i reset
+	d["vehicle"].reparent(d["active_follower"], false)
+	d["vehicle"].position = Vector2.ZERO
+	d["vehicle"].get_node("Sprite2D").modulate = Color.WHITE
+	d["vehicle"].get_node("Timer").visible = false
 	
-	d["paths"][d["active_index"]].show_path()
+	d["paths"][new_index].show_path()
 	d["active_follower"].reset()
-	d["active_follower"].reached_stop.connect(func(): _on_reached_stop(index))
-	d["active_follower"].route_finished.connect(func(): _on_route_finished(index))
 	
-	print("Kierunek ", index + 1, " — wylosowano trasę: ", new_index + 1)
+	# Łączenie nowych sygnałów z użyciem BIND
+	d["active_follower"].reached_stop.connect(_on_reached_stop.bind(index))
+	d["active_follower"].route_finished.connect(_on_route_finished.bind(index))
 
 func _on_reached_stop(index: int) -> void:
 	var d = directions[index]
 	var area = d["vehicle"].get_node("Area2D")
-	
 	area.enable_click()
+	
 	direction_timers[index] = timer_limits[index]
 	timer_active[index] = true
+	d["vehicle"].get_node("Timer").visible = true
 	
-	var TimerLabel = d["vehicle"].get_node("Timer")
-	TimerLabel.visible = true
-	
-	if not area.clicked.is_connected(func(): _on_vehicle_clicked(index)):
-		area.clicked.connect(func(): _on_vehicle_clicked(index))
+	if not area.clicked.is_connected(_on_vehicle_clicked.bind(index)):
+		area.clicked.connect(_on_vehicle_clicked.bind(index))
 
 func _on_vehicle_clicked(index: int) -> void:
-	var sprite = directions[index]["vehicle"].get_node("Sprite2D")
-	sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	
 	timer_active[index] = false
-	direction_timers[index] = timer_limits[index]
-	
-	var TimerLabel = directions[index]["vehicle"].get_node("Timer")
-	TimerLabel.visible = false
-	
-	directions[index]["active_follower"].continue_moving()
+	var d = directions[index]
+	d["vehicle"].get_node("Timer").visible = false
+	d["vehicle"].get_node("Sprite2D").modulate = Color.WHITE
+	d["active_follower"].continue_moving()
+
+func _force_continue(index: int) -> void:
+	timer_active[index] = false
+	var d = directions[index]
+	var area = d["vehicle"].get_node("Area2D")
+	area.clickable = false # Upewnij się, że Area2D ma tę zmienną
+	d["vehicle"].get_node("Timer").visible = false
+	d["active_follower"].continue_moving()
 
 func _on_route_finished(index: int) -> void:
-	var sprite = directions[index]["vehicle"].get_node("Sprite2D")
-	sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	
 	ui.add_finished_vehicle()
 	_pick_random(index)
 
 func _on_crash() -> void:
-	print("Kolizja — koniec gry!")
 	get_tree().paused = true
