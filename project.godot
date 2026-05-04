@@ -27,6 +27,7 @@ AudioManager="*uid://sb75jvnxxr1n"
 GlobalData="*uid://g277xbbdc3lt"
 BackgroundMusic="*uid://bqs0sysn1amst"
 TransitionScene="*uid://dida4s0n1jhx5"
+SaveLoad="*uid://j4cw5ew3xkio"
 
 [display]
 
