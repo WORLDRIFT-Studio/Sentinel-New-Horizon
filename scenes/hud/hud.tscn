@@ -1,23 +1,22 @@
 [gd_scene format=3 uid="uid://ki70gho6lyw5"]
 
 [ext_resource type="Texture2D" uid="uid://hcnhebgyfrwo" path="res://assets/icons/counter.png" id="1_567j1"]
-[ext_resource type="PackedScene" uid="uid://bvp52n8v2u26p" path="res://scenes/hud/notification.tscn" id="2_567j1"]
+[ext_resource type="PackedScene" uid="uid://bc3t2as7o7hhk" path="res://scenes/hud/notification.tscn" id="2_567j1"]
 [ext_resource type="Script" uid="uid://bf3h8brw85el7" path="res://scripts/menu/show_popu_menu.gd" id="3_go0ap"]
 [ext_resource type="AnimationLibrary" uid="uid://7b585illi1hc" path="res://resources/HUD.res" id="3_jjjd2"]
-[ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="3_nsgyl"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/hud/upgrades_menu.tscn" id="6_apjy4"]
 [ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/hud/settings_menu.tscn" id="6_eld54"]
-[ext_resource type="PackedScene" uid="uid://p7rm4eiyi6cu" path="res://scenes/hud/achivements_menu.tscn" id="7_iioc1"]
+[ext_resource type="PackedScene" uid="uid://cc0ak4wmcs1ye" path="res://scenes/hud/achivements_menu.tscn" id="7_iioc1"]
 [ext_resource type="Texture2D" uid="uid://ca0fen08d24bq" path="res://assets/icons/settings.png" id="9_iioc1"]
-[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="10_nhd55"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="10_nhd55"]
 [ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="11_8nkf1"]
-[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="11_q6mn5"]
-[ext_resource type="Script" uid="uid://cca7dvvshb3ah" path="res://scenes/hud/counters.gd" id="13_558d4"]
-[ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="13_567j1"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="11_q6mn5"]
+[ext_resource type="Script" uid="uid://cca7dvvshb3ah" path="res://scripts/menu/counters.gd" id="13_558d4"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="13_567j1"]
 [ext_resource type="Texture2D" uid="uid://blcg42furcje4" path="res://assets/icons/achivements.png" id="13_iioc1"]
-[ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="14_nsgyl"]
-[ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="15_jjjd2"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="14_nsgyl"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="15_jjjd2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
 
@@ -37,7 +36,6 @@ notify_container = NodePath("NotificationContainer")
 unique_name_in_owner = true
 root_node = NodePath("../Summary")
 libraries/HUD = ExtResource("3_jjjd2")
-libraries/panels = ExtResource("3_nsgyl")
 
 [node name="NavBar" type="MarginContainer" parent="." unique_id=592437620]
 unique_name_in_owner = true
@@ -191,7 +189,6 @@ metadata/_edit_group_ = true
 [node name="PanelSound" type="AudioStreamPlayer" parent="Summary" unique_id=38933155]
 unique_name_in_owner = true
 stream = ExtResource("11_8nkf1")
-bus = &"SFX"
 
 [node name="MainContainer" type="MarginContainer" parent="Summary" unique_id=661476250]
 visible = false

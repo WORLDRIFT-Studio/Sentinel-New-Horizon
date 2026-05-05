@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c7fuykroxti3e"]
 
 [ext_resource type="Script" uid="uid://cdipld5s8jirl" path="res://scripts/menu/popup_menu.gd" id="1_fkpcm"]
-[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="2_maivf"]
-[ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="3_j4o8j"]
-[ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="4_fkpcm"]
-[ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="5_b7e55"]
-[ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="6_y3kab"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="2_maivf"]
+[ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="3_j4o8j"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="4_fkpcm"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="5_b7e55"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_y3kab"]
 [ext_resource type="Texture2D" uid="uid://nvo31s642gia" path="res://assets/icons/cancel.png" id="7_j4o8j"]
 [ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="8_j4o8j"]
 
@@ -21,16 +21,15 @@ transparent = true
 script = ExtResource("1_fkpcm")
 
 [node name="Menu" type="Panel" parent="." unique_id=2143825523]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 6.0
-offset_bottom = 5.0
+offset_left = -830.5
+offset_top = -410.5
+offset_right = 830.5
+offset_bottom = 410.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0)
@@ -38,9 +37,16 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("2_maivf")
 
-[node name="Close" type="Button" parent="Menu" unique_id=520370973]
+[node name="MainContainer" type="Control" parent="Menu" unique_id=993206144]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
 process_mode = 3
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 14.5
 offset_top = 14.5
@@ -56,6 +62,6 @@ icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1800047558]
 unique_name_in_owner = true
-libraries/Panels = ExtResource("8_j4o8j")
+libraries/panels = ExtResource("8_j4o8j")
 
-[connection signal="pressed" from="Menu/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Menu/MainContainer/Close" to="." method="_on_close_pressed"]

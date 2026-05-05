@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6piwt5qyj171"]
 
 [ext_resource type="Script" uid="uid://gthncc1s4n85" path="res://scripts/settings/volume_slider.gd" id="1_4vkr2"]
-[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="1_37ng8"]
+[ext_resource type="StyleBox" path="res://styles/inner_panel.tres" id="1_37ng8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwgp"]
 bg_color = Color(0, 0.25167894, 0.42411947, 1)

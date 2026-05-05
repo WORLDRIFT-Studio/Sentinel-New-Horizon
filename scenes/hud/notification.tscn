@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bvp52n8v2u26p"]
+[gd_scene format=3 uid="uid://bc3t2as7o7hhk"]
 
-[ext_resource type="Script" uid="uid://bo3djaivhxsse" path="res://scenes/hud/notification.gd" id="1_lfuor"]
-[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="2_md7qx"]
+[ext_resource type="Script" uid="uid://bo3djaivhxsse" path="res://scripts/menu/notification.gd" id="1_lfuor"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="2_md7qx"]
 
 [sub_resource type="Animation" id="Animation_pmig3"]
 length = 0.001

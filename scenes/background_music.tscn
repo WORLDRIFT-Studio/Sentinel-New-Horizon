@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dv4g8nem350va"]
+[gd_scene format=3 uid="uid://uqlpwqjpv552"]
 
 [ext_resource type="AudioStream" uid="uid://cp2yy88ww78d4" path="res://assets/sounds/theme_song.mp3" id="1_0rulj"]
 
@@ -6,5 +6,4 @@
 process_mode = 3
 stream = ExtResource("1_0rulj")
 autoplay = true
-mix_target = 1
 bus = &"Music"

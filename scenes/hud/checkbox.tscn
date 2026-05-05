@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btw8v5y6p1lxx"]
 
-[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="1_dehoy"]
+[ext_resource type="StyleBox" path="res://styles/inner_panel.tres" id="1_dehoy"]
 [ext_resource type="Script" uid="uid://chyw8qb0xp2x6" path="res://scripts/settings/option_checkbox.gd" id="1_qt2fl"]
 
 [node name="Master" type="Panel" unique_id=1254362795]

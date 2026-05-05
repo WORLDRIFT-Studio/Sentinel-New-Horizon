@@ -2,14 +2,15 @@
 
 [ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_labj1"]
 [ext_resource type="Script" uid="uid://cdipld5s8jirl" path="res://scripts/menu/popup_menu.gd" id="1_yikl8"]
-[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="2_mc4l6"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="2_mc4l6"]
 [ext_resource type="PackedScene" uid="uid://btw8v5y6p1lxx" path="res://scenes/hud/checkbox.tscn" id="5_48ojb"]
 [ext_resource type="PackedScene" uid="uid://6piwt5qyj171" path="res://scenes/hud/volume-slider.tscn" id="5_lwwgp"]
-[ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="5_yikl8"]
-[ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="6_861jc"]
-[ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="7_ucg5u"]
-[ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="8_7nmf5"]
+[ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="5_yikl8"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="6_861jc"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="7_ucg5u"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="8_7nmf5"]
 [ext_resource type="Texture2D" uid="uid://nvo31s642gia" path="res://assets/icons/cancel.png" id="9_orf7j"]
+[ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="11_861jc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
 shader = ExtResource("1_labj1")
@@ -29,6 +30,26 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 corner_detail = 20
+
+[sub_resource type="Animation" id="Animation_861jc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/MainContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ucg5u"]
+_data = {
+&"RESET": SubResource("Animation_861jc")
+}
 
 [node name="SettingsMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
@@ -63,18 +84,28 @@ offset_right = 830.5
 offset_bottom = 410.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_mc4l6")
 
-[node name="Control" type="Control" parent="Menu" unique_id=671198971]
+[node name="MainContainer" type="Control" parent="Menu" unique_id=846196396]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Menu/MainContainer" unique_id=671198971]
 anchors_preset = 0
 offset_left = 0.5
 offset_top = 0.5
 offset_right = 1661.5
 offset_bottom = 821.5
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Control" unique_id=590744864]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer/Control" unique_id=590744864]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,111 +117,112 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 40
 
-[node name="Main" type="VBoxContainer" parent="Menu/Control/MarginContainer" unique_id=311636094]
+[node name="Main" type="VBoxContainer" parent="Menu/MainContainer/Control/MarginContainer" unique_id=311636094]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SoundSliders" type="PanelContainer" parent="Menu/Control/MarginContainer/Main" unique_id=1832669298]
+[node name="SoundSliders" type="PanelContainer" parent="Menu/MainContainer/Control/MarginContainer/Main" unique_id=1832669298]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("2_mc4l6")
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders" unique_id=2105253446]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/SoundSliders" unique_id=2105253446]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Box" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer" unique_id=508689353]
+[node name="Box" type="VBoxContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/SoundSliders/MarginContainer" unique_id=508689353]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Master" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box" unique_id=1254362795 instance=ExtResource("5_lwwgp")]
+[node name="Master" parent="Menu/MainContainer/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box" unique_id=1254362795 instance=ExtResource("5_lwwgp")]
 layout_mode = 2
 BUS = "Master"
 
-[node name="Music SFX" type="HBoxContainer" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box" unique_id=1430454615]
+[node name="Music SFX" type="HBoxContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box" unique_id=1430454615]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="Music" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box/Music SFX" unique_id=223638659 instance=ExtResource("5_lwwgp")]
+[node name="Music" parent="Menu/MainContainer/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box/Music SFX" unique_id=223638659 instance=ExtResource("5_lwwgp")]
 layout_mode = 2
 BUS = "Music"
 
-[node name="SFX" parent="Menu/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box/Music SFX" unique_id=1637332581 instance=ExtResource("5_lwwgp")]
+[node name="SFX" parent="Menu/MainContainer/Control/MarginContainer/Main/SoundSliders/MarginContainer/Box/Music SFX" unique_id=1637332581 instance=ExtResource("5_lwwgp")]
 layout_mode = 2
 BUS = "SFX"
 
-[node name="2Rows" type="HBoxContainer" parent="Menu/Control/MarginContainer/Main" unique_id=483923962]
+[node name="2Rows" type="HBoxContainer" parent="Menu/MainContainer/Control/MarginContainer/Main" unique_id=483923962]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 theme_override_constants/separation = 7
 
-[node name="Left" type="PanelContainer" parent="Menu/Control/MarginContainer/Main/2Rows" unique_id=421374278]
+[node name="Left" type="PanelContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows" unique_id=421374278]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("2_mc4l6")
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Left" unique_id=490555294]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left" unique_id=490555294]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer" unique_id=889695592]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer" unique_id=889695592]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="OptionSwitch" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1906285266 instance=ExtResource("5_48ojb")]
+[node name="OptionSwitch" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1906285266 instance=ExtResource("5_48ojb")]
 layout_mode = 2
 settings = "Fullscreeen"
 default = true
 
-[node name="OptionSwitch2" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1169727777 instance=ExtResource("5_48ojb")]
+[node name="OptionSwitch2" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1169727777 instance=ExtResource("5_48ojb")]
 layout_mode = 2
 settings = "V-Sync"
 default = true
 
-[node name="OptionSwitch5" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1944865202 instance=ExtResource("5_48ojb")]
+[node name="OptionSwitch5" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1944865202 instance=ExtResource("5_48ojb")]
 layout_mode = 2
 
-[node name="OptionSwitch6" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1314000116 instance=ExtResource("5_48ojb")]
+[node name="OptionSwitch6" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=1314000116 instance=ExtResource("5_48ojb")]
 layout_mode = 2
 
-[node name="OptionSwitch7" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=2017058429 instance=ExtResource("5_48ojb")]
+[node name="OptionSwitch7" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=2017058429 instance=ExtResource("5_48ojb")]
 layout_mode = 2
 
-[node name="OptionSwitch8" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=2066391588 instance=ExtResource("5_48ojb")]
+[node name="OptionSwitch8" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=2066391588 instance=ExtResource("5_48ojb")]
 layout_mode = 2
 
-[node name="OptionSwitch4" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=855827009 instance=ExtResource("5_48ojb")]
+[node name="OptionSwitch4" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=855827009 instance=ExtResource("5_48ojb")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Menu/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=282204553]
+[node name="Control" type="Control" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Left/MarginContainer/VBoxContainer" unique_id=282204553]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.05
 
-[node name="Right" type="PanelContainer" parent="Menu/Control/MarginContainer/Main/2Rows" unique_id=739098586]
+[node name="Right" type="PanelContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows" unique_id=739098586]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("2_mc4l6")
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Right" unique_id=280541986]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Right" unique_id=280541986]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control/MarginContainer/Main/2Rows/Right/MarginContainer" unique_id=2052315840]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MainContainer/Control/MarginContainer/Main/2Rows/Right/MarginContainer" unique_id=2052315840]
 layout_mode = 2
 
-[node name="Close" type="Button" parent="Menu" unique_id=453768323]
+[node name="Close" type="Button" parent="Menu/MainContainer" unique_id=453768323]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 0
 offset_left = 4.5
@@ -204,4 +236,9 @@ theme_override_styles/hover_pressed = ExtResource("8_7nmf5")
 icon = ExtResource("9_orf7j")
 icon_alignment = 1
 
-[connection signal="pressed" from="Menu/Close" to="." method="_on_close_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=162685337]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ucg5u")
+libraries/panels = ExtResource("11_861jc")
+
+[connection signal="pressed" from="Menu/MainContainer/Close" to="." method="_on_close_pressed"]

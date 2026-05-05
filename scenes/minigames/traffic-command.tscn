@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/Area2D.gd" id="6_pfesf"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_bcpk6"]
 [ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/Traffic Command/Menu/MenuManager.gd" id="8_6xxge"]
-[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="9_j3vfk"]
+[ext_resource type="StyleBox" path="res://styles/new_container.tres" id="9_j3vfk"]
 
 [sub_resource type="Curve2D" id="Curve2D_2qniy"]
 _data = {

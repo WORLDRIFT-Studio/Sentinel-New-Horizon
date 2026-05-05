@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cnf3nnpcrbm1x"]
+[gd_scene format=3 uid="uid://dhjiyx7bhrdgu"]
 
 [ext_resource type="Script" uid="uid://dyk7w858jcfaa" path="res://scripts/logic/game.gd" id="1_0rdsr"]
 [ext_resource type="Texture2D" uid="uid://wna4dnyf8t2m" path="res://assets/map/map.png" id="1_yqjtg"]
