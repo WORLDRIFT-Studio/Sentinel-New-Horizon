@@ -49,6 +49,10 @@ folder_colors={
 "res://styles/": "purple"
 }
 
+[global_group]
+
+alert=""
+
 [input]
 
 ui_cancel={

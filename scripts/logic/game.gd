@@ -11,7 +11,6 @@ extends Node2D
 #endregion
 
 #region Variable
-
 @onready var map: Sprite2D = %Map
 @onready var hud: CanvasLayer = %HUD
 
@@ -23,9 +22,19 @@ var map_size: Vector2
 func _ready() -> void:
 	alerts_number = randi_range(minimum_alerts, maximum_alerts)
 	map_size = map.texture.get_size()
+	TimeManager.connect("alert", _spawn_alert)
+	TimeManager.connect("day_ended", _delete_alerts)
 
-func spawn_alert() -> void:
+
+func _spawn_alert() -> void:
 	var popup = popup_scene.instantiate()
 	popup.position.x = randf_range(50, map_size.x - 50)
 	popup.position.y = randf_range(50, map_size.y - 50)
 	map.add_child(popup)
+	hud.notify("Otrzymano nowe zgłoszenie !")
+
+
+func _delete_alerts() -> void:
+	var children: Array[Node] = get_tree().get_nodes_in_group("alert")
+	for child in children:
+		child.queue_free()

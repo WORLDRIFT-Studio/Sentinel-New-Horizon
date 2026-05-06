@@ -43,10 +43,6 @@ func _menu_closed() -> void:
 [node name="HUD" type="CanvasLayer" unique_id=1423471652 node_paths=PackedStringArray("notify_container")]
 process_mode = 3
 script = ExtResource("13_558d4")
-start_hour = 8
-end_hour = 10
-step = 60
-clock_wait_time = 2.0
 notify_tscn = ExtResource("2_567j1")
 notify_container = NodePath("NotificationContainer")
 
