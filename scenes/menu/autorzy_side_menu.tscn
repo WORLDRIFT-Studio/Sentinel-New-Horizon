@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://d38pd5kxwebh0"]
 
-[ext_resource type="Script" uid="uid://d11xou6k5dfxw" path="res://scripts/menu/main_menu_autorzy_side.gd" id="1_bqjwk"]
+[ext_resource type="Script" uid="uid://d11xou6k5dfxw" path="res://scripts/ui/main_menu/main_menu_autorzy_side.gd" id="1_bqjwk"]
 [ext_resource type="Texture2D" uid="uid://cytjhpnofyuha" path="res://assets/assets/menu/autorzy.png" id="2_u1da5"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_skos3"]
 [ext_resource type="Texture2D" uid="uid://bffw4xw0yyfeg" path="res://assets/assets/menu/arrow.svg" id="4_vgaqt"]
-[ext_resource type="AudioStream" uid="uid://cby8fem52koh" path="res://assets/sounds/btn_click.wav" id="5_u1da5"]
-[ext_resource type="StyleBox" uid="uid://cx80410gpkp8w" path="res://styles/new_container.tres" id="5_vgaqt"]
-[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="6_sgq0l"]
+[ext_resource type="AudioStream" path="res://assets/sounds/btn_click.wav" id="5_u1da5"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="5_vgaqt"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="6_sgq0l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swr6"]
 texture = ExtResource("2_u1da5")

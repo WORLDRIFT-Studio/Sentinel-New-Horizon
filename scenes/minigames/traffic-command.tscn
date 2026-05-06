@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dk70rtxirthip"]
 
-[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/Traffic Command/GameManager.gd" id="1_2qniy"]
+[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/Traffic Command/game_manager.gd" id="1_2qniy"]
 [ext_resource type="Texture2D" uid="uid://bnx45spr0iqyl" path="res://assets/assets/Traffic Command/Crossroad.jpg" id="2_2qniy"]
-[ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/Traffic Command/Path_line.gd" id="3_qaco6"]
-[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/Traffic Command/Path_follow.gd" id="4_h54vp"]
+[ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/Traffic Command/path_line.gd" id="3_qaco6"]
+[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/Traffic Command/path_follow.gd" id="4_h54vp"]
 [ext_resource type="Texture2D" uid="uid://brinberm23ana" path="res://assets/assets/Traffic Command/car1.png" id="5_eqncl"]
-[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/Area2D.gd" id="6_pfesf"]
+[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/area2D.gd" id="6_pfesf"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_bcpk6"]
 [ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/Traffic Command/Menu/MenuManager.gd" id="8_6xxge"]
-[ext_resource type="StyleBox" path="res://styles/new_container.tres" id="9_j3vfk"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_j3vfk"]
 
 [sub_resource type="Curve2D" id="Curve2D_2qniy"]
 _data = {

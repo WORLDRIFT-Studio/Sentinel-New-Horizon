@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 # Notification Sound Effect by SoundShelfStudio from Pixabay
 
@@ -110,7 +110,7 @@ func notify(message:String) -> void: # Generator powiadomień
 
 func update_day() -> void: # Funkcja aktualizująca dzień
 	current_day += 1
-	day.text = "Dzień: %s" % current_day
+	day.text = "Dzień: %s" % TimeManager.current_hour
 
 func reset() -> void: # Funkcja resetująca zmienne
 	current_hour = start_hour * 60 # Reset czas

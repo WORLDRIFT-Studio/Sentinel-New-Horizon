@@ -34,6 +34,7 @@ map_limit_bottom = 4320
 speed = 1250.0
 
 [node name="HUD" parent="Camera" unique_id=1423471652 instance=ExtResource("4_wi4c7")]
+unique_name_in_owner = true
 end_hour = 16
 step = 15
 clock_wait_time = 15.0

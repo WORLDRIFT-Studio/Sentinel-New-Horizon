@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://cxunusqi14ce"]
 
-[ext_resource type="Script" uid="uid://cyj4t2t0isp6h" path="res://scenes/hud/left_panel.gd" id="1_ko64p"]
+[ext_resource type="Script" uid="uid://cyj4t2t0isp6h" path="res://scripts/ui/hud/hud_left_panel.gd" id="1_ko64p"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="1_xauwh"]
 [ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="3_ko64p"]
+[ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="4_o1xsa"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="5_a6syy"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="6_7181o"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="7_c2ccc"]
 
 [sub_resource type="Animation" id="Animation_ko64p"]
 resource_name = "alert"
@@ -190,7 +194,7 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer" unique_id=761676989]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("3_ko64p")
 
@@ -238,6 +242,52 @@ Opis zdarzenia: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellent
 Poziom trudności: Łatwy"
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=865587073]
+custom_minimum_size = Vector2(0, 38.285)
+layout_mode = 2
+
+[node name="Accept" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1174615992]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("4_o1xsa")
+theme_override_styles/pressed = ExtResource("5_a6syy")
+theme_override_styles/hover = ExtResource("6_7181o")
+theme_override_styles/hover_pressed = ExtResource("7_c2ccc")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer/Accept" unique_id=160979084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Przyjmij"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=322743772]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("4_o1xsa")
+theme_override_styles/pressed = ExtResource("5_a6syy")
+theme_override_styles/hover = ExtResource("6_7181o")
+theme_override_styles/hover_pressed = ExtResource("7_c2ccc")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer/Close" unique_id=1756297479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Zamknij"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="gui_input" from="InvisibleBackground" to="." method="_on_invisible_background_gui_input"]
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://23dbxx50knp8" path="res://assets/assets/Traffic Command/car.gd" id="1_rmu2u"]
 [ext_resource type="Texture2D" uid="uid://brinberm23ana" path="res://assets/assets/Traffic Command/car1.png" id="1_v77ax"]
-[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/Area2D.gd" id="2_rmu2u"]
+[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/area2D.gd" id="2_rmu2u"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="3_lieqd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym1ef"]

@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://hcnhebgyfrwo" path="res://assets/icons/counter.png" id="1_567j1"]
 [ext_resource type="PackedScene" uid="uid://bc3t2as7o7hhk" path="res://scenes/hud/notification.tscn" id="2_567j1"]
-[ext_resource type="Script" path="res://scripts/menu/show_popu_menu.gd" id="3_go0ap"]
 [ext_resource type="AnimationLibrary" uid="uid://7b585illi1hc" path="res://resources/HUD.res" id="3_jjjd2"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/hud/upgrades_menu.tscn" id="6_apjy4"]
@@ -13,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="11_8nkf1"]
 [ext_resource type="Texture2D" uid="uid://pogrsqk6w267" path="res://assets/icons/reputation_icon.png" id="11_jjjd2"]
 [ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="11_q6mn5"]
-[ext_resource type="Script" uid="uid://cca7dvvshb3ah" path="res://scripts/menu/counters.gd" id="13_558d4"]
+[ext_resource type="Script" uid="uid://cca7dvvshb3ah" path="res://scripts/ui/hud/hud_main.gd" id="13_558d4"]
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="13_567j1"]
 [ext_resource type="Texture2D" uid="uid://blcg42furcje4" path="res://assets/icons/achivements.png" id="13_iioc1"]
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="14_nsgyl"]
@@ -21,6 +20,23 @@
 [ext_resource type="PackedScene" uid="uid://cxunusqi14ce" path="res://scenes/hud/alert_panel.tscn" id="19_8vblv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
+
+[sub_resource type="GDScript" id="GDScript_jjjd2"]
+script/source = "extends Control
+
+func _ready() -> void:
+	GameEvents.menu_closed.connect(_menu_closed)
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
+			get_child(0).open_popup(true)
+			get_tree().paused = true
+			
+func _menu_closed() -> void:
+	get_child(0).visible = false
+	get_tree().paused = false
+"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_567j1"]
 
@@ -95,7 +111,7 @@ texture_normal = ExtResource("9_iioc1")
 texture_pressed = ExtResource("9_iioc1")
 ignore_texture_size = true
 stretch_mode = 4
-script = ExtResource("3_go0ap")
+script = SubResource("GDScript_jjjd2")
 
 [node name="SettingsMenu" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
 unique_name_in_owner = true
@@ -107,7 +123,7 @@ layout_mode = 2
 texture_normal = ExtResource("13_iioc1")
 ignore_texture_size = true
 stretch_mode = 4
-script = ExtResource("3_go0ap")
+script = SubResource("GDScript_jjjd2")
 
 [node name="AchivementsMenu" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer/Achivements" unique_id=1963773263 instance=ExtResource("7_iioc1")]
 unique_name_in_owner = true
@@ -169,8 +185,8 @@ theme_override_constants/separation = 35
 alignment = 2
 
 [node name="Control" type="HBoxContainer" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer/HBoxContainer" unique_id=1451080646]
-layout_direction = 2
 layout_mode = 2
+layout_direction = 2
 theme_override_constants/separation = 10
 alignment = 2
 
