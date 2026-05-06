@@ -279,6 +279,7 @@ func _process(delta: float) -> void:
 	
 func _update_timer_label() -> void:
 	# Formatowanie sekund na MM:SS
+	@warning_ignore("integer_division")
 	var minutes = int(time_left) / 60
 	var seconds = int(time_left) % 60
 	%TimerLabel.text = "%02d:%02d" % [minutes, seconds]

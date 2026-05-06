@@ -27,7 +27,7 @@ extends CanvasLayer
 #region Setup
 
 func _ready() -> void:
-	GameEvents.connect("show_alert_desciption", show_left_panel)
+	GameEvents.connect("show_alert_description", show_left_panel)
 	TimeManager.connect("time_changed", update_time)
 	TimeManager.connect("day_changed", update_day)
 	TimeManager.connect("day_ended", day_summary)

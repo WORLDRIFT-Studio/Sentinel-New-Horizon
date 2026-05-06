@@ -98,4 +98,9 @@ func force_update() -> void:
 	time_changed.emit(hour, mins)
 	day_changed.emit(current_day)
 
+
+func get_clock() -> String:
+	@warning_ignore("integer_division")
+	return "%02d:%02d" % [current_minutes / 60, current_minutes % 60] 
+	
 #endregion

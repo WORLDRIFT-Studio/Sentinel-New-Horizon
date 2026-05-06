@@ -8,4 +8,4 @@ signal menu_closed(should_unpause:bool)
 
 signal music_val_changed(bus:String, value: float)
 
-signal show_alert_desciption()
+signal show_alert_description(title, description, difficulty, date, path)

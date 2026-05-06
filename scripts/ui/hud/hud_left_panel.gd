@@ -6,25 +6,23 @@ extends Popup
 @onready var invisible_background: PanelContainer = %InvisibleBackground
 @onready var title_label: Label = %Title
 @onready var description_label: Label = %Description
+@onready var difficulty_label: Label = %Difficulty
+@onready var date_label: Label = %Date
 
-var counter:int = 1
-var minigames: Array[String] = ["res://scenes/minigames/airport-sec/airport_sec.tscn", 
-									"res://scenes/minigames/trafic-command/traffic-command.tscn"]
-var minigame: String
+var path_to_scene: String
+
 
 func _ready() -> void:
-	minigames.shuffle()
-	minigame = minigames[0]
+	GameEvents.connect("show_alert_description", open_popup)
 	
-func open_popup() -> void:
+func open_popup(titl:String, desc:String, dif:String, date:String, path:String) -> void:
 	self.show()
 	animation_player.play("LeftPanel")
-	
-func setup() -> void:
-	title_label.text = "Zgłoszenie nr. %02d" % counter 
-	counter += 1
-	description_label.text = "Lorem ipsum"
-
+	title_label.text = titl
+	description_label.text = desc
+	difficulty_label.text = dif
+	date_label.text = date
+	path_to_scene = path
 
 func _on_invisible_background_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -35,4 +33,4 @@ func _on_invisible_background_gui_input(event: InputEvent) -> void:
 			
 
 func _on_accept_pressed() -> void:
-	load(minigame)
+	TransitionScene.fade_to_scene(path_to_scene)

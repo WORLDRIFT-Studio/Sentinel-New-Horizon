@@ -142,7 +142,7 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ko64p"]
 
-[node name="Menu" type="Popup" unique_id=1157327055]
+[node name="HudLeftPanel" type="Popup" unique_id=1157327055]
 transparent_bg = true
 oversampling_override = 1.0
 size = Vector2i(1920, 1080)
@@ -228,22 +228,34 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Description" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer" unique_id=1402417050]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer" unique_id=1959105426]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Description" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1402417050]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_constants/line_spacing = 6
 theme_override_font_sizes/font_size = 24
-text = "Zgłaszający: Lorem Ipsum
-
-Godzina: HH:MM
-
-Opis zdarzenia: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis tincidunt commodo. Duis sagittis, felis eget aliquet bibendum, ligula velit varius nulla, vitae facilisis tellus tellus nec nunc. Etiam cursus.  
-
-Poziom trudności: Łatwy"
+text = "Opis: Sprawdzaj dokumenty pasażerów, aby zadbać o bezpieczeństwio. Musisz szybko decydować, kogo przepuścić, a kogo zatrzymać, zanim skończy się czas i zablokuje kolejkę."
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Difficulty" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1966465123]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Poziom trudności: Trudny"
+
+[node name="Date" type="Label" parent="Panel/MarginContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1307916515]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Zgłoszono: 10:15"
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=865587073]
 custom_minimum_size = Vector2(0, 38.285)

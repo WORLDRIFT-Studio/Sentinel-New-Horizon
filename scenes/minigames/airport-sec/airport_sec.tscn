@@ -4,16 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_f3nuu"]
 [ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="3_btq6p"]
 [ext_resource type="Shader" path="res://shaders/runnning-light.gdshader" id="5_hwgkw"]
-[ext_resource type="StyleBox" path="res://styles/inner_panel.tres" id="6_6dwx7"]
-[ext_resource type="StyleBox" path="res://styles/button_normal.tres" id="6_e547k"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="6_6dwx7"]
+[ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="6_e547k"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="7_evfw4"]
 [ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="9_1swfa"]
-[ext_resource type="Theme" uid="uid://dkq23ex6243ke" path="res://styles/basic_button.tres" id="11_6dwx7"]
 [ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="11_btq6p"]
-[ext_resource type="StyleBox" path="res://styles/button_hover_pressed.tres" id="11_e547k"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="11_e547k"]
 [ext_resource type="PackedScene" uid="uid://d3lkapn6bmnll" path="res://scenes/minigames/airport-sec/wanted_block.tscn" id="11_f3nuu"]
-[ext_resource type="StyleBox" path="res://styles/button_pressed.tres" id="11_hwgkw"]
-[ext_resource type="StyleBox" path="res://styles/button_hover.tres" id="12_6dwx7"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="11_hwgkw"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="12_6dwx7"]
 [ext_resource type="Script" path="res://scripts/logic/search.gd" id="12_btq6p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6h2x"]
@@ -550,42 +549,36 @@ metadata/_edit_use_anchors_ = true
 [node name="PanelName" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1830987935 instance=ExtResource("9_1swfa")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
 text = "Błędne imię:"
 category = "name"
 
 [node name="PanelSurname" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=882848582 instance=ExtResource("9_1swfa")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
 text = "Błędne nazwisko:"
 category = "surname"
 
 [node name="PanelImg" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1411571234 instance=ExtResource("9_1swfa")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
 text = "Błędne zdjęcie:"
 category = "img"
 
 [node name="PanelBday" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1892827280 instance=ExtResource("9_1swfa")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
 text = "Błędna data ur.:"
 category = "bday"
 
 [node name="PanelId" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=800624701 instance=ExtResource("9_1swfa")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
 text = "Błędne ID:"
 category = "id"
 
 [node name="PanelWanted" parent="Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=915468289 instance=ExtResource("9_1swfa")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
 text = "Poszukiwany:"
 category = "wanted"
 
@@ -672,7 +665,6 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("11_6dwx7")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("6_e547k")
 theme_override_styles/pressed = ExtResource("11_hwgkw")
