@@ -160,11 +160,6 @@ theme_override_font_sizes/font_size = 16
 text = "HH:MM"
 horizontal_alignment = 1
 
-[node name="Timer" type="Timer" parent="NavBar/Overlay/HBoxContainer/Center/MarginContainer/VBoxContainer/Clock" unique_id=2060925665]
-unique_name_in_owner = true
-wait_time = 3.0
-autostart = true
-
 [node name="Right" type="VBoxContainer" parent="NavBar/Overlay/HBoxContainer" unique_id=132871089]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -310,6 +305,5 @@ grow_horizontal = 0
 grow_vertical = 0
 alignment = 2
 
-[connection signal="timeout" from="NavBar/Overlay/HBoxContainer/Center/MarginContainer/VBoxContainer/Clock/Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_down" from="Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
 [connection signal="button_down" from="Summary/MainContainer/VBoxContainer/HBoxContainer/UpgradesButton" to="." method="_on_upgrades_button_button_down"]

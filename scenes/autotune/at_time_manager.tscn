@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://du5jewvii68os"]
+
+[ext_resource type="Script" uid="uid://bw7vjowvy2bw7" path="res://scripts/logic/autotune/at_time_manager.gd" id="1_f8nxy"]
+
+[node name="AtTimeManager" type="Node" unique_id=560439325]
+script = ExtResource("1_f8nxy")
