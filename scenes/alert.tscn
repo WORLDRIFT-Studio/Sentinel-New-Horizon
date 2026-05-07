@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dx206ol2fnxdd"]
 
-[ext_resource type="Script" uid="uid://bq2u23x3ht2bl" path="res://alert.gd" id="1_hrwfd"]
+[ext_resource type="Script" uid="uid://bq2u23x3ht2bl" path="res://scripts/alert.gd" id="1_hrwfd"]
 [ext_resource type="Texture2D" uid="uid://yi2a85iighwe" path="res://assets/icons/alert.png" id="2_uxd1m"]
 
 [sub_resource type="Animation" id="Animation_15nym"]

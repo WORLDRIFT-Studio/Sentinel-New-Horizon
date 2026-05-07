@@ -27,6 +27,9 @@ TransitionScene="*uid://cc13ne0ctrqln"
 BackgroundMusic="*uid://uqlpwqjpv552"
 GlobalData="*uid://g277xbbdc3lt"
 TimeManager="*uid://bw7vjowvy2bw7"
+BackgroundMusic="*uid://bqs0sysn1amst"
+TransitionScene="*uid://dida4s0n1jhx5"
+SaveLoad="*uid://j4cw5ew3xkio"
 
 [display]
 
