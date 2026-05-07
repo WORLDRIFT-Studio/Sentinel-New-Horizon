@@ -14,6 +14,7 @@
 [ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="11_hwgkw"]
 [ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="12_6dwx7"]
 [ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scripts/logic/search.gd" id="12_btq6p"]
+[ext_resource type="Texture2D" uid="uid://b2pwh4xngowu0" path="res://assets/assets/icons/panel/arrow.png" id="15_6dwx7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6h2x"]
 shader = ExtResource("5_hwgkw")
@@ -37,6 +38,13 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwtxs"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0, 0.9019608, 0.62352943, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6h2x"]
 bg_color = Color(0.10980392, 0.10980392, 0.17254902, 1)
 border_width_top = 2
@@ -44,12 +52,8 @@ border_color = Color(0, 1, 0.6901961, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 2
-border_color = Color(0, 0.9019608, 0.62352943, 1)
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="LabelSettings" id="LabelSettings_6dwx7"]
+font_size = 25
 
 [sub_resource type="Environment" id="Environment_qwtxs"]
 background_mode = 3
@@ -142,13 +146,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="Control" unique_id=1257644194]
-layout_mode = 0
-offset_top = 880.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_r6h2x")
 
 [node name="Pasport" type="Panel" parent="Control" unique_id=692023560]
 layout_mode = 1
@@ -650,6 +647,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
+[node name="Panel" type="Panel" parent="Control" unique_id=1257644194]
+layout_mode = 0
+offset_top = 880.0
+offset_right = 1925.0
+offset_bottom = 1085.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6h2x")
+
+[node name="tutor_txt" type="Label" parent="Control/Panel" unique_id=1700184553]
+layout_mode = 0
+offset_left = 11.0
+offset_right = 1907.0
+offset_bottom = 201.0
+label_settings = SubResource("LabelSettings_6dwx7")
+autowrap_mode = 3
+
 [node name="Buttons" type="VBoxContainer" parent="Control" unique_id=602404991]
 layout_mode = 1
 anchors_preset = -1
@@ -876,6 +888,35 @@ environment = SubResource("Environment_qwtxs")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamMP3_ebq34")
 bus = &"SFX"
+
+[node name="arrow1" type="TextureRect" parent="." unique_id=394610297]
+offset_left = 471.0
+offset_top = 573.0
+offset_right = 867.0
+offset_bottom = 705.0
+texture = ExtResource("15_6dwx7")
+
+[node name="arrow2" type="TextureRect" parent="." unique_id=419117945]
+offset_left = 471.0
+offset_top = 79.0
+offset_right = 867.0
+offset_bottom = 211.0
+texture = ExtResource("15_6dwx7")
+
+[node name="arrow3" type="TextureRect" parent="." unique_id=981735406]
+offset_left = 471.0
+offset_top = 290.0
+offset_right = 867.0
+offset_bottom = 422.0
+texture = ExtResource("15_6dwx7")
+
+[node name="arrow4" type="TextureRect" parent="." unique_id=301415594]
+offset_left = 1013.0
+offset_top = 288.0
+offset_right = 1409.0
+offset_bottom = 420.0
+texture = ExtResource("15_6dwx7")
+flip_h = true
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
