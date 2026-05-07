@@ -1,12 +1,5 @@
 extends Control
 
-# perfect ffbe00
-# great e2dd25
-# good a7dd25
-# ok 8dbfc7
-# miss 5a5758
-
-
 func SetTextInfo(text: String):
 	$ScoreLevelText.text = "[center]" + text
 	

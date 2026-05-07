@@ -2,8 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://1e56iruoegy2" path="res://art/fnf-daddy-dearest-stage-background.jpg" id="1_22obh"]
 [ext_resource type="PackedScene" uid="uid://dfdglmltorqae" path="res://objects/key_listener.tscn" id="1_h3xak"]
+[ext_resource type="Texture2D" uid="uid://dq6y4ispu7uhf" path="res://art/6d1e9c94-bc23-453c-ba9a-c923a3a46835.png" id="2_2i5ty"]
 [ext_resource type="PackedScene" uid="uid://dpc13ucm0i8fg" path="res://levels/game_ui.tscn" id="2_l1p8s"]
 [ext_resource type="PackedScene" uid="uid://coqj034dvvbeu" path="res://objects/level_editor.tscn" id="4_1wrej"]
+[ext_resource type="FontFile" uid="uid://ud3all3x1xuy" path="res://art/Atop-R99O3.ttf" id="6_smvv8"]
+[ext_resource type="Script" uid="uid://25dxxbewk27v" path="res://levels/fading_label.gd" id="6_wtvao"]
 
 [sub_resource type="Environment" id="Environment_i5mjo"]
 background_mode = 3
@@ -17,22 +20,38 @@ glow_enabled = true
 scale = Vector2(0.635, 0.635)
 texture = ExtResource("1_22obh")
 
+[node name="6d1e9c94Bc23453cBa9aC923a3a46835" type="Sprite2D" parent="Background" unique_id=2035613260]
+modulate = Color(0.73300546, 0.7330054, 0.7330054, 1)
+position = Vector2(-0.7872803, 1.5258789e-05)
+scale = Vector2(0.7211931, 0.7068875)
+texture = ExtResource("2_2i5ty")
+
+[node name="Panel" type="Panel" parent="Background" unique_id=2125446674]
+offset_left = -412.59842
+offset_top = -858.2678
+offset_right = 425.19687
+offset_bottom = 840.9448
+
 [node name="KeyListener" parent="." unique_id=1523681864 instance=ExtResource("1_h3xak")]
-position = Vector2(-120, 280)
+position = Vector2(-180, 280)
+scale = Vector2(1.8, 1.8)
 key_name = "button_Q"
 
 [node name="KeyListener2" parent="." unique_id=259453524 instance=ExtResource("1_h3xak")]
-position = Vector2(-40, 280)
+position = Vector2(-60, 280)
+scale = Vector2(1.8, 1.8)
 frame = 1
 key_name = "button_W"
 
 [node name="KeyListener3" parent="." unique_id=1931055636 instance=ExtResource("1_h3xak")]
-position = Vector2(40, 280)
+position = Vector2(60, 280)
+scale = Vector2(1.8, 1.8)
 frame = 2
 key_name = "button_E"
 
 [node name="KeyListener4" parent="." unique_id=1526436716 instance=ExtResource("1_h3xak")]
-position = Vector2(120, 280)
+position = Vector2(180, 280)
+scale = Vector2(1.8, 1.8)
 frame = 3
 key_name = "button_R"
 
@@ -42,3 +61,18 @@ key_name = "button_R"
 environment = SubResource("Environment_i5mjo")
 
 [node name="LevelEditor" parent="." unique_id=351254916 instance=ExtResource("4_1wrej")]
+
+[node name="Label" type="Label" parent="." unique_id=655241590]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -160.0
+offset_right = 204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_smvv8")
+theme_override_font_sizes/font_size = 50
+script = ExtResource("6_wtvao")
