@@ -3,13 +3,21 @@ extends Node
 const SAVE_LOCATION = "user://SaveFile.dat"
 const PASS = "8fgds97ghy"
 
-var contents_to_save: Dictionary = {
-	"test": false
+const DEFAULT_SAVE: Dictionary = {
+	"volume_master": 0.75,
+	"volume_music": 0.75,
+	"volume_sfx": 0.75,
+	"game_duration": 0.0
 	#tutaj wpisuje dane które ma zapisywać
 }
 
+var contents_to_save: Dictionary = DEFAULT_SAVE.duplicate()
+
 func _ready() -> void:
 	_load()
+
+func _reset():
+	contents_to_save = DEFAULT_SAVE.duplicate()
 
 func _save():
 	var file = FileAccess.open_encrypted_with_pass(SAVE_LOCATION, FileAccess.WRITE, PASS)
