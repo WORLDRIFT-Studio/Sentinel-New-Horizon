@@ -76,7 +76,7 @@ flat = true
 [node name="Apply" type="HBoxContainer" parent="." unique_id=1090778833]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.27291667
+anchor_left = -0.0052083335
 anchor_top = -0.09907407
 anchor_right = -0.0052083335
 offset_left = 1015.0
@@ -154,8 +154,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_lenev")
 [node name="Reset" type="HBoxContainer" parent="." unique_id=1992761600]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = -0.27604166
 anchor_top = 0.013888889
 anchor_right = -0.27604166
+anchor_bottom = 0.013888889
 offset_left = 1015.0
 offset_top = 935.0
 offset_right = 1873.0
