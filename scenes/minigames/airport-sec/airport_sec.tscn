@@ -4,16 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_f3nuu"]
 [ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="3_btq6p"]
 [ext_resource type="Shader" uid="uid://dt1pldbiwhlu7" path="res://shaders/runnning-light.gdshader" id="5_hwgkw"]
-[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="6_6dwx7"]
-[ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="6_e547k"]
+[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="6_6dwx7"]
+[ext_resource type="StyleBox" uid="uid://d0nwpictalqq3" path="res://styles/button_normal.tres" id="6_e547k"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="7_evfw4"]
 [ext_resource type="PackedScene" uid="uid://dp8ebx8olnsac" path="res://scenes/minigames/airport-sec/true_false.tscn" id="9_1swfa"]
 [ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="11_btq6p"]
-[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="11_e547k"]
+[ext_resource type="StyleBox" uid="uid://clpcdk30tp4v1" path="res://styles/button_hover_pressed.tres" id="11_e547k"]
 [ext_resource type="PackedScene" uid="uid://d3lkapn6bmnll" path="res://scenes/minigames/airport-sec/wanted_block.tscn" id="11_f3nuu"]
-[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="11_hwgkw"]
-[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="12_6dwx7"]
+[ext_resource type="StyleBox" uid="uid://dvlok2lhvh06c" path="res://styles/button_pressed.tres" id="11_hwgkw"]
+[ext_resource type="StyleBox" uid="uid://d3put2lwpduio" path="res://styles/button_hover.tres" id="12_6dwx7"]
 [ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scripts/logic/search.gd" id="12_btq6p"]
+[ext_resource type="Texture2D" uid="uid://b2pwh4xngowu0" path="res://assets/assets/icons/panel/arrow.png" id="15_6dwx7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6h2x"]
 shader = ExtResource("5_hwgkw")
@@ -37,6 +38,13 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwtxs"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ryl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0, 0.9019608, 0.62352943, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6h2x"]
 bg_color = Color(0.10980392, 0.10980392, 0.17254902, 1)
 border_width_top = 2
@@ -50,6 +58,8 @@ border_width_bottom = 2
 border_color = Color(0, 0.9019608, 0.62352943, 1)
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+[sub_resource type="LabelSettings" id="LabelSettings_6dwx7"]
+font_size = 25
 
 [sub_resource type="Environment" id="Environment_qwtxs"]
 background_mode = 3
@@ -644,6 +654,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
+[node name="Panel" type="Panel" parent="Control" unique_id=1257644194]
+layout_mode = 0
+offset_top = 880.0
+offset_right = 1925.0
+offset_bottom = 1085.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6h2x")
+
+[node name="tutor_txt" type="Label" parent="Control/Panel" unique_id=1700184553]
+layout_mode = 0
+offset_left = 11.0
+offset_right = 1907.0
+offset_bottom = 201.0
+label_settings = SubResource("LabelSettings_6dwx7")
+autowrap_mode = 3
+
 [node name="Buttons" type="VBoxContainer" parent="Control" unique_id=602404991]
 layout_mode = 1
 anchors_preset = -1
@@ -870,6 +895,35 @@ environment = SubResource("Environment_qwtxs")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamMP3_ebq34")
 bus = &"SFX"
+
+[node name="arrow1" type="TextureRect" parent="." unique_id=394610297]
+offset_left = 471.0
+offset_top = 573.0
+offset_right = 867.0
+offset_bottom = 705.0
+texture = ExtResource("15_6dwx7")
+
+[node name="arrow2" type="TextureRect" parent="." unique_id=419117945]
+offset_left = 471.0
+offset_top = 79.0
+offset_right = 867.0
+offset_bottom = 211.0
+texture = ExtResource("15_6dwx7")
+
+[node name="arrow3" type="TextureRect" parent="." unique_id=981735406]
+offset_left = 471.0
+offset_top = 290.0
+offset_right = 867.0
+offset_bottom = 422.0
+texture = ExtResource("15_6dwx7")
+
+[node name="arrow4" type="TextureRect" parent="." unique_id=301415594]
+offset_left = 1013.0
+offset_top = 288.0
+offset_right = 1409.0
+offset_bottom = 420.0
+texture = ExtResource("15_6dwx7")
+flip_h = true
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]

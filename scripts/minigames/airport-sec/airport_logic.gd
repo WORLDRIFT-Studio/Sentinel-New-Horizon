@@ -17,6 +17,14 @@ extends Node
 @onready var panel_wanted: Panel = %PanelWanted
 @onready var chbx_container: VBoxContainer = $Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer
 
+# Referencje do elementów tutorialu
+@onready var arrow1: Node = $arrow1
+@onready var arrow2: Node = $arrow2
+@onready var arrow3: Node = $arrow3
+@onready var arrow4: Node = $arrow4
+@onready var buttons_panel: Node = $Control/Buttons
+@onready var timer_node: Node = $Control/Timer
+@onready var tutor_txt: Label = $Control/Panel/tutor_txt
 
 #region GlobalScopeVariable
 # Zmienne zegara
@@ -45,11 +53,83 @@ var checked: int = 0
 var perfect: int = 0
 var fanfare_played: bool = false
 var points: int = 0
+
+# Tutorial
+var tutorial_step: int = 0
+var is_tutorial: bool = false
 #endregion 
 
 #region NPC
 
 @onready var sound_npc: AudioStreamPlayer2D = %SoundNPC
+
+#endregion
+
+#region Tutorial
+
+func _is_first_run() -> bool:
+	return not GlobalData.has_completed_tutorial()
+
+func start_tutorial() -> void:
+	is_tutorial = true
+	tutorial_step = 0
+
+	# Ukryj wszystkie strzałki
+	arrow1.visible = false
+	arrow2.visible = false
+	arrow3.visible = false
+	arrow4.visible = false
+
+	# Wyłącz przyciski i timer
+	buttons_panel.visible = false
+	timer_node.visible = false
+
+	# Zatrzymaj odliczanie czasu
+	set_process(false)
+	
+	tutor_txt.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	# Pokaż pole tutoriala i ustaw tekst
+	tutor_txt.visible = true
+	tutor_txt.text = "Witaj w sekcji szkoleniowej airport-security. Aby rozpocząć szkolenie kliknij w pokazany tekst."
+
+	# Podłącz sygnał kliknięcia (jeden raz)
+	if not tutor_txt.gui_input.is_connected(_on_tutor_txt_clicked):
+		tutor_txt.gui_input.connect(_on_tutor_txt_clicked)
+
+func _on_tutor_txt_clicked(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_advance_tutorial()
+
+func _advance_tutorial() -> void:
+	tutorial_step += 1
+
+	match tutorial_step:
+		1:
+			arrow1.visible = true
+			tutor_txt.text = "To jest twoja lista rzeczy, które musisz sprawdzić oraz dobrze zdefiniować. UWAŻAJ, gdyż właśnie z tej listy będziesz rozliczany."
+
+		2:
+			arrow1.visible = false
+			arrow2.visible = true
+			arrow3.visible = true
+			tutor_txt.text = "To jest dowód oraz paszport aktualnie sprawdzanego człowieka. To stąd będziesz brał większość informacji. Lepiej sprawdzić oba, gdyż niektóre dane mogą się ze sobą nie zgadzać."
+
+		3:
+			arrow2.visible = false
+			arrow3.visible = false
+			arrow4.visible = true
+			tutor_txt.text = "To jest lista poszukiwanych. Tutaj sprawdzisz, czy dana osoba nie jest ścigana przez policję. Jeżeli jest, zarejestruj to na swojej liście."
+
+		4:
+			arrow4.visible = false
+			tutor_txt.text = "To już wszystko co musisz wiedzieć. Powodzenia!"
+
+		5:
+			# Koniec tutorialu — zapisz i przeładuj scenę
+			GlobalData.set_tutorial_completed()
+			tutor_txt.gui_input.disconnect(_on_tutor_txt_clicked)
+			get_tree().reload_current_scene()
 
 #endregion
 
@@ -146,18 +226,29 @@ func return_npc() -> NPC:
 
 #region Main
 func _ready() -> void:
-	#load_game_data()
+	# Ukryj wszystkie strzałki na starcie (zawsze)
+	arrow1.visible = false
+	arrow2.visible = false
+	arrow3.visible = false
+	arrow4.visible = false
+
 	list = generate_list(10)
 	gen_wanted_list()
 	display_next_npc()
 
+	# Sprawdź czy to pierwsze uruchomienie
+	if _is_first_run():
+		start_tutorial()
+
 func _on_next_pressed() -> void:
 	var npc = list[current_index]
 	var player_answers = send_answers() # Pobiera Dictionary { "id": true, "name": false ... }
+	# 1. Oblicz punkty za tego konkretnego NPC
 	var points_this_round = check_single_npc(npc, player_answers)
 	total_score += points_this_round
 	
 	
+	# 2. Sprawdź, czy to koniec listy
 	if current_index < list.size() - 1:
 		current_index += 1
 		reset_ui_panel() # Funkcja czyszcząca checkboxy
@@ -191,7 +282,6 @@ func show_final_summary() -> int:
 		# total_score zawiera punkty dodatnie i ujemne, 
 		# ale dla statystyki "skuteczności" lepiej pokazać po prostu trafienia
 		accuracy = (float(perfect) / checked) * 100 if checked > 0 else 0.0
-
 	# --- PRZYGOTOWANIE TEKSTÓW ---
 	%TimeBonusValue.text = "PREMIA ZA CZAS: +" + str(time_bonus)
 	
@@ -279,7 +369,6 @@ func _process(delta: float) -> void:
 	
 func _update_timer_label() -> void:
 	# Formatowanie sekund na MM:SS
-	@warning_ignore("integer_division")
 	var minutes = int(time_left) / 60
 	var seconds = int(time_left) % 60
 	%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
@@ -309,4 +398,3 @@ func _on_back_to_main_pressed() -> void:
 	get_tree().paused = false
 	GlobalData.save_score(points)
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
-	

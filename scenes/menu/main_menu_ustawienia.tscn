@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d4ndifwb06qvy" path="res://scripts/ui/main_menu/main_menu_ustawienia.gd" id="1_emxyu"]
 [ext_resource type="Texture2D" uid="uid://bmcuc35l2u3q0" path="res://assets/assets/menu/ustawienia.png" id="1_svblv"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_f5onx"]
+[ext_resource type="AudioStream" uid="uid://cby8fem52koh" path="res://assets/sounds/btn_click.wav" id="4_ij50f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lngwo"]
 texture = ExtResource("1_svblv")

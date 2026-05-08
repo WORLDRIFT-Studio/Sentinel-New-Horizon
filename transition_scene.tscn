@@ -57,10 +57,6 @@ _data = {
 }
 
 [node name="transition_scene" type="CanvasLayer" unique_id=1620633364]
-<<<<<<< HEAD
-=======
-script = ExtResource("1_6hpjq")
->>>>>>> SCRUM-29-airport-security
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=745864072]
 unique_name_in_owner = true
