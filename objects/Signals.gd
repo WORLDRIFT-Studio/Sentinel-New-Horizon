@@ -1,5 +1,5 @@
 extends Node
-
+@warning_ignore_start("unused_signal")
 signal IncrementScore(incr: int)
 signal IncrementCombo()
 signal ResetCombo()
