@@ -7,7 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="4_wxqmx"]
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="5_y08r5"]
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_fedbj"]
-[ext_resource type="Texture2D" uid="uid://nvo31s642gia" path="res://assets/icons/cancel.png" id="7_hwx6a"]
+[ext_resource type="Texture2D" uid="uid://dexq0p0n7ayxl" path="res://assets/icons/cancel.png" id="7_hwx6a"]
 [ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="9_tqlu0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]

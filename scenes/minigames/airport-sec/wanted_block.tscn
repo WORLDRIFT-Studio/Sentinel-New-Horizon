@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3lkapn6bmnll"]
 
-[ext_resource type="StyleBox" path="res://styles/inner_panel.tres" id="1_34xwk"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="1_34xwk"]
 [ext_resource type="Texture2D" uid="uid://bnuiysr0spyuh" path="res://assets/assets/airport-sec/npc/male/postac2.png" id="2_1mr8w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btq6p"]

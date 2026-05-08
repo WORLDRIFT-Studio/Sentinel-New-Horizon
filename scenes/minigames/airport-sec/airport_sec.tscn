@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dioblomiwteet" path="res://scripts/minigames/airport-sec/airport_logic.gd" id="1_ebq34"]
 [ext_resource type="Texture2D" uid="uid://1ysxbt1uclgd" path="res://assets/assets/airport-sec/laugne.jpg" id="2_f3nuu"]
 [ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="3_btq6p"]
-[ext_resource type="Shader" path="res://shaders/runnning-light.gdshader" id="5_hwgkw"]
+[ext_resource type="Shader" uid="uid://dt1pldbiwhlu7" path="res://shaders/runnning-light.gdshader" id="5_hwgkw"]
 [ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="6_6dwx7"]
 [ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="6_e547k"]
 [ext_resource type="Texture2D" uid="uid://na7lyqpvpxbm" path="res://assets/assets/airport-sec/npc/male/klis.png" id="7_evfw4"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d3lkapn6bmnll" path="res://scenes/minigames/airport-sec/wanted_block.tscn" id="11_f3nuu"]
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="11_hwgkw"]
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="12_6dwx7"]
-[ext_resource type="Script" path="res://scripts/logic/search.gd" id="12_btq6p"]
+[ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scripts/logic/search.gd" id="12_btq6p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6h2x"]
 shader = ExtResource("5_hwgkw")

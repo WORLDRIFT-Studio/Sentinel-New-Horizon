@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpc13ucm0i8fg"]
+[gd_scene format=3 uid="uid://dpc13ucm0i8fg"]
 
-[ext_resource type="Script" path="res://levels/game_ui.gd" id="1_kdhub"]
+[ext_resource type="Script" uid="uid://cchdw0x1epff7" path="res://levels/game_ui.gd" id="1_kdhub"]
 [ext_resource type="FontFile" uid="uid://ud3all3x1xuy" path="res://art/Atop-R99O3.ttf" id="2_au4yx"]
 
-[node name="GameUI" type="Control"]
+[node name="GameUI" type="Control" unique_id=717293802]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,9 +12,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kdhub")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=748715603]
 
-[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=2098097721]
 unique_name_in_owner = true
 offset_left = 18.0
 offset_top = 18.0
@@ -26,7 +26,7 @@ theme_override_font_sizes/normal_font_size = 41
 text = " 0 pts"
 scroll_active = false
 
-[node name="ComboLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="ComboLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=2080346328]
 unique_name_in_owner = true
 offset_left = 18.0
 offset_top = 72.0

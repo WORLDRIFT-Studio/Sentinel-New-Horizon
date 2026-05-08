@@ -6,7 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="4_fkpcm"]
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="5_b7e55"]
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_y3kab"]
-[ext_resource type="Texture2D" uid="uid://nvo31s642gia" path="res://assets/icons/cancel.png" id="7_j4o8j"]
+[ext_resource type="Texture2D" uid="uid://dexq0p0n7ayxl" path="res://assets/icons/cancel.png" id="7_j4o8j"]
 [ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="8_j4o8j"]
 
 [node name="UpgradesMenu" type="Popup" unique_id=1784852679]

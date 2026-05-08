@@ -14,33 +14,31 @@
 [ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="11_q6mn5"]
 [ext_resource type="Script" uid="uid://cca7dvvshb3ah" path="res://scripts/ui/hud/hud_main.gd" id="13_558d4"]
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="13_567j1"]
-[ext_resource type="Texture2D" uid="uid://blcg42furcje4" path="res://assets/icons/achivements.png" id="13_iioc1"]
+[ext_resource type="Texture2D" uid="uid://cl5krcy1ax4s0" path="res://assets/icons/achivements.png" id="13_iioc1"]
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="14_nsgyl"]
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="15_jjjd2"]
 [ext_resource type="PackedScene" uid="uid://cxunusqi14ce" path="res://scenes/hud/alert_panel.tscn" id="19_8vblv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
 
-[sub_resource type="GDScript" id="GDScript_0m4u7"]
-script/source = "extends TextureRect
-
-@onready var clock = %TextureProgressBar
-@export var day_duration: float 
-var game_duration: float = 0.0
+[sub_resource type="GDScript" id="GDScript_jjjd2"]
+script/source = "extends Control
 
 func _ready() -> void:
-	SaveLoad._load()
-	game_duration = SaveLoad.contents_to_save.game_duration
+	GameEvents.menu_closed.connect(_menu_closed)
 
-func _process(delta: float) -> void:
-	game_duration += delta
-	if game_duration >= day_duration:
-		game_duration = 0
-		
-	clock.value = game_duration / day_duration
-	SaveLoad.contents_to_save.game_duration = game_duration
-	SaveLoad._save()
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
+			get_child(0).open_popup(true)
+			get_tree().paused = true
+			
+func _menu_closed() -> void:
+	get_child(0).visible = false
+	get_tree().paused = false
 "
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_567j1"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1423471652 node_paths=PackedStringArray("notify_container")]
 process_mode = 3
@@ -55,6 +53,7 @@ libraries/HUD = ExtResource("3_jjjd2")
 
 [node name="UpgradesMenu" parent="." unique_id=450696650 instance=ExtResource("6_apjy4")]
 unique_name_in_owner = true
+visible = false
 
 [node name="LeftMenu" parent="." unique_id=1157327055 instance=ExtResource("19_8vblv")]
 unique_name_in_owner = true
@@ -151,58 +150,54 @@ text = "Dzień X"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Control" type="Control" parent="." unique_id=1795378241]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Clock" type="Label" parent="NavBar/Overlay/HBoxContainer/Center/MarginContainer/VBoxContainer" unique_id=746826376]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "HH:MM"
+horizontal_alignment = 1
 
-[node name="Settings" type="TextureButton" parent="Control" unique_id=271484443]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.9
-anchor_top = 23.321001
-anchor_right = 3.9
-anchor_bottom = 23.321001
-offset_left = -80.18182
-offset_top = -65.903625
-offset_right = 96.81818
-offset_bottom = 108.096375
-texture_normal = ExtResource("7_mphia")
-texture_hover = ExtResource("8_0m4u7")
-stretch_mode = 3
+[node name="Right" type="VBoxContainer" parent="NavBar/Overlay/HBoxContainer" unique_id=132871089]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="SettingsMenu" parent="Control/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
-process_mode = 0
-visible = false
-script = ExtResource("7_3swnk")
+[node name="MarginContainer" type="MarginContainer" parent="NavBar/Overlay/HBoxContainer/Right" unique_id=1676563671]
+custom_minimum_size = Vector2(0, 58.5)
+layout_mode = 2
+size_flags_horizontal = 9
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
 
-[node name="Shop" type="TextureButton" parent="Control" unique_id=1736348984]
-layout_mode = 0
-offset_left = 252.81818
-offset_top = 866.9364
-offset_right = 429.81818
-offset_bottom = 1040.9364
-texture_normal = ExtResource("8_0i1j5")
-texture_hover = ExtResource("9_mphia")
-stretch_mode = 3
+[node name="HBoxContainer" type="HBoxContainer" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer" unique_id=1360100197]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 2
 
-[node name="UpgradesMenu" parent="Control/Shop" unique_id=498256039 instance=ExtResource("6_apjy4")]
-visible = false
-script = ExtResource("9_5n1hp")
+[node name="Control" type="HBoxContainer" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer/HBoxContainer" unique_id=1451080646]
+layout_mode = 2
+layout_direction = 2
+theme_override_constants/separation = 10
+alignment = 2
 
-[node name="Bar" type="TextureRect" parent="." unique_id=329981727]
-process_mode = 1
-offset_left = 40.0
-offset_top = -19.400024
-offset_right = 604.0
-offset_bottom = 214.59998
-texture = ExtResource("1_0i1j5")
-stretch_mode = 2
-script = SubResource("GDScript_0m4u7")
-day_duration = 20.0
+[node name="TextureRect" type="TextureRect" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer/HBoxContainer/Control" unique_id=2003723251]
+layout_mode = 2
+texture = ExtResource("11_jjjd2")
+expand_mode = 3
+stretch_mode = 5
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Bar" unique_id=779386582]
+[node name="RepPoints" type="Label" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer/HBoxContainer/Control" unique_id=542638036]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 24
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Summary" type="Panel" parent="." unique_id=1435918145]
 unique_name_in_owner = true
 process_mode = 3
 modulate = Color(1, 1, 1, 0)
@@ -226,7 +221,6 @@ unique_name_in_owner = true
 stream = ExtResource("11_8nkf1")
 
 [node name="MainContainer" type="MarginContainer" parent="Summary" unique_id=661476250]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
