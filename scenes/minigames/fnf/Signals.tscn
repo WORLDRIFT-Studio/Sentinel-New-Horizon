@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cb7ia8bnx00ns"]
 
-[ext_resource type="Script" uid="uid://da7o6msmrto8m" path="res://objects/Signals.gd" id="1_v8x51"]
+[ext_resource type="Script" uid="uid://da7o6msmrto8m" path="res://scripts/minigames/fnf/Signals.gd" id="1_v8x51"]
 
 [node name="Signals" type="Node2D" unique_id=1241963537]
 script = ExtResource("1_v8x51")

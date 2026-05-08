@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lygtba4dwai2"]
 
 [ext_resource type="Texture2D" uid="uid://bn6ytnv50ehkh" path="res://art/arrows.webp" id="1_6d672"]
-[ext_resource type="Script" uid="uid://vrqqe7we7qim" path="res://objects/falling_key.gd" id="2_gvjr8"]
+[ext_resource type="Script" uid="uid://vrqqe7we7qim" path="res://scripts/minigames/fnf/falling_key.gd" id="2_gvjr8"]
 
 [node name="FallingKey" type="Sprite2D" unique_id=1871235637]
 scale = Vector2(1.8, 1.8)

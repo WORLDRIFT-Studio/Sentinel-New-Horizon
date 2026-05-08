@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dpc13ucm0i8fg"]
 
-[ext_resource type="Script" uid="uid://cchdw0x1epff7" path="res://levels/game_ui.gd" id="1_kdhub"]
+[ext_resource type="Script" uid="uid://cchdw0x1epff7" path="res://scripts/minigames/fnf/game_ui.gd" id="1_kdhub"]
 [ext_resource type="FontFile" uid="uid://ud3all3x1xuy" path="res://art/Atop-R99O3.ttf" id="2_au4yx"]
 
 [node name="GameUI" type="Control" unique_id=717293802]

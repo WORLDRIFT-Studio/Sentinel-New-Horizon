@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfdglmltorqae"]
 
 [ext_resource type="Texture2D" uid="uid://bn6ytnv50ehkh" path="res://art/arrows.webp" id="1_2gc7i"]
-[ext_resource type="Script" uid="uid://dan42gvm7bb0i" path="res://objects/key_listener.gd" id="2_lfl67"]
+[ext_resource type="Script" uid="uid://dan42gvm7bb0i" path="res://scripts/minigames/fnf/key_listener.gd" id="2_lfl67"]
 
 [sub_resource type="Animation" id="Animation_bwb8k"]
 length = 0.001

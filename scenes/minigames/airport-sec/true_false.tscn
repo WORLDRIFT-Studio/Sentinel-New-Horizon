@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dp8ebx8olnsac"]
 
 [ext_resource type="Script" uid="uid://dj0ege6r3qbql" path="res://scripts/minigames/airport-sec/true_false.gd" id="1_lbu2j"]
-[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="2_7xf5k"]
+[ext_resource type="StyleBox" uid="uid://jt2qhh4rpew0" path="res://styles/inner_panel.tres" id="2_7xf5k"]
 [ext_resource type="Texture2D" uid="uid://ch3p5y8663g7h" path="res://assets/icons/checker-true.png" id="3_rnc4u"]
-[ext_resource type="ButtonGroup" uid="uid://c3026grls6dnd" path="res://assets/resources/true_false_group.tres" id="4_rnc4u"]
+[ext_resource type="ButtonGroup" uid="uid://c3026grls6dnd" path="res://resources/true_false_group.tres" id="4_rnc4u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnc4u"]
 bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)

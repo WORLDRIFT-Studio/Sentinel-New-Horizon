@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bej0cei3aryf"
-path="res://.godot/imported/Rhythm Hell.wav-a6f135dc96f28c49b484c17e5a14656c.sample"
+path="res://.godot/imported/Rhythm Hell.wav-adb7465f88f8dbd3e0d763e2cf1e95d9.sample"
 
 [deps]
 
-source_file="res://music/Rhythm Hell.wav"
-dest_files=["res://.godot/imported/Rhythm Hell.wav-a6f135dc96f28c49b484c17e5a14656c.sample"]
+source_file="res://assets/sounds/Rhythm Hell.wav"
+dest_files=["res://.godot/imported/Rhythm Hell.wav-adb7465f88f8dbd3e0d763e2cf1e95d9.sample"]
 
 [params]
 

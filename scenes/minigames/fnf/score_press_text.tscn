@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c10twyu5w3dpu"]
 
-[ext_resource type="Script" uid="uid://b54rrt1c86ypq" path="res://objects/score_press_text.gd" id="1_84fbn"]
+[ext_resource type="Script" uid="uid://b54rrt1c86ypq" path="res://scripts/minigames/fnf/score_press_text.gd" id="1_84fbn"]
 [ext_resource type="FontFile" uid="uid://ud3all3x1xuy" path="res://art/Atop-R99O3.ttf" id="1_kmpb6"]
 
 [sub_resource type="Animation" id="Animation_lbl27"]
