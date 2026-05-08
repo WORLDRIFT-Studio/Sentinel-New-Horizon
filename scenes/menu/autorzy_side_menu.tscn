@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://d38pd5kxwebh0"]
 
-[ext_resource type="Script" uid="uid://d11xou6k5dfxw" path="res://scripts/menu/main_menu_autorzy_side.gd" id="1_bqjwk"]
-[ext_resource type="Texture2D" uid="uid://cytjhpnofyuha" path="res://assets/menu/autorzy.png" id="2_u1da5"]
+[ext_resource type="Script" uid="uid://d11xou6k5dfxw" path="res://scripts/ui/main_menu/main_menu_autorzy_side.gd" id="1_bqjwk"]
+[ext_resource type="Texture2D" uid="uid://cytjhpnofyuha" path="res://assets/assets/menu/autorzy.png" id="2_u1da5"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_skos3"]
-[ext_resource type="Texture2D" uid="uid://bffw4xw0yyfeg" path="res://assets/menu/arrow.svg" id="4_vgaqt"]
-[ext_resource type="AudioStream" uid="uid://cby8fem52koh" path="res://assets/sounds/btn_click.wav" id="5_u1da5"]
+[ext_resource type="Texture2D" uid="uid://bffw4xw0yyfeg" path="res://assets/assets/menu/arrow.svg" id="4_vgaqt"]
+[ext_resource type="AudioStream" path="res://assets/sounds/btn_click.wav" id="5_u1da5"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="5_vgaqt"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="6_sgq0l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swr6"]
 texture = ExtResource("2_u1da5")
@@ -31,17 +33,11 @@ texture = ExtResource("2_u1da5")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_elq6r"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqjwk"]
-bg_color = Color(0.08627451, 0.1254902, 0.2, 0.49411765)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.16078432, 0.19215687, 0.25882354, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xyc4d"]
+content_margin_top = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0, 1, 0.6901961, 1)
+border_color = Color(0, 0.9490196, 0.654902, 1)
 
 [node name="Autorzy_Sub" type="Control" unique_id=1747104085]
 layout_mode = 3
@@ -125,42 +121,129 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_wmff1")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yxmxb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_elq6r")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=379464456]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=623496416]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 197.0
+offset_right = 1823.0
+offset_bottom = 957.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=919103722]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=1216854549]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_vgaqt")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/Title" unique_id=1586777444]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 90.0
-offset_top = 223.0
-offset_right = -83.0
-offset_bottom = -147.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
-[node name="Mikołaj" type="Panel" parent="HBoxContainer" unique_id=1216854549]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Title/MarginContainer" unique_id=436525842]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_bqjwk")
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/Mikołaj" unique_id=1540933891]
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/VBoxContainer/Title/MarginContainer/VBoxContainer" unique_id=269905953]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("6_sgq0l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Title/MarginContainer/VBoxContainer/PanelContainer" unique_id=1113372674]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Title/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1774826608]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 48
+text = "Developers"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Title/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1678401640]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_xyc4d")
+
+[node name="RichTextLabel" type="Label" parent="ScrollContainer/VBoxContainer/Title/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=753009336]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_spacing = 24
+theme_override_font_sizes/font_size = 30
+text = "Mikołaj Jurek
+Hubert Machowicz
+Maksymilian Kolak
+Filip Gawlki"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=1327790167]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_vgaqt")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/Title2" unique_id=1650274733]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -454.0
-offset_top = -320.0
-offset_right = 454.0
-offset_bottom = -239.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Title2/MarginContainer" unique_id=1839855685]
+layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_skos3")
-theme_override_font_sizes/font_size = 61
-text = "SPECIAL THANKS"
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/VBoxContainer/Title2/MarginContainer/VBoxContainer" unique_id=1513218647]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("6_sgq0l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Title2/MarginContainer/VBoxContainer/PanelContainer" unique_id=814618931]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Title2/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1465927590]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 48
+text = "Credits"
 horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Title2/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=847079814]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxFlat_xyc4d")
+
+[node name="RichTextLabel" type="Label" parent="ScrollContainer/VBoxContainer/Title2/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=200410124]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_spacing = 24
+theme_override_font_sizes/font_size = 30
+text = "Mikołaj Jurek
+Hubert Machowicz
+Maksymilian Kolak
+Filip Gawlki"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=155208675]
 stream = ExtResource("5_u1da5")

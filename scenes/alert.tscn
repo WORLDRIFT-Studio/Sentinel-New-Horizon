@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dx206ol2fnxdd"]
+
+[ext_resource type="Script" uid="uid://bq2u23x3ht2bl" path="res://alert.gd" id="1_hrwfd"]
+[ext_resource type="Texture2D" uid="uid://yi2a85iighwe" path="res://assets/icons/alert.png" id="2_uxd1m"]
+
+[sub_resource type="Animation" id="Animation_15nym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.5235988]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.336, 0.336)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8xtft"]
+resource_name = "alert"
+length = 1.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.5235988, 0.5235988]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.20000005, 0.70000005, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.336, 0.336), Vector2(0.401, 0.401), Vector2(0.336, 0.336)]
+}
+
+[sub_resource type="Animation" id="Animation_hrwfd"]
+resource_name = "spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.336, 0.336)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0s3y"]
+_data = {
+&"RESET": SubResource("Animation_15nym"),
+&"alert": SubResource("Animation_8xtft"),
+&"spawn": SubResource("Animation_hrwfd")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrwfd"]
+radius = 129.79668
+
+[node name="Alert" type="Node2D" unique_id=2032843690 groups=["alert"]]
+script = ExtResource("1_hrwfd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1844295959]
+unique_name_in_owner = true
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_x0s3y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1157687072]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(63, 54)
+rotation = -0.5235988
+scale = Vector2(0.336, 0.336)
+texture = ExtResource("2_uxd1m")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=326536426]
+rotation = 0.6051996
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=55380248]
+shape = SubResource("CircleShape2D_hrwfd")
+
+[connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]

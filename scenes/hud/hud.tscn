@@ -1,147 +1,305 @@
 [gd_scene format=3 uid="uid://ki70gho6lyw5"]
 
-[ext_resource type="Texture2D" uid="uid://cuq5rwty4if6i" path="res://assets/assets/icons/panel/day_counter.png" id="1_0i1j5"]
-[ext_resource type="Texture2D" uid="uid://d40yf2njbld7" path="res://assets/assets/icons/overlay.png" id="1_mphia"]
-[ext_resource type="Texture2D" uid="uid://b5hpw3dvx7a0l" path="res://assets/assets/icons/panel/clock_under.png" id="2_mphia"]
-[ext_resource type="Texture2D" uid="uid://eoiy7i2cvwrt" path="res://assets/assets/icons/panel/clock_over.png" id="3_0m4u7"]
-[ext_resource type="Texture2D" uid="uid://clt0g8yagviwg" path="res://assets/assets/icons/panel/clock_progress.png" id="4_apjy4"]
+[ext_resource type="Texture2D" uid="uid://hcnhebgyfrwo" path="res://assets/icons/counter.png" id="1_567j1"]
+[ext_resource type="PackedScene" uid="uid://bc3t2as7o7hhk" path="res://scenes/hud/notification.tscn" id="2_567j1"]
+[ext_resource type="AnimationLibrary" uid="uid://7b585illi1hc" path="res://resources/HUD.res" id="3_jjjd2"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/hud/upgrades_menu.tscn" id="6_apjy4"]
 [ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/hud/settings_menu.tscn" id="6_eld54"]
-[ext_resource type="Script" uid="uid://2qwcolr0joku" path="res://scripts/menu/settings_menu.gd" id="7_3swnk"]
-[ext_resource type="Texture2D" uid="uid://2jnafo5nueky" path="res://assets/assets/icons/settings/button-settings-n.png" id="7_mphia"]
-[ext_resource type="Texture2D" uid="uid://bvaomsxmwcm4x" path="res://assets/assets/icons/shop/button-shop-n.png" id="8_0i1j5"]
-[ext_resource type="Texture2D" uid="uid://bvr55d50yohx4" path="res://assets/assets/icons/settings/button-settings-h.png" id="8_0m4u7"]
-[ext_resource type="Script" uid="uid://dbrifp0rbviky" path="res://scripts/menu/upgrades_menu.gd" id="9_5n1hp"]
-[ext_resource type="Texture2D" uid="uid://8owvvblbu6i0" path="res://assets/assets/icons/shop/button-shop-h.png" id="9_mphia"]
+[ext_resource type="PackedScene" uid="uid://cykkh2pnoyn0r" path="res://scenes/hud/achivements_menu.tscn" id="7_iioc1"]
+[ext_resource type="Texture2D" uid="uid://ca0fen08d24bq" path="res://assets/icons/settings.png" id="9_iioc1"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="10_nhd55"]
+[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="11_8nkf1"]
+[ext_resource type="Texture2D" uid="uid://pogrsqk6w267" path="res://assets/icons/reputation_icon.png" id="11_jjjd2"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="11_q6mn5"]
+[ext_resource type="Script" uid="uid://cca7dvvshb3ah" path="res://scripts/ui/hud/hud_main.gd" id="13_558d4"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="13_567j1"]
+[ext_resource type="Texture2D" uid="uid://blcg42furcje4" path="res://assets/icons/achivements.png" id="13_iioc1"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="14_nsgyl"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="15_jjjd2"]
+[ext_resource type="PackedScene" uid="uid://cxunusqi14ce" path="res://scenes/hud/alert_panel.tscn" id="19_8vblv"]
 
-[sub_resource type="GDScript" id="GDScript_0m4u7"]
-script/source = "extends TextureRect
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
 
-@onready var clock = %TextureProgressBar
-@export var day_duration:float 
-var game_duration:float = 0.0
+[sub_resource type="GDScript" id="GDScript_jjjd2"]
+script/source = "extends Control
 
-func _process(delta: float) -> void:
-	game_duration += delta
-	if game_duration >= day_duration:
-		game_duration = 0
-		
-	clock.value = game_duration / day_duration
+func _ready() -> void:
+	GameEvents.menu_closed.connect(_menu_closed)
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
+			get_child(0).open_popup(true)
+			get_tree().paused = true
+			
+func _menu_closed() -> void:
+	get_child(0).visible = false
+	get_tree().paused = false
 "
 
-[node name="HUD" type="CanvasLayer" unique_id=1423471652]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_567j1"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1423471652 node_paths=PackedStringArray("notify_container")]
 process_mode = 3
+script = ExtResource("13_558d4")
+notify_tscn = ExtResource("2_567j1")
+notify_container = NodePath("NotificationContainer")
 
-[node name="Overlay" type="TextureRect" parent="." unique_id=522304739]
-offset_right = 1920.0
-offset_bottom = 1081.0
-texture = ExtResource("1_mphia")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=285725192]
+unique_name_in_owner = true
+root_node = NodePath("../Summary")
+libraries/HUD = ExtResource("3_jjjd2")
 
-[node name="Title" type="Label" parent="Overlay" unique_id=920864114]
+[node name="UpgradesMenu" parent="." unique_id=450696650 instance=ExtResource("6_apjy4")]
+unique_name_in_owner = true
+
+[node name="LeftMenu" parent="." unique_id=1157327055 instance=ExtResource("19_8vblv")]
+unique_name_in_owner = true
+
+[node name="NavBar" type="MarginContainer" parent="." unique_id=592437620]
+unique_name_in_owner = true
+process_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_edit_group_ = true
+
+[node name="Overlay" type="TextureRect" parent="NavBar" unique_id=522304739]
+material = SubResource("ShaderMaterial_567j1")
+layout_mode = 2
+texture = ExtResource("1_567j1")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavBar/Overlay" unique_id=1455983708]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -192.95093
-offset_top = -5.405266
-offset_right = 197.04907
-offset_bottom = 55.749275
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="VBoxContainer" parent="NavBar/Overlay/HBoxContainer" unique_id=1802114440]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="NavBar/Overlay/HBoxContainer/Left" unique_id=1423563369]
+custom_minimum_size = Vector2(0, 58.5)
+layout_mode = 2
+size_flags_horizontal = 9
+size_flags_vertical = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer" unique_id=1885330844]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Settings" type="TextureButton" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer" unique_id=1908194614]
+custom_minimum_size = Vector2(38.43, 0)
+layout_mode = 2
+texture_normal = ExtResource("9_iioc1")
+texture_pressed = ExtResource("9_iioc1")
+ignore_texture_size = true
+stretch_mode = 4
+script = SubResource("GDScript_jjjd2")
+
+[node name="SettingsMenu" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Achivements" type="TextureButton" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer" unique_id=93847451]
+custom_minimum_size = Vector2(41.215, 0)
+layout_mode = 2
+texture_normal = ExtResource("13_iioc1")
+ignore_texture_size = true
+stretch_mode = 4
+script = SubResource("GDScript_jjjd2")
+
+[node name="AchivementsMenu" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer/Achivements" unique_id=1963773263 instance=ExtResource("7_iioc1")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Center" type="PanelContainer" parent="NavBar/Overlay/HBoxContainer" unique_id=144855484]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme_override_styles/panel = SubResource("StyleBoxEmpty_567j1")
+
+[node name="MarginContainer" type="MarginContainer" parent="NavBar/Overlay/HBoxContainer/Center" unique_id=1939459762]
+process_mode = 1
+layout_mode = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavBar/Overlay/HBoxContainer/Center/MarginContainer" unique_id=905752645]
+layout_mode = 2
+
+[node name="Day" type="Label" parent="NavBar/Overlay/HBoxContainer/Center/MarginContainer/VBoxContainer" unique_id=920864114]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_fonts/font = ExtResource("5_uo2fv")
-theme_override_font_sizes/font_size = 48
-text = "City: Lorem Ipsum"
+theme_override_font_sizes/font_size = 32
+text = "Dzień X"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Control" type="Control" parent="." unique_id=1795378241]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Settings" type="TextureButton" parent="Control" unique_id=271484443]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.9
-anchor_top = 23.321001
-anchor_right = 3.9
-anchor_bottom = 23.321001
-offset_left = -80.18182
-offset_top = -65.903625
-offset_right = 96.81818
-offset_bottom = 108.096375
-texture_normal = ExtResource("7_mphia")
-texture_hover = ExtResource("8_0m4u7")
-stretch_mode = 3
-
-[node name="SettingsMenu" parent="Control/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
-process_mode = 0
-script = ExtResource("7_3swnk")
-
-[node name="Shop" type="TextureButton" parent="Control" unique_id=1736348984]
-layout_mode = 0
-offset_left = 252.81818
-offset_top = 866.9364
-offset_right = 429.81818
-offset_bottom = 1040.9364
-texture_normal = ExtResource("8_0i1j5")
-texture_hover = ExtResource("9_mphia")
-stretch_mode = 3
-
-[node name="UpgradesMenu" parent="Control/Shop" unique_id=498256039 instance=ExtResource("6_apjy4")]
-visible = false
-script = ExtResource("9_5n1hp")
-
-[node name="Bar" type="TextureRect" parent="." unique_id=329981727]
-process_mode = 1
-offset_left = 40.0
-offset_top = -19.400024
-offset_right = 604.0
-offset_bottom = 214.59998
-texture = ExtResource("1_0i1j5")
-stretch_mode = 2
-script = SubResource("GDScript_0m4u7")
-day_duration = 20.0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Bar" unique_id=779386582]
+[node name="Clock" type="Label" parent="NavBar/Overlay/HBoxContainer/Center/MarginContainer/VBoxContainer" unique_id=746826376]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.437
-anchor_top = 0.5
-anchor_right = 0.437
-anchor_bottom = 0.5
-offset_left = -207.7142
-offset_top = -26.874046
-offset_right = -93.7142
-offset_bottom = 87.125946
-max_value = 1.0
-step = 0.0
-fill_mode = 4
-texture_under = ExtResource("2_mphia")
-texture_over = ExtResource("3_0m4u7")
-texture_progress = ExtResource("4_apjy4")
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "HH:MM"
+horizontal_alignment = 1
 
-[node name="Day" type="Label" parent="Bar" unique_id=1210453090]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.018000001
-anchor_top = 0.068
-anchor_right = 0.018000001
-anchor_bottom = 0.068
-offset_left = 117.98603
-offset_top = 67.49399
-offset_right = 445.53323
-offset_bottom = 200.49399
-theme_override_colors/font_shadow_color = Color(0.07058824, 0.23137255, 0.42745098, 0.6784314)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("5_uo2fv")
-theme_override_font_sizes/font_size = 70
-text = "Dzień: 1"
+[node name="Right" type="VBoxContainer" parent="NavBar/Overlay/HBoxContainer" unique_id=132871089]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="NavBar/Overlay/HBoxContainer/Right" unique_id=1676563671]
+custom_minimum_size = Vector2(0, 58.5)
+layout_mode = 2
+size_flags_horizontal = 9
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer" unique_id=1360100197]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 2
+
+[node name="Control" type="HBoxContainer" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer/HBoxContainer" unique_id=1451080646]
+layout_mode = 2
+layout_direction = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer/HBoxContainer/Control" unique_id=2003723251]
+layout_mode = 2
+texture = ExtResource("11_jjjd2")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RepPoints" type="Label" parent="NavBar/Overlay/HBoxContainer/Right/MarginContainer/HBoxContainer/Control" unique_id=542638036]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 24
+text = "20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Control/Settings" to="Control/Settings/SettingsMenu" method="_on_settings_pressed"]
-[connection signal="pressed" from="Control/Shop" to="Control/Shop/UpgradesMenu" method="_on_shop_pressed"]
+[node name="Summary" type="Panel" parent="." unique_id=1435918145]
+unique_name_in_owner = true
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.25
+offset_right = 11.0
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_styles/panel = ExtResource("10_nhd55")
+metadata/_edit_group_ = true
+
+[node name="PanelSound" type="AudioStreamPlayer" parent="Summary" unique_id=38933155]
+unique_name_in_owner = true
+stream = ExtResource("11_8nkf1")
+
+[node name="MainContainer" type="MarginContainer" parent="Summary" unique_id=661476250]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Summary/MainContainer" unique_id=1574656120]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="Summary/MainContainer/VBoxContainer" unique_id=1341673780]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("11_q6mn5")
+
+[node name="Label" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel" unique_id=712015398]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Podsumowanie dnia X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Summary/MainContainer/VBoxContainer" unique_id=1978530378]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("11_q6mn5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Summary/MainContainer/VBoxContainer" unique_id=51569067]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=672177141]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("10_nhd55")
+theme_override_styles/pressed = ExtResource("13_567j1")
+theme_override_styles/hover = ExtResource("14_nsgyl")
+theme_override_styles/hover_pressed = ExtResource("15_jjjd2")
+text = "Kontynuuj"
+
+[node name="UpgradesButton" type="Button" parent="Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=1144924310]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("10_nhd55")
+theme_override_styles/pressed = ExtResource("13_567j1")
+theme_override_styles/hover = ExtResource("14_nsgyl")
+theme_override_styles/hover_pressed = ExtResource("15_jjjd2")
+text = "Ulepszenia"
+
+[node name="NotificationContainer" type="VBoxContainer" parent="." unique_id=312451308]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -356.0
+offset_top = -629.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[connection signal="button_down" from="Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
+[connection signal="button_down" from="Summary/MainContainer/VBoxContainer/HBoxContainer/UpgradesButton" to="." method="_on_upgrades_button_button_down"]

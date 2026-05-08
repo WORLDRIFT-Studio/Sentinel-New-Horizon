@@ -1,11 +1,40 @@
 extends Node2D
 
+#region Export
+
+@export_category("Alerts")
+@export var popup_scene: PackedScene
+@export_group("Alerts Limits")
+@export_range(0, 20, 1, "prefer_slider") var minimum_alerts: int = 5
+@export_range(0, 20, 1, "prefer_slider") var maximum_alerts: int = 10
+
+#endregion
+
+#region Variable
+@onready var map: Sprite2D = %Map
+@onready var hud: CanvasLayer = %HUD
+
+var alerts_number: int
+var map_size: Vector2 
+
+#endregion
+
 func _ready() -> void:
-	GameEvents.menu_opened.connect(_menu_opened)
-	GameEvents.menu_closed.connect(_menu_closed)
-	
-func _menu_opened() -> void:
-	get_tree().paused = true
-	
-func _menu_closed() -> void:
-	get_tree().paused = false
+	alerts_number = randi_range(minimum_alerts, maximum_alerts)
+	map_size = map.texture.get_size()
+	TimeManager.connect("alert", _spawn_alert)
+	TimeManager.connect("day_ended", _delete_alerts)
+
+
+func _spawn_alert() -> void:
+	var popup = popup_scene.instantiate()
+	popup.position.x = randf_range(50, map_size.x - 50)
+	popup.position.y = randf_range(50, map_size.y - 50)
+	map.add_child(popup)
+	hud.notify("Otrzymano nowe zgłoszenie !")
+
+
+func _delete_alerts() -> void:
+	var children: Array[Node] = get_tree().get_nodes_in_group("alert")
+	for child in children:
+		child.queue_free()

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cjn8w0xalgbcs"]
+
+[ext_resource type="Script" uid="uid://23dbxx50knp8" path="res://assets/assets/Traffic Command/car.gd" id="1_rmu2u"]
+[ext_resource type="Texture2D" uid="uid://brinberm23ana" path="res://assets/assets/Traffic Command/car1.png" id="1_v77ax"]
+[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/minigames/traffic_command/area2D.gd" id="2_rmu2u"]
+[ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="3_lieqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym1ef"]
+size = Vector2(142.95575, 66.33226)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o80tv"]
+font = ExtResource("3_lieqd")
+font_size = 46
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=406968989]
+z_index = 2
+rotation = -1.5707964
+scale = Vector2(0.9915965, 1.013921)
+script = ExtResource("1_rmu2u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=100720868]
+rotation = 3.1415927
+scale = Vector2(0.5779144, 0.54023343)
+skew = -0.0004453659
+texture = ExtResource("1_v77ax")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=204446230]
+rotation = 1.5707964
+scale = Vector2(0.9862723, 1.0084723)
+skew = 0.0004452467
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_rmu2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=595240819]
+rotation = 3.141129
+scale = Vector2(0.9999995, 0.999999)
+shape = SubResource("RectangleShape2D_ym1ef")
+
+[node name="Timer" type="Label" parent="." unique_id=1145971738]
+visible = false
+z_index = 2
+offset_left = 30.000011
+offset_top = -30.00006
+offset_right = 103.22374
+offset_bottom = 33.64209
+rotation = 1.5707964
+text = "Timer"
+label_settings = SubResource("LabelSettings_o80tv")

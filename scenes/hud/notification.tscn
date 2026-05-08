@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bc3t2as7o7hhk"]
+
+[ext_resource type="Script" uid="uid://bo3djaivhxsse" path="res://scripts/ui/hud/hud_notification.gd" id="1_lfuor"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="2_md7qx"]
+
+[sub_resource type="Animation" id="Animation_pmig3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2lqr0"]
+resource_name = "SaveNotification"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2lqr0"]
+_data = {
+&"RESET": SubResource("Animation_pmig3"),
+&"SaveNotification": SubResource("Animation_2lqr0")
+}
+
+[node name="SaveNotification" type="MarginContainer" unique_id=1418441877]
+custom_minimum_size = Vector2(0, 54)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_lfuor")
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=678112004]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_md7qx")
+
+[node name="Label" type="Label" parent="Panel" unique_id=205143102]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Gra zapisana !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1407485479]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2lqr0")

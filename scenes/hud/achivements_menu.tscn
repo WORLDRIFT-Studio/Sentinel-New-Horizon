@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cykkh2pnoyn0r"]
+
+[ext_resource type="Shader" uid="uid://cn13awsmpioy" path="res://shaders/upgrades_menu.gdshader" id="1_ee1af"]
+[ext_resource type="Script" uid="uid://cdipld5s8jirl" path="res://scripts/ui/hud/hud_popup_menu.gd" id="1_tqlu0"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="2_tqlu0"]
+[ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="3_wylq7"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="4_wxqmx"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="5_y08r5"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_fedbj"]
+[ext_resource type="Texture2D" uid="uid://nvo31s642gia" path="res://assets/icons/cancel.png" id="7_hwx6a"]
+[ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="9_tqlu0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vea8"]
+shader = ExtResource("1_ee1af")
+shader_parameter/strength = 1.0
+shader_parameter/opacity = 0.45
+shader_parameter/radius = 0.85
+
+[node name="AchivementsMenu" type="Popup" unique_id=1784852679]
+process_mode = 3
+transparent_bg = true
+oversampling_override = 1.0
+mode = 3
+size = Vector2i(1920, 1080)
+visible = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_tqlu0")
+
+[node name="Background" type="ColorRect" parent="." unique_id=827922727]
+material = SubResource("ShaderMaterial_0vea8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Panel" parent="." unique_id=2143825523]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_styles/panel = ExtResource("2_tqlu0")
+
+[node name="MainContainer" type="Control" parent="Menu" unique_id=971000523]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
+process_mode = 3
+layout_mode = 0
+offset_left = 14.5
+offset_top = 14.5
+offset_right = 108.5
+offset_bottom = 108.5
+theme_override_styles/normal = ExtResource("3_wylq7")
+theme_override_styles/pressed = ExtResource("4_wxqmx")
+theme_override_styles/hover = ExtResource("5_y08r5")
+theme_override_styles/hover_pressed = ExtResource("6_fedbj")
+icon = ExtResource("7_hwx6a")
+icon_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812756441]
+unique_name_in_owner = true
+libraries/panels = ExtResource("9_tqlu0")
+
+[connection signal="pressed" from="Menu/MainContainer/Close" to="." method="_on_close_pressed"]

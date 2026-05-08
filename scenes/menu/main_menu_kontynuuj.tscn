@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://byqjy6f8frgtx"]
 
 [ext_resource type="Texture2D" uid="uid://dtuqjyqf5annk" path="res://assets/assets/menu/kontynuuj.png" id="1_alddd"]
-[ext_resource type="Script" uid="uid://u7bss4sp1r62" path="res://scripts/menu/main_menu_kontynuuj.gd" id="1_n25m5"]
+[ext_resource type="Script" uid="uid://u7bss4sp1r62" path="res://scripts/ui/main_menu/main_menu_kontynuuj.gd" id="1_n25m5"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_wisws"]
-[ext_resource type="AudioStream" uid="uid://cby8fem52koh" path="res://assets/sounds/btn_click.wav" id="4_f6o1w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rsth"]
 texture = ExtResource("1_alddd")
@@ -43,6 +42,3 @@ theme_override_fonts/font = ExtResource("3_wisws")
 theme_override_font_sizes/font_size = 60
 text = "Wyjście"
 flat = true
-
-[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1743901212]
-stream = ExtResource("4_f6o1w")

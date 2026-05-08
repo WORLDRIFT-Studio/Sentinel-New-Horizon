@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yjc0bg83ii6e"]
 
-[ext_resource type="Script" uid="uid://bqle6o2c7qdsj" path="res://scripts/logic/transition_scene.gd" id="1_6hpjq"]
+[ext_resource type="Script" uid="uid://bqle6o2c7qdsj" path="res://scripts/logic/autotune/at_transition_scene.gd" id="1_6hpjq"]
 
 [sub_resource type="Animation" id="Animation_a7egq"]
 length = 0.001

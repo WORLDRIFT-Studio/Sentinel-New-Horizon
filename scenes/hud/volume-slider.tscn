@@ -1,16 +1,7 @@
 [gd_scene format=3 uid="uid://6piwt5qyj171"]
 
-[ext_resource type="Script" uid="uid://gthncc1s4n85" path="res://scripts/settings/volume_slider.gd" id="1_4vkr2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[ext_resource type="Script" uid="uid://gthncc1s4n85" path="res://scripts/settings/settings_volume_slider.gd" id="1_4vkr2"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="1_37ng8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwgp"]
 bg_color = Color(0, 0.25167894, 0.42411947, 1)
@@ -33,7 +24,7 @@ expand_margin_bottom = 5.0
 [node name="Master" type="Panel" unique_id=1254362795]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
+theme_override_styles/panel = ExtResource("1_37ng8")
 script = ExtResource("1_4vkr2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=873683531]
