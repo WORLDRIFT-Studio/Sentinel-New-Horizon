@@ -23,10 +23,11 @@ buses/default_bus_layout="uid://5227sa4gu62v"
 GameEvents="*uid://dvcpvx6nvxko5"
 SettingsManager="*uid://ckmvkk0cm2uap"
 AudioManager="*uid://sb75jvnxxr1n"
-TransitionScene="*uid://cc13ne0ctrqln"
-BackgroundMusic="*uid://uqlpwqjpv552"
 GlobalData="*uid://g277xbbdc3lt"
 TimeManager="*uid://bw7vjowvy2bw7"
+SaveLoad="*uid://j4cw5ew3xkio"
+TransitionScene="*uid://cc13ne0ctrqln"
+BackgroundMusic="*uid://uqlpwqjpv552"
 
 [display]
 

@@ -19,15 +19,20 @@ func _ready() -> void:
 	btn_ustawienia.pressed.connect(_on_ustawienia_pressed)
 	btn_autorzy.pressed.connect(_on_autorzy_pressed)
 	btn_wyjscie.pressed.connect(_on_wyjscie_pressed)
-
+	
+	btn_kontynuuj.disabled = not FileAccess.file_exists(SaveLoad.SAVE_LOCATION)
+	
 	%NowaGra.grab_focus()
 
 
 func _on_nowa_gra_pressed() -> void:
-	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_nowa_gra.tscn")
+	SaveLoad._reset()
+	SaveLoad._save()
+	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
 
 func _on_kontynuuj_pressed() -> void:
-	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_kontynuuj.tscn")
+	SaveLoad._load()
+	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
 
 func _on_ustawienia_pressed() -> void:
 	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_ustawienia.tscn")
