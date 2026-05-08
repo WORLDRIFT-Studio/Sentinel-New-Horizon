@@ -28,6 +28,7 @@ TimeManager="*uid://bw7vjowvy2bw7"
 SaveLoad="*uid://j4cw5ew3xkio"
 TransitionScene="*uid://cc13ne0ctrqln"
 BackgroundMusic="*uid://uqlpwqjpv552"
+Signals="*uid://da7o6msmrto8m"
 
 [display]
 

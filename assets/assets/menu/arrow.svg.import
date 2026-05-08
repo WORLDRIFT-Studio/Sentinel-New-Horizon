@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:assets/assets/menu/arrow.svg.import
 uid="uid://bffw4xw0yyfeg"
 path="res://.godot/imported/arrow.svg-a393e0bbb4b3534dbe893add56d2d680.ctex"
+========
+uid="uid://br46601d85dbw"
+path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+>>>>>>>> fnf_minigame:icon.svg.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:assets/assets/menu/arrow.svg.import
 source_file="res://assets/assets/menu/arrow.svg"
 dest_files=["res://.godot/imported/arrow.svg-a393e0bbb4b3534dbe893add56d2d680.ctex"]
+========
+source_file="res://icon.svg"
+dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+>>>>>>>> fnf_minigame:icon.svg.import
 
 [params]
 
