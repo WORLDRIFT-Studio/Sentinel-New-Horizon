@@ -1,7 +1,7 @@
 extends Sprite2D
 
-@onready var falling_key = preload("res://objects/falling_key.tscn")
-@onready var score_text = preload("res://objects/score_press_text.tscn")
+@onready var falling_key = preload("res://scenes/minigames/fnf/falling_key.tscn")
+@onready var score_text = preload("res://scenes/minigames/fnf/score_press_text.tscn")
 
 @export var key_name: String = ""
 
@@ -21,7 +21,7 @@ func _ready():
 	$GlowOverlay.frame = frame + 4
 	Signals.CreateFallingKey.connect(CreateFallingKey)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed(key_name):
 		Signals.KeyListenerPress.emit(key_name, frame)
 
