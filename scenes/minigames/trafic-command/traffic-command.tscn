@@ -125,6 +125,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-48.629906, -973.6143)
 rotation = 1.4992082
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.42])
 
 [node name="Node2D" type="Node2D" parent="Left/Right/PathFollow2D" unique_id=406968989]
 z_index = 2
@@ -170,6 +171,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-53.034607, -985.1688)
 rotation = 1.4889964
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Left" unique_id=1484532717]
 curve = SubResource("Curve2D_8ojpj")
@@ -179,6 +181,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-53.706284, -972.6312)
 rotation = 1.4918478
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.41])
 
 [node name="Down" type="Node2D" parent="." unique_id=2058267442]
 position = Vector2(1022.0309, 522.01544)
@@ -195,6 +198,7 @@ script = ExtResource("2_v848d")
 position = Vector2(3.5410156, -585.75134)
 rotation = 1.5805762
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.18])
 
 [node name="Node2D" type="Node2D" parent="Down/Right/PathFollow2D" unique_id=45677192]
 z_index = 2
@@ -213,6 +217,7 @@ scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Right/PathFollow2D/Node2D/Area2D" unique_id=228843030]
 rotation = 3.141129
@@ -239,6 +244,7 @@ script = ExtResource("2_v848d")
 position = Vector2(7.7858887, -591.90393)
 rotation = 1.6035781
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.22])
 
 [node name="Left" type="Path2D" parent="Down" unique_id=1224891115]
 curve = SubResource("Curve2D_p3o70")
@@ -248,6 +254,7 @@ script = ExtResource("2_v848d")
 position = Vector2(6.5043945, -588.2555)
 rotation = 1.599036
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.17])
 
 [node name="Right" type="Node2D" parent="." unique_id=1016065657]
 position = Vector2(994.0311, 434.01556)
@@ -264,6 +271,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-41.051086, -955.04517)
 rotation = 1.5192366
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.42])
 
 [node name="Node2D" type="Node2D" parent="Right/Right/PathFollow2D" unique_id=714244112]
 z_index = 2
@@ -309,6 +317,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-36.80902, -951.7294)
 rotation = 1.5208325
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Right" unique_id=1504836895]
 curve = SubResource("Curve2D_q8vh0")
@@ -318,6 +327,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-40.631348, -954.20276)
 rotation = 1.521088
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.37])
 
 [node name="Up" type="Node2D" parent="." unique_id=289593973]
 position = Vector2(1001.03094, 525.01544)
@@ -334,6 +344,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-101.22528, -497.57822)
 rotation = 1.5066593
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.13])
 
 [node name="Node2D" type="Node2D" parent="Up/Right/PathFollow2D" unique_id=382171048]
 z_index = 2
@@ -379,6 +390,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-98.53027, -504.29584)
 rotation = 1.5247409
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.15])
 
 [node name="Left" type="Path2D" parent="Up" unique_id=684848335]
 curve = SubResource("Curve2D_8ryca")
@@ -388,6 +400,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-104.70697, -495.9031)
 rotation = 1.4958433
 script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.11])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2085531439]
 environment = SubResource("Environment_ekx8n")
