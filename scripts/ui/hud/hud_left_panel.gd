@@ -33,4 +33,4 @@ func _on_invisible_background_gui_input(event: InputEvent) -> void:
 			
 
 func _on_accept_pressed() -> void:
-	TransitionScene.fade_to_scene(path_to_scene)
+	AtTransitionScene.fade_to_scene(path_to_scene)

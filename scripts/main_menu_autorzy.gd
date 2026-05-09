@@ -17,11 +17,11 @@ func _ready() -> void:
 		return  
 		
 	btn_next.pressed.connect(_on_next_pressed)
-	
+
 func _on_wyjscie_pressed() -> void:
 	
-	TransitionScene.fade_to_scene("res://scenes/menu/main_menu.tscn")
+	AtTransitionScene.fade_to_scene("res://scenes/menu/main_menu.tscn")
 
 func _on_next_pressed() -> void:
 	
-	TransitionScene.fade_to_scene("res://scenes/menu/autorzy_side_menu.tscn")
+	AtTransitionScene.fade_to_scene("res://scenes/menu/autorzy_side_menu.tscn")

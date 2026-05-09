@@ -8,7 +8,6 @@ extends Control
 
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 
-
 func _input(event):
 	if event is InputEventMouseButton:
 		print("klik globalny")
@@ -28,17 +27,17 @@ func _ready() -> void:
 func _on_nowa_gra_pressed() -> void:
 	SaveLoad._reset()
 	SaveLoad.save_content()
-	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
+	AtTransitionScene.fade_to_scene("res://scenes/main_game.tscn")
 
 func _on_kontynuuj_pressed() -> void:
 	SaveLoad.load_content()
-	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
+	AtTransitionScene.fade_to_scene("res://scenes/main_game.tscn")
 
 func _on_ustawienia_pressed() -> void:
-	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_ustawienia.tscn")
+	AtTransitionScene.fade_to_scene("res://scenes/menu/main_menu_ustawienia.tscn")
 
 func _on_autorzy_pressed() -> void:
-	TransitionScene.fade_to_scene("res://scenes/menu/main_menu_autorzy.tscn")
+	AtTransitionScene.fade_to_scene("res://scenes/menu/main_menu_autorzy.tscn")
 
 func _on_wyjscie_pressed() -> void:
 	get_tree().quit()
