@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cfb2k636gs73j"]
+
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="1_nfeea"]
+[ext_resource type="Script" uid="uid://dolw5x4p2vfv8" path="res://scripts/ui/hud/upgrade.gd" id="2_stqj5"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="3_y4mng"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="4_h0336"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="5_nqqru"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_ie3nd"]
+[ext_resource type="StyleBox" uid="uid://btuqqpdq5g2nh" path="res://styles/button_disabled.tres" id="7_tw7e8"]
+[ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="8_48t2u"]
+
+[node name="Panel" type="Panel" unique_id=1376297624]
+custom_minimum_size = Vector2(400, 0)
+offset_right = 400.0
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_nfeea")
+script = ExtResource("2_stqj5")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1800802785]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=702188931]
+layout_mode = 2
+
+[node name="UpgradeName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1937205350]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("8_48t2u")
+theme_override_font_sizes/font_size = 48
+text = "Dłuższa zmiana"
+
+[node name="UpgradePrice" type="Label" parent="MarginContainer/VBoxContainer" unique_id=24224169]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.32941177, 0.32941177, 1)
+theme_override_fonts/font = ExtResource("8_48t2u")
+theme_override_font_sizes/font_size = 32
+text = "12 PR"
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1422049049]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("8_48t2u")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Profesor Kliś postanowił przyśpieszyć szkolenie Sentinela. W tym celu wydłuża twoją zmianę o dwie godziny. Od teraz twoja zmiana będzie trwać do [color=#ff5454]dads[/color]"
+scroll_active = false
+
+[node name="Effects" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1848741672]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_48t2u")
+theme_override_font_sizes/font_size = 32
+text = "- Od teraz dzień trwa 2 godziny więcej"
+
+[node name="Upgrade" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1655245719]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("8_48t2u")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("3_y4mng")
+theme_override_styles/pressed = ExtResource("4_h0336")
+theme_override_styles/hover = ExtResource("5_nqqru")
+theme_override_styles/hover_pressed = ExtResource("6_ie3nd")
+theme_override_styles/disabled = ExtResource("7_tw7e8")
+text = "Kup Ulepszenie"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Upgrade" to="." method="_on_upgrade_pressed"]

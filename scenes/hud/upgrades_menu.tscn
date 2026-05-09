@@ -7,7 +7,9 @@
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="5_b7e55"]
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_y3kab"]
 [ext_resource type="Texture2D" uid="uid://dexq0p0n7ayxl" path="res://assets/icons/cancel.png" id="7_j4o8j"]
+[ext_resource type="Script" uid="uid://be5gwel7qdncj" path="res://scenes/hud/upgrades_container.gd" id="8_b7e55"]
 [ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="8_j4o8j"]
+[ext_resource type="PackedScene" uid="uid://cfb2k636gs73j" path="res://scenes/menu/upgrades.tscn" id="9_b7e55"]
 
 [node name="UpgradesMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
@@ -47,7 +49,6 @@ grow_vertical = 2
 
 [node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
 process_mode = 3
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 14.5
 offset_top = 14.5
@@ -60,6 +61,50 @@ theme_override_styles/hover = ExtResource("5_b7e55")
 theme_override_styles/hover_pressed = ExtResource("6_y3kab")
 icon = ExtResource("7_j4o8j")
 icon_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer" unique_id=311808972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 125
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/MainContainer/MarginContainer" unique_id=703316855]
+layout_mode = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="UpgradesContainer" type="GridContainer" parent="Menu/MainContainer/MarginContainer/ScrollContainer" unique_id=1246617931]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 6
+script = ExtResource("8_b7e55")
+
+[node name="Panel" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1376297624 instance=ExtResource("9_b7e55")]
+layout_mode = 2
+upgrade_id = "longer_day"
+upgrade_name = "Dłuższa Zmiana"
+
+[node name="Panel2" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=449518962 instance=ExtResource("9_b7e55")]
+layout_mode = 2
+
+[node name="Panel3" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1839882331 instance=ExtResource("9_b7e55")]
+layout_mode = 2
+
+[node name="Panel4" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1975302053 instance=ExtResource("9_b7e55")]
+layout_mode = 2
+
+[node name="Panel5" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=2007689573 instance=ExtResource("9_b7e55")]
+layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1800047558]
 unique_name_in_owner = true

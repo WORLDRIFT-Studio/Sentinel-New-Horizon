@@ -12,9 +12,9 @@ signal alert # Gdy ma pojawić się alert
 #region Variables
 
 var start_hour: int = 8
-var end_hour: int = 20
+var end_hour: int = 16
 var step: int = 15
-var clock_wait_time: float = 2.0 
+var clock_wait_time: float = 2
 
 var current_day: int = 1
 var current_minutes: int
@@ -59,7 +59,9 @@ func _on_timer_timeout() -> void:
 	if current_minutes >= end_minutes:
 		day_ended.emit()
 		timer.stop()
-		
+	
+	if current_minutes == end_minutes - 60:
+		NotificationManager.notify("Twoja zmiana dobiega końca")
 
 func _generate_alert_times() -> void:
 	var times: Array[int] = []

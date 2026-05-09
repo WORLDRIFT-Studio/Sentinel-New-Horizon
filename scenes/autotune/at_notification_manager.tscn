@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://drl8177756wq2"]
+
+[ext_resource type="Script" uid="uid://c4ld0o32ehcsq" path="res://scripts/logic/autotune/notification_manager.gd" id="1_cyjxe"]
+[ext_resource type="PackedScene" uid="uid://bc3t2as7o7hhk" path="res://scenes/autotune/at_notification.tscn" id="2_6klil"]
+[ext_resource type="AudioStream" uid="uid://b0mi7lo40k6p8" path="res://assets/sounds/notification_sound.mp3" id="3_4gsek"]
+
+[node name="NotificationManager" type="CanvasLayer" unique_id=1674782356]
+process_mode = 3
+layer = 42
+script = ExtResource("1_cyjxe")
+notify_tscn = ExtResource("2_6klil")
+
+[node name="NotificationConatiner" type="VBoxContainer" parent="." unique_id=2123925675]
+anchors_preset = -1
+offset_left = 1497.0
+offset_top = 494.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=887543845]
+unique_name_in_owner = true
+stream = ExtResource("3_4gsek")
+bus = &"SFX"

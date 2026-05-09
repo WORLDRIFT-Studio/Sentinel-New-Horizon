@@ -70,7 +70,7 @@ func _on_upgrades_button_button_down() -> void:
 
 
 func _on_continue_button_button_down() -> void:
-	notify("Zapisano grę !")
+	NotificationManager.notify("Zapisano grę !")
 	animation_player.play_backwards("HUD/PanelShowUp")
 	play()
 	TimeManager.start_next_day()
@@ -89,13 +89,6 @@ func _day_summary() -> void:
 #endregion
 
 #region Stuff
-
-func notify(message:String) -> void: # Generator powiadomień
-	var popup = notify_tscn.instantiate() 
-	popup.setup(message)
-	audio_stream_player.play()
-	notify_container.add_child(popup)
-
 
 func pause() -> void: # Zatrzymaj grę
 	get_tree().paused = true

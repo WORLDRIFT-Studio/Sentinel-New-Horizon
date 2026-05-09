@@ -31,7 +31,7 @@ func _spawn_alert() -> void:
 	popup.position.x = randf_range(50, map_size.x - 50)
 	popup.position.y = randf_range(50, map_size.y - 50)
 	map.add_child(popup)
-	hud.notify("Otrzymano nowe zgłoszenie !")
+	NotificationManager.notify("Otrzymano nowe zgłoszenie !")
 
 
 func _delete_alerts() -> void:

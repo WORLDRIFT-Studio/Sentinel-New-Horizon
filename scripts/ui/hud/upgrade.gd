@@ -1,0 +1,37 @@
+extends Control
+
+@export_category("Upgrade Config")
+@export_group("Upgrade")
+@export var upgrade_id: String
+@export var upgrades_required: Array[String] = []
+@export_range(0, 100, 1, "prefer_slider") var upgrade_price: int = 10
+
+@export_group("Display text")
+@export var upgrade_name: String
+@export_multiline() var upgrade_description: String
+@export_multiline() var upgrades_effect: String
+
+@onready var upgrade_name_label: Label = %UpgradeName
+@onready var upgrade_price_label: Label = %UpgradePrice
+@onready var upgrade_description_label: RichTextLabel = %Description
+@onready var upgrade_effects_label: Label = %Effects
+@onready var upgrade: Button = %Upgrade
+
+var is_unlocked: bool = false
+
+func _ready() -> void:
+	upgrade_name_label.text = upgrade_name
+	upgrade_price_label.text = str(upgrade_price)
+	upgrade_description_label.text = upgrade_description
+	upgrade_effects_label.text = upgrades_effect
+	
+	
+func update_ui(can_afford: bool, deps_met: bool) -> void:
+	if is_unlocked: # Jeśli odblokowane
+		upgrade.disabled = false
+	elif deps_met: # Jeśli można kupić i wymagane ulepszenia już są kupione
+		if !can_afford: # Ale nas nie stać
+			upgrade.disabled = false
+	else: # Jeśli nieodblokowane lub nie są spełnione wymagania
+		upgrade.disabled = true
+		

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bc3t2as7o7hhk"]
 
-[ext_resource type="Script" uid="uid://bo3djaivhxsse" path="res://scripts/ui/hud/hud_notification.gd" id="1_lfuor"]
+[ext_resource type="Script" uid="uid://bo3djaivhxsse" path="res://scripts/logic/autotune/notification.gd" id="1_lfuor"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="2_md7qx"]
 
 [sub_resource type="Animation" id="Animation_pmig3"]
@@ -17,10 +17,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_2lqr0"]
 resource_name = "SaveNotification"
-length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,10 +39,22 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2lqr0"]
@@ -41,16 +64,15 @@ _data = {
 }
 
 [node name="SaveNotification" type="MarginContainer" unique_id=1418441877]
+process_mode = 3
 custom_minimum_size = Vector2(0, 54)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -165.0
-offset_top = 2.0
-offset_right = 1.0
-offset_bottom = 56.0
+offset_left = -166.0
+offset_top = -54.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3

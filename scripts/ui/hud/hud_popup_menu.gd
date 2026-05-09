@@ -1,7 +1,9 @@
 extends Popup
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 var was_paused_by_me: bool = false
+var unlocked_ids: PackedStringArray
 
 func open_popup(should_pause: bool):
 	self.show()
