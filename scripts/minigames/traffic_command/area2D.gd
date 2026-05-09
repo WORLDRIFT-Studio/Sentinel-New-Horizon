@@ -16,7 +16,6 @@ func _on_area_entered(_other_area: Area2D) -> void:
 func enable_click() -> void:
 	input_pickable = true
 	clickable = true
-	print("Można klikać!")
 
 func _input_event(_viewport, event, _shape_idx) -> void:
 	if not clickable:

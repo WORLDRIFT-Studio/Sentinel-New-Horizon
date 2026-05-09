@@ -13,7 +13,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_03clw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -48.629906, -973.6143, 0, 0, 0, 0, 0.9173584, -253.94104, 152.2609, -4.05297, -152.2609, 4.05297, -98.44873, -39.996826, 0, 0, 0, 0, -568.08826, -19.849487)
+"points": PackedVector2Array(0, 0, 0, 0, -48.629906, -973.6143, 0, 0, 0, 0, 11.371002, -136.90576, 82.801865, -4.3914013, -82.801865, 4.3914013, -60.58963, -42.776733, 0, 0, 0, 0, -567.646, -26.512695)
 }
 point_count = 4
 
@@ -28,67 +28,67 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_uei48"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -53.034607, -985.1688, 0, 0, 0, 0, 19.620697, -1.3839111, 0, 0, 0, 0, 123.27362, 1186.7046)
+"points": PackedVector2Array(0, 0, 0, 0, -53.034607, -985.1688, 0, 0, 0, 0, 109.193634, 993.63696)
 }
-point_count = 3
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_8ojpj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -53.706284, -972.6312, 0, 0, 0, 0, 4.2493896, -159.91257, -64.70257, 2.8667574, 64.70257, -2.8667574, 80.256226, 29.532104, 0, 0, 0, 0, 628.2886, -7.529297)
+"points": PackedVector2Array(0, 0, 0, 0, -53.706284, -972.6312, 0, 0, 0, 0, 13.35437, -124.974976, -175.76509, -0.7617965, 175.76509, 0.7617965, 190.35501, 39.790405, 0, 0, 0, 0, 630.1072, 24.912842)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_ym1ef"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3.5410156, -585.75134, 0, 0, 0, 0, -1.8082275, -274.14948, 122.39436, 5.1549377, -122.39436, -5.1549377, -98.44873, -39.996826, 0, 0, 0, 0, -1134.7539, -15.805634)
+"points": PackedVector2Array(0, 0, 0, 0, 3.5410156, -585.75134, 0, 0, 0, 0, -0.998291, -121.61685, 93.17222, -1.5030916, -93.17222, 1.5030916, -94.89966, -26.363098, 0, 0, 0, 0, -950.8363, -21.666199)
 }
 point_count = 4
 
-[sub_resource type="Curve2D" id="Curve2D_avl7u"]
+[sub_resource type="Curve2D" id="Curve2D_forge"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -53.034607, -985.1688, 0, 0, 0, 0, -49.342285, 643.87964)
+"points": PackedVector2Array(0, 0, 0, 0, 7.7858887, -591.90393, 0, 0, 0, 0, -29.762695, 553.0974)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_p3o70"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 6.5043945, -588.2555, 0, 0, 0, 0, 4.2493896, -159.91257, -81.09502, -25.786903, 81.09502, 25.786903, 80.256226, 29.532104, 0, 0, 0, 0, 994.4957, 46.46484)
+"points": PackedVector2Array(0, 0, 0, 0, 6.5043945, -588.2555, 0, 0, 0, 0, -6.6882324, -121.21384, -165.48895, 2.3798332, 165.48895, -2.3798332, 159.84558, 45.23532, 0, 0, 0, 0, 994.4957, 46.46484)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_ebja2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -41.051086, -955.04517, 0, 0, 0, 0, -1.8082275, -274.14948, 122.39436, 5.1549377, -122.39436, -5.1549377, -98.44873, -39.996826, 0, 0, 0, 0, -1134.7539, -15.805634)
+"points": PackedVector2Array(0, 0, 0, 0, -41.051086, -955.04517, 0, 0, 0, 0, 0.15066528, -156.6466, 82.69992, -5.3017216, -82.69992, 5.3017216, -82.50705, -62.876343, 0, 0, 0, 0, -497.12457, -62.48828)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_yjtlv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -43.031677, -955.63525, 0, 0, 0, 0, 58.127846, 964.7615)
+"points": PackedVector2Array(0, 0, 0, 0, -36.80902, -951.7294, 0, 0, 0, 0, 58.802654, 960.29785)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_q8vh0"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -40.631348, -954.20276, 0, 0, 0, 0, 4.2493896, -159.91257, -81.09502, -25.786903, 81.09502, 25.786903, 86.57797, 11.139526, 0, 0, 0, 0, 707.2794, 10.970459)
+"points": PackedVector2Array(0, 0, 0, 0, -40.631348, -954.20276, 0, 0, 0, 0, -0.5440674, -148.41663, -189.90076, 0.7234237, 189.90076, -0.7234237, 174.82031, 23.479187, 0, 0, 0, 0, 705.62744, 23.256104)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_skpun"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -101.22528, -497.57822, 0, 0, 0, 0, -82.225464, -242.70947, 216.99745, -5.5199585, -216.99745, 5.5199585, -267.365, -32.3002, 0, 0, 0, 0, -1011.5627, 24.937359)
+"points": PackedVector2Array(0, 0, 0, 0, -101.22528, -497.57822, 0, 0, 0, 0, -78.109314, -137.65741, 111.51146, -12.95016, -111.51146, 12.95016, -170.00299, -31.255402, 0, 0, 0, 0, -1011.5627, 24.937359)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_6byfm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -98.53027, -504.29584, 0, 0, 0, 0, -39.89441, 635.4462)
+"points": PackedVector2Array(0, 0, 0, 0, -98.53027, -504.29584, 0, 0, 0, 0, -45.891357, 637.84265)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_8ryca"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -104.70697, -495.9031, 0, 0, 0, 0, -79.01697, -95.04309, -172.92032, 12.377232, 172.92032, -12.377232, 80.256226, 29.532104, 0, 0, 0, 0, 957.69604, -44.85794)
+"points": PackedVector2Array(0, 0, 0, 0, -104.70697, -495.9031, 0, 0, 0, 0, -76.45154, -119.63443, -155.58615, 13.800882, 155.58615, -13.800882, 97.16504, 24.71457, 0, 0, 0, 0, 957.90845, -40.79776)
 }
 point_count = 4
 
@@ -124,9 +124,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Right" unique_id=1896939417]
 position = Vector2(-48.629906, -973.6143)
-rotation = 1.5020579
+rotation = 1.4992082
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.25])
+stop_points = Array[float]([0.42])
 
 [node name="Node2D" type="Node2D" parent="Left/Right/PathFollow2D" unique_id=406968989]
 z_index = 2
@@ -156,11 +156,11 @@ shape = SubResource("RectangleShape2D_ym1ef")
 [node name="Timer" type="Label" parent="Left/Right/PathFollow2D/Node2D" unique_id=1145971738]
 visible = false
 z_index = 2
-offset_left = 30.000011
-offset_top = -30.00006
-offset_right = 103.22374
-offset_bottom = 33.64209
-rotation = 1.5707964
+offset_left = 18.609732
+offset_top = -18.066236
+offset_right = 91.83346
+offset_bottom = 45.575912
+rotation = 1.1238543
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
@@ -171,9 +171,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Straight" unique_id=319670935]
 position = Vector2(-53.034607, -985.1688)
-rotation = 1.4970773
+rotation = 1.4889964
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.2])
+stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Left" unique_id=1484532717]
 curve = SubResource("Curve2D_8ojpj")
@@ -181,9 +181,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Left" unique_id=613326317]
 position = Vector2(-53.706284, -972.6312)
-rotation = 1.499606
+rotation = 1.4918478
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.2])
+stop_points = Array[float]([0.41])
 
 [node name="Down" type="Node2D" parent="." unique_id=2058267442]
 position = Vector2(1022.0309, 522.01544)
@@ -198,9 +198,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Right" unique_id=1388163434]
 position = Vector2(3.5410156, -585.75134)
-rotation = 1.5879616
+rotation = 1.5805762
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.25])
+stop_points = Array[float]([0.18])
 
 [node name="Node2D" type="Node2D" parent="Down/Right/PathFollow2D" unique_id=45677192]
 z_index = 2
@@ -230,25 +230,24 @@ shape = SubResource("RectangleShape2D_ym1ef")
 [node name="Timer" type="Label" parent="Down/Right/PathFollow2D/Node2D" unique_id=302402516]
 visible = false
 z_index = 2
-offset_left = 30.000011
-offset_top = -30.00006
-offset_right = 103.22374
-offset_bottom = 33.64209
-rotation = 1.5707964
+offset_left = 37.489662
+offset_top = 32.07051
+offset_right = 110.71339
+offset_bottom = 95.71266
+rotation = 2.675682
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
-[node name="Straight" type="Path2D" parent="Down" unique_id=936718889]
-position = Vector2(51.7591, 104.759544)
-scale = Vector2(1.0436475, 0.7017452)
-curve = SubResource("Curve2D_avl7u")
+[node name="Straight" type="Path2D" parent="Down" unique_id=1159388313]
+scale = Vector2(0.99999994, 0.99999994)
+curve = SubResource("Curve2D_forge")
 script = ExtResource("3_qaco6")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Down/Straight" unique_id=282894095]
-position = Vector2(-53.034607, -985.1688)
-rotation = 1.5685297
+[node name="PathFollow2D" type="PathFollow2D" parent="Down/Straight" unique_id=214108761]
+position = Vector2(7.7858887, -591.90393)
+rotation = 1.6035781
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.2])
+stop_points = Array[float]([0.22])
 
 [node name="Left" type="Path2D" parent="Down" unique_id=1224891115]
 curve = SubResource("Curve2D_p3o70")
@@ -256,9 +255,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Left" unique_id=1756183145]
 position = Vector2(6.5043945, -588.2555)
-rotation = 1.5760608
+rotation = 1.599036
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.2])
+stop_points = Array[float]([0.17])
 
 [node name="Right" type="Node2D" parent="." unique_id=1016065657]
 position = Vector2(994.0311, 434.01556)
@@ -273,9 +272,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Right" unique_id=797430382]
 position = Vector2(-41.051086, -955.04517)
-rotation = 1.5132258
+rotation = 1.5192366
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.25])
+stop_points = Array[float]([0.42])
 
 [node name="Node2D" type="Node2D" parent="Right/Right/PathFollow2D" unique_id=714244112]
 z_index = 2
@@ -305,11 +304,11 @@ shape = SubResource("RectangleShape2D_ym1ef")
 [node name="Timer" type="Label" parent="Right/Right/PathFollow2D/Node2D" unique_id=262586721]
 visible = false
 z_index = 2
-offset_left = 30.000011
-offset_top = -30.00006
-offset_right = 103.22374
-offset_bottom = 33.64209
-rotation = 1.5707964
+offset_left = -22.893023
+offset_top = 43.09746
+offset_right = 50.330704
+offset_bottom = 106.73961
+rotation = -2.0135634
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
@@ -319,10 +318,10 @@ curve = SubResource("Curve2D_yjtlv")
 script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Straight" unique_id=1639830290]
-position = Vector2(-43.031677, -955.63525)
-rotation = 1.5181686
+position = Vector2(-36.80902, -951.7294)
+rotation = 1.5208325
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.2])
+stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Right" unique_id=1504836895]
 curve = SubResource("Curve2D_q8vh0")
@@ -330,9 +329,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Left" unique_id=1472682494]
 position = Vector2(-40.631348, -954.20276)
-rotation = 1.5143521
+rotation = 1.521088
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.2])
+stop_points = Array[float]([0.37])
 
 [node name="Up" type="Node2D" parent="." unique_id=289593973]
 position = Vector2(1001.03094, 525.01544)
@@ -347,9 +346,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Right" unique_id=1075155450]
 position = Vector2(-101.22528, -497.57822)
-rotation = 1.4963865
+rotation = 1.5066593
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.25])
+stop_points = Array[float]([0.13])
 
 [node name="Node2D" type="Node2D" parent="Up/Right/PathFollow2D" unique_id=382171048]
 z_index = 2
@@ -379,11 +378,11 @@ shape = SubResource("RectangleShape2D_ym1ef")
 [node name="Timer" type="Label" parent="Up/Right/PathFollow2D/Node2D" unique_id=459571553]
 visible = false
 z_index = 2
-offset_left = 30.000011
-offset_top = -30.00006
-offset_right = 103.22374
-offset_bottom = 33.64209
-rotation = 1.5707964
+offset_left = -30.847527
+offset_top = -15.127148
+offset_right = 42.376198
+offset_bottom = 48.515003
+rotation = -0.47710407
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
@@ -394,9 +393,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Straight" unique_id=2017760009]
 position = Vector2(-98.53027, -504.29584)
-rotation = 1.519395
+rotation = 1.5247409
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.2])
+stop_points = Array[float]([0.15])
 
 [node name="Left" type="Path2D" parent="Up" unique_id=684848335]
 curve = SubResource("Curve2D_8ryca")
@@ -404,9 +403,9 @@ script = ExtResource("3_qaco6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Left" unique_id=1829831874]
 position = Vector2(-104.70697, -495.9031)
-rotation = 1.5067966
+rotation = 1.4958433
 script = ExtResource("4_h54vp")
-stop_points = Array[float]([0.2])
+stop_points = Array[float]([0.11])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2085531439]
 environment = SubResource("Environment_ekx8n")

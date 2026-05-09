@@ -1,3 +1,4 @@
+#Napisany przy pomocy claude
 extends Node2D
 
 @onready var directions = [
@@ -55,7 +56,7 @@ func _process(delta: float) -> void:
 		
 		direction_timers[i] -= delta
 		var vehicle = directions[i]["vehicle"]
-		vehicle.get_node("Timer").text = str(snapped(direction_timers[i], 0.1))
+		vehicle.get_node("Timer").text = str(snapped(direction_timers[i], 0.1))+"s"
 		
 		# Proste mruganie na czerwono poniżej 5s
 		if direction_timers[i] <= 5.0:
@@ -91,6 +92,7 @@ func _pick_random(index: int) -> void:
 	# Reparenting i reset
 	d["vehicle"].reparent(d["active_follower"], false)
 	d["vehicle"].position = Vector2.ZERO
+	d["vehicle"].scale = Vector2.ONE
 	d["vehicle"].get_node("Sprite2D").modulate = Color.WHITE
 	d["vehicle"].get_node("Timer").visible = false
 	

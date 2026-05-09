@@ -7,7 +7,7 @@ func _ready() -> void:
 	add_child(line)
 	
 	line.width = 6.0
-	line.default_color = Color(0.0, 0.835, 0.161, 1.0)
+	line.default_color = Color(0.371, 0.741, 0.907, 1.0)
 	line.z_index = 1
 	
 	var points = curve.get_baked_points()
