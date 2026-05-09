@@ -6,7 +6,7 @@ func _ready() -> void:
 	click_player = AudioStreamPlayer.new()
 	click_player.bus = "SFX"
 	add_child(click_player)
-	var sound = load("res://assets/sounds/button.mp3")
+	var sound = preload("res://assets/sounds/button.mp3")
 	if sound:
 		click_player.stream = sound
 	register_buttons(get_tree().root)

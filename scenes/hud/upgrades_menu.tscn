@@ -47,6 +47,7 @@ grow_vertical = 2
 
 [node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
 process_mode = 3
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 14.5
 offset_top = 14.5

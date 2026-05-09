@@ -3,10 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://hcnhebgyfrwo" path="res://assets/icons/counter.png" id="1_567j1"]
 [ext_resource type="PackedScene" uid="uid://bc3t2as7o7hhk" path="res://scenes/hud/notification.tscn" id="2_567j1"]
 [ext_resource type="AnimationLibrary" uid="uid://7b585illi1hc" path="res://resources/HUD.res" id="3_jjjd2"]
+[ext_resource type="AudioStream" uid="uid://b0mi7lo40k6p8" path="res://assets/sounds/notification_sound.mp3" id="4_8vblv"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://c7fuykroxti3e" path="res://scenes/hud/upgrades_menu.tscn" id="6_apjy4"]
 [ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/hud/settings_menu.tscn" id="6_eld54"]
 [ext_resource type="PackedScene" uid="uid://cykkh2pnoyn0r" path="res://scenes/hud/achivements_menu.tscn" id="7_iioc1"]
+[ext_resource type="Script" uid="uid://b8w2f5uiqcmmw" path="res://scripts/ui/hud/popup_button.gd" id="9_ccb21"]
 [ext_resource type="Texture2D" uid="uid://ca0fen08d24bq" path="res://assets/icons/settings.png" id="9_iioc1"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="10_nhd55"]
 [ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="11_8nkf1"]
@@ -21,23 +23,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
 
-[sub_resource type="GDScript" id="GDScript_jjjd2"]
-script/source = "extends Control
-
-func _ready() -> void:
-	GameEvents.menu_closed.connect(_menu_closed)
-
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			get_child(0).open_popup(true)
-			get_tree().paused = true
-			
-func _menu_closed() -> void:
-	get_child(0).visible = false
-	get_tree().paused = false
-"
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_567j1"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1423471652 node_paths=PackedStringArray("notify_container")]
@@ -51,12 +36,13 @@ unique_name_in_owner = true
 root_node = NodePath("../Summary")
 libraries/HUD = ExtResource("3_jjjd2")
 
-[node name="UpgradesMenu" parent="." unique_id=450696650 instance=ExtResource("6_apjy4")]
-unique_name_in_owner = true
-visible = false
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1634973730]
+stream = ExtResource("4_8vblv")
+bus = &"SFX"
 
 [node name="LeftMenu" parent="." unique_id=1157327055 instance=ExtResource("19_8vblv")]
 unique_name_in_owner = true
+visible = false
 
 [node name="NavBar" type="MarginContainer" parent="." unique_id=592437620]
 unique_name_in_owner = true
@@ -108,9 +94,10 @@ texture_normal = ExtResource("9_iioc1")
 texture_pressed = ExtResource("9_iioc1")
 ignore_texture_size = true
 stretch_mode = 4
-script = SubResource("GDScript_jjjd2")
+script = ExtResource("9_ccb21")
+pause = true
 
-[node name="SettingsMenu" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer/Settings" unique_id=1784852679 instance=ExtResource("6_eld54")]
+[node name="SettingsMenu" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer/Settings" unique_id=2144537021 instance=ExtResource("6_eld54")]
 unique_name_in_owner = true
 visible = false
 
@@ -120,7 +107,8 @@ layout_mode = 2
 texture_normal = ExtResource("13_iioc1")
 ignore_texture_size = true
 stretch_mode = 4
-script = SubResource("GDScript_jjjd2")
+script = ExtResource("9_ccb21")
+pause = true
 
 [node name="AchivementsMenu" parent="NavBar/Overlay/HBoxContainer/Left/MarginContainer/HBoxContainer/Achivements" unique_id=1963773263 instance=ExtResource("7_iioc1")]
 unique_name_in_owner = true
@@ -287,6 +275,12 @@ theme_override_styles/pressed = ExtResource("13_567j1")
 theme_override_styles/hover = ExtResource("14_nsgyl")
 theme_override_styles/hover_pressed = ExtResource("15_jjjd2")
 text = "Ulepszenia"
+script = ExtResource("9_ccb21")
+pause = true
+
+[node name="UpgradesMenu" parent="Summary/MainContainer/VBoxContainer/HBoxContainer/UpgradesButton" unique_id=1784852679 instance=ExtResource("6_apjy4")]
+unique_name_in_owner = true
+visible = false
 
 [node name="NotificationContainer" type="VBoxContainer" parent="." unique_id=312451308]
 unique_name_in_owner = true

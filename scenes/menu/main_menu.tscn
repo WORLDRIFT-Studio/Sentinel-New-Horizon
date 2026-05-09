@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://eoxljb7e4155"]
 
-[ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_247la"]
+[ext_resource type="Script" uid="uid://7077mhbd2g7t" path="res://scripts/ui/main_menu/main_menu.gd" id="1_247la"]
 [ext_resource type="Texture2D" uid="uid://krq7ukfbgfa5" path="res://assets/assets/menu/main.png" id="2_wu84c"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://b8w2f5uiqcmmw" path="res://scripts/ui/hud/popup_button.gd" id="4_hj162"]
+[ext_resource type="PackedScene" uid="uid://scbdubmnau0o" path="res://scenes/hud/settings_menu.tscn" id="5_xn6kt"]
+[ext_resource type="PackedScene" uid="uid://dav6lox56kyje" path="res://scenes/hud/creators_menu.tscn" id="6_xn6kt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -109,6 +112,10 @@ theme_override_fonts/font = ExtResource("3_8ln24")
 theme_override_font_sizes/font_size = 67
 text = "USTAWIENIA"
 flat = true
+script = ExtResource("4_hj162")
+
+[node name="SettingsMenu" parent="MainButtons/Ustawienia" unique_id=1784852679 instance=ExtResource("5_xn6kt")]
+visible = false
 
 [node name="Autorzy" type="Button" parent="MainButtons" unique_id=2022167452]
 unique_name_in_owner = true
@@ -121,6 +128,10 @@ theme_override_fonts/font = ExtResource("3_8ln24")
 theme_override_font_sizes/font_size = 67
 text = "AUTORZY"
 flat = true
+script = ExtResource("4_hj162")
+
+[node name="CreatorsMenu" parent="MainButtons/Autorzy" unique_id=539590372 instance=ExtResource("6_xn6kt")]
+visible = false
 
 [node name="Wyjscie" type="Button" parent="MainButtons" unique_id=1051584313]
 unique_name_in_owner = true

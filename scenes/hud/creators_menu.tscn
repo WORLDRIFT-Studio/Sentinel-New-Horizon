@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dav6lox56kyje"]
+
+[ext_resource type="Script" uid="uid://cdipld5s8jirl" path="res://scripts/ui/hud/hud_popup_menu.gd" id="1_rh24l"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="2_kfqgn"]
+[ext_resource type="StyleBox" uid="uid://cxr38ph77awum" path="res://styles/button_normal.tres" id="3_2s0bu"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="4_ied76"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="5_m3nvj"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_koysu"]
+[ext_resource type="Texture2D" uid="uid://dexq0p0n7ayxl" path="res://assets/icons/cancel.png" id="7_i0tir"]
+[ext_resource type="PackedScene" uid="uid://cilhum7bb3d14" path="res://scenes/hud/creator-card.tscn" id="8_kfqgn"]
+[ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="8_qcmbv"]
+
+[node name="CreatorsMenu" type="Popup" unique_id=1784852679]
+process_mode = 3
+transparent_bg = true
+oversampling_override = 1.0
+mode = 3
+size = Vector2i(1920, 1080)
+visible = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_rh24l")
+
+[node name="Menu" type="Panel" parent="." unique_id=2143825523]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -830.5
+offset_top = -410.5
+offset_right = 830.5
+offset_bottom = 410.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_styles/panel = ExtResource("2_kfqgn")
+
+[node name="MainContainer" type="Control" parent="Menu" unique_id=971000523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 14.5
+offset_top = 14.5
+offset_right = 108.5
+offset_bottom = 108.5
+theme_override_styles/normal = ExtResource("3_2s0bu")
+theme_override_styles/pressed = ExtResource("4_ied76")
+theme_override_styles/hover = ExtResource("5_m3nvj")
+theme_override_styles/hover_pressed = ExtResource("6_koysu")
+icon = ExtResource("7_i0tir")
+icon_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer" unique_id=279982155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 125
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/MainContainer/MarginContainer" unique_id=711544728]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Menu/MainContainer/MarginContainer/ScrollContainer" unique_id=1652901443]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Panel" parent="Menu/MainContainer/MarginContainer/ScrollContainer/GridContainer" unique_id=1164070470 instance=ExtResource("8_kfqgn")]
+layout_mode = 2
+user_name = "Mikołaj Jurek (Xeno)"
+user_function = "Project Managment & Scripting"
+user_github = "https://github.com/Xeno178531"
+user_bio = "🎓 Technical school student — Eugeniusz Kwiatkowski School Complex No. 2
+💻 Young developer focused on system thinking, algorithms, and game development 
+🧠 I enjoy understanding why things work, not just that they work
+
+🖨️ Interested in 3D printing — turning digital designs into physical objects
+📚 Fantasy reader — worldbuilding, magic systems, and complex universes inspire how I design systems
+🌱 Always exploring new technologies and improving my skills"
+
+[node name="Panel2" parent="Menu/MainContainer/MarginContainer/ScrollContainer/GridContainer" unique_id=1595120673 instance=ExtResource("8_kfqgn")]
+layout_mode = 2
+
+[node name="Panel3" parent="Menu/MainContainer/MarginContainer/ScrollContainer/GridContainer" unique_id=1855577801 instance=ExtResource("8_kfqgn")]
+layout_mode = 2
+
+[node name="Panel4" parent="Menu/MainContainer/MarginContainer/ScrollContainer/GridContainer" unique_id=937960525 instance=ExtResource("8_kfqgn")]
+layout_mode = 2
+
+[node name="Panel5" parent="Menu/MainContainer/MarginContainer/ScrollContainer/GridContainer" unique_id=810977302 instance=ExtResource("8_kfqgn")]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812756441]
+unique_name_in_owner = true
+libraries/panels = ExtResource("8_qcmbv")
+
+[connection signal="pressed" from="Menu/MainContainer/Close" to="." method="_on_close_pressed"]
