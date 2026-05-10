@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="8_48t2u"]
 
 [node name="Panel" type="Panel" unique_id=1376297624]
+process_mode = 3
 custom_minimum_size = Vector2(400, 0)
 offset_right = 400.0
 size_flags_vertical = 3
@@ -56,15 +57,18 @@ theme_override_fonts/normal_font = ExtResource("8_48t2u")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Profesor Kliś postanowił przyśpieszyć szkolenie Sentinela. W tym celu wydłuża twoją zmianę o dwie godziny. Od teraz twoja zmiana będzie trwać do [color=#ff5454]dads[/color]"
+fit_content = true
 scroll_active = false
 
-[node name="Effects" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1848741672]
+[node name="Effects" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1220857501]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_48t2u")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/normal_font = ExtResource("8_48t2u")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
 text = "- Od teraz dzień trwa 2 godziny więcej"
+fit_content = true
 
 [node name="Upgrade" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1655245719]
 unique_name_in_owner = true

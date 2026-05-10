@@ -397,5 +397,5 @@ func _on_click_to_show_gui_input(event: InputEvent) -> void:
 
 func _on_back_to_main_pressed() -> void:
 	get_tree().paused = false
-	GlobalData.save_score(points)
+	GlobalData.change_score(points)
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")

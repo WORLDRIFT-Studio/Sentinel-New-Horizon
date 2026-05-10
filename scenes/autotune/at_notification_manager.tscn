@@ -6,7 +6,7 @@
 
 [node name="NotificationManager" type="CanvasLayer" unique_id=1674782356]
 process_mode = 3
-layer = 42
+layer = 999
 script = ExtResource("1_cyjxe")
 notify_tscn = ExtResource("2_6klil")
 

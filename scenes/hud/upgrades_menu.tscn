@@ -18,7 +18,6 @@ oversampling_override = 1.0
 mode = 3
 size = Vector2i(1920, 1080)
 visible = true
-always_on_top = true
 transparent = true
 script = ExtResource("1_fkpcm")
 
@@ -93,9 +92,16 @@ script = ExtResource("8_b7e55")
 layout_mode = 2
 upgrade_id = "longer_day"
 upgrade_name = "Dłuższa Zmiana"
+upgrade_description = "Profesor Kliś postanowił przyśpieszyć szkolenie Sentinela. W tym celu wydłuża twoją zmianę [color=##ff5454]o 2 godziny.[/color]"
+upgrades_effect = "- Od teraz twoja zmiana będzie trwać do 18 !"
 
 [node name="Panel2" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=449518962 instance=ExtResource("9_b7e55")]
 layout_mode = 2
+upgrade_id = "trust_level"
+upgrades_required = Array[String](["longer_day"])
+upgrade_name = "Promocja "
+upgrade_description = "Ludzie zaczynają ufać Sentinelowi. Od teraz będziesz otrzymywać więcej [color=#ff5454]punktów reputacji (PR).[/color]"
+upgrades_effect = "- Mnożnik punktów reputacji wzrasta o 0.5 !"
 
 [node name="Panel3" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1839882331 instance=ExtResource("9_b7e55")]
 layout_mode = 2

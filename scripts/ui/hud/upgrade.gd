@@ -14,7 +14,7 @@ extends Control
 @onready var upgrade_name_label: Label = %UpgradeName
 @onready var upgrade_price_label: Label = %UpgradePrice
 @onready var upgrade_description_label: RichTextLabel = %Description
-@onready var upgrade_effects_label: Label = %Effects
+@onready var upgrade_effects_label: RichTextLabel = %Effects
 @onready var upgrade: Button = %Upgrade
 
 var is_unlocked: bool = false
@@ -28,10 +28,10 @@ func _ready() -> void:
 	
 func update_ui(can_afford: bool, deps_met: bool) -> void:
 	if is_unlocked: # Jeśli odblokowane
-		upgrade.disabled = false
+		self.visible = true
 	elif deps_met: # Jeśli można kupić i wymagane ulepszenia już są kupione
 		if !can_afford: # Ale nas nie stać
-			upgrade.disabled = false
+			self.visible = true
 	else: # Jeśli nieodblokowane lub nie są spełnione wymagania
-		upgrade.disabled = true
+		self.visible = false
 		

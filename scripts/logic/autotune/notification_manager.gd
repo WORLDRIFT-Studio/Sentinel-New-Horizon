@@ -9,3 +9,4 @@ func notify(message:String) -> void: # Generator powiadomień
 	popup.setup(message)
 	audio_stream_player.play()
 	notification_conatiner.add_child(popup)
+	print("Powiadomienie:", message)

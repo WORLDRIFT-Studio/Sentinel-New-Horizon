@@ -5,7 +5,7 @@ signal reputation_changed(new_value:int)
 var reputation: int = 5
 var tutorial_done: bool = false
 
-func save_score(score: int) -> void:
+func change_score(score: int) -> void:
 	@warning_ignore("integer_division")
 	reputation += score / 1000
 	reputation_changed.emit(reputation)
