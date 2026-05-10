@@ -76,7 +76,7 @@ func _on_upgrades_button_button_down() -> void:
 
 func _on_continue_button_button_down() -> void:
 	NotificationManager.notify("Zapisano grę !")
-	animation_player.play_backwards("HUD/PanelShowUp")
+	animation_player.play_backwards("PanelShowUp")
 	play()
 	TimeManager.start_next_day()
 	
@@ -92,7 +92,7 @@ func _day_summary() -> void:
 	sum_bonus.text = "Codzienny bonus: %s" % GlobalData.bonus["daily"]
 	sum_penalty.text = "Kara: -%s" % GlobalData.penalty_today
 	panel_sound.play()
-	animation_player.play("HUD/PanelShowUp")
+	animation_player.play("PanelShowUp")
 	pause()
 
 

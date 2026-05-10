@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 @onready var k1_followers = [$Left/Right/PathFollow2D, $Left/Straight/PathFollow2D, $Left/Left/PathFollow2D]
 @onready var k1_paths = [$Left/Right, $Left/Straight, $Left/Left]
@@ -19,6 +19,8 @@ extends Node2D
 var direction_timers: Array[float] = [10.0, 10.0, 10.0, 10.0]
 var timer_limits: Array[float] = [10.0, 10.0, 10.0, 10.0]
 var timer_active: Array[bool] = [false, false, false, false]
+
+signal crash
 
 @onready var ui = $Menu
 
@@ -138,5 +140,5 @@ func _on_route_finished(index: int) -> void:
 	_pick_random(index)
 
 func _on_crash() -> void:
-	print("Kolizja — koniec gry!")
+	emit_signal("crash")
 	get_tree().paused = true

@@ -31,6 +31,11 @@ func _on_invisible_background_gui_input(event: InputEvent) -> void:
 			await animation_player.animation_finished
 			self.hide()
 			
-
 func _on_accept_pressed() -> void:
-	TransitionScene.fade_to_scene(path_to_scene)
+	var minigame = load(path_to_scene).instantiate()
+	
+	get_tree().root.add_child(minigame)
+	
+	get_tree().paused = true
+	
+	self.hide()

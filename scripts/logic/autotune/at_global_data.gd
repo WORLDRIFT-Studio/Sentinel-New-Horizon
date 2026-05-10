@@ -42,6 +42,7 @@ func update_reputation(value: int) -> void:
 	reputation += value * bonus["rep_multi"]
 	reputation_today += value * bonus["rep_multi"]
 	reputation_changed.emit(reputation)
+	print(reputation, "REPUTACJA")
 
 func force_update() -> void:
 	reputation_changed.emit(reputation)

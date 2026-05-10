@@ -7,3 +7,4 @@ process_mode = 3
 stream = ExtResource("1_rmulv")
 autoplay = true
 bus = &"Music"
+parameters/looping = true

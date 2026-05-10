@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://b8f1ign6hpicr"]
 
 [ext_resource type="Texture2D" uid="uid://1e56iruoegy2" path="res://art/fnf-daddy-dearest-stage-background.jpg" id="1_22obh"]
-[ext_resource type="PackedScene" uid="uid://dfdglmltorqae" path="res://scenes/minigames/fnf/key_listener.tscn" id="1_h3xak"]
+[ext_resource type="PackedScene" uid="uid://dfdglmltorqae" path="res://scenes/minigames/raport_writer/key_listener.tscn" id="1_h3xak"]
 [ext_resource type="Texture2D" uid="uid://dq6y4ispu7uhf" path="res://art/6d1e9c94-bc23-453c-ba9a-c923a3a46835.png" id="2_2i5ty"]
-[ext_resource type="PackedScene" uid="uid://dpc13ucm0i8fg" path="res://scenes/minigames/fnf/game_ui.tscn" id="2_l1p8s"]
-[ext_resource type="PackedScene" uid="uid://coqj034dvvbeu" path="res://scenes/minigames/fnf/level_editor.tscn" id="4_1wrej"]
+[ext_resource type="PackedScene" uid="uid://dpc13ucm0i8fg" path="res://scenes/minigames/raport_writer/game_ui.tscn" id="2_l1p8s"]
+[ext_resource type="PackedScene" uid="uid://coqj034dvvbeu" path="res://scenes/minigames/raport_writer/level_editor.tscn" id="4_1wrej"]
 [ext_resource type="FontFile" uid="uid://ud3all3x1xuy" path="res://art/Atop-R99O3.ttf" id="6_smvv8"]
-[ext_resource type="Script" uid="uid://25dxxbewk27v" path="res://scripts/minigames/fnf/fading_label.gd" id="6_wtvao"]
+[ext_resource type="Script" uid="uid://25dxxbewk27v" path="res://scripts/minigames/raport_writer/fading_label.gd" id="6_wtvao"]
 
 [sub_resource type="Environment" id="Environment_i5mjo"]
 background_mode = 3
 glow_enabled = true
 
-[node name="GameLevel" type="Node2D" unique_id=1706317549]
+[node name="GameLevel" type="CanvasLayer" unique_id=508753839]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1562715008]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1811223057]
-scale = Vector2(0.635, 0.635)
+scale = Vector2(0.675, 0.675)
 texture = ExtResource("1_22obh")
 
 [node name="6d1e9c94Bc23453cBa9aC923a3a46835" type="Sprite2D" parent="Background" unique_id=2035613260]

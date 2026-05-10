@@ -3,7 +3,7 @@ extends Node
 #region Signals
 
 signal time_changed(hour, minutes) # Gdy zmeinia sie czas
-signal day_changed(day: int) # Gdy zmienia się dzień
+signal day_changed(day) # Gdy zmienia się dzień
 signal day_ended # Gdy kończy się dzień
 signal alert # Gdy ma pojawić się alert
 
@@ -14,7 +14,7 @@ signal alert # Gdy ma pojawić się alert
 var start_hour: int = 8
 var end_hour: int = 16
 var step: int = 15
-var clock_wait_time: float = 0.1
+var clock_wait_time: float = 5
 
 var current_day: int = 1
 var current_minutes: int
