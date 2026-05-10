@@ -1,3 +1,4 @@
+@tool
 extends Control
 
 @export_category("Upgrade Config")
@@ -21,7 +22,7 @@ var is_unlocked: bool = false
 
 func _ready() -> void:
 	upgrade_name_label.text = upgrade_name
-	upgrade_price_label.text = str(upgrade_price)
+	upgrade_price_label.text = "%s Punktów Reputacji" % str(upgrade_price)
 	upgrade_description_label.text = upgrade_description
 	upgrade_effects_label.text = upgrades_effect
 	

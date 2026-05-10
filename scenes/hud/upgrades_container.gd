@@ -29,3 +29,14 @@ func check_upgrades() -> void:
 				deps_met = false
 		child.update_ui(GlobalData.reputation >= child.upgrade_price, deps_met)
 		
+func update(upgrade: Node) -> void:
+	match upgrade.upgrade_id:
+		"longer_day":
+			GlobalData.bonus["day_duration"] += 120
+			GlobalData.emit_signal("")
+		"trust_level":
+			GlobalData.bonus["rep_multi"] += 0.5
+		"daily":
+			GlobalData.bonus["daily"] += 5
+		"discount":
+			GlobalData.bonus["discount"] += 0.2

@@ -22,6 +22,7 @@ transparent = true
 script = ExtResource("1_fkpcm")
 
 [node name="Menu" type="Panel" parent="." unique_id=2143825523]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,6 +40,7 @@ size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("2_maivf")
 
 [node name="MainContainer" type="Control" parent="Menu" unique_id=993206144]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,7 +100,6 @@ upgrades_effect = "- Od teraz twoja zmiana będzie trwać do 18 !"
 [node name="Panel2" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=449518962 instance=ExtResource("9_b7e55")]
 layout_mode = 2
 upgrade_id = "trust_level"
-upgrades_required = Array[String](["longer_day"])
 upgrade_name = "Promocja "
 upgrade_description = "Ludzie zaczynają ufać Sentinelowi. Od teraz będziesz otrzymywać więcej [color=#ff5454]punktów reputacji (PR).[/color]"
 upgrades_effect = "- Mnożnik punktów reputacji wzrasta o 0.5 !"

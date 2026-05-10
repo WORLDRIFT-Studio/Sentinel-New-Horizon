@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://uqlpwqjpv552"]
 
-[ext_resource type="AudioStream" uid="uid://cp2yy88ww78d4" path="res://assets/sounds/ThemeSong.mp3" id="1_0rulj"]
+[ext_resource type="AudioStream" uid="uid://dvwcc3uqegv3o" path="res://assets/sounds/theme.mp3" id="1_rmulv"]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" unique_id=1442782563]
 process_mode = 3
-stream = ExtResource("1_0rulj")
+stream = ExtResource("1_rmulv")
 autoplay = true
 bus = &"Music"
