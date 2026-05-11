@@ -2,7 +2,6 @@ extends Control
 
 @onready var btn_wyjscie:      Button = %Wyjscie
 
-@onready var click_sound: AudioStreamPlayer = $ClickSound
 
 func _ready() -> void:
 	if btn_wyjscie == null:
