@@ -35,7 +35,7 @@ func add_finished_vehicle() -> void:
 	
 func score_calc() -> void:
 	score = vehicles_finished * 400
-	GlobalData.change_score(score)
+	GlobalData.set_score(score)
 
 func _display_summary() -> void:
 	if not displayed:

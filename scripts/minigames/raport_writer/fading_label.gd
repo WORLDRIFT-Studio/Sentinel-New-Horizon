@@ -12,3 +12,7 @@ func show_fading_message(message_text: String, display_time: float):
 	tween.tween_interval(display_time)
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(hide)
+
+
+func _on_continue_button_pressed() -> void:
+	pass # Replace with function body.

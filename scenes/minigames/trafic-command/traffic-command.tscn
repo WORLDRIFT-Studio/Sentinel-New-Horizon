@@ -205,8 +205,7 @@ _data = {
 &"RESET": SubResource("Animation_ccb21")
 }
 
-[node name="MiniGame" type="CanvasLayer" unique_id=1605997577]
-layer = 10
+[node name="MiniGame" type="Node" unique_id=285159271]
 script = ExtResource("1_2qniy")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1027030258]
@@ -291,7 +290,7 @@ stop_points = Array[float]([0.2])
 [node name="Down" type="Node2D" parent="." unique_id=2058267442]
 position = Vector2(1022.0309, 522.01544)
 rotation = -2.6862376
-scale = Vector2(1.1, 1.1)
+scale = Vector2(1.0999999, 1.0999999)
 
 [node name="Right" type="Path2D" parent="Down" unique_id=880336974]
 position = Vector2(-0.3323909, -8.947348)

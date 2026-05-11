@@ -32,6 +32,7 @@ var date: String
 var path: String
 
 func _ready() -> void:
+	
 	var keys: Array = options.keys()
 	keys.shuffle()	
 	alert_number += get_tree().get_node_count_in_group("alert")
@@ -51,5 +52,4 @@ func _ready() -> void:
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			print("klik")
-			GameEvents.show_alert_description.emit(title, desc, difficulty, date, path)
+			GameEvents.show_alert_description.emit(self, title, desc, difficulty, date, path)

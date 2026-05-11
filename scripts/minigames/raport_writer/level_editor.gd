@@ -1,4 +1,7 @@
 extends Node2D
+@onready var score: Label = %Score
+@onready var combo: Label = %Combo
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 const in_edit_mode: bool = false
 var current_level_name = "RHYTHM_HELL"
@@ -29,7 +32,7 @@ func _ready():
 	
 	$MusicPlayer.play()
 
-func _process(delta):
+func _process(_delta):
 	if in_edit_mode:
 		return
 	
@@ -44,8 +47,19 @@ func _process(delta):
 			else:
 				break
 
-func KeyListenerPress(button_name: String, array_num: int):
+func KeyListenerPress(array_num: int):
 	fk_output_arr[array_num].append(Signals.get_song_time() - fk_fall_time)
 
 func _on_music_player_finished():
-	print(fk_output_arr)
+	combo.text = str($"../GameUI".highest_combo)
+	score.text = str($"../GameUI".score)
+	animation_player.play("PanelShowUp")
+
+
+func _on_continue_button_pressed() -> void:
+	animation_player.play_backwards("PanelShowUp")
+	await animation_player.animation_finished
+	GameEvents.minigame_ended.emit()
+	GlobalData.set_score($"../GameUI".score)
+	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
+	

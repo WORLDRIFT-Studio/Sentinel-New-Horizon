@@ -2,6 +2,7 @@ extends Control
 
 var score: int = 0
 var combo_count: int = 0
+var highest_combo: int = 0
 
 func _ready():
 	Signals.IncrementScore.connect(IncrementScore)
@@ -18,5 +19,6 @@ func IncrementCombo():
 	%ComboLabel.text = " " + str(combo_count) + "x combo"
 
 func ResetCombo():
+	if combo_count > highest_combo: highest_combo = combo_count
 	combo_count = 0
 	%ComboLabel.text = ""

@@ -3,16 +3,131 @@
 [ext_resource type="Texture2D" uid="uid://1e56iruoegy2" path="res://art/fnf-daddy-dearest-stage-background.jpg" id="1_22obh"]
 [ext_resource type="PackedScene" uid="uid://dfdglmltorqae" path="res://scenes/minigames/raport_writer/key_listener.tscn" id="1_h3xak"]
 [ext_resource type="Texture2D" uid="uid://dq6y4ispu7uhf" path="res://art/6d1e9c94-bc23-453c-ba9a-c923a3a46835.png" id="2_2i5ty"]
-[ext_resource type="PackedScene" uid="uid://dpc13ucm0i8fg" path="res://scenes/minigames/raport_writer/game_ui.tscn" id="2_l1p8s"]
 [ext_resource type="PackedScene" uid="uid://coqj034dvvbeu" path="res://scenes/minigames/raport_writer/level_editor.tscn" id="4_1wrej"]
+[ext_resource type="Script" uid="uid://cchdw0x1epff7" path="res://scripts/minigames/raport_writer/game_ui.gd" id="4_w2rj3"]
 [ext_resource type="FontFile" uid="uid://ud3all3x1xuy" path="res://art/Atop-R99O3.ttf" id="6_smvv8"]
 [ext_resource type="Script" uid="uid://25dxxbewk27v" path="res://scripts/minigames/raport_writer/fading_label.gd" id="6_wtvao"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="8_w2rj3"]
+[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="9_hmwpf"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="10_n4j2i"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="11_ighcn"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="12_oqose"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="13_uwlav"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="14_wbqot"]
 
 [sub_resource type="Environment" id="Environment_i5mjo"]
 background_mode = 3
 glow_enabled = true
 
-[node name="GameLevel" type="CanvasLayer" unique_id=508753839]
+[sub_resource type="Animation" id="Animation_hxov7"]
+resource_name = "PanelShowUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(22, 22.5), Vector2(802, 112), Vector2(802, 794)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.6, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 1, 2),
+"update": 0,
+"values": [Vector2(-11, -10), Vector2(-11, -10), Vector2(-401, -56.00003), Vector2(-401, -433)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainContainer/VBoxContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ccb21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainContainer/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v78ou"]
+_data = {
+&"PanelShowUp": SubResource("Animation_hxov7"),
+&"RESET": SubResource("Animation_ccb21")
+}
+
+[node name="GameLevel" type="Node" unique_id=1105682545]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1562715008]
 
@@ -55,7 +170,40 @@ scale = Vector2(1.8, 1.8)
 frame = 3
 key_name = "button_R"
 
-[node name="GameUI" parent="." unique_id=2049040131 instance=ExtResource("2_l1p8s")]
+[node name="GameUI" type="Control" parent="." unique_id=2049040131]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_w2rj3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GameUI" unique_id=748715603]
+
+[node name="ScoreLabel" type="RichTextLabel" parent="GameUI/CanvasLayer" unique_id=2098097721]
+unique_name_in_owner = true
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 360.0
+offset_bottom = 71.0
+theme_override_constants/outline_size = 14
+theme_override_fonts/normal_font = ExtResource("6_smvv8")
+theme_override_font_sizes/normal_font_size = 41
+text = " 0 pts"
+scroll_active = false
+
+[node name="ComboLabel" type="RichTextLabel" parent="GameUI/CanvasLayer" unique_id=2080346328]
+unique_name_in_owner = true
+offset_left = 18.0
+offset_top = 72.0
+offset_right = 360.0
+offset_bottom = 125.0
+theme_override_constants/outline_size = 14
+theme_override_fonts/normal_font = ExtResource("6_smvv8")
+theme_override_font_sizes/normal_font_size = 41
+text = " 0x combo "
+scroll_active = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1198795494]
 environment = SubResource("Environment_i5mjo")
@@ -76,3 +224,119 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("6_smvv8")
 theme_override_font_sizes/font_size = 50
 script = ExtResource("6_wtvao")
+
+[node name="Summary" type="Panel" parent="." unique_id=1360252172]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 791.0
+offset_bottom = 784.0
+pivot_offset_ratio = Vector2(0.5, 0)
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("8_w2rj3")
+
+[node name="PanelSound" type="AudioStreamPlayer" parent="Summary" unique_id=1327736858]
+unique_name_in_owner = true
+stream = ExtResource("9_hmwpf")
+
+[node name="MainContainer" type="MarginContainer" parent="Summary" unique_id=1211957325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Summary/MainContainer" unique_id=35933615]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="Summary/MainContainer/VBoxContainer" unique_id=888772922]
+custom_minimum_size = Vector2(2.04, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("10_n4j2i")
+
+[node name="SumDay" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel" unique_id=1836612393]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_ighcn")
+theme_override_font_sizes/font_size = 65
+text = "Podsumowanie dnia X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Summary/MainContainer/VBoxContainer" unique_id=26491697]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("10_n4j2i")
+
+[node name="MarginContainer" type="MarginContainer" parent="Summary/MainContainer/VBoxContainer/Panel2" unique_id=2038262137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer" unique_id=1201614668]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Combo" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=750231404]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ighcn")
+theme_override_font_sizes/font_size = 48
+text = "Obsłużone samochody:"
+
+[node name="Score" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=770573662]
+unique_name_in_owner = true
+modulate = Color(1, 0.32941177, 0.32941177, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ighcn")
+theme_override_font_sizes/font_size = 48
+text = "Punkty:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Summary/MainContainer/VBoxContainer" unique_id=1267346816]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=311553850]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_w2rj3")
+theme_override_styles/pressed = ExtResource("12_oqose")
+theme_override_styles/hover = ExtResource("13_uwlav")
+theme_override_styles/hover_pressed = ExtResource("14_wbqot")
+text = "Kontynuuj"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1395892512]
+unique_name_in_owner = true
+process_mode = 3
+root_node = NodePath("../Summary")
+libraries/ = SubResource("AnimationLibrary_v78ou")
+
+[connection signal="pressed" from="Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="LevelEditor" method="_on_continue_button_pressed"]

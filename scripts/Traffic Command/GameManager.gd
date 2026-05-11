@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 @onready var k1_followers = [$Left/Right/PathFollow2D, $Left/Straight/PathFollow2D, $Left/Left/PathFollow2D]
 @onready var k1_paths = [$Left/Right, $Left/Straight, $Left/Left]

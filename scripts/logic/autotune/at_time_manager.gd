@@ -14,7 +14,7 @@ signal alert # Gdy ma pojawić się alert
 var start_hour: int = 8
 var end_hour: int = 16
 var step: int = 15
-var clock_wait_time: float = 5
+var clock_wait_time: float = 1
 
 var current_day: int = 1
 var current_minutes: int
@@ -33,6 +33,8 @@ var alert_times: Array[int]
 
 func _ready() -> void:
 	GlobalData.connect("bonus_changed", _update_end_time)
+	GameEvents.connect("minigame_started", _stop_time)
+	GameEvents.connect("minigame_ended", _start_time)
 	
 	start_minutes = start_hour * 60 
 	end_minutes = end_hour * 60
@@ -45,8 +47,17 @@ func _ready() -> void:
 	alerts_number = randi_range(5, 10)
 	_generate_alert_times()
 
+func _start_time() -> void:
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
+
+
+func _stop_time() -> void:
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	
 func _update_end_time() -> void:
 	end_minutes	= end_hour * 60 + GlobalData.bonus["day_duration"]
+	
 	
 func _on_timer_timeout() -> void:
 	current_minutes += step

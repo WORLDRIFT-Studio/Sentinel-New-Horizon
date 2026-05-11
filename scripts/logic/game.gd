@@ -20,9 +20,10 @@ var map_size: Vector2
 
 func _ready() -> void:
 	map_size = map.texture.get_size()
+	GameEvents.connect("minigame_started", _on_minigame_started)
+	GlobalData.restore_alerts(map)
 	TimeManager.connect("alert", _spawn_alert)
 	TimeManager.connect("day_ended", _delete_alerts)
-
 
 func _spawn_alert() -> void:
 	var popup = popup_scene.instantiate()
@@ -31,8 +32,11 @@ func _spawn_alert() -> void:
 	map.add_child(popup)
 	NotificationManager.notify("Otrzymano nowe zgłoszenie !")
 
-
 func _delete_alerts() -> void:
 	var children: Array[Node] = get_tree().get_nodes_in_group("alert")
 	for child in children:
 		child.queue_free()
+		
+func _on_minigame_started() -> void:
+	GlobalData.alerts_save(map)
+	
