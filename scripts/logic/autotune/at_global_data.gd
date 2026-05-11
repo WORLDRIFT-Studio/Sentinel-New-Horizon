@@ -40,8 +40,12 @@ func set_score(score: int) -> void:
 	update_reputation(points)
 	
 func update_reputation(value: int) -> void:
-	reputation += value * bonus["rep_multi"]
-	reputation_today += value * bonus["rep_multi"]
+	var final_change = value
+	if value > 0:
+		final_change = value * bonus["rep_multi"]
+	
+	reputation += final_change
+	reputation_today += final_change
 	reputation_changed.emit(reputation)
 	print(reputation, "REPUTACJA")
 

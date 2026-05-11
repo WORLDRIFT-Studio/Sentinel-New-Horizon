@@ -14,7 +14,7 @@ signal alert # Gdy ma pojawić się alert
 var start_hour: int = 8
 var end_hour: int = 16
 var step: int = 15
-var clock_wait_time: float = 1
+var clock_wait_time: float = 0.01
 
 var current_day: int = 1
 var current_minutes: int
@@ -48,12 +48,10 @@ func _ready() -> void:
 	_generate_alert_times()
 
 func _start_time() -> void:
-	self.process_mode = Node.PROCESS_MODE_ALWAYS
-
+	timer.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _stop_time() -> void:
-	self.process_mode = Node.PROCESS_MODE_DISABLED
-	
+	timer.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func _update_end_time() -> void:
 	end_minutes	= end_hour * 60 + GlobalData.bonus["day_duration"]
@@ -77,6 +75,8 @@ func _on_timer_timeout() -> void:
 	
 	if current_minutes == end_minutes - 60:
 		NotificationManager.notify("Twoja zmiana dobiega końca")
+	
+	print("Godzina", current_minutes)
 
 
 func _generate_alert_times() -> void:
@@ -95,11 +95,12 @@ func _generate_alert_times() -> void:
 		
 				
 func start_timer() -> void:
-	timer = Timer.new()
-	timer.wait_time = clock_wait_time
-	timer.autostart = true
-	timer.timeout.connect(_on_timer_timeout)
-	add_child(timer)
+	if timer == null:
+		timer = Timer.new()
+		timer.wait_time = clock_wait_time
+		timer.autostart = true
+		timer.timeout.connect(_on_timer_timeout)
+		add_child(timer)	
 	
 
 func start_next_day() -> void:

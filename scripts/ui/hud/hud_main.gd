@@ -41,7 +41,6 @@ func _ready() -> void:
 	TimeManager.connect("day_changed", _update_day)
 	TimeManager.connect("day_ended", _day_summary)
 	TimeManager.force_update()
-	TimeManager.start_timer()
 	
 #endregion
 

@@ -10,8 +10,9 @@ func _ready() -> void:
 	
 
 func _on_upgrade_clicked(upgrade:Node) -> void:
-	if GlobalData.reputation >= upgrade.upgrade_price:
-		GlobalData.update_reputation(-upgrade.upgrade_price)
+	if GlobalData.reputation >= upgrade.new_price:
+		GlobalData.update_reputation(-upgrade.new_price)
+		print(-upgrade.new_price)
 		NotificationManager.notify("Zakupiono ulepszenie: %s" % \
 									upgrade.upgrade_name) 
 		upgrade.is_unlocked = true
@@ -20,7 +21,7 @@ func _on_upgrade_clicked(upgrade:Node) -> void:
 		upgrade.queue_free()
 		check_upgrades()
 		
-	elif GlobalData.reputation < upgrade.upgrade_price:
+	elif GlobalData.reputation < upgrade.new_price:
 		NotificationManager.notify("Nie stać cię na zakup ulepszenia")
 	
 func check_upgrades() -> void:
@@ -29,7 +30,7 @@ func check_upgrades() -> void:
 		for r in child.upgrades_required:
 			if r not in unlocked_ids:
 				deps_met = false
-		child.update_ui(GlobalData.reputation >= child.upgrade_price, deps_met)
+		child.update_ui(GlobalData.reputation >= child.new_price, deps_met)
 		
 func update(upgrade: Node) -> void:
 	match upgrade.upgrade_id:

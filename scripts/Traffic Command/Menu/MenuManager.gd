@@ -50,4 +50,5 @@ func _display_summary() -> void:
 
 func _on_continue_button_pressed() -> void:
 	get_tree().paused = false
+	GameEvents.minigame_ended.emit()
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")

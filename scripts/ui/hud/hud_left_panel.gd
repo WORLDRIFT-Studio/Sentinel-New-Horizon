@@ -44,3 +44,9 @@ func _on_accept_pressed() -> void:
 func _load_minigame() -> void:
 	TransitionScene.fade_to_scene(path_to_scene)
 	self.hide()
+
+
+func _on_close_pressed() -> void:
+	animation_player.play_backwards("LeftPanel")
+	await animation_player.animation_finished
+	self.hide()

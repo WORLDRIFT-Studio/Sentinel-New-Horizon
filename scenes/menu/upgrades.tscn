@@ -38,7 +38,6 @@ layout_mode = 2
 size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("8_48t2u")
 theme_override_font_sizes/font_size = 48
-text = "Dłuższa zmiana"
 
 [node name="UpgradePrice" type="Label" parent="MarginContainer/VBoxContainer" unique_id=24224169]
 unique_name_in_owner = true
@@ -47,7 +46,7 @@ size_flags_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.32941177, 0.32941177, 1)
 theme_override_fonts/font = ExtResource("8_48t2u")
 theme_override_font_sizes/font_size = 32
-text = "12 PR"
+text = "10 Punktów Reputacji"
 
 [node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1422049049]
 unique_name_in_owner = true
@@ -56,7 +55,6 @@ size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("8_48t2u")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "Profesor Kliś postanowił przyśpieszyć szkolenie Sentinela. W tym celu wydłuża twoją zmianę o dwie godziny. Od teraz twoja zmiana będzie trwać do [color=#ff5454]dads[/color]"
 fit_content = true
 scroll_active = false
 
@@ -67,7 +65,6 @@ size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("8_48t2u")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "- Od teraz dzień trwa 2 godziny więcej"
 fit_content = true
 
 [node name="Upgrade" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1655245719]
@@ -83,5 +80,3 @@ theme_override_styles/hover = ExtResource("5_nqqru")
 theme_override_styles/hover_pressed = ExtResource("6_ie3nd")
 theme_override_styles/disabled = ExtResource("7_tw7e8")
 text = "Kup Ulepszenie"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Upgrade" to="." method="_on_upgrade_pressed"]

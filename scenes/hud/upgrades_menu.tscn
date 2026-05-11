@@ -90,7 +90,7 @@ upgrades_effect = "- Mnożnik punktów reputacji wzrasta o 0.5 !"
 [node name="Panel3" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1839882331 instance=ExtResource("9_b7e55")]
 layout_mode = 2
 upgrade_id = "daily"
-upgrade_price = 25
+upgrade_price = 20
 upgrade_name = "Nowe Oprogramowanie"
 upgrade_description = "Sentinel zaczął na siebie pracować, a mieszkańcy mu ufają. Od teraz na początku każdego dnia otrzymasz dodatkowe [color=#ff5454]punkty reputacji.[/color]"
 upgrades_effect = "- Na początku każdego dnia otzrymasz 5 punktów reputacji"

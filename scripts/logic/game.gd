@@ -24,6 +24,7 @@ func _ready() -> void:
 	GlobalData.restore_alerts(map)
 	TimeManager.connect("alert", _spawn_alert)
 	TimeManager.connect("day_ended", _delete_alerts)
+	TimeManager.start_timer()
 
 func _spawn_alert() -> void:
 	var popup = popup_scene.instantiate()

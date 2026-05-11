@@ -18,9 +18,11 @@ extends Control
 @onready var upgrade_effects_label: RichTextLabel = %Effects
 @onready var upgrade: Button = %Upgrade
 
+var new_price: int = 0
 var is_unlocked: bool = false
 
 func _ready() -> void:
+	new_price = upgrade_price
 	upgrade_name_label.text = upgrade_name
 	upgrade_price_label.text = "%s Punktów Reputacji" % str(upgrade_price)
 	upgrade_description_label.text = upgrade_description
@@ -28,8 +30,8 @@ func _ready() -> void:
 	
 	
 func update_ui(can_afford: bool, deps_met: bool) -> void:
-	upgrade_price -= upgrade_price * GlobalData.bonus["discount"]
-	upgrade_price_label.text = "%s Punktów Reputacji" % str(upgrade_price)
+	new_price = upgrade_price - upgrade_price * GlobalData.bonus["discount"]
+	upgrade_price_label.text = "%s Punktów Reputacji" % str(new_price)
 	
 	
 	if is_unlocked: # Jeśli odblokowane
