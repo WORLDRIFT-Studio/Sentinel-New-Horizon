@@ -51,8 +51,9 @@ func KeyListenerPress(array_num: int):
 	fk_output_arr[array_num].append(Signals.get_song_time() - fk_fall_time)
 
 func _on_music_player_finished():
-	combo.text = str($"../GameUI".highest_combo)
-	score.text = str($"../GameUI".score)
+	
+	combo.text = "Najwyższe combo: %s" % str($"../GameUI".highest_combo)
+	score.text = "Punkty: %s" % str($"../GameUI".score)
 	animation_player.play("PanelShowUp")
 
 

@@ -274,7 +274,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("11_ighcn")
 theme_override_font_sizes/font_size = 65
-text = "Podsumowanie dnia X"
+text = "Ocena raportu:"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -3,6 +3,7 @@ extends Node
 var click_player: AudioStreamPlayer
 
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	click_player = AudioStreamPlayer.new()
 	click_player.bus = "SFX"
 	add_child(click_player)

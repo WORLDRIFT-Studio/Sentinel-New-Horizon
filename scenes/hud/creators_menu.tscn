@@ -27,37 +27,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -830.5
-offset_top = -410.5
-offset_right = 830.5
-offset_bottom = 410.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0)
 theme_override_styles/panel = ExtResource("2_kfqgn")
 
 [node name="MainContainer" type="Control" parent="Menu" unique_id=971000523]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
-process_mode = 3
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 14.5
-offset_top = 14.5
-offset_right = 108.5
-offset_bottom = 108.5
-theme_override_styles/normal = ExtResource("3_2s0bu")
-theme_override_styles/pressed = ExtResource("4_ied76")
-theme_override_styles/hover = ExtResource("5_m3nvj")
-theme_override_styles/hover_pressed = ExtResource("6_koysu")
-icon = ExtResource("7_i0tir")
-icon_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer" unique_id=279982155]
 layout_mode = 1
@@ -105,6 +91,20 @@ layout_mode = 2
 
 [node name="Panel5" parent="Menu/MainContainer/MarginContainer/ScrollContainer/GridContainer" unique_id=810977302 instance=ExtResource("8_kfqgn")]
 layout_mode = 2
+
+[node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
+process_mode = 3
+layout_mode = 0
+offset_left = 14.5
+offset_top = 14.5
+offset_right = 108.5
+offset_bottom = 108.5
+theme_override_styles/normal = ExtResource("3_2s0bu")
+theme_override_styles/pressed = ExtResource("4_ied76")
+theme_override_styles/hover = ExtResource("5_m3nvj")
+theme_override_styles/hover_pressed = ExtResource("6_koysu")
+icon = ExtResource("7_i0tir")
+icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812756441]
 unique_name_in_owner = true
