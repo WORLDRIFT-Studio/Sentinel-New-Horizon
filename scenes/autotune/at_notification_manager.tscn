@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://drl8177756wq2"]
+[gd_scene format=3 uid="uid://b30lvarff0hyc"]
 
 [ext_resource type="Script" uid="uid://c4ld0o32ehcsq" path="res://scripts/logic/autotune/notification_manager.gd" id="1_cyjxe"]
-[ext_resource type="PackedScene" uid="uid://bc3t2as7o7hhk" path="res://scenes/autotune/at_notification.tscn" id="2_6klil"]
+[ext_resource type="PackedScene" path="res://scenes/autotune/at_notification.tscn" id="2_6klil"]
 [ext_resource type="AudioStream" uid="uid://b0mi7lo40k6p8" path="res://assets/sounds/notification_sound.mp3" id="3_4gsek"]
 
 [node name="NotificationManager" type="CanvasLayer" unique_id=1674782356]
