@@ -7,7 +7,6 @@ extends Control
 @onready var btn_wyjscie:      Button = %Wyjscie
 
 
-
 func _input(event):
 	if event is InputEventMouseButton:
 		print("klik globalny")

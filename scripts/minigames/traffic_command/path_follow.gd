@@ -8,7 +8,7 @@ extends PathFollow2D
 	load("res://assets/assets/Traffic Command/car2.png"),
 	load("res://assets/assets/Traffic Command/car3.png")
 ]
-@export var vehicle_speeds: Array[float] = [80.0, 100.0, 120.0, 150.0, 180.0]
+@export var vehicle_speeds: Array[float] = [100.0, 120.0, 150.0, 180.0]
 
 var moving: bool = false
 var current_stop_index: int = 0

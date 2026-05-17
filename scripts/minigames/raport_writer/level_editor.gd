@@ -47,7 +47,7 @@ func _process(_delta):
 			else:
 				break
 
-func KeyListenerPress(array_num: int):
+func KeyListenerPress(_button_name: String, array_num: int):
 	fk_output_arr[array_num].append(Signals.get_song_time() - fk_fall_time)
 
 func _on_music_player_finished():

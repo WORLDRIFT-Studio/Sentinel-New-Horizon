@@ -12,8 +12,8 @@ Musisz szybko decydować, kogo przepuścić, a kogo zatrzymać, zanim skończy
 się czas i zablokuje kolejkę."""
 	},
 	"traffic": {
-		"path": "res://scenes/minigames/trafic-command/traffic-command.tscn", 
-		"difficulty": "łatwy",
+		"path": "res://scenes/minigames/traffic-command/traffic-command.tscn", # Zakładam, że tu ma być inna ścieżka
+		"difficulty": "umiarkowany",
 		"description": """Zarządzaj ruchem drogowym, zachowując przy tym płynność,
 zapobiegaj kolizjom, aby nie zakorkować miasta i uniknąć katastrofy."""
 	},
