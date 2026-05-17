@@ -4,22 +4,21 @@ const SAVE_LOCATION = "user://SaveFile.dat"
 const PASS = "8fgds97ghy"
 
 const DEFAULT_SAVE: Dictionary = {
-	"volume_master": 0.75,
-	"volume_music": 0.75,
-	"volume_sfx": 0.75,
-	"game_day": 0
+	"volume_master": 0.5,
+	"volume_music": 0.5,
+	"volume_sfx": 0.5,
+	"days": 1,
+	"minutes": 480
 	#tutaj wpisuje dane które ma zapisywać
 }
 
 var contents_to_save: Dictionary = DEFAULT_SAVE.duplicate()
 
-func _ready() -> void:
-	load_content()
-
 func _reset():
 	contents_to_save = DEFAULT_SAVE.duplicate()
 
 func save_content():
+	print_stack()
 	var file = FileAccess.open_encrypted_with_pass(SAVE_LOCATION, FileAccess.WRITE, PASS)
 	if file == null:
 		push_error("Nie można otworzyć pliku do zapisu: %s" % FileAccess.get_open_error())

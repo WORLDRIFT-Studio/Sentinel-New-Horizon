@@ -26,7 +26,7 @@ func _reset_stats() -> void:
 	finished_minigame = 0
 	reputation_today = 0
 	
-func _daily_summary() -> void:
+func _daily_summary(_day: int = 0) -> void:
 	update_reputation(bonus["daily"])
 	penalty()
 	update_reputation(-penalty_today)

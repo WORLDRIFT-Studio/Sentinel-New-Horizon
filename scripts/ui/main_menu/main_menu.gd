@@ -26,11 +26,11 @@ func _ready() -> void:
 
 func _on_nowa_gra_pressed() -> void:
 	SaveLoad._reset()
-	SaveLoad.save_content()
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
 
 func _on_kontynuuj_pressed() -> void:
 	SaveLoad.load_content()
+	TimeManager.initialize()
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
 
 
