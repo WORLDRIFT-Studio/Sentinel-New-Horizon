@@ -21,19 +21,25 @@ var spawned_alerts: Array[Dictionary] = []
 func _ready() -> void:
 	TimeManager.connect("day_changed", _reset_stats)
 	TimeManager.connect("day_ended", _daily_summary)
-	
-func _reset_stats() -> void:
+
+func initialize() -> void:
+	SaveLoad.load_content()
+	reputation = SaveLoad.contents_to_save.reputation
+	bonus = SaveLoad.contents_to_save.bonus.duplicate()
+	bonus_changed.emit()
+
+func _reset_stats(_day: int = 0) -> void:
 	finished_minigame = 0
 	reputation_today = 0
-	
-func _daily_summary() -> void:
+
+func _daily_summary(_day: int = 0) -> void:
 	update_reputation(bonus["daily"])
 	penalty()
 	update_reputation(-penalty_today)
-	
+
 func penalty() -> void:
 	penalty_today = TimeManager.alerts_number - finished_minigame
-	
+
 func set_score(score: int) -> void:
 	@warning_ignore("integer_division")
 	var points = score / 1000 
@@ -47,9 +53,16 @@ func update_reputation(value: int) -> void:
 	reputation += final_change
 	reputation_today += final_change
 	reputation_changed.emit(reputation)
+	
+	SaveLoad.contents_to_save.reputation = reputation
+	SaveLoad.contents_to_save.bonus = bonus.duplicate()
+	SaveLoad.save_content()
 	print(reputation, "REPUTACJA")
 
 func force_update() -> void:
+	SaveLoad.contents_to_save.reputation = reputation
+	SaveLoad.contents_to_save.bonus = bonus.duplicate()
+	SaveLoad.save_content()
 	reputation_changed.emit(reputation)
 	
 func has_completed_tutorial() -> bool:

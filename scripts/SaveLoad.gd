@@ -4,17 +4,22 @@ const SAVE_LOCATION = "user://SaveFile.dat"
 const PASS = "8fgds97ghy"
 
 const DEFAULT_SAVE: Dictionary = {
-	"volume_master": 0.75,
-	"volume_music": 0.75,
-	"volume_sfx": 0.75,
-	"game_day": 0
-	#tutaj wpisuje dane które ma zapisywać
+	"volume_master": 0.5,
+	"volume_music": 0.5,
+	"volume_sfx": 0.5,
+	"days": 1,
+	"minutes": 480,
+	"reputation": 100,
+	"bonus": {
+		"day_duration": 0,
+		"daily": 0,
+		"discount": 0,
+		"rep_multi": 1
+	},
+	"unlocked_upgrades": [],
 }
 
 var contents_to_save: Dictionary = DEFAULT_SAVE.duplicate()
-
-func _ready() -> void:
-	load_content()
 
 func _reset():
 	contents_to_save = DEFAULT_SAVE.duplicate()

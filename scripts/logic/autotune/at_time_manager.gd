@@ -47,16 +47,29 @@ func _ready() -> void:
 	alerts_number = randi_range(5, 10)
 	_generate_alert_times()
 
+func initialize() -> void:
+	SaveLoad.load_content()
+	current_minutes = SaveLoad.contents_to_save.minutes
+	current_day = SaveLoad.contents_to_save.days
+	
+	if current_minutes >= end_minutes:
+		start_next_day()
+		return
+	
+	time_changed.emit(start_hour, 0)
+	
+	alerts_number = randi_range(5, 10)
+	_generate_alert_times()
+
 func _start_time() -> void:
 	timer.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _stop_time() -> void:
 	timer.process_mode = Node.PROCESS_MODE_DISABLED
-	
+
 func _update_end_time() -> void:
-	end_minutes	= end_hour * 60 + GlobalData.bonus["day_duration"]
-	
-	
+	end_minutes = end_hour * 60 + GlobalData.bonus["day_duration"]
+
 func _on_timer_timeout() -> void:
 	current_minutes += step
 	
@@ -76,8 +89,9 @@ func _on_timer_timeout() -> void:
 	if current_minutes == end_minutes - 60:
 		NotificationManager.notify("Twoja zmiana dobiega końca")
 	
+	SaveLoad.contents_to_save.minutes = current_minutes
+	SaveLoad.save_content()
 	print("Godzina", current_minutes)
-
 
 func _generate_alert_times() -> void:
 	alert_times.clear()
@@ -92,25 +106,31 @@ func _generate_alert_times() -> void:
 	for i in range(alerts_number):
 		alert_times.append(times[i])
 	print(alert_times)
-		
-				
+
 func start_timer() -> void:
 	if timer == null:
 		timer = Timer.new()
 		timer.wait_time = clock_wait_time
 		timer.autostart = true
 		timer.timeout.connect(_on_timer_timeout)
-		add_child(timer)	
-	
+		add_child(timer)
 
 func start_next_day() -> void:
+	if SaveLoad.contents_to_save.minutes >= end_minutes:
+		SaveLoad.load_content()
+		current_day = SaveLoad.contents_to_save.days
 	current_minutes = start_minutes
 	current_day += 1
+	SaveLoad.contents_to_save.minutes = current_minutes
+	SaveLoad.contents_to_save.days = current_day
 	alerts_number = randi_range(5, 10)
+	SaveLoad.save_content()
 	_generate_alert_times()
 	day_changed.emit(current_day)
-	timer.start()
-
+	if timer == null:
+		start_timer()
+	else:
+		timer.start()
 
 func force_update() -> void:
 	@warning_ignore("integer_division")
@@ -119,7 +139,6 @@ func force_update() -> void:
 	
 	time_changed.emit(hour, mins)
 	day_changed.emit(current_day)
-
 
 func get_clock() -> String:
 	@warning_ignore("integer_division")
