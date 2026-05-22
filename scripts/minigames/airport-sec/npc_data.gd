@@ -65,9 +65,7 @@ func _image(category:String) -> String:
 		
 		if !img_list.is_empty():
 			for f in img_list:
-				# Akceptujemy pliki .png bezpośrednio, ale też z rozszerzeniami .remap lub .import po eksporcie
 				if f.ends_with(".png") or f.ends_with(".png.remap") or f.ends_with(".png.import"):
-					# Oczyszczamy nazwę pliku, żeby zawsze kończyła się na zwykłe .png
 					var clean_name = f.replace(".remap", "").replace(".import", "")
 					if not correct_imgs.has(clean_name):
 						correct_imgs.append(clean_name)
@@ -75,11 +73,8 @@ func _image(category:String) -> String:
 			if not correct_imgs.is_empty():
 				img_path = "%s/%s" % [path, correct_imgs.pick_random()]
 				
-	# Koło ratunkowe: jeśli jakimś cudem tablica nadal jest pusta, zapobiegaj crashowi
 	if img_path == "":
 		print("KRYTYCZNY BŁĄD: Nie znaleziono żadnego obrazka w: ", path)
-		# Podmień poniższą ścieżkę na jakąś domyślną grafikę awaryjną, którą masz na stałe w projekcie
-		return "res://icon.svg" 
 		
 	return img_path
 

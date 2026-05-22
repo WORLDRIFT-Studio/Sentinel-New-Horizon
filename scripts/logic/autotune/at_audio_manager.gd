@@ -1,37 +1,41 @@
 extends Node
 
-var click_player: AudioStreamPlayer
+var click_player: AudioStreamPlayer	
 
+func _enter_tree() -> void:
+	var tree = get_tree().root
+	print("============================================================")
+	print("                       Łącze guziki:                        ")
+	print("============================================================")
+	_register_node(tree)
+	print("============================================================")
+	print("                    Łączenie zakończone                     ")
+	print("============================================================")
+	
 func _ready() -> void:
-	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	get_tree().node_added.connect(_on_node_added)
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+	var click_sound = preload("res://assets/sounds/button.mp3")	
 	click_player = AudioStreamPlayer.new()
 	click_player.bus = "SFX"
-	add_child(click_player)
-	var sound = preload("res://assets/sounds/button.mp3")
-	if sound:
-		click_player.stream = sound
-	register_buttons(get_tree().root)
-	get_tree().node_added.connect(_on_node_added)
-
+	click_player.stream = click_sound
+	add_child(click_player)	
 
 func _on_node_added(node: Node) -> void:
-	if node is Button or node is TextureButton:
-		_connect_button(node)
+	_check_button(node)
 
-
-func register_buttons(node: Node) -> void:
-	for child in node.get_children():
-		if child is Button or child is TextureButton:
-			_connect_button(child)
-		register_buttons(child)
-
-		
-func _connect_button(btn) -> void:
-	if not btn.button_down.is_connected(_play_click):
-		btn.button_down.connect(_play_click)
-
+func _register_node(tree: Node) -> void:
+	for node in tree.get_children():
+		_check_button(node)
+		_register_node(node)
 				
-func _play_click() -> void:
-	if click_player:
-		click_player.stop() 
-		click_player.play()
+func _check_button(node) -> void:
+	if node is Button or node is TextureButton:
+		if not node.button_down.is_connected(_play_sound):
+			node.button_down.connect(_play_sound)
+			print(node.name, " connected")
+				
+func _play_sound() -> void:
+	click_player.stop()
+	click_player.play()

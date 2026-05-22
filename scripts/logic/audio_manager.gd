@@ -3,6 +3,7 @@ extends Node
 var click_player: AudioStreamPlayer
 
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	click_player = AudioStreamPlayer.new()
 	add_child(click_player)
 	click_player.stream = load("res://assets/sounds/button.mp3")
@@ -27,3 +28,4 @@ func _connect_button(btn: Button) -> void:
 
 func _play_click() -> void:
 	click_player.play()
+	print("play")
