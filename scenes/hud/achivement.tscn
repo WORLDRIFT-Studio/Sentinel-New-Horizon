@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dbyab2s7qv6sl"]
+
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="1_5acxp"]
+[ext_resource type="Script" uid="uid://dd4ehc8cfap1g" path="res://scenes/hud/achivement.gd" id="2_tc056"]
+[ext_resource type="FontFile" uid="uid://dotxfyedvgqjc" path="res://assets/fonts/Coolvetica Rg Cond.otf" id="3_2ue14"]
+[ext_resource type="Texture2D" uid="uid://0lpd1xrkhq25" path="res://assets/icons/alert.png" id="3_kcwij"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="3_o5wya"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m3nvj"]
+color = Color(0, 0.9019608, 0.62352943, 1)
+thickness = 2
+
+[node name="Panel" type="Panel" unique_id=2122592497]
+clip_children = 2
+custom_minimum_size = Vector2(0, 225)
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("1_5acxp")
+script = ExtResource("2_tc056")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=448088616]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2055834630]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=968947959]
+custom_maximum_size = Vector2(200, 200)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_o5wya")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel" unique_id=1087191795]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Panel/MarginContainer" unique_id=349733398]
+layout_mode = 2
+texture = ExtResource("3_kcwij")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=467341768]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1487923284]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2ue14")
+theme_override_font_sizes/font_size = 48
+text = "To jest  test"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=354311873]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxLine_m3nvj")
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=2123190645]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_2ue14")
+theme_override_font_sizes/normal_font_size = 32
+text = "Lorem ispum dolores sit amet"

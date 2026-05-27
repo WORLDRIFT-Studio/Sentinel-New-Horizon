@@ -6,6 +6,7 @@ signal reputation_changed(new_value:int)
 signal bonus_changed
 signal alerts_saved
 
+
 var reputation: int = 100
 var tutorial_done: bool = false
 var bonus: Dictionary = {
@@ -17,6 +18,8 @@ var finished_minigame: int = 0
 var reputation_today: int = 0
 var penalty_today: int = 0
 var spawned_alerts: Array[Dictionary] = []
+var upgrades_bought: int = 0
+var upgrades_count: int
 
 func _ready() -> void:
 	TimeManager.connect("day_changed", _reset_stats)

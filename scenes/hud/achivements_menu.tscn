@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_fedbj"]
 [ext_resource type="Texture2D" uid="uid://dexq0p0n7ayxl" path="res://assets/icons/cancel.png" id="7_hwx6a"]
 [ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="9_tqlu0"]
+[ext_resource type="PackedScene" uid="uid://dbyab2s7qv6sl" path="res://scenes/hud/achivement.tscn" id="9_wylq7"]
 
 [node name="AchivementsMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
@@ -56,6 +57,66 @@ theme_override_styles/hover = ExtResource("5_y08r5")
 theme_override_styles/hover_pressed = ExtResource("6_fedbj")
 icon = ExtResource("7_hwx6a")
 icon_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer" unique_id=767095458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 125
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/MainContainer/MarginContainer" unique_id=404920959]
+layout_mode = 2
+
+[node name="UpgradesContainer" type="GridContainer" parent="Menu/MainContainer/MarginContainer/ScrollContainer" unique_id=2112266724]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Panel" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=2122592497 instance=ExtResource("9_wylq7")]
+layout_mode = 2
+title = "Zakupocholik"
+description = "Zakup wszystkie dostępne ulepszenia w grze !"
+achivement_id = "1_upgrade"
+
+[node name="Panel2" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=867786617 instance=ExtResource("9_wylq7")]
+layout_mode = 2
+title = "Zakupocholik"
+description = "Zakup wszystkie dostępne ulepszenia w grze !"
+
+[node name="Panel3" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=45724957 instance=ExtResource("9_wylq7")]
+layout_mode = 2
+title = "Zakupocholik"
+description = "Zakup wszystkie dostępne ulepszenia w grze !"
+
+[node name="Panel4" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=59036966 instance=ExtResource("9_wylq7")]
+layout_mode = 2
+title = "Zakupocholik"
+description = "Zakup wszystkie dostępne ulepszenia w grze !"
+
+[node name="Panel5" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=973665276 instance=ExtResource("9_wylq7")]
+layout_mode = 2
+title = "Zakupocholik"
+description = "Zakup wszystkie dostępne ulepszenia w grze !"
+
+[node name="Panel6" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1912766943 instance=ExtResource("9_wylq7")]
+layout_mode = 2
+title = "Zakupocholik"
+description = "Zakup wszystkie dostępne ulepszenia w grze !"
+
+[node name="Panel7" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1147420906 instance=ExtResource("9_wylq7")]
+layout_mode = 2
+title = "Zakupocholik"
+description = "Zakup wszystkie dostępne ulepszenia w grze !"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812756441]
 unique_name_in_owner = true
