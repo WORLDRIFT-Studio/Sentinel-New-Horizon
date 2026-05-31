@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dfdglmltorqae" path="res://scenes/minigames/raport_writer/key_listener.tscn" id="1_h3xak"]
 [ext_resource type="Texture2D" uid="uid://dq6y4ispu7uhf" path="res://art/6d1e9c94-bc23-453c-ba9a-c923a3a46835.png" id="2_2i5ty"]
 [ext_resource type="PackedScene" uid="uid://coqj034dvvbeu" path="res://scenes/minigames/raport_writer/level_editor.tscn" id="4_1wrej"]
+[ext_resource type="Texture2D" uid="uid://bx8mxbume1sik" path="res://art/NOTE_assets.png" id="4_n4j2i"]
 [ext_resource type="Script" uid="uid://cchdw0x1epff7" path="res://scripts/minigames/raport_writer/game_ui.gd" id="4_w2rj3"]
+[ext_resource type="Texture2D" uid="uid://ckm30o01dw05n" path="res://art/note.png" id="5_ighcn"]
 [ext_resource type="FontFile" uid="uid://ud3all3x1xuy" path="res://art/Atop-R99O3.ttf" id="6_smvv8"]
 [ext_resource type="Script" uid="uid://25dxxbewk27v" path="res://scripts/minigames/raport_writer/fading_label.gd" id="6_wtvao"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="8_w2rj3"]
@@ -148,26 +150,37 @@ offset_right = 425.19687
 offset_bottom = 840.9448
 
 [node name="KeyListener" parent="." unique_id=1523681864 instance=ExtResource("1_h3xak")]
-position = Vector2(-180, 280)
-scale = Vector2(1.8, 1.8)
+position = Vector2(-240, 280)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_n4j2i")
+hframes = 6
 key_name = "button_Q"
 
 [node name="KeyListener2" parent="." unique_id=259453524 instance=ExtResource("1_h3xak")]
-position = Vector2(-60, 280)
-scale = Vector2(1.8, 1.8)
-frame = 1
+position = Vector2(-65, 280)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_ighcn")
+hframes = 1
+vframes = 1
+region_rect = Rect2(1000, 0, 0, 0)
 key_name = "button_W"
 
 [node name="KeyListener3" parent="." unique_id=1931055636 instance=ExtResource("1_h3xak")]
-position = Vector2(60, 280)
-scale = Vector2(1.8, 1.8)
-frame = 2
+position = Vector2(65, 280)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_ighcn")
+flip_v = true
+hframes = 1
+vframes = 1
 key_name = "button_E"
 
 [node name="KeyListener4" parent="." unique_id=1526436716 instance=ExtResource("1_h3xak")]
-position = Vector2(180, 280)
-scale = Vector2(1.8, 1.8)
-frame = 3
+position = Vector2(190, 280)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_n4j2i")
+flip_h = true
+hframes = 12
+frame = 1
 key_name = "button_R"
 
 [node name="GameUI" type="Control" parent="." unique_id=2049040131]

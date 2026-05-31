@@ -3,6 +3,9 @@ extends Sprite2D
 @onready var falling_key = preload("res://scenes/minigames/raport_writer/falling_key.tscn")
 @onready var score_text = preload("res://scenes/minigames/raport_writer/score_press_text.tscn")
 
+var left_tex = preload("res://art/left.png")
+var down_tex = preload("res://art/down.png")
+
 @export var key_name: String = ""
 
 var falling_key_queue = []
@@ -18,12 +21,25 @@ var good_press_score:    float = 50
 var ok_press_score:      float = 20
 
 func _ready():
-	$GlowOverlay.frame = frame + 4
+	print("key_name is: ", key_name)
+	print("left_tex is: ", left_tex)
+	print("down_tex is: ", down_tex)
+	match key_name:
+		"left":
+			texture = left_tex
+		"right":
+			texture = left_tex
+			flip_h = true
+		"down":
+			texture = down_tex
+		"up":
+			texture = down_tex
+			flip_v = true
 	Signals.CreateFallingKey.connect(CreateFallingKey)
 
 func _process(_delta):
 	if Input.is_action_just_pressed(key_name):
-		Signals.KeyListenerPress.emit(key_name, frame)
+		Signals.KeyListenerPress.emit(key_name)
 
 	while falling_key_queue.size() > 0 and not is_instance_valid(falling_key_queue.front()):
 		falling_key_queue.pop_front()
@@ -43,14 +59,14 @@ func _process(_delta):
 		elif Input.is_action_just_pressed(key_name):
 			var key_to_pop = falling_key_queue.pop_front()
 			var time_diff = abs(song_time - key_to_pop.target_hit_time)
-			
-			# Temporary debug — remove once timing is confirmed good
+
 			print("song_time=", song_time, " target=", key_to_pop.target_hit_time, " diff=", time_diff)
 
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("key_hit")
 
 			var press_score_text: String = ""
+
 			if time_diff < perfect_threshold:
 				Signals.IncrementScore.emit(perfect_press_score)
 				press_score_text = "PERFECT"
@@ -84,5 +100,22 @@ func CreateFallingKey(button_name: String, hit_time: float):
 	if button_name == key_name:
 		var fk_inst = falling_key.instantiate()
 		get_tree().get_root().call_deferred("add_child", fk_inst)
-		fk_inst.Setup(position.x, frame + 4, hit_time)
+
+		var tex: Texture2D
+		var fh := false
+		var fv := false
+
+		match key_name:
+			"button_Q":
+				tex = left_tex
+			"button_W":
+				tex = down_tex
+				fv = true
+			"button_E":
+				tex = down_tex
+			"button_R":
+				tex = left_tex
+				fh = true
+
+		fk_inst.Setup(global_position.x, tex, fh, fv, hit_time)
 		falling_key_queue.push_back(fk_inst)
