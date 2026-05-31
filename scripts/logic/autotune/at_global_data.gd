@@ -20,6 +20,11 @@ var penalty_today: int = 0
 var spawned_alerts: Array[Dictionary] = []
 var upgrades_bought: int = 0
 var upgrades_count: int
+var games_played: Dictionary[String, int] = {
+	"traffic": 0,
+	"airport": 0,
+	"report": 0
+}
 
 func _ready() -> void:
 	TimeManager.connect("day_changed", _reset_stats)
@@ -60,7 +65,7 @@ func update_reputation(value: int) -> void:
 	SaveLoad.contents_to_save.reputation = reputation
 	SaveLoad.contents_to_save.bonus = bonus.duplicate()
 	SaveLoad.save_content()
-	print(reputation, "REPUTACJA")
+	print("Reputacja: ", reputation)
 
 func force_update() -> void:
 	SaveLoad.contents_to_save.reputation = reputation

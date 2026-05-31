@@ -6,9 +6,15 @@
 [ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/Traffic Command/path_follow.gd" id="3_x4qmp"]
 [ext_resource type="Texture2D" uid="uid://brinberm23ana" path="res://assets/assets/Traffic Command/car1.png" id="5_eqncl"]
 [ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/area2D.gd" id="5_forge"]
-[ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/minigames/traffic_command/Menu/MenuManager.gd" id="7_4g054"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_bcpk6"]
+[ext_resource type="Script" uid="uid://5sn5la5op6c" path="res://scripts/Traffic Command/Menu/MenuManager.gd" id="8_qjc6c"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_j3vfk"]
+[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="10_re1w3"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="11_ubbt3"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="12_1y7gy"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="13_1q4jj"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="14_rtje8"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="15_n6tid"]
 
 [sub_resource type="Curve2D" id="Curve2D_03clw"]
 _data = {
@@ -99,8 +105,104 @@ glow_levels/7 = 0.81
 glow_intensity = 1.0
 glow_blend_mode = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_wgtu0"]
+[sub_resource type="LabelSettings" id="LabelSettings_iwlsy"]
 font_size = 37
+
+[sub_resource type="Animation" id="Animation_hxov7"]
+resource_name = "PanelShowUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(22, 22.5), Vector2(802, 112), Vector2(802, 794)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(949, 528.75), Vector2(559, 484), Vector2(559, 184)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainContainer/VBoxContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ccb21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainContainer/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fc5i7"]
+_data = {
+&"PanelShowUp": SubResource("Animation_hxov7"),
+&"RESET": SubResource("Animation_ccb21")
+}
 
 [node name="MiniGame" type="Node2D" unique_id=1380433955]
 script = ExtResource("1_x4qmp")
@@ -405,7 +507,8 @@ stop_points = Array[float]([0.11])
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2085531439]
 environment = SubResource("Environment_ekx8n")
 
-[node name="Menu" type="Control" parent="." unique_id=1596310081]
+[node name="Menu" type="Control" parent="." unique_id=511618675]
+process_mode = 3
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
@@ -414,12 +517,14 @@ offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
-script = ExtResource("7_4g054")
+script = ExtResource("8_qjc6c")
 
-[node name="Timer" type="Timer" parent="Menu" unique_id=971441526]
+[node name="Timer" type="Timer" parent="Menu" unique_id=411679765]
+unique_name_in_owner = true
 autostart = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=162271972]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=2143917805]
+process_mode = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -429,12 +534,12 @@ offset_right = 429.0
 offset_bottom = 65.0
 grow_horizontal = 2
 
-[node name="Panel" type="Panel" parent="Menu/HBoxContainer" unique_id=1528893109]
+[node name="Panel" type="Panel" parent="Menu/HBoxContainer" unique_id=700510495]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("9_j3vfk")
 
-[node name="TimerLabel" type="Label" parent="Menu/HBoxContainer/Panel" unique_id=1718644784]
+[node name="TimerLabel" type="Label" parent="Menu/HBoxContainer/Panel" unique_id=740114983]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -443,16 +548,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "TimerLabel"
-label_settings = SubResource("LabelSettings_wgtu0")
+label_settings = SubResource("LabelSettings_iwlsy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Menu/HBoxContainer" unique_id=1266211850]
+[node name="Panel2" type="Panel" parent="Menu/HBoxContainer" unique_id=1137269695]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("9_j3vfk")
 
-[node name="VehicleNumberLabel" type="Label" parent="Menu/HBoxContainer/Panel2" unique_id=889468228]
+[node name="VehicleNumberLabel" type="Label" parent="Menu/HBoxContainer/Panel2" unique_id=1378268635]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -461,6 +566,138 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "VehicleNumberLabel"
-label_settings = SubResource("LabelSettings_wgtu0")
+label_settings = SubResource("LabelSettings_iwlsy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Summary" type="Panel" parent="Menu" unique_id=1798970434]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.25
+offset_right = 11.0
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("9_j3vfk")
+
+[node name="PanelSound" type="AudioStreamPlayer" parent="Menu/Summary" unique_id=710465029]
+unique_name_in_owner = true
+stream = ExtResource("10_re1w3")
+
+[node name="MainContainer" type="MarginContainer" parent="Menu/Summary" unique_id=1972461755]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer" unique_id=1975619199]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=478159455]
+custom_minimum_size = Vector2(2.04, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("11_ubbt3")
+
+[node name="SumDay" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel" unique_id=1902323793]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_1y7gy")
+theme_override_font_sizes/font_size = 65
+text = "Podsumowanie dnia X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=559305809]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("11_ubbt3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2" unique_id=458800389]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer" unique_id=1763828688]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Time" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=695581087]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_1y7gy")
+theme_override_font_sizes/font_size = 48
+text = "Czas bez stłuczki:"
+
+[node name="Cars" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1771219044]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_1y7gy")
+theme_override_font_sizes/font_size = 48
+text = "Obsłużone samochody:"
+
+[node name="Score" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=897736979]
+unique_name_in_owner = true
+modulate = Color(1, 0.32941177, 0.32941177, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_1y7gy")
+theme_override_font_sizes/font_size = 48
+text = "Punkty:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=1208935045]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=1274505612]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("9_j3vfk")
+theme_override_styles/pressed = ExtResource("13_1q4jj")
+theme_override_styles/hover = ExtResource("14_rtje8")
+theme_override_styles/hover_pressed = ExtResource("15_n6tid")
+text = "Kontynuuj"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu" unique_id=944458970]
+unique_name_in_owner = true
+process_mode = 3
+root_node = NodePath("../Summary")
+libraries/ = SubResource("AnimationLibrary_fc5i7")
+
+[connection signal="pressed" from="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="Menu" method="_on_continue_button_pressed"]
