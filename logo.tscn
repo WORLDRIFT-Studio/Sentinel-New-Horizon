@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://hwmao86bnrhr"]
+
+[ext_resource type="Script" uid="uid://bgislul660kai" path="res://logo.gd" id="1_iyh20"]
+[ext_resource type="Texture2D" uid="uid://bg3bfnl7dxthr" path="res://Workspace 1_006.png" id="2_hgdat"]
+
+[node name="Node2D" type="Node2D" unique_id=1052865953]
+script = ExtResource("1_iyh20")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=761134958]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_hgdat")

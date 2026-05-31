@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://eoxljb7e4155"]
 
-[ext_resource type="Script" uid="uid://7077mhbd2g7t" path="res://scripts/ui/main_menu/main_menu.gd" id="1_247la"]
 [ext_resource type="Texture2D" uid="uid://krq7ukfbgfa5" path="res://assets/assets/menu/main.png" id="2_wu84c"]
 [ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="3_8ln24"]
 [ext_resource type="Script" uid="uid://b8w2f5uiqcmmw" path="res://scripts/ui/hud/popup_button.gd" id="4_hj162"]
@@ -32,7 +31,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_247la")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1374165007]
 layout_mode = 1

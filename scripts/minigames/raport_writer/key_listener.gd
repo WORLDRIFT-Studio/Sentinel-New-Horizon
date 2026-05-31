@@ -99,7 +99,8 @@ func _spawn_score_text(label: String):
 func CreateFallingKey(button_name: String, hit_time: float):
 	if button_name == key_name:
 		var fk_inst = falling_key.instantiate()
-		get_tree().get_root().call_deferred("add_child", fk_inst)
+		get_tree().get_root().add_child(fk_inst)
+fk_inst.Setup(global_position.x, tex, fh, fv, hit_time)
 
 		var tex: Texture2D
 		var fh := false

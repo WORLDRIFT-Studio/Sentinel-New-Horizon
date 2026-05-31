@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cgmapck0dxx1d"]
+
+[ext_resource type="Script" uid="uid://7077mhbd2g7t" path="res://scripts/ui/main_menu/main_menu.gd" id="1_fwx2h"]
+[ext_resource type="Texture2D" uid="uid://bg3bfnl7dxthr" path="res://Workspace 1_006.png" id="2_8uh7m"]
+
+[node name="loading" type="Control" unique_id=852300314]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fwx2h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1374165007]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_8uh7m")
+expand_mode = 2
+
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=1693686918]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1590330521]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.9999
+offset_top = -196.00003
+offset_right = -212.58032
+offset_bottom = -78.64749
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.265, 3.265)

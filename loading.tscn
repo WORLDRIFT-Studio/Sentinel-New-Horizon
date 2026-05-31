@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cx4ewk5n0tkap"]
+
+[ext_resource type="Script" uid="uid://ba05avqgipq" path="res://loading.gd" id="1_gov4d"]
+[ext_resource type="Texture2D" uid="uid://bg3bfnl7dxthr" path="res://Workspace 1_006.png" id="2_pg7vo"]
+
+[node name="loading" type="Node2D" unique_id=937720540]
+script = ExtResource("1_gov4d")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1683135391]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_pg7vo")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=334003662]
+offset_left = 744.0
+offset_top = 431.0
+offset_right = 1170.0
+offset_bottom = 556.0
+size_flags_horizontal = 6
+size_flags_vertical = 6

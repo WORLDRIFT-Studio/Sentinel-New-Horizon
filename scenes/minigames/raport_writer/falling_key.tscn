@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://vrqqe7we7qim" path="res://scripts/minigames/raport_writer/falling_key.gd" id="2_gvjr8"]
 
 [node name="FallingKey" type="Sprite2D" unique_id=1871235637]
-position = Vector2(-35, 3)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_atgft")
 offset = Vector2(60, 0)
