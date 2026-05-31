@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://d4e8826t0lkin"]
+
+[ext_resource type="Script" uid="uid://cduvwx7p2kliv" path="res://scripts/minigames/emergency_rush/Main.gd" id="1_sp8l3"]
+[ext_resource type="Texture2D" uid="uid://d0ffx668imow5" path="res://assets/assets/emergency_rush/ambulances.png" id="2_h2n20"]
+[ext_resource type="Script" uid="uid://br8vidbw3emst" path="res://scripts/minigames/emergency_rush/Road.gd" id="2_uhyv1"]
+[ext_resource type="Texture2D" uid="uid://djn846bvbewe6" path="res://assets/assets/emergency_rush/road1.jpg" id="3_r0v72"]
+[ext_resource type="Texture2D" uid="uid://dew2ibkqt4jce" path="res://assets/assets/emergency_rush/road2.jpg" id="3_uhyv1"]
+[ext_resource type="Script" uid="uid://dieowxyr6g4ca" path="res://scripts/minigames/emergency_rush/Ambulance.gd" id="3_wdxif"]
+[ext_resource type="Script" uid="uid://fntf8q1p72i0" path="res://scripts/minigames/emergency_rush/Spawner.gd" id="4_5h2y0"]
+[ext_resource type="PackedScene" uid="uid://bb5221k6slbi6" path="res://scenes/minigames/emergency_rush/car.tscn" id="5_5h2y0"]
+[ext_resource type="Texture2D" uid="uid://4v3b3pgnxyo1" path="res://assets/assets/emergency_rush/road3.jpg" id="5_bbj7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp8l3"]
+size = Vector2(92, 172)
+
+[node name="Main" type="Node2D" unique_id=1686783828]
+script = ExtResource("1_sp8l3")
+
+[node name="Road" type="Node2D" parent="." unique_id=1821401496]
+script = ExtResource("2_uhyv1")
+
+[node name="RoadTile1" type="Sprite2D" parent="Road" unique_id=633546121]
+position = Vector2(954.49994, 542.00006)
+scale = Vector2(1.4650297, 1.4609375)
+texture = ExtResource("3_r0v72")
+
+[node name="RoadTile2" type="Sprite2D" parent="Road" unique_id=1889790205]
+position = Vector2(954.49994, 542.00006)
+scale = Vector2(1.4650297, 1.4609375)
+texture = ExtResource("3_uhyv1")
+
+[node name="RoadTile3" type="Sprite2D" parent="Road" unique_id=2016358482]
+position = Vector2(954.49994, 542.00006)
+scale = Vector2(1.4650297, 1.4609375)
+texture = ExtResource("5_bbj7j")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1843705538]
+script = ExtResource("4_5h2y0")
+car_scene = ExtResource("5_5h2y0")
+
+[node name="SpawnTimer" type="Timer" parent="Spawner" unique_id=389747232]
+autostart = true
+
+[node name="Ambulance" type="CharacterBody2D" parent="." unique_id=517011759]
+position = Vector2(952, 465)
+collision_mask = 2
+script = ExtResource("3_wdxif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ambulance" unique_id=735363716]
+position = Vector2(-2.3841858e-07, 2.3841858e-07)
+rotation = -3.1415927
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_h2n20")
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ambulance" unique_id=734607539]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_sp8l3")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=962286908]
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=1427627945]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LivesLabel" type="Label" parent="UI" unique_id=1140954515]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GameOverPanel" type="Panel" parent="UI" unique_id=19096285]
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 48.0
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOverPanel" unique_id=2119149570]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 37.0
+offset_bottom = 21.0
+
+[node name="RestartButton" type="Button" parent="UI/GameOverPanel" unique_id=296433730]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 25.0
+offset_right = 25.0
+offset_bottom = 33.0
