@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bb5221k6slbi6" path="res://scenes/minigames/emergency_rush/car.tscn" id="5_5h2y0"]
 [ext_resource type="Texture2D" uid="uid://4v3b3pgnxyo1" path="res://assets/assets/emergency_rush/road3.jpg" id="5_bbj7j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp8l3"]
-size = Vector2(92, 172)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbj7j"]
+radius = 172.0
+height = 760.0
 
 [node name="Main" type="Node2D" unique_id=1686783828]
 script = ExtResource("1_sp8l3")
@@ -30,6 +31,7 @@ scale = Vector2(1.4650297, 1.4609375)
 texture = ExtResource("3_uhyv1")
 
 [node name="RoadTile3" type="Sprite2D" parent="Road" unique_id=2016358482]
+visible = false
 position = Vector2(954.49994, 542.00006)
 scale = Vector2(1.4650297, 1.4609375)
 texture = ExtResource("5_bbj7j")
@@ -42,7 +44,7 @@ car_scene = ExtResource("5_5h2y0")
 autostart = true
 
 [node name="Ambulance" type="CharacterBody2D" parent="." unique_id=517011759]
-position = Vector2(952, 465)
+position = Vector2(952, 559)
 collision_mask = 2
 script = ExtResource("3_wdxif")
 
@@ -56,7 +58,8 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambulance" unique_id=734607539]
 position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_sp8l3")
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CapsuleShape2D_bbj7j")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=962286908]
 

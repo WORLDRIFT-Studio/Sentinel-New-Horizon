@@ -1,20 +1,23 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const MIN_X = 740.0
-const MAX_X = 1160.0
+const LANES = [740.0, 890.0, 1030.0, 1160.0]
 
-func _physics_process(_delta):
-	var direction = 0.0
+var current_lane = 0
+
+func _ready() -> void:
+	global_position.x = LANES[current_lane]
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_left"):
+		if current_lane - 1 >= 0: 
+			current_lane -= 1
 	
-	if Input.is_action_pressed("ui_left"):
-		direction = -1.0
-	elif Input.is_action_pressed("ui_right"):
-		direction = 1.0
+	if event.is_action_pressed("ui_right"):
+		if current_lane + 1 <= 3: 
+			current_lane += 1
 	
-	velocity.x = direction * SPEED
-	velocity.y = 0.0
-	
-	move_and_slide()
-	
-	position.x = clamp(position.x, MIN_X, MAX_X)
+	change_smooth_line()
+
+func change_smooth_line() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "position",Vector2(LANES[current_lane], self.position.y), 0.4)

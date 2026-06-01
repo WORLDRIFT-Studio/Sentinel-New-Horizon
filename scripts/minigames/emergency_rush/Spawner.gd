@@ -1,3 +1,4 @@
+#Użyto pomocy Claude
 extends Node2D
 
 @export var car_scene: PackedScene
@@ -6,7 +7,7 @@ const LANES = [740.0, 890.0, 1030.0, 1160.0]
 var base_interval = 2.0
 var min_interval = 0.4
 var difficulty_timer = 0.0
-var car_speed = 400.0
+var car_speed = 300.0
 
 @onready var spawn_timer = $SpawnTimer
 

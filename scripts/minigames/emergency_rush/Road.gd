@@ -1,14 +1,15 @@
+#Kod napisany przy pomocy Claude
 extends Node2D
 
-var scroll_speed = 300.0
-var tile_height = 768.0
+const scroll_speed = 400.0
+const tile_height = 1100.0
 
 @onready var tile1 = $RoadTile1
 @onready var tile2 = $RoadTile2
 
 func _ready():
-	tile1.position.y = 0.0
-	tile2.position.y = -tile_height
+	tile1.position.y = 542.0
+	tile2.position.y = -576.0
 
 func _process(delta):
 	tile1.position.y += scroll_speed * delta
