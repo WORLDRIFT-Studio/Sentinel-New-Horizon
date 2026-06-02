@@ -7,7 +7,7 @@ signal bonus_changed
 signal alerts_saved
 
 var reputation: int = 100
-var tutorial_done: bool = false
+var tutorial_airport: bool = false
 var bonus: Dictionary = {
 	"day_duration": 0,
 	"daily": 0,
@@ -17,8 +17,16 @@ var finished_minigame: int = 0
 var reputation_today: int = 0
 var penalty_today: int = 0
 var spawned_alerts: Array[Dictionary] = []
+var upgrades_bought: int = 0
+var upgrades_count: int
+var games_played: Dictionary[String, int] = {
+	"traffic": 0,
+	"airport": 0,
+	"report": 0
+}
 
 func _ready() -> void:
+	SaveLoad.load_content()
 	TimeManager.connect("day_changed", _reset_stats)
 	TimeManager.connect("day_ended", _daily_summary)
 
@@ -44,7 +52,7 @@ func set_score(score: int) -> void:
 	@warning_ignore("integer_division")
 	var points = score / 1000 
 	update_reputation(points)
-	
+
 func update_reputation(value: int) -> void:
 	var final_change = value
 	if value > 0:
@@ -57,19 +65,21 @@ func update_reputation(value: int) -> void:
 	SaveLoad.contents_to_save.reputation = reputation
 	SaveLoad.contents_to_save.bonus = bonus.duplicate()
 	SaveLoad.save_content()
-	print(reputation, "REPUTACJA")
+	print("Reputacja: ", reputation)
 
 func force_update() -> void:
 	SaveLoad.contents_to_save.reputation = reputation
 	SaveLoad.contents_to_save.bonus = bonus.duplicate()
 	SaveLoad.save_content()
 	reputation_changed.emit(reputation)
-	
+
 func has_completed_tutorial() -> bool:
-	return tutorial_done
+	return tutorial_airport
 
 func set_tutorial_completed() -> void:
-	tutorial_done = true
+	tutorial_airport = true
+	SaveLoad.contents_to_save.tutorial["airport_sec"] = tutorial_airport
+	SaveLoad.save_content()
 
 func alerts_save(parent: Node) -> void:
 	spawned_alerts.clear()
@@ -80,7 +90,7 @@ func alerts_save(parent: Node) -> void:
 			"position": child.position
 		})
 	self.emit_signal("alerts_saved")
-	
+
 func restore_alerts(parent: Node) -> void:
 	for child in spawned_alerts:
 		var scene = load(child["scene"])
@@ -89,4 +99,3 @@ func restore_alerts(parent: Node) -> void:
 		instance.name = child["name"]
 		parent.add_child(instance)
 	spawned_alerts.clear()
-		

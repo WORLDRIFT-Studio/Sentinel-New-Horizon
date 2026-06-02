@@ -25,6 +25,8 @@ extends Node
 @onready var buttons_panel: Node = $Control/Buttons
 @onready var timer_node: Node = $Control/Timer
 @onready var tutor_txt: Label = $Control/Panel/tutor_txt
+@onready var summary: Panel = %Summary
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 #region GlobalScopeVariable
 # Zmienne zegara
@@ -304,7 +306,7 @@ func show_final_summary() -> int:
 	%GradeValue.text = evaluation
 	%TotalValue.text = "SUMA PUNKTÓW: 0"
 	
-	%EndGame.show()
+	
 	
 	# --- ANIMACJA ---
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
@@ -327,6 +329,7 @@ func show_final_summary() -> int:
 	%GradeValue.show()
 	tween.tween_property(%GradeValue, "modulate:a", 1.0, 0.8)
 	return final_score
+
 func check_single_npc(npc: NPC, answer: Dictionary) -> int:
 	var score: int = 0
 	var table = npc.truth_table
@@ -400,5 +403,6 @@ func _on_click_to_show_gui_input(event: InputEvent) -> void:
 func _on_back_to_main_pressed() -> void:
 	get_tree().paused = false
 	GlobalData.set_score(points)
+	GlobalData.games_played["airport"] += 1
 	GameEvents.minigame_ended.emit()
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")

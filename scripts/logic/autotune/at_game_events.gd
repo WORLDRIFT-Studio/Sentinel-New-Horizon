@@ -15,3 +15,7 @@ signal delete_alert(node)
 signal minigame_started
 
 signal minigame_ended
+
+signal upgrades_changed
+
+signal achievements_changed
