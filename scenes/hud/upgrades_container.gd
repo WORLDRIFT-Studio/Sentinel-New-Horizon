@@ -6,15 +6,14 @@ func _ready() -> void:
 	SaveLoad.load_content()
 	unlocked_ids = SaveLoad.contents_to_save.unlocked_upgrades
 	
-
+	
 	for child in self.get_children():
 		child.upgrade.pressed.connect(_on_upgrade_clicked.bind(child))
 		GlobalData.upgrades_count += 1 
-
+	
 	for child in get_children():
 		if child.upgrade_id in unlocked_ids:
 			child.queue_free()
-
 	
 	check_upgrades()
 

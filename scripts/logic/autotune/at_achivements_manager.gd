@@ -14,12 +14,14 @@ const ACHIEVEMENTS: Dictionary = {
 	"report_5": "Pośród dokumentów.",
 	"traffic_1": "Kontroler drogowy.",
 	"traffic_5": "Inteligentna sygnalizacja."
-	
 }
 
 var unlocked_achievements: Array = []
 
 func _ready() -> void:
+	SaveLoad.load_content()
+	unlocked_achievements = SaveLoad.contents_to_save.unlocked_achievements
+	GameEvents.achievements_changed.emit()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	GlobalData.reputation_changed.connect(_on_reputation_changed)
 	TimeManager.day_ended.connect(_on_day_changed)
@@ -66,6 +68,8 @@ func _unlock_achievement(id: String) -> void:
 	if id in unlocked_achievements:
 		return
 	unlocked_achievements.append(id)
+	SaveLoad.contents_to_save.unlocked_achievements = unlocked_achievements
+	SaveLoad.save_content()
 	NotificationManager.notify("Odblokowano osiągnięcie: %s" % ACHIEVEMENTS.get(id, id))
 	print(unlocked_achievements)
 	GameEvents.achievements_changed.emit()

@@ -14,7 +14,7 @@ func _ready() -> void:
 	GameEvents.achievements_changed.connect(_on_achivemenets_changed)
 	title_label.text = title
 	description_label.text = description
-
+	_on_achivemenets_changed()
 
 func _on_achivemenets_changed() -> void:
 		var is_unlocked: bool = achievement_id in AchivementsManager.unlocked_achievements

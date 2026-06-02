@@ -6,9 +6,8 @@ signal reputation_changed(new_value:int)
 signal bonus_changed
 signal alerts_saved
 
-
 var reputation: int = 100
-var tutorial_done: bool = false
+var tutorial_airport: bool = false
 var bonus: Dictionary = {
 	"day_duration": 0,
 	"daily": 0,
@@ -27,6 +26,7 @@ var games_played: Dictionary[String, int] = {
 }
 
 func _ready() -> void:
+	SaveLoad.load_content()
 	TimeManager.connect("day_changed", _reset_stats)
 	TimeManager.connect("day_ended", _daily_summary)
 
@@ -52,7 +52,7 @@ func set_score(score: int) -> void:
 	@warning_ignore("integer_division")
 	var points = score / 1000 
 	update_reputation(points)
-	
+
 func update_reputation(value: int) -> void:
 	var final_change = value
 	if value > 0:
@@ -72,12 +72,14 @@ func force_update() -> void:
 	SaveLoad.contents_to_save.bonus = bonus.duplicate()
 	SaveLoad.save_content()
 	reputation_changed.emit(reputation)
-	
+
 func has_completed_tutorial() -> bool:
-	return tutorial_done
+	return tutorial_airport
 
 func set_tutorial_completed() -> void:
-	tutorial_done = true
+	tutorial_airport = true
+	SaveLoad.contents_to_save.tutorial["airport_sec"] = tutorial_airport
+	SaveLoad.save_content()
 
 func alerts_save(parent: Node) -> void:
 	spawned_alerts.clear()
@@ -88,7 +90,7 @@ func alerts_save(parent: Node) -> void:
 			"position": child.position
 		})
 	self.emit_signal("alerts_saved")
-	
+
 func restore_alerts(parent: Node) -> void:
 	for child in spawned_alerts:
 		var scene = load(child["scene"])
@@ -97,4 +99,3 @@ func restore_alerts(parent: Node) -> void:
 		instance.name = child["name"]
 		parent.add_child(instance)
 	spawned_alerts.clear()
-		
