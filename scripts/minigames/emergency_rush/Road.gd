@@ -6,6 +6,7 @@ const tile_height = 1100.0
 
 @onready var tile1 = $RoadTile1
 @onready var tile2 = $RoadTile2
+@onready var tile3 = $RoadTile3
 
 func _ready():
 	tile1.position.y = 542.0

@@ -10,7 +10,8 @@ height = 685.98
 [node name="Car" type="Area2D" unique_id=2079515813]
 rotation = 1.5707964
 scale = Vector2(0.28, 0.28)
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ea3ys")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1988605516]

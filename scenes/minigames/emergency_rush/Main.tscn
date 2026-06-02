@@ -9,10 +9,15 @@
 [ext_resource type="Script" uid="uid://fntf8q1p72i0" path="res://scripts/minigames/emergency_rush/Spawner.gd" id="4_5h2y0"]
 [ext_resource type="PackedScene" uid="uid://bb5221k6slbi6" path="res://scenes/minigames/emergency_rush/car.tscn" id="5_5h2y0"]
 [ext_resource type="Texture2D" uid="uid://4v3b3pgnxyo1" path="res://assets/assets/emergency_rush/road3.jpg" id="5_bbj7j"]
+[ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="10_vc71s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbj7j"]
 radius = 172.0
 height = 760.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_kovo7"]
+font = ExtResource("10_vc71s")
+font_size = 50
 
 [node name="Main" type="Node2D" unique_id=1686783828]
 script = ExtResource("1_sp8l3")
@@ -31,7 +36,6 @@ scale = Vector2(1.4650297, 1.4609375)
 texture = ExtResource("3_uhyv1")
 
 [node name="RoadTile3" type="Sprite2D" parent="Road" unique_id=2016358482]
-visible = false
 position = Vector2(954.49994, 542.00006)
 scale = Vector2(1.4650297, 1.4609375)
 texture = ExtResource("5_bbj7j")
@@ -45,6 +49,7 @@ autostart = true
 
 [node name="Ambulance" type="CharacterBody2D" parent="." unique_id=517011759]
 position = Vector2(952, 559)
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_wdxif")
 
@@ -66,27 +71,4 @@ shape = SubResource("CapsuleShape2D_bbj7j")
 [node name="ScoreLabel" type="Label" parent="UI" unique_id=1427627945]
 offset_right = 40.0
 offset_bottom = 23.0
-
-[node name="LivesLabel" type="Label" parent="UI" unique_id=1140954515]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="GameOverPanel" type="Panel" parent="UI" unique_id=19096285]
-offset_left = 20.0
-offset_top = 8.0
-offset_right = 60.0
-offset_bottom = 48.0
-
-[node name="GameOverLabel" type="Label" parent="UI/GameOverPanel" unique_id=2119149570]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -2.0
-offset_right = 37.0
-offset_bottom = 21.0
-
-[node name="RestartButton" type="Button" parent="UI/GameOverPanel" unique_id=296433730]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 25.0
-offset_right = 25.0
-offset_bottom = 33.0
+label_settings = SubResource("LabelSettings_kovo7")
