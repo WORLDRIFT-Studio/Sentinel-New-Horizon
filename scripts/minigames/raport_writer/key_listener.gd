@@ -25,7 +25,7 @@ var ok_press_score:      float = 20
 func _ready():
 	sfx_player = AudioStreamPlayer.new()
 	sfx_player.stream = sfx_stream
-	sfx_player.volume_db = -6.0
+	sfx_player.volume_db = 6.0
 	add_child(sfx_player)
 	if key_name != "":
 		_apply_receptor_visuals(self)
