@@ -36,6 +36,7 @@ func _apply_receptor_visuals(target: Sprite2D):
 	target.flip_h = false
 	target.flip_v = false
 	target.rotation = 0.0
+	target.offset = Vector2(0, 0)
 	match key_name:
 		"button_Q":
 			target.rotation = PI / 2.0
@@ -51,15 +52,19 @@ func _apply_falling_visuals(target: Sprite2D):
 	target.flip_h = false
 	target.flip_v = false
 	target.rotation = 0.0
+	target.offset = Vector2(0, 0)
 	match key_name:
 		"button_Q":
 			target.rotation = PI / 2.0
+			target.offset = Vector2(0, -5.0)
 		"button_W":
 			target.flip_v = true
+			target.offset = Vector2(5.0, 0)
 		"button_E":
-			pass
+			target.offset = Vector2(5.0, 0)
 		"button_R":
 			target.rotation = -PI / 2.0
+			target.offset = Vector2(0, -5.0)
 
 func _process(_delta):
 	if key_name == "":
@@ -120,7 +125,7 @@ func CreateFallingKey(button_name: String, hit_time: float):
 	if button_name != key_name:
 		return
 	var fk_inst = falling_key.instantiate()
-	get_tree().get_root().call_deferred("add_child", fk_inst)
 	_apply_falling_visuals(fk_inst)
+	get_tree().get_root().add_child(fk_inst)
 	fk_inst.Setup(global_position.x, fk_inst.texture, fk_inst.flip_h, fk_inst.flip_v, fk_inst.rotation, hit_time)
 	falling_key_queue.push_back(fk_inst)
