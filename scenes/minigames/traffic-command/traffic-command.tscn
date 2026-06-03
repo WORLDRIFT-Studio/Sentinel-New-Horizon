@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/minigames/traffic_command/Menu/MenuManager.gd" id="7_4g054"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_bcpk6"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_j3vfk"]
+[ext_resource type="Texture2D" uid="uid://olsgstcb42ps" path="res://assets/icons/panel/shadow4.png" id="10_xcgag"]
 
 [sub_resource type="Curve2D" id="Curve2D_03clw"]
 _data = {
@@ -102,6 +103,53 @@ glow_blend_mode = 0
 [sub_resource type="LabelSettings" id="LabelSettings_wgtu0"]
 font_size = 37
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qej24"]
+bg_color = Color(0.10980392, 0.10980392, 0.17254902, 1)
+border_width_top = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_it43r"]
+font_size = 25
+
+[sub_resource type="Animation" id="Animation_qeljt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1095.41)]
+}
+
+[sub_resource type="Animation" id="Animation_xcgag"]
+resource_name = "panel_anim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1095.41), Vector2(0, 875)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgipo"]
+_data = {
+&"RESET": SubResource("Animation_qeljt"),
+&"panel_anim": SubResource("Animation_xcgag")
+}
+
 [node name="MiniGame" type="Node2D" unique_id=1380433955]
 script = ExtResource("1_x4qmp")
 
@@ -111,6 +159,7 @@ scale = Vector2(0.36172083, 0.36172083)
 texture = ExtResource("2_2qniy")
 
 [node name="Left" type="Node2D" parent="." unique_id=249154325]
+visibility_layer = 17
 position = Vector2(950.031, 576.0155)
 rotation = 5.232033
 scale = Vector2(1.1, 1.1)
@@ -133,6 +182,7 @@ rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Left/Right/PathFollow2D/Node2D" unique_id=100720868]
+light_mask = 0
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
@@ -152,7 +202,6 @@ scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Left/Right/PathFollow2D/Node2D" unique_id=1145971738]
-visible = false
 z_index = 2
 offset_left = 18.609732
 offset_top = -18.066236
@@ -184,6 +233,7 @@ script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.41])
 
 [node name="Down" type="Node2D" parent="." unique_id=2058267442]
+visibility_layer = 17
 position = Vector2(1022.0309, 522.01544)
 rotation = 3.5969477
 scale = Vector2(1.1, 1.1)
@@ -257,6 +307,7 @@ script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.17])
 
 [node name="Right" type="Node2D" parent="." unique_id=1016065657]
+visibility_layer = 17
 position = Vector2(994.0311, 434.01556)
 rotation = 2.065506
 scale = Vector2(1.1, 1.1)
@@ -271,7 +322,7 @@ script = ExtResource("2_v848d")
 position = Vector2(-41.051086, -955.04517)
 rotation = 1.5192366
 script = ExtResource("3_x4qmp")
-stop_points = Array[float]([0.42])
+stop_points = Array[float]([0.46])
 
 [node name="Node2D" type="Node2D" parent="Right/Right/PathFollow2D" unique_id=714244112]
 z_index = 2
@@ -327,9 +378,10 @@ script = ExtResource("2_v848d")
 position = Vector2(-40.631348, -954.20276)
 rotation = 1.521088
 script = ExtResource("3_x4qmp")
-stop_points = Array[float]([0.37])
+stop_points = Array[float]([0.38])
 
 [node name="Up" type="Node2D" parent="." unique_id=289593973]
+visibility_layer = 17
 position = Vector2(1001.03094, 525.01544)
 rotation = 0.5235988
 scale = Vector2(1.1, 1.1)
@@ -464,3 +516,35 @@ text = "VehicleNumberLabel"
 label_settings = SubResource("LabelSettings_wgtu0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=99532213]
+z_index = 9
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 1095.41
+offset_right = 1920.0
+offset_bottom = 1300.4014
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qej24")
+
+[node name="tutor_txt" type="Label" parent="Panel" unique_id=2123433015]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 2165.0
+offset_bottom = 207.0
+label_settings = SubResource("LabelSettings_it43r")
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1174728492]
+libraries/ = SubResource("AnimationLibrary_tgipo")
+
+[node name="shadow1" type="TextureRect" parent="." unique_id=664922311]
+visibility_layer = 17
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("10_xcgag")

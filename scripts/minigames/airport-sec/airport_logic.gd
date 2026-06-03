@@ -16,11 +16,11 @@ extends Node
 @onready var panel_id: Panel = %PanelId
 @onready var panel_wanted: Panel = %PanelWanted
 @onready var chbx_container: VBoxContainer = $Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer
+@onready var next_button: HBoxContainer = $Control/Panel/HBoxContainer
 
 # Referencje do elementów tutorialu
 @onready var arrow1: Node = $arrow1
 @onready var arrow2: Node = $arrow2
-@onready var arrow3: Node = $arrow3
 @onready var arrow4: Node = $arrow4
 @onready var buttons_panel: Node = $Control/Buttons
 @onready var timer_node: Node = $Control/Timer
@@ -68,7 +68,13 @@ var is_tutorial: bool = false
 #region Tutorial
 
 func _is_first_run() -> bool:
-	return not GlobalData.has_completed_tutorial()
+	return not GlobalData.has_completed_tutorial1()
+	
+func set_tutor_text(new_text: String) -> void:
+	tutor_txt.text = new_text
+	tutor_txt.visible_characters = 0
+	var tween = create_tween()
+	tween.tween_property(tutor_txt, "visible_characters", new_text.length(), 0.01 * new_text.length())
 
 func start_tutorial() -> void:
 	is_tutorial = true
@@ -77,12 +83,12 @@ func start_tutorial() -> void:
 	# Ukryj wszystkie strzałki
 	arrow1.visible = false
 	arrow2.visible = false
-	arrow3.visible = false
 	arrow4.visible = false
 
 	# Wyłącz przyciski i timer
 	buttons_panel.visible = false
 	timer_node.visible = false
+	next_button.visible = false
 
 	# Zatrzymaj odliczanie czasu
 	set_process(false)
@@ -91,7 +97,7 @@ func start_tutorial() -> void:
 
 	# Pokaż pole tutoriala i ustaw tekst
 	tutor_txt.visible = true
-	tutor_txt.text = "Witaj w sekcji szkoleniowej airport-security. Aby rozpocząć szkolenie kliknij w pokazany tekst."
+	set_tutor_text("Witaj w sekcji szkoleniowej airport-security. Aby rozpocząć szkolenie kliknij w pokazany tekst.")
 
 	# Podłącz sygnał kliknięcia (jeden raz)
 	if not tutor_txt.gui_input.is_connected(_on_tutor_txt_clicked):
@@ -107,23 +113,21 @@ func _advance_tutorial() -> void:
 	match tutorial_step:
 		1:
 			arrow1.visible = true
-			tutor_txt.text = "To jest twoja lista rzeczy, które musisz sprawdzić oraz dobrze zdefiniować. UWAŻAJ, gdyż właśnie z tej listy będziesz rozliczany."
+			set_tutor_text("To jest twoja lista rzeczy, które musisz sprawdzić oraz dobrze zdefiniować. UWAŻAJ, gdyż właśnie z tej listy będziesz rozliczany.")
 
 		2:
 			arrow1.visible = false
 			arrow2.visible = true
-			arrow3.visible = true
-			tutor_txt.text = "To jest dowód oraz paszport aktualnie sprawdzanego człowieka. To stąd będziesz brał większość informacji. Lepiej sprawdzić oba, gdyż niektóre dane mogą się ze sobą nie zgadzać."
+			set_tutor_text("To jest dowód oraz paszport aktualnie sprawdzanego człowieka. To stąd będziesz brał większość informacji. Lepiej sprawdzić oba, gdyż niektóre dane mogą się ze sobą nie zgadzać.")
 
 		3:
 			arrow2.visible = false
-			arrow3.visible = false
 			arrow4.visible = true
-			tutor_txt.text = "To jest lista poszukiwanych. Tutaj sprawdzisz, czy dana osoba nie jest ścigana przez policję. Jeżeli jest, zarejestruj to na swojej liście."
+			set_tutor_text("To jest lista poszukiwanych. Tutaj sprawdzisz, czy dana osoba nie jest ścigana przez policję. Jeżeli jest, zarejestruj to na swojej liście.")
 
 		4:
 			arrow4.visible = false
-			tutor_txt.text = "To już wszystko co musisz wiedzieć. Powodzenia!"
+			set_tutor_text("To już wszystko co musisz wiedzieć. Powodzenia!")
 
 		5:
 			# Koniec tutorialu — zapisz i przeładuj scenę
@@ -231,7 +235,6 @@ func _ready() -> void:
 	# Ukryj wszystkie strzałki na starcie (zawsze)
 	arrow1.visible = false
 	arrow2.visible = false
-	arrow3.visible = false
 	arrow4.visible = false
 
 	list = generate_list(10)
