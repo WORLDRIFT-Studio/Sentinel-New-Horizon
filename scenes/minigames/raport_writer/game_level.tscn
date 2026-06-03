@@ -173,7 +173,6 @@ vframes = 1
 key_name = "button_Q"
 
 [node name="KeyListener2" parent="." unique_id=259453524 instance=ExtResource("1_h3xak")]
-position = Vector2(-65, 280)
 scale = Vector2(0.6, 0.6)
 texture = SubResource("AtlasTexture_oqose")
 hframes = 1

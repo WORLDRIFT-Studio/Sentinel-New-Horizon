@@ -12,10 +12,10 @@ var sfx_stream = preload("res://art/keyboard.mp3")
 var sfx_player: AudioStreamPlayer
 var falling_key_queue = []
 
-var perfect_threshold: float = 0.022
-var great_threshold:   float = 0.045
-var good_threshold:    float = 0.075
-var ok_threshold:      float = 0.110
+var perfect_threshold: float = 0.060
+var great_threshold:   float = 0.100
+var good_threshold:    float = 0.140
+var ok_threshold:      float = 0.180
 
 var perfect_press_score: float = 250
 var great_press_score:   float = 100
