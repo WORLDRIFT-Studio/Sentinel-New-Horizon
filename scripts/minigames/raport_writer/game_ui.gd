@@ -19,6 +19,10 @@ func IncrementCombo():
 	%ComboLabel.text = " " + str(combo_count) + "x combo"
 
 func ResetCombo():
-	if combo_count > highest_combo: highest_combo = combo_count
+	if combo_count > highest_combo:
+		highest_combo = combo_count
 	combo_count = 0
 	%ComboLabel.text = ""
+
+func UpdateTimer(time_left: float):
+	%Timer.text = str(ceili(time_left)) + "Pozostało"

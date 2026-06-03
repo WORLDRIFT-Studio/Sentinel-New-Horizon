@@ -46,6 +46,7 @@ func _process(delta):
 
 	song_time += delta
 	Signals.manual_time = song_time
+	$"../GameUI".UpdateTimer(LEVEL_DURATION - song_time)
 
 	for i in range(4):
 		while next_note_indices[i] < fk_times_arr[i].size():
