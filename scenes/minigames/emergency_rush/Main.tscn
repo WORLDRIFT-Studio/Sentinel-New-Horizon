@@ -3,12 +3,10 @@
 [ext_resource type="Script" uid="uid://cduvwx7p2kliv" path="res://scripts/minigames/emergency_rush/Main.gd" id="1_sp8l3"]
 [ext_resource type="Texture2D" uid="uid://d0ffx668imow5" path="res://assets/assets/emergency_rush/ambulances.png" id="2_h2n20"]
 [ext_resource type="Script" uid="uid://br8vidbw3emst" path="res://scripts/minigames/emergency_rush/Road.gd" id="2_uhyv1"]
-[ext_resource type="Texture2D" uid="uid://djn846bvbewe6" path="res://assets/assets/emergency_rush/road1.jpg" id="3_r0v72"]
-[ext_resource type="Texture2D" uid="uid://dew2ibkqt4jce" path="res://assets/assets/emergency_rush/road2.jpg" id="3_uhyv1"]
+[ext_resource type="Texture2D" uid="uid://nx14crrek1of" path="res://assets/assets/emergency_rush/road1.jpg" id="3_r0v72"]
 [ext_resource type="Script" uid="uid://dieowxyr6g4ca" path="res://scripts/minigames/emergency_rush/Ambulance.gd" id="3_wdxif"]
 [ext_resource type="Script" uid="uid://fntf8q1p72i0" path="res://scripts/minigames/emergency_rush/Spawner.gd" id="4_5h2y0"]
 [ext_resource type="PackedScene" uid="uid://bb5221k6slbi6" path="res://scenes/minigames/emergency_rush/car.tscn" id="5_5h2y0"]
-[ext_resource type="Texture2D" uid="uid://4v3b3pgnxyo1" path="res://assets/assets/emergency_rush/road3.jpg" id="5_bbj7j"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="10_vc71s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbj7j"]
@@ -27,18 +25,23 @@ script = ExtResource("2_uhyv1")
 
 [node name="RoadTile1" type="Sprite2D" parent="Road" unique_id=633546121]
 position = Vector2(954.49994, 542.00006)
-scale = Vector2(1.4650297, 1.4609375)
+scale = Vector2(0.67, 0.669)
 texture = ExtResource("3_r0v72")
+vframes = 3
+frame = 2
 
 [node name="RoadTile2" type="Sprite2D" parent="Road" unique_id=1889790205]
-position = Vector2(954.49994, 542.00006)
-scale = Vector2(1.4650297, 1.4609375)
-texture = ExtResource("3_uhyv1")
+position = Vector2(954.5, 542)
+scale = Vector2(0.67, 0.669)
+texture = ExtResource("3_r0v72")
+vframes = 3
+frame = 1
 
 [node name="RoadTile3" type="Sprite2D" parent="Road" unique_id=2016358482]
-position = Vector2(954.49994, 542.00006)
-scale = Vector2(1.4650297, 1.4609375)
-texture = ExtResource("5_bbj7j")
+position = Vector2(954.5, 542)
+scale = Vector2(0.67, 0.669)
+texture = ExtResource("3_r0v72")
+vframes = 3
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1843705538]
 script = ExtResource("4_5h2y0")
@@ -48,7 +51,8 @@ car_scene = ExtResource("5_5h2y0")
 autostart = true
 
 [node name="Ambulance" type="CharacterBody2D" parent="." unique_id=517011759]
-position = Vector2(952, 559)
+position = Vector2(952, 40)
+scale = Vector2(1.1, 1.1)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_wdxif")
@@ -72,3 +76,6 @@ shape = SubResource("CapsuleShape2D_bbj7j")
 offset_right = 40.0
 offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_kovo7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=928444753]
+offset = Vector2(954.5, 0)

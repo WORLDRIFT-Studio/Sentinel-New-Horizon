@@ -3,11 +3,12 @@ extends Node2D
 
 @export var car_scene: PackedScene
 
-const LANES = [740.0, 890.0, 1030.0, 1160.0]
-var base_interval = 2.0
+const D_LANES =  [1080.0, 1245.0]
+const U_LANES = [725.0, 890.0]
+var base_interval = 3.0
 var min_interval = 0.4
 var difficulty_timer = 0.0
-var car_speed = 300.0
+var car_speed = 200.0
 
 @onready var spawn_timer = $SpawnTimer
 
@@ -29,11 +30,19 @@ func _on_spawn_timer_timeout():
 	if car_scene == null:
 		return
 	
-	var car = car_scene.instantiate()
+	var u_car = car_scene.instantiate()
+	var d_car = car_scene.instantiate()
 	
-	var lane = LANES[randi() % LANES.size()]
-	car.position.x = lane
-	car.position.y = -60.0
-	car.speed = car_speed
+	var u_lane = U_LANES[randi() % U_LANES.size()]
+	u_car.position.x = u_lane
+	u_car.position.y = -565.0
+	u_car.rotation_degrees = -90.0
+	u_car.speed = 2.5 * car_speed
 	
-	get_parent().add_child(car)
+	var d_lane = D_LANES[randi() % D_LANES.size()]
+	d_car.position.x = d_lane
+	d_car.position.y = 542.0
+	d_car.speed = -car_speed
+	
+	get_parent().add_child(u_car)
+	get_parent().add_child(d_car)

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const LANES = [740.0, 890.0, 1030.0, 1160.0]
+const LANES = [725.0, 890.0, 1080.0, 1245.0]
 
-var current_lane = 0
+var current_lane = 3
 
 func _ready() -> void:
 	global_position.x = LANES[current_lane]
