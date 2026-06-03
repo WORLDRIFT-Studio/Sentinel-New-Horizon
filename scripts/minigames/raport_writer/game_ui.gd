@@ -25,4 +25,4 @@ func ResetCombo():
 	%ComboLabel.text = ""
 
 func UpdateTimer(time_left: float):
-	%Timer.text = str(ceili(time_left)) + "Pozostało"
+	%TimerLabel.text = str(ceili(time_left)) + "s"
