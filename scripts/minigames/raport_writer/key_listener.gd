@@ -3,10 +3,10 @@ extends Sprite2D
 @onready var falling_key = preload("res://scenes/minigames/raport_writer/falling_key.tscn")
 @onready var score_text  = preload("res://scenes/minigames/raport_writer/score_press_text.tscn")
 
-var note_tex = preload("res://art/note.png")
-var down_tex = preload("res://art/down.png")
+var note_tex   = preload("res://art/note.png")
+var down_tex   = preload("res://art/down.png")
+var sfx_stream = preload("res://art/keyboard.mp3")
 
-@export var sfx_stream: AudioStream
 @export var key_name: String = ""
 
 var sfx_player: AudioStreamPlayer
@@ -27,7 +27,8 @@ func _ready():
 	sfx_player.stream = sfx_stream
 	sfx_player.volume_db = -6.0
 	add_child(sfx_player)
-	_apply_receptor_visuals(self)
+	if key_name != "":
+		_apply_receptor_visuals(self)
 	Signals.CreateFallingKey.connect(CreateFallingKey)
 
 func _apply_receptor_visuals(target: Sprite2D):
@@ -61,6 +62,9 @@ func _apply_falling_visuals(target: Sprite2D):
 			target.rotation = -PI / 2.0
 
 func _process(_delta):
+	if key_name == "":
+		return
+
 	if Input.is_action_just_pressed(key_name):
 		Signals.KeyListenerPress.emit(key_name)
 		if sfx_player and sfx_player.stream:
