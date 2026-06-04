@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cgp6pdcb28by4"]
+
+[ext_resource type="Script" uid="uid://dieb0etagium5" path="res://loading_screen/loading_screen.gd" id="1_pdp73"]
+[ext_resource type="Shader" uid="uid://d16cf7h184sf5" path="res://loading_screen/loading_screen.gdshader" id="2_0pyv5"]
+[ext_resource type="Texture2D" uid="uid://bxf031kg7vofl" path="res://loading_screen/Workspace 1_006.png" id="3_typ05"]
+[ext_resource type="Texture2D" uid="uid://6331ofu427p7" path="res://loading_screen/WORLDRIFT.svg" id="4_2vbsi"]
+[ext_resource type="Texture2D" uid="uid://ccv38nmayy1us" path="res://loading_screen/STUDIO.svg" id="5_5moub"]
+[ext_resource type="Shader" uid="uid://ddr8pyw0evy30" path="res://loading_screen/vignette.gdshader" id="6_on2rs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icsxr"]
+shader = ExtResource("2_0pyv5")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hkxt5"]
+shader = ExtResource("6_on2rs")
+shader_parameter/intensity = 0.4
+shader_parameter/smoothness = 0.45
+
+[node name="loading" type="Control" unique_id=852300314]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pdp73")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1374165007]
+material = SubResource("ShaderMaterial_icsxr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_typ05")
+expand_mode = 2
+
+[node name="Worldrift" type="Sprite2D" parent="." unique_id=209610410]
+position = Vector2(720, 530)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("4_2vbsi")
+
+[node name="Studio" type="Sprite2D" parent="." unique_id=913043552]
+position = Vector2(1240, 530)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_5moub")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1564588011]
+material = SubResource("ShaderMaterial_hkxt5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
