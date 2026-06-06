@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dewaw74h7o6vd"
-path="res://.godot/imported/cars.png-63c064591f1f325416196f8c2d5e73fa.ctex"
+uid="uid://d2fuoaxmocekb"
+path="res://.godot/imported/fuel.png-0d463c35a0d5670a5def40c983c9a5d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/emergency_rush/cars.png"
-dest_files=["res://.godot/imported/cars.png-63c064591f1f325416196f8c2d5e73fa.ctex"]
+source_file="res://assets/assets/emergency_rush/fuel.png"
+dest_files=["res://.godot/imported/fuel.png-0d463c35a0d5670a5def40c983c9a5d3.ctex"]
 
 [params]
 

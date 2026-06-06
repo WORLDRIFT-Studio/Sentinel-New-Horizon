@@ -20,4 +20,4 @@ func _input(event: InputEvent) -> void:
 
 func change_smooth_line() -> void:
 	var tween = create_tween()
-	tween.tween_property(self, "position",Vector2(LANES[current_lane], self.position.y), 0.4)
+	tween.tween_property(self, "position",Vector2(LANES[current_lane], self.position.y), 0.3)

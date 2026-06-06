@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcv8lgpk5jhat"
-path="res://.godot/imported/cars1.png-33aded85234a6a243f32111f83feb675.ctex"
+uid="uid://bidn2v45fxxgq"
+path="res://.godot/imported/road2.jpg-7623aec0b03dfe905153f16c17dab226.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets/emergency_rush/cars1.png"
-dest_files=["res://.godot/imported/cars1.png-33aded85234a6a243f32111f83feb675.ctex"]
+source_file="res://assets/assets/emergency_rush/road2.jpg"
+dest_files=["res://.godot/imported/road2.jpg-7623aec0b03dfe905153f16c17dab226.ctex"]
 
 [params]
 

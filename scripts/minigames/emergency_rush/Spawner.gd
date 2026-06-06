@@ -2,20 +2,27 @@
 extends Node2D
 
 @export var car_scene: PackedScene
+@export var fuel_scene: PackedScene
 
-const D_LANES =  [1080.0, 1245.0]
-const U_LANES = [725.0, 890.0]
+const R_LANES =  [1080.0, 1245.0]
+const L_LANES = [725.0, 890.0]
+const LANES = L_LANES + R_LANES
 var base_interval = 3.0
 var min_interval = 0.4
 var difficulty_timer = 0.0
 var car_speed = 200.0
+var fuel_timer = 6.0
 
-@onready var spawn_timer = $SpawnTimer
+@onready var car_spawn_timer = $CarSpawnTimer
+@onready var fuel_spawn_timer = $FuelSpawnTimer
 
 func _ready():
-	spawn_timer.wait_time = base_interval
-	spawn_timer.start()
-	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	car_spawn_timer.wait_time = base_interval
+	fuel_spawn_timer.wait_time = fuel_timer
+	car_spawn_timer.start()
+	fuel_spawn_timer.start()
+	car_spawn_timer.timeout.connect(_on_car_spawn_timer_timeout)
+	fuel_spawn_timer.timeout.connect(_on_fuel_spawn_timer_timeout)
 
 func _process(delta):
 	difficulty_timer += delta
@@ -24,25 +31,38 @@ func _process(delta):
 		difficulty_timer = 0.0
 		base_interval = max(min_interval, base_interval - 0.15)
 		car_speed = min(800.0, car_speed + 30.0)
-		spawn_timer.wait_time = base_interval
+		car_spawn_timer.wait_time = base_interval
 
-func _on_spawn_timer_timeout():
+func _on_car_spawn_timer_timeout():
 	if car_scene == null:
 		return
 	
-	var u_car = car_scene.instantiate()
-	var d_car = car_scene.instantiate()
+	var l_car = car_scene.instantiate()
+	var r_car = car_scene.instantiate()
 	
-	var u_lane = U_LANES[randi() % U_LANES.size()]
-	u_car.position.x = u_lane
-	u_car.position.y = -565.0
-	u_car.rotation_degrees = -90.0
-	u_car.speed = 2.5 * car_speed
+	var l_lane = L_LANES[randi() % L_LANES.size()]
+	l_car.position.x = l_lane
+	l_car.position.y = -710.0
+	l_car.rotation_degrees = -90.0
+	l_car.speed = 2 * car_speed
+	l_car.get_node("Sprite2D").frame = randi() % 3
 	
-	var d_lane = D_LANES[randi() % D_LANES.size()]
-	d_car.position.x = d_lane
-	d_car.position.y = 542.0
-	d_car.speed = -car_speed
+	var r_lane = R_LANES[randi() % R_LANES.size()]
+	r_car.position.x = r_lane
+	r_car.position.y = -710.0
+	r_car.speed = car_speed
+	r_car.get_node("Sprite2D").frame = randi() % 3
 	
-	get_parent().add_child(u_car)
-	get_parent().add_child(d_car)
+	get_parent().add_child(l_car)
+	get_parent().add_child(r_car)
+
+func _on_fuel_spawn_timer_timeout():
+	if fuel_scene == null:
+		return
+	var fuel = fuel_scene.instantiate()
+	var lane = LANES[randi() % LANES.size()]
+	
+	fuel.position.x = lane
+	fuel.position.y = -710.0
+	
+	get_parent().add_child(fuel)
