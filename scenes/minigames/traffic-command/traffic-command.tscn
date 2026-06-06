@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_bcpk6"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_j3vfk"]
 [ext_resource type="Texture2D" uid="uid://olsgstcb42ps" path="res://assets/icons/panel/shadow4.png" id="10_xcgag"]
+[ext_resource type="Texture2D" uid="uid://uy2mu7oocaqm" path="res://assets/icons/panel/shadow5.png" id="11_qej24"]
+[ext_resource type="Texture2D" uid="uid://dgxhdutp4cp75" path="res://assets/icons/panel/shadow6.png" id="12_it43r"]
 
 [sub_resource type="Curve2D" id="Curve2D_03clw"]
 _data = {
@@ -154,41 +156,47 @@ _data = {
 script = ExtResource("1_x4qmp")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1027030258]
+z_index = -5
 position = Vector2(1085.1626, 542.5813)
 scale = Vector2(0.36172083, 0.36172083)
 texture = ExtResource("2_2qniy")
 
 [node name="Left" type="Node2D" parent="." unique_id=249154325]
 visibility_layer = 17
+z_index = -2
 position = Vector2(950.031, 576.0155)
 rotation = 5.232033
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Left" unique_id=43909734]
+z_index = -2
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_03clw")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Right" unique_id=1896939417]
+z_index = -2
 position = Vector2(-48.629906, -973.6143)
 rotation = 1.4992082
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.42])
 
 [node name="Node2D" type="Node2D" parent="Left/Right/PathFollow2D" unique_id=406968989]
-z_index = 2
+z_index = 3
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Left/Right/PathFollow2D/Node2D" unique_id=100720868]
 light_mask = 0
+z_index = 4
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
 texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Left/Right/PathFollow2D/Node2D" unique_id=204446230]
+z_index = -2
 rotation = 1.5707964
 scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
@@ -197,12 +205,13 @@ collision_mask = 2
 script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Right/PathFollow2D/Node2D/Area2D" unique_id=595240819]
+z_index = -2
 rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Left/Right/PathFollow2D/Node2D" unique_id=1145971738]
-z_index = 2
+z_index = 5
 offset_left = 18.609732
 offset_top = -18.066236
 offset_right = 91.83346
@@ -210,23 +219,28 @@ offset_bottom = 45.575912
 rotation = 1.1238543
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
+metadata/_edit_use_anchors_ = true
 
 [node name="Straight" type="Path2D" parent="Left" unique_id=1817042041]
+z_index = -2
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_uei48")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Straight" unique_id=319670935]
+z_index = -2
 position = Vector2(-53.034607, -985.1688)
 rotation = 1.4889964
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Left" unique_id=1484532717]
+z_index = -2
 curve = SubResource("Curve2D_8ojpj")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Left" unique_id=613326317]
+z_index = -2
 position = Vector2(-53.706284, -972.6312)
 rotation = 1.4918478
 script = ExtResource("3_x4qmp")
@@ -234,34 +248,39 @@ stop_points = Array[float]([0.41])
 
 [node name="Down" type="Node2D" parent="." unique_id=2058267442]
 visibility_layer = 17
+z_index = -2
 position = Vector2(1022.0309, 522.01544)
 rotation = 3.5969477
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Down" unique_id=880336974]
+z_index = -2
 position = Vector2(-0.3323909, -8.947348)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_ym1ef")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Right" unique_id=1388163434]
+z_index = -2
 position = Vector2(3.5410156, -585.75134)
 rotation = 1.5805762
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.18])
 
 [node name="Node2D" type="Node2D" parent="Down/Right/PathFollow2D" unique_id=45677192]
-z_index = 2
+z_index = 3
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Down/Right/PathFollow2D/Node2D" unique_id=1741801948]
+z_index = 3
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
 texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Down/Right/PathFollow2D/Node2D" unique_id=60073816]
+z_index = -2
 rotation = 1.5707964
 scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
@@ -270,13 +289,13 @@ collision_mask = 2
 script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Right/PathFollow2D/Node2D/Area2D" unique_id=228843030]
+z_index = -2
 rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Down/Right/PathFollow2D/Node2D" unique_id=302402516]
-visible = false
-z_index = 2
+z_index = 5
 offset_left = 37.489662
 offset_top = 32.07051
 offset_right = 110.71339
@@ -286,17 +305,20 @@ text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Straight" type="Path2D" parent="Down" unique_id=1159388313]
+z_index = -2
 scale = Vector2(0.99999994, 0.99999994)
 curve = SubResource("Curve2D_forge")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Straight" unique_id=214108761]
+z_index = -2
 position = Vector2(7.7858887, -591.90393)
 rotation = 1.6035781
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.22])
 
 [node name="Left" type="Path2D" parent="Down" unique_id=1224891115]
+z_index = -2
 curve = SubResource("Curve2D_p3o70")
 script = ExtResource("2_v848d")
 
@@ -308,11 +330,13 @@ stop_points = Array[float]([0.17])
 
 [node name="Right" type="Node2D" parent="." unique_id=1016065657]
 visibility_layer = 17
+z_index = -2
 position = Vector2(994.0311, 434.01556)
 rotation = 2.065506
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Right" unique_id=1144087363]
+z_index = -2
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_ebja2")
@@ -325,11 +349,12 @@ script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.46])
 
 [node name="Node2D" type="Node2D" parent="Right/Right/PathFollow2D" unique_id=714244112]
-z_index = 2
+z_index = 3
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Right/Right/PathFollow2D/Node2D" unique_id=2056813191]
+z_index = 3
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
@@ -349,8 +374,7 @@ scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Right/Right/PathFollow2D/Node2D" unique_id=262586721]
-visible = false
-z_index = 2
+z_index = 5
 offset_left = -22.893023
 offset_top = 43.09746
 offset_right = 50.330704
@@ -360,6 +384,7 @@ text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Straight" type="Path2D" parent="Right" unique_id=717544897]
+z_index = -2
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_yjtlv")
 script = ExtResource("2_v848d")
@@ -371,6 +396,7 @@ script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Right" unique_id=1504836895]
+z_index = -2
 curve = SubResource("Curve2D_q8vh0")
 script = ExtResource("2_v848d")
 
@@ -382,34 +408,39 @@ stop_points = Array[float]([0.38])
 
 [node name="Up" type="Node2D" parent="." unique_id=289593973]
 visibility_layer = 17
+z_index = -2
 position = Vector2(1001.03094, 525.01544)
 rotation = 0.5235988
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Up" unique_id=399172067]
+z_index = -2
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_skpun")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Right" unique_id=1075155450]
+z_index = -2
 position = Vector2(-101.22528, -497.57822)
 rotation = 1.5066593
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.13])
 
 [node name="Node2D" type="Node2D" parent="Up/Right/PathFollow2D" unique_id=382171048]
-z_index = 2
+z_index = 3
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Up/Right/PathFollow2D/Node2D" unique_id=190210585]
+z_index = 3
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
 texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Up/Right/PathFollow2D/Node2D" unique_id=2015717232]
+z_index = -2
 rotation = 1.5707964
 scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
@@ -418,13 +449,13 @@ collision_mask = 2
 script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Right/PathFollow2D/Node2D/Area2D" unique_id=1395372807]
+z_index = -2
 rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Up/Right/PathFollow2D/Node2D" unique_id=459571553]
-visible = false
-z_index = 2
+z_index = 5
 offset_left = -30.847527
 offset_top = -15.127148
 offset_right = 42.376198
@@ -472,6 +503,7 @@ script = ExtResource("7_4g054")
 autostart = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=162271972]
+z_index = 5
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -494,7 +526,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "TimerLabel"
+text = "Pozostały czas"
 label_settings = SubResource("LabelSettings_wgtu0")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -512,7 +544,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "VehicleNumberLabel"
+text = "Ukończone trasy"
 label_settings = SubResource("LabelSettings_wgtu0")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -540,11 +572,35 @@ offset_bottom = 207.0
 label_settings = SubResource("LabelSettings_it43r")
 autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1174728492]
-libraries/ = SubResource("AnimationLibrary_tgipo")
-
 [node name="shadow1" type="TextureRect" parent="." unique_id=664922311]
+visible = false
 visibility_layer = 17
-offset_right = 1920.0
+z_index = 4
+offset_left = 0.00012207031
+offset_top = 6.1035156e-05
+offset_right = 1920.0001
 offset_bottom = 1080.0
 texture = ExtResource("10_xcgag")
+
+[node name="shadow2" type="TextureRect" parent="." unique_id=1646762573]
+visible = false
+visibility_layer = 17
+z_index = 4
+offset_left = 0.00012207031
+offset_top = 6.1035156e-05
+offset_right = 1920.0001
+offset_bottom = 1080.0
+texture = ExtResource("11_qej24")
+
+[node name="shadow3" type="TextureRect" parent="." unique_id=580499163]
+visible = false
+visibility_layer = 17
+z_index = 4
+offset_left = 0.00012207031
+offset_top = 6.1035156e-05
+offset_right = 1920.0001
+offset_bottom = 1080.0
+texture = ExtResource("12_it43r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1174728492]
+libraries/ = SubResource("AnimationLibrary_tgipo")

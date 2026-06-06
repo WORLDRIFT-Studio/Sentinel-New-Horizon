@@ -52,3 +52,9 @@ func _on_continue_button_pressed() -> void:
 	get_tree().paused = false
 	GameEvents.minigame_ended.emit()
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
+	
+func pause_timer() -> void:
+	timer.paused = true
+
+func resume_timer() -> void:
+	timer.paused = false

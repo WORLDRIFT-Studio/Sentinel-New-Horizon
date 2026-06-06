@@ -14,6 +14,8 @@
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="12_oqose"]
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="13_uwlav"]
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="14_wbqot"]
+[ext_resource type="Texture2D" uid="uid://e7adt8c8g06q" path="res://assets/icons/panel/shadow7.png" id="15_hmwpf"]
+[ext_resource type="Texture2D" uid="uid://btk1e10vhgxgw" path="res://assets/icons/panel/shadow8.png" id="16_n4j2i"]
 
 [sub_resource type="Environment" id="Environment_i5mjo"]
 background_mode = 3
@@ -125,6 +127,53 @@ tracks/2/keys = {
 _data = {
 &"PanelShowUp": SubResource("Animation_hxov7"),
 &"RESET": SubResource("Animation_ccb21")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4j2i"]
+bg_color = Color(0.10980392, 0.10980392, 0.17254902, 1)
+border_width_top = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_ighcn"]
+font_size = 25
+
+[sub_resource type="Animation" id="Animation_n4j2i"]
+resource_name = "PanelAnimation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-999, 564), Vector2(-999, 357)]
+}
+
+[sub_resource type="Animation" id="Animation_ighcn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-999, 564)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oqose"]
+_data = {
+&"PanelAnimation": SubResource("Animation_n4j2i"),
+&"RESET": SubResource("Animation_ighcn")
 }
 
 [node name="GameLevel" type="Node" unique_id=1105682545]
@@ -338,5 +387,59 @@ unique_name_in_owner = true
 process_mode = 3
 root_node = NodePath("../Summary")
 libraries/ = SubResource("AnimationLibrary_v78ou")
+
+[node name="shadow1" type="TextureRect" parent="." unique_id=1804071205]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -999.0
+offset_top = -1648.0
+offset_right = -926.1111
+offset_bottom = -527.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("15_hmwpf")
+
+[node name="shadow2" type="TextureRect" parent="." unique_id=1513277486]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -996.0
+offset_top = -1637.0
+offset_right = -837.77783
+offset_bottom = -468.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("16_n4j2i")
+
+[node name="Panel" type="Panel" parent="." unique_id=219385730]
+z_index = 9
+anchors_preset = -1
+anchor_left = 0.4734375
+anchor_top = 0.2
+anchor_right = 0.51458335
+anchor_bottom = 0.20687798
+offset_left = -1908.0
+offset_top = 348.0
+offset_right = 12.0
+offset_bottom = 552.9894
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4j2i")
+
+[node name="tutor_txt" type="Label" parent="Panel" unique_id=1890109198]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 2165.0
+offset_bottom = 207.0
+label_settings = SubResource("LabelSettings_ighcn")
+autowrap_mode = 3
+
+[node name="PanelAnimation" type="AnimationPlayer" parent="." unique_id=448670058]
+libraries/ = SubResource("AnimationLibrary_oqose")
 
 [connection signal="pressed" from="Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="LevelEditor" method="_on_continue_button_pressed"]

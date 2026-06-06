@@ -131,7 +131,7 @@ func _advance_tutorial() -> void:
 
 		5:
 			# Koniec tutorialu — zapisz i przeładuj scenę
-			GlobalData.set_tutorial_completed()
+			GlobalData.set_tutorial1_completed()
 			tutor_txt.gui_input.disconnect(_on_tutor_txt_clicked)
 			get_tree().reload_current_scene()
 
