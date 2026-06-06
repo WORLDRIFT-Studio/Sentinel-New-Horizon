@@ -9,6 +9,8 @@ var unlocked_ids: PackedStringArray
 func open_popup(should_pause: bool):
 	self.show()
 	animation_player.play("panels/PanelShow")	
+	was_paused_by_me = should_pause
+
 	if should_pause == true:
 		get_tree().paused = true
 

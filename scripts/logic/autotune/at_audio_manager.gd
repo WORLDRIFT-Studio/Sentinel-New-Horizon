@@ -2,6 +2,7 @@ extends Node
 
 var click_player: AudioStreamPlayer	
 
+
 func _enter_tree() -> void:
 	var tree = get_tree().root
 	print("============================================================")
@@ -24,7 +25,7 @@ func _ready() -> void:
 
 func _on_node_added(node: Node) -> void:
 	_check_button(node)
-
+	
 func _register_node(tree: Node) -> void:
 	for node in tree.get_children():
 		_check_button(node)
@@ -39,3 +40,4 @@ func _check_button(node) -> void:
 func _play_sound() -> void:
 	click_player.stop()
 	click_player.play()
+	pass

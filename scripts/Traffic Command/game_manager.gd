@@ -11,6 +11,7 @@ var timer_active: Array[bool] = [false, false, false, false]
 signal crash
 
 func _ready() -> void:
+	GlobalData.games_played["airport"] += 1
 	directions = [
 		{ 
 			"followers": [$Left/Right/PathFollow2D, $Left/Straight/PathFollow2D, $Left/Left/PathFollow2D], 

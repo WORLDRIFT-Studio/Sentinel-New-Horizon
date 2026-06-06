@@ -20,6 +20,9 @@ var song_time: float = 0.0
 var level_finished: bool = false
 
 func _ready():
+	GlobalData.games_played["airport"] += 1
+	$MusicPlayer.stream = level_info.get(current_level_name).get("music")
+	
 	Signals.music_player = $MusicPlayer
 	_generate_notes()
 	if in_edit_mode:

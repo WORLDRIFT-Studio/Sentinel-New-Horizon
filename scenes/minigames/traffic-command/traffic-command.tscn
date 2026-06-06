@@ -1,103 +1,99 @@
-[gd_scene format=3 uid="uid://basb1w6q5oxxr"]
+[gd_scene format=3 uid="uid://2onjtdxsygqu"]
 
-[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/Traffic Command/game_manager.gd" id="1_fyawp"]
-[ext_resource type="Texture2D" uid="uid://bnx45spr0iqyl" path="res://assets/assets/Traffic Command/Crossroad.jpg" id="2_umw8w"]
-[ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/Traffic Command/path_line.gd" id="3_fyawp"]
-[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/Traffic Command/path_follow.gd" id="4_fyawp"]
-[ext_resource type="Texture2D" uid="uid://brinberm23ana" path="res://assets/assets/Traffic Command/car1.png" id="6_dgyt0"]
-[ext_resource type="Script" uid="uid://d3crb5rjgqvus" path="res://scripts/Traffic Command/Area2D.gd" id="7_xeknn"]
-[ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="8_yq6a6"]
-[ext_resource type="Script" uid="uid://5sn5la5op6c" path="res://scripts/Traffic Command/Menu/MenuManager.gd" id="9_bbi4g"]
-[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="10_2wd3t"]
-[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="11_5l2jx"]
-[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="12_ho5do"]
-[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="13_6imvy"]
-[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="14_x2fc2"]
-[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="15_bgthv"]
-[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="16_j3ppd"]
+[ext_resource type="Script" uid="uid://btqekf5tyrf5u" path="res://scripts/Traffic Command/game_manager.gd" id="1_x4qmp"]
+[ext_resource type="Texture2D" uid="uid://bnx45spr0iqyl" path="res://assets/assets/Traffic Command/Crossroad.jpg" id="2_2qniy"]
+[ext_resource type="Script" uid="uid://c6lpnm060pb1c" path="res://scripts/Traffic Command/path_line.gd" id="2_v848d"]
+[ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/Traffic Command/path_follow.gd" id="3_x4qmp"]
+[ext_resource type="Texture2D" uid="uid://brinberm23ana" path="res://assets/assets/Traffic Command/car1.png" id="5_eqncl"]
+[ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/area2D.gd" id="5_forge"]
+[ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_bcpk6"]
+[ext_resource type="Script" uid="uid://5sn5la5op6c" path="res://scripts/Traffic Command/Menu/MenuManager.gd" id="8_qjc6c"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_j3vfk"]
+[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="10_re1w3"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="11_ubbt3"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="12_1y7gy"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="13_1q4jj"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="14_rtje8"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="15_n6tid"]
 
 [sub_resource type="Curve2D" id="Curve2D_03clw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -48.629906, -973.6143, 0, 0, 0, 0, 0.9173584, -253.94104, 152.2609, -4.05297, -152.2609, 4.05297, -98.44873, -39.996826, 0, 0, 0, 0, -568.08826, -19.849487)
+"points": PackedVector2Array(0, 0, 0, 0, -48.629906, -973.6143, 0, 0, 0, 0, 11.371002, -136.90576, 82.801865, -4.3914013, -82.801865, 4.3914013, -60.58963, -42.776733, 0, 0, 0, 0, -567.646, -26.512695)
 }
 point_count = 4
-
-[sub_resource type="GDScript" id="GDScript_xl8y5"]
-script/source = "extends Node
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym1ef"]
 size = Vector2(142.95575, 66.33226)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o80tv"]
-font = ExtResource("8_yq6a6")
+font = ExtResource("7_bcpk6")
 font_size = 46
 outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_uei48"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -53.034607, -985.1688, 0, 0, 0, 0, 19.620697, -1.3839111, 0, 0, 0, 0, 123.27362, 1186.7046)
+"points": PackedVector2Array(0, 0, 0, 0, -53.034607, -985.1688, 0, 0, 0, 0, 109.193634, 993.63696)
 }
-point_count = 3
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_8ojpj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -53.706284, -972.6312, 0, 0, 0, 0, 4.2493896, -159.91257, -64.70257, 2.8667574, 64.70257, -2.8667574, 80.256226, 29.532104, 0, 0, 0, 0, 628.2886, -7.529297)
+"points": PackedVector2Array(0, 0, 0, 0, -53.706284, -972.6312, 0, 0, 0, 0, 13.35437, -124.974976, -175.76509, -0.7617965, 175.76509, 0.7617965, 190.35501, 39.790405, 0, 0, 0, 0, 630.1072, 24.912842)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_ym1ef"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3.5410156, -585.75134, 0, 0, 0, 0, -1.8082275, -274.14948, 122.39436, 5.1549377, -122.39436, -5.1549377, -98.44873, -39.996826, 0, 0, 0, 0, -1134.7539, -15.805634)
+"points": PackedVector2Array(0, 0, 0, 0, 3.5410156, -585.75134, 0, 0, 0, 0, -0.998291, -121.61685, 93.17222, -1.5030916, -93.17222, 1.5030916, -94.89966, -26.363098, 0, 0, 0, 0, -950.8363, -21.666199)
 }
 point_count = 4
 
-[sub_resource type="Curve2D" id="Curve2D_avl7u"]
+[sub_resource type="Curve2D" id="Curve2D_forge"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -53.034607, -985.1688, 0, 0, 0, 0, -49.342285, 643.87964)
+"points": PackedVector2Array(0, 0, 0, 0, 7.7858887, -591.90393, 0, 0, 0, 0, -29.762695, 553.0974)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_p3o70"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 6.5043945, -588.2555, 0, 0, 0, 0, 4.2493896, -159.91257, -81.09502, -25.786903, 81.09502, 25.786903, 80.256226, 29.532104, 0, 0, 0, 0, 994.4957, 46.46484)
+"points": PackedVector2Array(0, 0, 0, 0, 6.5043945, -588.2555, 0, 0, 0, 0, -6.6882324, -121.21384, -165.48895, 2.3798332, 165.48895, -2.3798332, 159.84558, 45.23532, 0, 0, 0, 0, 994.4957, 46.46484)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_ebja2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -41.051086, -955.04517, 0, 0, 0, 0, -1.8082275, -274.14948, 122.39436, 5.1549377, -122.39436, -5.1549377, -98.44873, -39.996826, 0, 0, 0, 0, -1134.7539, -15.805634)
+"points": PackedVector2Array(0, 0, 0, 0, -41.051086, -955.04517, 0, 0, 0, 0, 0.15066528, -156.6466, 82.69992, -5.3017216, -82.69992, 5.3017216, -82.50705, -62.876343, 0, 0, 0, 0, -497.12457, -62.48828)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_yjtlv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -43.031677, -955.63525, 0, 0, 0, 0, 58.127846, 964.7615)
+"points": PackedVector2Array(0, 0, 0, 0, -36.80902, -951.7294, 0, 0, 0, 0, 58.802654, 960.29785)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_q8vh0"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -40.631348, -954.20276, 0, 0, 0, 0, 4.2493896, -159.91257, -81.09502, -25.786903, 81.09502, 25.786903, 86.57797, 11.139526, 0, 0, 0, 0, 707.2794, 10.970459)
+"points": PackedVector2Array(0, 0, 0, 0, -40.631348, -954.20276, 0, 0, 0, 0, -0.5440674, -148.41663, -189.90076, 0.7234237, 189.90076, -0.7234237, 174.82031, 23.479187, 0, 0, 0, 0, 705.62744, 23.256104)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_skpun"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -101.22528, -497.57822, 0, 0, 0, 0, -82.225464, -242.70947, 216.99745, -5.5199585, -216.99745, 5.5199585, -267.365, -32.3002, 0, 0, 0, 0, -1011.5627, 24.937359)
+"points": PackedVector2Array(0, 0, 0, 0, -101.22528, -497.57822, 0, 0, 0, 0, -78.109314, -137.65741, 111.51146, -12.95016, -111.51146, 12.95016, -170.00299, -31.255402, 0, 0, 0, 0, -1011.5627, 24.937359)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_6byfm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -98.53027, -504.29584, 0, 0, 0, 0, -39.89441, 635.4462)
+"points": PackedVector2Array(0, 0, 0, 0, -98.53027, -504.29584, 0, 0, 0, 0, -45.891357, 637.84265)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_8ryca"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -104.70697, -495.9031, 0, 0, 0, 0, -79.01697, -95.04309, -172.92032, 12.377232, 172.92032, -12.377232, 80.256226, 29.532104, 0, 0, 0, 0, 957.69604, -44.85794)
+"points": PackedVector2Array(0, 0, 0, 0, -104.70697, -495.9031, 0, 0, 0, 0, -76.45154, -119.63443, -155.58615, 13.800882, 155.58615, -13.800882, 97.16504, 24.71457, 0, 0, 0, 0, 957.90845, -40.79776)
 }
 point_count = 4
 
@@ -109,7 +105,7 @@ glow_levels/7 = 0.81
 glow_intensity = 1.0
 glow_blend_mode = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_wgtu0"]
+[sub_resource type="LabelSettings" id="LabelSettings_iwlsy"]
 font_size = 37
 
 [sub_resource type="Animation" id="Animation_hxov7"]
@@ -202,49 +198,47 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_emwve"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fc5i7"]
 _data = {
 &"PanelShowUp": SubResource("Animation_hxov7"),
 &"RESET": SubResource("Animation_ccb21")
 }
 
-[node name="MiniGame" type="Node" unique_id=285159271]
-script = ExtResource("1_fyawp")
+[node name="MiniGame" type="Node2D" unique_id=1380433955]
+script = ExtResource("1_x4qmp")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1027030258]
 position = Vector2(1085.1626, 542.5813)
 scale = Vector2(0.36172083, 0.36172083)
-texture = ExtResource("2_umw8w")
+texture = ExtResource("2_2qniy")
 
 [node name="Left" type="Node2D" parent="." unique_id=249154325]
 position = Vector2(950.031, 576.0155)
-rotation = -1.0511525
+rotation = 5.232033
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Left" unique_id=43909734]
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_03clw")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Right" unique_id=1896939417]
 position = Vector2(-48.629906, -973.6143)
-rotation = 1.5020579
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.25])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.4992082
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.42])
 
 [node name="Node2D" type="Node2D" parent="Left/Right/PathFollow2D" unique_id=406968989]
 z_index = 2
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
-script = SubResource("GDScript_xl8y5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Left/Right/PathFollow2D/Node2D" unique_id=100720868]
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
-texture = ExtResource("6_dgyt0")
+texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Left/Right/PathFollow2D/Node2D" unique_id=204446230]
 rotation = 1.5707964
@@ -252,7 +246,7 @@ scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("7_xeknn")
+script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Right/PathFollow2D/Node2D/Area2D" unique_id=595240819]
 rotation = 3.141129
@@ -262,66 +256,62 @@ shape = SubResource("RectangleShape2D_ym1ef")
 [node name="Timer" type="Label" parent="Left/Right/PathFollow2D/Node2D" unique_id=1145971738]
 visible = false
 z_index = 2
-offset_left = 30.000011
-offset_top = -30.00006
-offset_right = 103.22374
-offset_bottom = 33.64209
-rotation = 1.5707964
+offset_left = 18.609732
+offset_top = -18.066236
+offset_right = 91.83346
+offset_bottom = 45.575912
+rotation = 1.1238543
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Straight" type="Path2D" parent="Left" unique_id=1817042041]
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_uei48")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Straight" unique_id=319670935]
 position = Vector2(-53.034607, -985.1688)
-rotation = 1.4970773
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.2])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.4889964
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Left" unique_id=1484532717]
 curve = SubResource("Curve2D_8ojpj")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Left" unique_id=613326317]
 position = Vector2(-53.706284, -972.6312)
-rotation = 1.499606
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.2])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.4918478
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.41])
 
 [node name="Down" type="Node2D" parent="." unique_id=2058267442]
 position = Vector2(1022.0309, 522.01544)
-rotation = -2.6862376
-scale = Vector2(1.0999999, 1.0999999)
+rotation = 3.5969477
+scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Down" unique_id=880336974]
 position = Vector2(-0.3323909, -8.947348)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_ym1ef")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Right" unique_id=1388163434]
 position = Vector2(3.5410156, -585.75134)
-rotation = 1.5879616
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.25])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.5805762
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.18])
 
 [node name="Node2D" type="Node2D" parent="Down/Right/PathFollow2D" unique_id=45677192]
 z_index = 2
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
-script = SubResource("GDScript_xl8y5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Down/Right/PathFollow2D/Node2D" unique_id=1741801948]
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
-texture = ExtResource("6_dgyt0")
+texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Down/Right/PathFollow2D/Node2D" unique_id=60073816]
 rotation = 1.5707964
@@ -329,7 +319,7 @@ scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("7_xeknn")
+script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Right/PathFollow2D/Node2D/Area2D" unique_id=228843030]
 rotation = 3.141129
@@ -339,67 +329,62 @@ shape = SubResource("RectangleShape2D_ym1ef")
 [node name="Timer" type="Label" parent="Down/Right/PathFollow2D/Node2D" unique_id=302402516]
 visible = false
 z_index = 2
-offset_left = 30.000011
-offset_top = -30.00006
-offset_right = 103.22374
-offset_bottom = 33.64209
-rotation = 1.5707964
+offset_left = 37.489662
+offset_top = 32.07051
+offset_right = 110.71339
+offset_bottom = 95.71266
+rotation = 2.675682
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
-[node name="Straight" type="Path2D" parent="Down" unique_id=936718889]
-position = Vector2(51.7591, 104.759544)
-scale = Vector2(1.0436475, 0.7017452)
-curve = SubResource("Curve2D_avl7u")
-script = ExtResource("3_fyawp")
+[node name="Straight" type="Path2D" parent="Down" unique_id=1159388313]
+scale = Vector2(0.99999994, 0.99999994)
+curve = SubResource("Curve2D_forge")
+script = ExtResource("2_v848d")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Down/Straight" unique_id=282894095]
-position = Vector2(-53.034607, -985.1688)
-rotation = 1.5685297
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.2])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+[node name="PathFollow2D" type="PathFollow2D" parent="Down/Straight" unique_id=214108761]
+position = Vector2(7.7858887, -591.90393)
+rotation = 1.6035781
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.22])
 
 [node name="Left" type="Path2D" parent="Down" unique_id=1224891115]
 curve = SubResource("Curve2D_p3o70")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Left" unique_id=1756183145]
 position = Vector2(6.5043945, -588.2555)
-rotation = 1.5760608
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.2])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.599036
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.17])
 
 [node name="Right" type="Node2D" parent="." unique_id=1016065657]
 position = Vector2(994.0311, 434.01556)
 rotation = 2.065506
-scale = Vector2(1.0999999, 1.0999999)
+scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Right" unique_id=1144087363]
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_ebja2")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Right" unique_id=797430382]
 position = Vector2(-41.051086, -955.04517)
-rotation = 1.5132258
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.25])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.5192366
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.42])
 
 [node name="Node2D" type="Node2D" parent="Right/Right/PathFollow2D" unique_id=714244112]
 z_index = 2
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
-script = SubResource("GDScript_xl8y5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Right/Right/PathFollow2D/Node2D" unique_id=2056813191]
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
-texture = ExtResource("6_dgyt0")
+texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Right/Right/PathFollow2D/Node2D" unique_id=1927792936]
 rotation = 1.5707964
@@ -407,7 +392,7 @@ scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("7_xeknn")
+script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Right/PathFollow2D/Node2D/Area2D" unique_id=1813511427]
 rotation = 3.141129
@@ -417,36 +402,34 @@ shape = SubResource("RectangleShape2D_ym1ef")
 [node name="Timer" type="Label" parent="Right/Right/PathFollow2D/Node2D" unique_id=262586721]
 visible = false
 z_index = 2
-offset_left = 30.000011
-offset_top = -30.00006
-offset_right = 103.22374
-offset_bottom = 33.64209
-rotation = 1.5707964
+offset_left = -22.893023
+offset_top = 43.09746
+offset_right = 50.330704
+offset_bottom = 106.73961
+rotation = -2.0135634
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Straight" type="Path2D" parent="Right" unique_id=717544897]
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_yjtlv")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Straight" unique_id=1639830290]
-position = Vector2(-43.031677, -955.63525)
-rotation = 1.5181686
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.2])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+position = Vector2(-36.80902, -951.7294)
+rotation = 1.5208325
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Right" unique_id=1504836895]
 curve = SubResource("Curve2D_q8vh0")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Right/Left" unique_id=1472682494]
 position = Vector2(-40.631348, -954.20276)
-rotation = 1.5143521
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.2])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.521088
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.37])
 
 [node name="Up" type="Node2D" parent="." unique_id=289593973]
 position = Vector2(1001.03094, 525.01544)
@@ -457,26 +440,24 @@ scale = Vector2(1.1, 1.1)
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_skpun")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Right" unique_id=1075155450]
 position = Vector2(-101.22528, -497.57822)
-rotation = 1.4963865
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.25])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.5066593
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.13])
 
 [node name="Node2D" type="Node2D" parent="Up/Right/PathFollow2D" unique_id=382171048]
 z_index = 2
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
-script = SubResource("GDScript_xl8y5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Up/Right/PathFollow2D/Node2D" unique_id=190210585]
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
-texture = ExtResource("6_dgyt0")
+texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Up/Right/PathFollow2D/Node2D" unique_id=2015717232]
 rotation = 1.5707964
@@ -484,7 +465,7 @@ scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("7_xeknn")
+script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Right/PathFollow2D/Node2D/Area2D" unique_id=1395372807]
 rotation = 3.141129
@@ -494,41 +475,39 @@ shape = SubResource("RectangleShape2D_ym1ef")
 [node name="Timer" type="Label" parent="Up/Right/PathFollow2D/Node2D" unique_id=459571553]
 visible = false
 z_index = 2
-offset_left = 30.000011
-offset_top = -30.00006
-offset_right = 103.22374
-offset_bottom = 33.64209
-rotation = 1.5707964
+offset_left = -30.847527
+offset_top = -15.127148
+offset_right = 42.376198
+offset_bottom = 48.515003
+rotation = -0.47710407
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Straight" type="Path2D" parent="Up" unique_id=1587363695]
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_6byfm")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Straight" unique_id=2017760009]
 position = Vector2(-98.53027, -504.29584)
-rotation = 1.519395
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.2])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.5247409
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.15])
 
 [node name="Left" type="Path2D" parent="Up" unique_id=684848335]
 curve = SubResource("Curve2D_8ryca")
-script = ExtResource("3_fyawp")
+script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Left" unique_id=1829831874]
 position = Vector2(-104.70697, -495.9031)
-rotation = 1.5067966
-script = ExtResource("4_fyawp")
-stop_points = Array[float]([0.2])
-vehicle_speeds = Array[float]([80.0, 100.0, 120.0, 150.0, 180.0])
+rotation = 1.4958433
+script = ExtResource("3_x4qmp")
+stop_points = Array[float]([0.11])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2085531439]
 environment = SubResource("Environment_ekx8n")
 
-[node name="Menu" type="Control" parent="." unique_id=1596310081]
+[node name="Menu" type="Control" parent="." unique_id=511618675]
 process_mode = 3
 z_index = 2
 layout_mode = 3
@@ -538,13 +517,13 @@ offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
-script = ExtResource("9_bbi4g")
+script = ExtResource("8_qjc6c")
 
-[node name="Timer" type="Timer" parent="Menu" unique_id=971441526]
+[node name="Timer" type="Timer" parent="Menu" unique_id=411679765]
 unique_name_in_owner = true
 autostart = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=162271972]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=2143917805]
 process_mode = 1
 layout_mode = 1
 anchors_preset = 5
@@ -555,12 +534,12 @@ offset_right = 429.0
 offset_bottom = 65.0
 grow_horizontal = 2
 
-[node name="Panel" type="Panel" parent="Menu/HBoxContainer" unique_id=1528893109]
+[node name="Panel" type="Panel" parent="Menu/HBoxContainer" unique_id=700510495]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("10_2wd3t")
+theme_override_styles/panel = ExtResource("9_j3vfk")
 
-[node name="TimerLabel" type="Label" parent="Menu/HBoxContainer/Panel" unique_id=1718644784]
+[node name="TimerLabel" type="Label" parent="Menu/HBoxContainer/Panel" unique_id=740114983]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -569,16 +548,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "TimerLabel"
-label_settings = SubResource("LabelSettings_wgtu0")
+label_settings = SubResource("LabelSettings_iwlsy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Menu/HBoxContainer" unique_id=1266211850]
+[node name="Panel2" type="Panel" parent="Menu/HBoxContainer" unique_id=1137269695]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("10_2wd3t")
+theme_override_styles/panel = ExtResource("9_j3vfk")
 
-[node name="VehicleNumberLabel" type="Label" parent="Menu/HBoxContainer/Panel2" unique_id=889468228]
+[node name="VehicleNumberLabel" type="Label" parent="Menu/HBoxContainer/Panel2" unique_id=1378268635]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -587,11 +566,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "VehicleNumberLabel"
-label_settings = SubResource("LabelSettings_wgtu0")
+label_settings = SubResource("LabelSettings_iwlsy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Summary" type="Panel" parent="Menu" unique_id=1164186359]
+[node name="Summary" type="Panel" parent="Menu" unique_id=1798970434]
 unique_name_in_owner = true
 process_mode = 3
 visible = false
@@ -610,13 +589,13 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0)
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("10_2wd3t")
+theme_override_styles/panel = ExtResource("9_j3vfk")
 
-[node name="PanelSound" type="AudioStreamPlayer" parent="Menu/Summary" unique_id=1710059237]
+[node name="PanelSound" type="AudioStreamPlayer" parent="Menu/Summary" unique_id=710465029]
 unique_name_in_owner = true
-stream = ExtResource("11_5l2jx")
+stream = ExtResource("10_re1w3")
 
-[node name="MainContainer" type="MarginContainer" parent="Menu/Summary" unique_id=457889653]
+[node name="MainContainer" type="MarginContainer" parent="Menu/Summary" unique_id=1972461755]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -628,18 +607,18 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer" unique_id=150336760]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer" unique_id=1975619199]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Panel" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=398756788]
+[node name="Panel" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=478159455]
 custom_minimum_size = Vector2(2.04, 0)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("12_ho5do")
+theme_override_styles/panel = ExtResource("11_ubbt3")
 
-[node name="SumDay" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel" unique_id=1124112312]
+[node name="SumDay" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel" unique_id=1902323793]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -647,19 +626,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("13_6imvy")
+theme_override_fonts/font = ExtResource("12_1y7gy")
 theme_override_font_sizes/font_size = 65
 text = "Podsumowanie dnia X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=382113390]
+[node name="Panel2" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=559305809]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("12_ho5do")
+theme_override_styles/panel = ExtResource("11_ubbt3")
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2" unique_id=1932450893]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2" unique_id=458800389]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -671,54 +650,54 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer" unique_id=1744662509]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer" unique_id=1763828688]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Time" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1687380205]
+[node name="Time" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=695581087]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("13_6imvy")
+theme_override_fonts/font = ExtResource("12_1y7gy")
 theme_override_font_sizes/font_size = 48
 text = "Czas bez stłuczki:"
 
-[node name="Cars" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1345442894]
+[node name="Cars" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1771219044]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("13_6imvy")
+theme_override_fonts/font = ExtResource("12_1y7gy")
 theme_override_font_sizes/font_size = 48
 text = "Obsłużone samochody:"
 
-[node name="Score" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1718638453]
+[node name="Score" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=897736979]
 unique_name_in_owner = true
 modulate = Color(1, 0.32941177, 0.32941177, 1)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("13_6imvy")
+theme_override_fonts/font = ExtResource("12_1y7gy")
 theme_override_font_sizes/font_size = 48
 text = "Punkty:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=1903323194]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=1208935045]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=991959353]
+[node name="ContinueButton" type="Button" parent="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=1274505612]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("10_2wd3t")
-theme_override_styles/pressed = ExtResource("14_x2fc2")
-theme_override_styles/hover = ExtResource("15_bgthv")
-theme_override_styles/hover_pressed = ExtResource("16_j3ppd")
+theme_override_styles/normal = ExtResource("9_j3vfk")
+theme_override_styles/pressed = ExtResource("13_1q4jj")
+theme_override_styles/hover = ExtResource("14_rtje8")
+theme_override_styles/hover_pressed = ExtResource("15_n6tid")
 text = "Kontynuuj"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu" unique_id=1885744798]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu" unique_id=944458970]
 unique_name_in_owner = true
 process_mode = 3
 root_node = NodePath("../Summary")
-libraries/ = SubResource("AnimationLibrary_emwve")
+libraries/ = SubResource("AnimationLibrary_fc5i7")
 
 [connection signal="pressed" from="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="Menu" method="_on_continue_button_pressed"]
