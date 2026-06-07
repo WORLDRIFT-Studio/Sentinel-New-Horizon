@@ -8,6 +8,449 @@
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="6_fedbj"]
 [ext_resource type="Texture2D" uid="uid://dexq0p0n7ayxl" path="res://assets/icons/cancel.png" id="7_hwx6a"]
 [ext_resource type="AnimationLibrary" uid="uid://b5iksv711xx0u" path="res://resources/panels.res" id="9_tqlu0"]
+[ext_resource type="PackedScene" uid="uid://dbyab2s7qv6sl" path="res://scenes/hud/achivement.tscn" id="9_wylq7"]
+
+[sub_resource type="Shader" id="Shader_tqlu0"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wylq7"]
+resource_local_to_scene = true
+shader = SubResource("Shader_tqlu0")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxqmx"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_y08r5"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fedbj"]
+resource_local_to_scene = true
+shader = SubResource("Shader_y08r5")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwx6a"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_0lqyw"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmqq"]
+resource_local_to_scene = true
+shader = SubResource("Shader_0lqyw")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nlk7"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_hrl6c"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6myp"]
+resource_local_to_scene = true
+shader = SubResource("Shader_hrl6c")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2flos"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_slf3y"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4bj3"]
+resource_local_to_scene = true
+shader = SubResource("Shader_slf3y")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mks7t"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_apuf4"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nf5bu"]
+resource_local_to_scene = true
+shader = SubResource("Shader_apuf4")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tywna"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_t00pc"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ano5o"]
+resource_local_to_scene = true
+shader = SubResource("Shader_t00pc")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q46wd"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_yu6jq"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujm1g"]
+resource_local_to_scene = true
+shader = SubResource("Shader_yu6jq")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xcb0"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_41j52"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jibn"]
+resource_local_to_scene = true
+shader = SubResource("Shader_41j52")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1iea"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_v6har"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvnld"]
+resource_local_to_scene = true
+shader = SubResource("Shader_v6har")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sd8hq"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_darnn"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1db3"]
+resource_local_to_scene = true
+shader = SubResource("Shader_darnn")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f7qk"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_nwik3"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3rf6"]
+resource_local_to_scene = true
+shader = SubResource("Shader_nwik3")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfmej"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Shader" id="Shader_475g8"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enable = true;
+
+void fragment() {
+	if (enable) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7x61c"]
+resource_local_to_scene = true
+shader = SubResource("Shader_475g8")
+shader_parameter/weighted = true
+shader_parameter/enable = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqyqf"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
 
 [node name="AchivementsMenu" type="Popup" unique_id=1784852679]
 process_mode = 3
@@ -36,7 +479,6 @@ pivot_offset_ratio = Vector2(0.5, 0)
 theme_override_styles/panel = ExtResource("2_tqlu0")
 
 [node name="MainContainer" type="Control" parent="Menu" unique_id=971000523]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,9 +486,136 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MainContainer" unique_id=767095458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 125
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/MainContainer/MarginContainer" unique_id=404920959]
+layout_mode = 2
+
+[node name="UpgradesContainer" type="GridContainer" parent="Menu/MainContainer/MarginContainer/ScrollContainer" unique_id=2112266724]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Panel2" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=867786617 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_wylq7")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wxqmx")
+title = "Pierwsze ulepszenie"
+description = "Zakup pierwsze ulepszenie w grze !"
+achievement_id = "1_upgrade"
+
+[node name="Panel" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=2122592497 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_fedbj")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hwx6a")
+title = "Zakupocholik"
+description = "Zakup wszystkie dostępne ulepszenia w grze !"
+achievement_id = "all_upgrades"
+
+[node name="Panel3" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=45724957 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_hvmqq")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5nlk7")
+title = "Zakończ 1 dzień"
+description = "Zakończ 1 dzień szkolenia Sentinela. Tak trzymaj !"
+achievement_id = "1_day"
+
+[node name="Panel4" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=59036966 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_t6myp")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2flos")
+title = "Wytrwały pracownik"
+description = "Ukończ 5 dni. Profesor Kliś jest dumny."
+achievement_id = "5_day"
+
+[node name="Panel5" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=973665276 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_e4bj3")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mks7t")
+title = "Czy to emerytura ?"
+description = "Ukończ 10 dni w swojej pracy. Sentinel już prawie cię zastąpił."
+achievement_id = "10_day"
+
+[node name="Panel6" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1912766943 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_nf5bu")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tywna")
+title = "Sława"
+description = "Ktoś tu zyskuje na popularności. Trzymaj tak dalej, a może będziesz tak znany jak profesor Kliś."
+achievement_id = "50_rep"
+
+[node name="Panel7" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1147420906 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_ano5o")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q46wd")
+title = "Osoba przedsiębiorcza"
+description = "Osiągnij sukces ekonomiczny - twoja reputacja wynosi 100+."
+achievement_id = "100_rep"
+
+[node name="Panel8" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=272903667 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_ujm1g")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2xcb0")
+title = "Udana kontrola"
+description = "Ukończ 1 zmianę na lotnisku."
+achievement_id = "airport_1"
+
+[node name="Panel9" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1953681793 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_3jibn")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i1iea")
+title = "Papierkowa robota"
+description = "Napisz swój pierwszy raport"
+achievement_id = "report_1"
+
+[node name="Panel10" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1371368257 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_bvnld")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sd8hq")
+title = "Kontroler drogowy"
+description = "Zarządzaj ruchem drogowym poraz pierwszy."
+achievement_id = "traffic_1"
+
+[node name="Panel11" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1342608684 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_v1db3")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1f7qk")
+title = "Profesjonalny kontrole"
+description = "Ukończ 5 zmian na lotnisku."
+achievement_id = "airport_5"
+
+[node name="Panel12" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1297315519 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_m3rf6")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xfmej")
+title = "Pośród dokumentów"
+description = "Napisz 5 raportów"
+achievement_id = "report_5"
+
+[node name="Panel13" parent="Menu/MainContainer/MarginContainer/ScrollContainer/UpgradesContainer" unique_id=1602932685 instance=ExtResource("9_wylq7")]
+material = SubResource("ShaderMaterial_7x61c")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dqyqf")
+title = "Inteligentna sygnalizacja"
+description = "Ukończ minigrę typu 'ruch drogowy' 5 razy."
+achievement_id = "traffic_5"
+
 [node name="Close" type="Button" parent="Menu/MainContainer" unique_id=520370973]
 process_mode = 3
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 14.5
 offset_top = 14.5

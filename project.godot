@@ -21,8 +21,8 @@ buses/default_bus_layout="uid://5227sa4gu62v"
 [autoload]
 
 GameEvents="*uid://dvcpvx6nvxko5"
-SettingsManager="*uid://ckmvkk0cm2uap"
 AudioManager="*uid://sb75jvnxxr1n"
+SettingsManager="*uid://ckmvkk0cm2uap"
 GlobalData="*uid://g277xbbdc3lt"
 TimeManager="*uid://bw7vjowvy2bw7"
 SaveLoad="*uid://j4cw5ew3xkio"
@@ -30,6 +30,7 @@ BackgroundMusic="*uid://uqlpwqjpv552"
 Signals="*uid://da7o6msmrto8m"
 TransitionScene="*uid://dida4s0n1jhx5"
 NotificationManager="*uid://b30lvarff0hyc"
+AchivementsManager="*uid://xkanjw2p3qom"
 
 [display]
 

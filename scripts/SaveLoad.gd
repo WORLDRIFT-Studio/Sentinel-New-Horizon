@@ -17,6 +17,13 @@ const DEFAULT_SAVE: Dictionary = {
 		"rep_multi": 1
 	},
 	"unlocked_upgrades": [],
+	"unlocked_achievements": [],
+	"tutorial": {
+		"traffic_command": false,
+		"raport_writer": false,
+		"airport_sec": false,
+		"emergency_rush": false,
+	},
 }
 
 var contents_to_save: Dictionary = DEFAULT_SAVE.duplicate()
