@@ -11,7 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_j3vfk"]
 [ext_resource type="Texture2D" uid="uid://olsgstcb42ps" path="res://assets/icons/panel/shadow4.png" id="10_xcgag"]
 [ext_resource type="Texture2D" uid="uid://uy2mu7oocaqm" path="res://assets/icons/panel/shadow5.png" id="11_qej24"]
-[ext_resource type="Texture2D" uid="uid://dgxhdutp4cp75" path="res://assets/icons/panel/shadow6.png" id="12_it43r"]
+[ext_resource type="Texture2D" uid="uid://doyo2c2qrngf1" path="res://assets/icons/panel/shadow6.png" id="12_it43r"]
 
 [sub_resource type="Curve2D" id="Curve2D_03clw"]
 _data = {
@@ -116,7 +116,7 @@ corner_radius_top_right = 10
 font_size = 25
 
 [sub_resource type="Animation" id="Animation_qeljt"]
-length = 0.001
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

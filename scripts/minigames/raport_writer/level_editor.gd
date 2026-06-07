@@ -20,7 +20,6 @@ var level_info = {
 }
 
 func _ready():
-	GlobalData.games_played["airport"] += 1
 	$MusicPlayer.stream = level_info.get(current_level_name).get("music")
 	
 	Signals.music_player = $MusicPlayer

@@ -10,7 +10,7 @@ signal alerts_saved
 var reputation: int = 100
 var tutorial_airport: bool = false
 var tutorial_traffic: bool = false
-var tutorial_raport: bool = false
+var tutorial_rush: bool = false
 var bonus: Dictionary = {
 	"day_duration": 0,
 	"daily": 0,
@@ -83,10 +83,10 @@ func set_tutorial2_completed() -> void:
 	tutorial_traffic = true
 
 func has_completed_tutorial3() -> bool:
-	return tutorial_raport
+	return tutorial_rush
 
 func set_tutorial3_completed() -> void:
-	tutorial_raport = true
+	tutorial_rush = true
 
 func alerts_save(parent: Node) -> void:
 	spawned_alerts.clear()
