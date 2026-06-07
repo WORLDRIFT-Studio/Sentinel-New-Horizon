@@ -19,7 +19,7 @@ func _ready():
 	TimerLabel.text = "Pozostały czas: " + str(time_left) + "s"
 	VehicleNumberLabel.text = "Ukończone trasy: 0"
 	timer.timeout.connect(_on_timer_timeout)
-
+	
 func _on_timer_timeout():
 	time_left -= 1
 	if time_left >= 0:

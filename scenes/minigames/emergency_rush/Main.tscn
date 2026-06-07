@@ -8,18 +8,184 @@
 [ext_resource type="Script" uid="uid://fntf8q1p72i0" path="res://scripts/minigames/emergency_rush/Spawner.gd" id="4_5h2y0"]
 [ext_resource type="PackedScene" uid="uid://bb5221k6slbi6" path="res://scenes/minigames/emergency_rush/car.tscn" id="5_5h2y0"]
 [ext_resource type="PackedScene" uid="uid://ct7xp046lvdc2" path="res://scenes/minigames/emergency_rush/fuel.tscn" id="6_bbj7j"]
+[ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_kovo7"]
 [ext_resource type="Script" uid="uid://rudfjd1iw0ib" path="res://scripts/minigames/emergency_rush/FuelGauge.gd" id="10_kovo7"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="10_vc71s"]
+[ext_resource type="Script" uid="uid://d310l8e8ysttr" path="res://scenes/minigames/emergency_rush/summary.gd" id="12_dpr32"]
+[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="12_kk3dk"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="13_dpr32"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="14_6doaf"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="15_bk7iy"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="16_1cpx3"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="17_fiyk4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbj7j"]
 radius = 167.2727
 height = 749.0908
+
+[sub_resource type="Gradient" id="Gradient_vc71s"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.75, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iwlnr"]
+gradient = SubResource("Gradient_vc71s")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_vc71s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture:gradient:colors")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedColorArray(1, 0, 0, 1, 1, 0.75, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kovo7"]
+resource_name = "light"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture:gradient:colors")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedColorArray(0, 0.18431373, 1, 1, 0, 0.18431373, 1, 0), PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6lng"]
+_data = {
+&"RESET": SubResource("Animation_vc71s"),
+&"light": SubResource("Animation_kovo7")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_kovo7"]
 font = ExtResource("10_vc71s")
 font_size = 50
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kufxy"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Animation" id="Animation_hxov7"]
+resource_name = "PanelShowUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(22, 22.5), Vector2(802, 112), Vector2(802, 794)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(949, 528.75), Vector2(559, 484), Vector2(559, 184)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainContainer/VBoxContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ccb21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainContainer/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t4idy"]
+_data = {
+&"PanelShowUp": SubResource("Animation_hxov7"),
+&"RESET": SubResource("Animation_ccb21")
+}
 
 [node name="Main" type="Node2D" unique_id=1686783828]
 script = ExtResource("1_sp8l3")
@@ -48,6 +214,7 @@ texture = ExtResource("3_r0v72")
 vframes = 3
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1843705538]
+unique_name_in_owner = true
 script = ExtResource("4_5h2y0")
 car_scene = ExtResource("5_5h2y0")
 fuel_scene = ExtResource("6_bbj7j")
@@ -59,6 +226,7 @@ autostart = true
 autostart = true
 
 [node name="Ambulance" type="CharacterBody2D" parent="." unique_id=517011759]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(952, 40)
 scale = Vector2(1.1, 1.1)
@@ -80,14 +248,39 @@ position = Vector2(1.8181818, -1.8181812)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("CapsuleShape2D_bbj7j")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=962286908]
+[node name="PointLight2D" type="PointLight2D" parent="Ambulance" unique_id=468956217]
+position = Vector2(0, 19.545473)
+scale = Vector2(7.52841, 6.917614)
+energy = 3.4
+texture = SubResource("GradientTexture2D_iwlnr")
 
-[node name="ScoreLabel" type="Label" parent="UI" unique_id=1427627945]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ambulance" unique_id=2125438470]
+libraries/ = SubResource("AnimationLibrary_e6lng")
+autoplay = &"light"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=962286908]
+process_mode = 3
+
+[node name="Panel" type="Panel" parent="UI" unique_id=1540706987]
+offset_top = 6.0
+offset_right = 321.0
+offset_bottom = 95.0
+theme_override_styles/panel = ExtResource("9_kovo7")
+
+[node name="ScoreLabel" type="Label" parent="UI/Panel" unique_id=1427627945]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 label_settings = SubResource("LabelSettings_kovo7")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FuelGauge" type="Control" parent="UI" unique_id=402597670]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 808.0
@@ -110,5 +303,138 @@ horizontal_alignment = 1
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Summary" type="Panel" parent="UI" unique_id=177281749]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.25
+offset_right = 11.0
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_kufxy")
+script = ExtResource("12_dpr32")
+
+[node name="PanelSound" type="AudioStreamPlayer" parent="UI/Summary" unique_id=936425161]
+unique_name_in_owner = true
+stream = ExtResource("12_kk3dk")
+
+[node name="MainContainer" type="MarginContainer" parent="UI/Summary" unique_id=519332440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Summary/MainContainer" unique_id=1386738446]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="UI/Summary/MainContainer/VBoxContainer" unique_id=848616118]
+custom_minimum_size = Vector2(2.04, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("13_dpr32")
+
+[node name="SumDay" type="Label" parent="UI/Summary/MainContainer/VBoxContainer/Panel" unique_id=1747315640]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_6doaf")
+theme_override_font_sizes/font_size = 65
+text = "Podsumowanie:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="UI/Summary/MainContainer/VBoxContainer" unique_id=696880700]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("13_dpr32")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Summary/MainContainer/VBoxContainer/Panel2" unique_id=1542785798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer" unique_id=547769588]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Distance" type="Label" parent="UI/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1912657642]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_6doaf")
+theme_override_font_sizes/font_size = 48
+text = "Przejechany dystans:"
+
+[node name="Score" type="Label" parent="UI/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1942282881]
+unique_name_in_owner = true
+modulate = Color(1, 0.32941177, 0.32941177, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_6doaf")
+theme_override_font_sizes/font_size = 48
+text = "Punkty:"
+
+[node name="PR" type="Label" parent="UI/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1852718058]
+unique_name_in_owner = true
+modulate = Color(1, 0.32941177, 0.32941177, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_6doaf")
+theme_override_font_sizes/font_size = 48
+text = "Punkty:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Summary/MainContainer/VBoxContainer" unique_id=1158761915]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="UI/Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=1570714099]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_kufxy")
+theme_override_styles/pressed = ExtResource("15_bk7iy")
+theme_override_styles/hover = ExtResource("16_1cpx3")
+theme_override_styles/hover_pressed = ExtResource("17_fiyk4")
+text = "Kontynuuj"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=609537332]
+unique_name_in_owner = true
+process_mode = 3
+root_node = NodePath("../Summary")
+libraries/ = SubResource("AnimationLibrary_t4idy")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=928444753]
 offset = Vector2(954.5, 0)
+
+[connection signal="pressed" from="UI/Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/Summary" method="_on_continue_button_pressed"]

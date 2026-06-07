@@ -6,6 +6,7 @@ var current_lane = 3
 
 func _ready() -> void:
 	global_position.x = LANES[current_lane]
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_left"):
