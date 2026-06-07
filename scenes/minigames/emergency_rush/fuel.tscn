@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ct7xp046lvdc2"]
+
+[ext_resource type="Texture2D" uid="uid://d2fuoaxmocekb" path="res://assets/assets/emergency_rush/fuel.png" id="1_3rhgi"]
+[ext_resource type="Script" uid="uid://cgkonw224ysr3" path="res://scripts/minigames/emergency_rush/Fuel.gd" id="1_mul5n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mul5n"]
+size = Vector2(62, 85)
+
+[node name="Fuel" type="Area2D" unique_id=799976767]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_mul5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=769834849]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3rhgi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=506236167]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_mul5n")
