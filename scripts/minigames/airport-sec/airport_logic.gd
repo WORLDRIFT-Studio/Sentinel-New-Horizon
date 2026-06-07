@@ -18,6 +18,13 @@ extends Node
 @onready var chbx_container: VBoxContainer = $Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer
 @onready var next_button: HBoxContainer = $Control/Panel/HBoxContainer
 
+# Referencje label
+@onready var time_bonus_value: Label = %TimeBonusValue
+@onready var stats_value: Label = %StatsValue
+@onready var grade_value: Label = %GradeValue
+@onready var total_value: Label = %TotalValue
+
+
 # Referencje do elementów tutorialu
 @onready var arrow1: Node = $arrow1
 @onready var arrow2: Node = $arrow2
@@ -25,6 +32,8 @@ extends Node
 @onready var buttons_panel: Node = $Control/Buttons
 @onready var timer_node: Node = $Control/Timer
 @onready var tutor_txt: Label = $Control/Panel/tutor_txt
+@onready var summary: Panel = %Summary
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 #region GlobalScopeVariable
 # Zmienne zegara
@@ -260,6 +269,8 @@ func _on_next_pressed() -> void:
 		display_next_npc()
 	else:
 		points = show_final_summary()
+		animation_player.play("PanelShowUp")
+		print("Play test")
 
 #endregion
 
@@ -288,10 +299,10 @@ func show_final_summary() -> int:
 		# ale dla statystyki "skuteczności" lepiej pokazać po prostu trafienia
 		accuracy = (float(perfect) / checked) * 100 if checked > 0 else 0.0
 	# --- PRZYGOTOWANIE TEKSTÓW ---
-	%TimeBonusValue.text = "PREMIA ZA CZAS: +" + str(time_bonus)
+	time_bonus_value.text = "PREMIA ZA CZAS: +" + str(time_bonus)
 	
 	# Statystyki szczegółowe
-	%StatsValue.text = (
+	stats_value.text = (
 		"RAPORT SŁUŻBY:\n" +
 		"Odprawieni pasażerowie: " + str(checked) + "\n" +
 		"Bezbłędne kontrole: " + str(perfect) + "\n" +
@@ -304,32 +315,13 @@ func show_final_summary() -> int:
 	elif final_score > 0: evaluation = "STATUS: KONTROLER ZATWIERDZONY"
 	else: evaluation = "STATUS: DO PONOWNEGO SZKOLENIA"
 	
-	%GradeValue.text = evaluation
-	%TotalValue.text = "SUMA PUNKTÓW: 0"
+	grade_value.text = evaluation
+	total_value.text = "SUMA PUNKTÓW: 0"
 	
-	%EndGame.show()
-	
-	# --- ANIMACJA ---
-	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	
-	# 1. Najpierw pokazujemy statystyki (płynne pojawienie się tekstu)
-	%StatsValue.modulate.a = 0
-	tween.tween_property(%StatsValue, "modulate:a", 1.0, 1.0)
-	
-	# 2. Licznik punktów (wolniejszy i wyraźny)
-	tween.tween_method(
-		func(value): %TotalValue.text = "WYNIK KOŃCOWY: " + str(value), 
-		0, 
-		final_score, 
-		3.0 
-	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	
-	# 3. Na koniec status/komentarz
-	tween.tween_interval(0.5)
-	%GradeValue.modulate.a = 0
-	%GradeValue.show()
-	tween.tween_property(%GradeValue, "modulate:a", 1.0, 0.8)
+	animation_player.play("PanelShowUp")
+
 	return final_score
+
 func check_single_npc(npc: NPC, answer: Dictionary) -> int:
 	var score: int = 0
 	var table = npc.truth_table
@@ -388,13 +380,13 @@ func _time_is_up() -> void:
 	chbx_container.propagate_call("set_disabled", [true])
 	
 	points = show_final_summary()
+	animation_player.play("PanelShowUp")
+	print("Play test")
 #endregion
 
 
 func _on_click_to_show_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		%ClickToShow.hide()
-		%Report.show()
 		if !fanfare_played:
 			%Fanfare.play()
 			fanfare_played = true
@@ -403,5 +395,6 @@ func _on_click_to_show_gui_input(event: InputEvent) -> void:
 func _on_back_to_main_pressed() -> void:
 	get_tree().paused = false
 	GlobalData.set_score(points)
+	GlobalData.games_played["airport"] += 1
 	GameEvents.minigame_ended.emit()
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
