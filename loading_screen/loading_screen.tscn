@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://ckppsp4wof84t"]
+
+[ext_resource type="Texture2D" uid="uid://bxf031kg7vofl" path="res://loading_screen/Workspace 1_006.png" id="2_lci1q"]
+[ext_resource type="Shader" uid="uid://d16cf7h184sf5" path="res://loading_screen/loading_screen.gdshader" id="2_t3pau"]
+[ext_resource type="Texture2D" uid="uid://6331ofu427p7" path="res://loading_screen/WORLDRIFT.svg" id="4_d137i"]
+[ext_resource type="Texture2D" uid="uid://ccv38nmayy1us" path="res://loading_screen/STUDIO.svg" id="5_wphp2"]
+[ext_resource type="Script" uid="uid://c4y4p018uwxgo" path="res://loading_screen/progress_bar.gd" id="6_d137i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icsxr"]
+shader = ExtResource("2_t3pau")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwlnr"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5372549, 0.40784314, 0.8666667, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d137i"]
+bg_color = Color(0.5372549, 0.40784314, 0.8666667, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="loading" type="Control" unique_id=852300314]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1374165007]
+material = SubResource("ShaderMaterial_icsxr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lci1q")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=980890417]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.5
+offset_top = -66.5
+offset_right = 385.5
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1613831082]
+layout_mode = 2
+
+[node name="Worldrift" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1443332100]
+layout_mode = 2
+texture = ExtResource("4_d137i")
+
+[node name="Studio" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=477956981]
+layout_mode = 2
+texture = ExtResource("5_wphp2")
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=280668436]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_iwlnr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d137i")
+value = 50.0
+script = ExtResource("6_d137i")
