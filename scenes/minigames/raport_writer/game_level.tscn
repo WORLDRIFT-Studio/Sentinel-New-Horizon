@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dfdglmltorqae" path="res://scenes/minigames/raport_writer/key_listener.tscn" id="1_h3xak"]
 [ext_resource type="Texture2D" uid="uid://dq6y4ispu7uhf" path="res://art/6d1e9c94-bc23-453c-ba9a-c923a3a46835.png" id="2_2i5ty"]
 [ext_resource type="PackedScene" uid="uid://coqj034dvvbeu" path="res://scenes/minigames/raport_writer/level_editor.tscn" id="4_1wrej"]
+[ext_resource type="Texture2D" uid="uid://bx8mxbume1sik" path="res://art/NOTE_assets.png" id="4_n4j2i"]
 [ext_resource type="Script" uid="uid://cchdw0x1epff7" path="res://scripts/minigames/raport_writer/game_ui.gd" id="4_w2rj3"]
 [ext_resource type="FontFile" uid="uid://ud3all3x1xuy" path="res://art/Atop-R99O3.ttf" id="6_smvv8"]
 [ext_resource type="Script" uid="uid://25dxxbewk27v" path="res://scripts/minigames/raport_writer/fading_label.gd" id="6_wtvao"]
@@ -14,6 +15,22 @@
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="12_oqose"]
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="13_uwlav"]
 [ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="14_wbqot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4j2i"]
+atlas = ExtResource("4_n4j2i")
+region = Rect2(173, 16, 162, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqose"]
+atlas = ExtResource("4_n4j2i")
+region = Rect2(534, 16, 169, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v78ou"]
+atlas = ExtResource("4_n4j2i")
+region = Rect2(721, 17, 169, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atgft"]
+atlas = ExtResource("4_n4j2i")
+region = Rect2(357, 20, 162, 169)
 
 [sub_resource type="Environment" id="Environment_i5mjo"]
 background_mode = 3
@@ -148,26 +165,35 @@ offset_right = 425.19687
 offset_bottom = 840.9448
 
 [node name="KeyListener" parent="." unique_id=1523681864 instance=ExtResource("1_h3xak")]
-position = Vector2(-180, 280)
-scale = Vector2(1.8, 1.8)
+position = Vector2(-200.00002, 280)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_n4j2i")
+hframes = 1
+vframes = 1
 key_name = "button_Q"
 
 [node name="KeyListener2" parent="." unique_id=259453524 instance=ExtResource("1_h3xak")]
-position = Vector2(-60, 280)
-scale = Vector2(1.8, 1.8)
-frame = 1
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_oqose")
+hframes = 1
+vframes = 1
+region_rect = Rect2(1000, 0, 0, 0)
 key_name = "button_W"
 
 [node name="KeyListener3" parent="." unique_id=1931055636 instance=ExtResource("1_h3xak")]
-position = Vector2(60, 280)
-scale = Vector2(1.8, 1.8)
-frame = 2
+position = Vector2(65, 280)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_v78ou")
+hframes = 1
+vframes = 1
 key_name = "button_E"
 
 [node name="KeyListener4" parent="." unique_id=1526436716 instance=ExtResource("1_h3xak")]
-position = Vector2(180, 280)
-scale = Vector2(1.8, 1.8)
-frame = 3
+position = Vector2(190, 280)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_atgft")
+hframes = 1
+vframes = 1
 key_name = "button_R"
 
 [node name="GameUI" type="Control" parent="." unique_id=2049040131]
@@ -193,12 +219,24 @@ theme_override_font_sizes/normal_font_size = 41
 text = " 0 pts"
 scroll_active = false
 
+[node name="TimerLabel" type="RichTextLabel" parent="GameUI/CanvasLayer" unique_id=1882850108]
+unique_name_in_owner = true
+offset_left = 29.0
+offset_top = 75.0
+offset_right = 371.0
+offset_bottom = 128.0
+theme_override_constants/outline_size = 14
+theme_override_fonts/normal_font = ExtResource("6_smvv8")
+theme_override_font_sizes/normal_font_size = 41
+text = "s"
+scroll_active = false
+
 [node name="ComboLabel" type="RichTextLabel" parent="GameUI/CanvasLayer" unique_id=2080346328]
 unique_name_in_owner = true
-offset_left = 18.0
-offset_top = 72.0
-offset_right = 360.0
-offset_bottom = 125.0
+offset_left = 15.0
+offset_top = 141.0
+offset_right = 357.0
+offset_bottom = 194.0
 theme_override_constants/outline_size = 14
 theme_override_fonts/normal_font = ExtResource("6_smvv8")
 theme_override_font_sizes/normal_font_size = 41
@@ -315,6 +353,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("11_ighcn")
 theme_override_font_sizes/font_size = 48
 text = "Punkty:"
+
+[node name="Timer" type="Label" parent="Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1782073844]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("6_smvv8")
+theme_override_font_sizes/font_size = 41
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Summary/MainContainer/VBoxContainer" unique_id=1267346816]
 custom_minimum_size = Vector2(0, 75)

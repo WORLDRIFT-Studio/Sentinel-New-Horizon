@@ -41,6 +41,7 @@ _data = {
 }
 
 [node name="KeyListener" type="Sprite2D" unique_id=2144139727]
+position = Vector2(-65, 280)
 texture = ExtResource("1_2gc7i")
 hframes = 4
 vframes = 3
