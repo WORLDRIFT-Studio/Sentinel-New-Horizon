@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://d4e8826t0lkin"]
+
+[ext_resource type="Script" uid="uid://cduvwx7p2kliv" path="res://scripts/minigames/emergency_rush/Main.gd" id="1_sp8l3"]
+[ext_resource type="Texture2D" uid="uid://d0ffx668imow5" path="res://assets/assets/emergency_rush/ambulances.png" id="2_h2n20"]
+[ext_resource type="Script" uid="uid://br8vidbw3emst" path="res://scripts/minigames/emergency_rush/Road.gd" id="2_uhyv1"]
+[ext_resource type="Texture2D" uid="uid://bedkqyjvubick" path="res://assets/assets/emergency_rush/road1.jpg" id="3_r0v72"]
+[ext_resource type="Script" uid="uid://dieowxyr6g4ca" path="res://scripts/minigames/emergency_rush/Ambulance.gd" id="3_wdxif"]
+[ext_resource type="Script" uid="uid://fntf8q1p72i0" path="res://scripts/minigames/emergency_rush/Spawner.gd" id="4_5h2y0"]
+[ext_resource type="PackedScene" uid="uid://bb5221k6slbi6" path="res://scenes/minigames/emergency_rush/car.tscn" id="5_5h2y0"]
+[ext_resource type="PackedScene" uid="uid://ct7xp046lvdc2" path="res://scenes/minigames/emergency_rush/fuel.tscn" id="6_bbj7j"]
+[ext_resource type="Script" uid="uid://rudfjd1iw0ib" path="res://scripts/minigames/emergency_rush/FuelGauge.gd" id="10_kovo7"]
+[ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="10_vc71s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbj7j"]
+radius = 167.2727
+height = 749.0908
+
+[sub_resource type="LabelSettings" id="LabelSettings_kovo7"]
+font = ExtResource("10_vc71s")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D" unique_id=1686783828]
+script = ExtResource("1_sp8l3")
+
+[node name="Road" type="Node2D" parent="." unique_id=1821401496]
+script = ExtResource("2_uhyv1")
+
+[node name="RoadTile1" type="Sprite2D" parent="Road" unique_id=633546121]
+position = Vector2(954.49994, 542.00006)
+scale = Vector2(0.67, 0.669)
+texture = ExtResource("3_r0v72")
+vframes = 3
+frame = 2
+
+[node name="RoadTile2" type="Sprite2D" parent="Road" unique_id=1889790205]
+position = Vector2(954.5, 542)
+scale = Vector2(0.67, 0.669)
+texture = ExtResource("3_r0v72")
+vframes = 3
+frame = 1
+
+[node name="RoadTile3" type="Sprite2D" parent="Road" unique_id=2016358482]
+position = Vector2(954.5, 542)
+scale = Vector2(0.67, 0.669)
+texture = ExtResource("3_r0v72")
+vframes = 3
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1843705538]
+script = ExtResource("4_5h2y0")
+car_scene = ExtResource("5_5h2y0")
+fuel_scene = ExtResource("6_bbj7j")
+
+[node name="CarSpawnTimer" type="Timer" parent="Spawner" unique_id=389747232]
+autostart = true
+
+[node name="FuelSpawnTimer" type="Timer" parent="Spawner" unique_id=441280761]
+autostart = true
+
+[node name="Ambulance" type="CharacterBody2D" parent="." unique_id=517011759]
+z_index = 1
+position = Vector2(952, 40)
+scale = Vector2(1.1, 1.1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_wdxif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ambulance" unique_id=735363716]
+position = Vector2(-2.3841858e-07, 2.3841858e-07)
+rotation = -3.1415927
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_h2n20")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(181.61072, 171.85208, 2284.956, 1161.2758)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ambulance" unique_id=734607539]
+position = Vector2(1.8181818, -1.8181812)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CapsuleShape2D_bbj7j")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=962286908]
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=1427627945]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_kovo7")
+
+[node name="FuelGauge" type="Control" parent="UI" unique_id=402597670]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 808.0
+offset_top = 770.0
+offset_right = 1145.0
+offset_bottom = 986.0
+script = ExtResource("10_kovo7")
+
+[node name="FuelLabel" type="Label" parent="UI/FuelGauge" unique_id=619719885]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 146.0
+offset_right = 277.0
+offset_bottom = 207.0
+text = "Paliwo"
+label_settings = SubResource("LabelSettings_kovo7")
+horizontal_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI" unique_id=165457125]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=928444753]
+offset = Vector2(954.5, 0)
