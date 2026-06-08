@@ -10,6 +10,7 @@ var distance : float = 0.0:
 		distance = clampf(new_value, 0, 5000)	
 var fuel_full : float = 10.0
 var fuel : float = 10.0
+@onready var tutorial: AnimationPlayer = %Tutorial
 
 @onready var score_label: Label = %ScoreLabel
 @onready var fuel_gauge: Control = %FuelGauge
@@ -19,10 +20,6 @@ var tutorial_step: int = 0
 var is_tutorial: bool = false
 var tutorial_done = false
 
-@onready var score_label = $UI/ScoreLabel
-@onready var ambulance = $Ambulance
-@onready var spawner = $Spawner
-@onready var fuel_gauge = $UI/FuelGauge
 @onready var tutor_txt: Label = $Panel/tutor_txt
 @onready var animation_panel: AnimationPlayer= $AnimationPanel
 
@@ -59,7 +56,7 @@ func start_tutorial() -> void:
 	spawner.process_mode = Node.PROCESS_MODE_DISABLED
 	fuel_gauge.visible = false
 	
-	animation_panel.play("panel_anim")
+	tutorial.play("panel_anim")
 	tutor_txt.visible = true
 	set_tutor_text("Witaj w sekcji szkoleniowej sterowania wozem ratunkowym. Aby rozpocząć szkolenie kliknij w pokazany tekst.")
 
@@ -87,10 +84,11 @@ func _advance_tutorial() -> void:
 			get_tree().reload_current_scene()
 
 func _process(delta):
-	distance += (SCROLL_SPEED / PIXELS_PER_METER) * delta
-	fuel = max(0.0, fuel - delta * 0.6)
-	
 	if not is_tutorial:
+		distance += (SCROLL_SPEED / PIXELS_PER_METER) * delta
+		fuel = max(0.0, fuel - delta * 0.25)
+		
+
 		fuel = max(0.0, fuel - delta * 0.6)
 		if fuel <= 0.0:
 			on_ambulance_hit()
@@ -99,18 +97,18 @@ func _process(delta):
 		else:
 			fuel_gauge.set_fuel(fuel, fuel_full)
 	
-	if distance < 1000.0:
-		score_label.text = "Dystans: %d m / 5km" % int(distance)
-	else:
-		score_label.text = "Dystans: %.2f km / 5km" % (distance / 1000.0)
-	
-	if distance >= 5000:
-		on_ambulance_hit()
-	
-	if fuel == 10.0:
-		fuel_gauge.restore_fuel()
-	else:
-		fuel_gauge.set_fuel(fuel, fuel_full)
+		if distance < 1000.0:
+			score_label.text = "Dystans: %d m / 5km" % int(distance)
+		else:
+			score_label.text = "Dystans: %.2f km / 5km" % (distance / 1000.0)
+		
+		if distance >= 5000:
+			on_ambulance_hit()
+		
+		if fuel == 10.0:
+			fuel_gauge.restore_fuel()
+		else:
+			fuel_gauge.set_fuel(fuel, fuel_full)
 
 
 func on_ambulance_hit():

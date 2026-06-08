@@ -22,6 +22,11 @@ zapobiegaj kolizjom, aby nie zakorkować miasta i uniknąć katastrofy."""
 		"difficulty": "umiarkowany",
 		"description": """Pisz raporty, robiąc to jaknajdokładniej, a jednocześnie
 		robiąc to starannie i szybko."""
+	},
+	"rush": {
+		"path": "res://scenes/minigames/emergency_rush/Main.tscn", 
+		"difficulty": "łatwy",
+		"description": """Prowadź karetkę bezpośrednio do celu, omijając przy tym korki."""
 	}
 }
 var option: Dictionary

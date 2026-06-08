@@ -11,7 +11,7 @@ var base_interval = 3.0
 var min_interval = 0.4
 var difficulty_timer = 0.0
 var car_speed = 200.0
-var fuel_timer = 6.0
+var fuel_timer = 5.0
 
 @onready var car_spawn_timer = $CarSpawnTimer
 @onready var fuel_spawn_timer = $FuelSpawnTimer
