@@ -77,6 +77,7 @@ func force_update() -> void:
 	
 func has_completed_tutorial1() -> bool:
 	SaveLoad.load_content()
+	tutorial_airport = SaveLoad.contents_to_save.tutorial.airport_sec
 	return tutorial_airport
 
 func set_tutorial1_completed() -> void:
@@ -86,6 +87,7 @@ func set_tutorial1_completed() -> void:
 
 func has_completed_tutorial2() -> bool:
 	SaveLoad.load_content()
+	tutorial_traffic = SaveLoad.contents_to_save.tutorial.traffic_command
 	return tutorial_traffic
 
 func set_tutorial2_completed() -> void:
@@ -95,6 +97,7 @@ func set_tutorial2_completed() -> void:
 
 func has_completed_tutorial3() -> bool:
 	SaveLoad.load_content()
+	tutorial_rush = SaveLoad.contents_to_save.tutorial.emergency_rush
 	return tutorial_rush
 
 func set_tutorial3_completed() -> void:
