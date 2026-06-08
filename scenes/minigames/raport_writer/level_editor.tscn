@@ -6,5 +6,6 @@
 script = ExtResource("1_agvgh")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1350917303]
+unique_name_in_owner = true
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

@@ -20,7 +20,6 @@ const DEFAULT_SAVE: Dictionary = {
 	"unlocked_achievements": [],
 	"tutorial": {
 		"traffic_command": false,
-		"raport_writer": false,
 		"airport_sec": false,
 		"emergency_rush": false,
 	},

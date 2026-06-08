@@ -499,6 +499,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vc71s")
 
 [node name="tutor_txt" type="Label" parent="Panel" unique_id=1848091321]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
@@ -508,7 +509,8 @@ text = "Zbieraj ... po drodze, by nie skończyło ci się paliwo."
 label_settings = SubResource("LabelSettings_e6lng")
 autowrap_mode = 3
 
-[node name="AnimationPanel" type="AnimationPlayer" parent="." unique_id=687004865]
+[node name="Tutorial" type="AnimationPlayer" parent="." unique_id=687004865]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_d2gu2")
 
 [connection signal="pressed" from="UI/Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/Summary" method="_on_continue_button_pressed"]

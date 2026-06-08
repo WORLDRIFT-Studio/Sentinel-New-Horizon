@@ -22,6 +22,11 @@ var penalty_today: int = 0
 var spawned_alerts: Array[Dictionary] = []
 var upgrades_bought: int = 0
 var upgrades_count: int
+var games_played = {
+	"traffic": 0,
+	"airport": 0,
+	"report": 0
+}
 
 func _ready() -> void:
 	TimeManager.connect("day_changed", _reset_stats)
@@ -71,22 +76,31 @@ func force_update() -> void:
 	reputation_changed.emit(reputation)
 	
 func has_completed_tutorial1() -> bool:
+	SaveLoad.load_content()
 	return tutorial_airport
 
 func set_tutorial1_completed() -> void:
 	tutorial_airport = true
+	SaveLoad.contents_to_save.tutorial.airport_sec = tutorial_airport
+	SaveLoad.save_content()
 
 func has_completed_tutorial2() -> bool:
+	SaveLoad.load_content()
 	return tutorial_traffic
 
 func set_tutorial2_completed() -> void:
 	tutorial_traffic = true
+	SaveLoad.contents_to_save.tutorial.traffic_command = tutorial_traffic
+	SaveLoad.save_content()
 
 func has_completed_tutorial3() -> bool:
+	SaveLoad.load_content()
 	return tutorial_rush
 
 func set_tutorial3_completed() -> void:
 	tutorial_rush = true
+	SaveLoad.contents_to_save.tutorial.emergency_rush = tutorial_rush
+	SaveLoad.save_content()
 
 func alerts_save(parent: Node) -> void:
 	spawned_alerts.clear()

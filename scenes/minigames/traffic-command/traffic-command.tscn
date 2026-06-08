@@ -9,9 +9,15 @@
 [ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/minigames/traffic_command/Menu/MenuManager.gd" id="7_4g054"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_bcpk6"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_j3vfk"]
+[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="10_re1w3"]
 [ext_resource type="Texture2D" uid="uid://olsgstcb42ps" path="res://assets/icons/panel/shadow4.png" id="10_xcgag"]
 [ext_resource type="Texture2D" uid="uid://uy2mu7oocaqm" path="res://assets/icons/panel/shadow5.png" id="11_qej24"]
+[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="11_ubbt3"]
+[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="12_1y7gy"]
 [ext_resource type="Texture2D" uid="uid://doyo2c2qrngf1" path="res://assets/icons/panel/shadow6.png" id="12_it43r"]
+[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="13_1q4jj"]
+[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="14_rtje8"]
+[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="15_n6tid"]
 
 [sub_resource type="Curve2D" id="Curve2D_03clw"]
 _data = {
@@ -19,8 +25,9 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym1ef"]
-size = Vector2(142.95575, 66.33226)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qej24"]
+radius = 33.028915
+height = 156.55489
 
 [sub_resource type="LabelSettings" id="LabelSettings_o80tv"]
 font = ExtResource("7_bcpk6")
@@ -104,6 +111,116 @@ glow_blend_mode = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_wgtu0"]
 font_size = 37
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtje8"]
+resource_local_to_scene = true
+bg_color = Color(0.11372549, 0.11372549, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="Animation" id="Animation_hxov7"]
+resource_name = "PanelShowUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(22, 22.5), Vector2(802, 112), Vector2(802, 794)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 2),
+"update": 0,
+"values": [Vector2(949, 528.75), Vector2(559, 484), Vector2(559, 184)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainContainer/VBoxContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ccb21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainContainer/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6tid"]
+_data = {
+&"PanelShowUp": SubResource("Animation_hxov7"),
+&"RESET": SubResource("Animation_ccb21")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qej24"]
 bg_color = Color(0.10980392, 0.10980392, 0.17254902, 1)
@@ -206,9 +323,10 @@ script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Right/PathFollow2D/Node2D/Area2D" unique_id=595240819]
 z_index = -2
-rotation = 3.141129
+position = Vector2(3.6605306, 1.2712557)
+rotation = 1.5707964
 scale = Vector2(0.9999995, 0.999999)
-shape = SubResource("RectangleShape2D_ym1ef")
+shape = SubResource("CapsuleShape2D_qej24")
 
 [node name="Timer" type="Label" parent="Left/Right/PathFollow2D/Node2D" unique_id=1145971738]
 z_index = 5
@@ -290,9 +408,9 @@ script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Right/PathFollow2D/Node2D/Area2D" unique_id=228843030]
 z_index = -2
-rotation = 3.141129
+rotation = 1.5707964
 scale = Vector2(0.9999995, 0.999999)
-shape = SubResource("RectangleShape2D_ym1ef")
+shape = SubResource("CapsuleShape2D_qej24")
 
 [node name="Timer" type="Label" parent="Down/Right/PathFollow2D/Node2D" unique_id=302402516]
 z_index = 5
@@ -369,9 +487,9 @@ collision_mask = 2
 script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Right/PathFollow2D/Node2D/Area2D" unique_id=1813511427]
-rotation = 3.141129
+rotation = 1.5707964
 scale = Vector2(0.9999995, 0.999999)
-shape = SubResource("RectangleShape2D_ym1ef")
+shape = SubResource("CapsuleShape2D_qej24")
 
 [node name="Timer" type="Label" parent="Right/Right/PathFollow2D/Node2D" unique_id=262586721]
 z_index = 5
@@ -450,9 +568,9 @@ script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Right/PathFollow2D/Node2D/Area2D" unique_id=1395372807]
 z_index = -2
-rotation = 3.141129
+rotation = 1.5707964
 scale = Vector2(0.9999995, 0.999999)
-shape = SubResource("RectangleShape2D_ym1ef")
+shape = SubResource("CapsuleShape2D_qej24")
 
 [node name="Timer" type="Label" parent="Up/Right/PathFollow2D/Node2D" unique_id=459571553]
 z_index = 5
@@ -549,6 +667,129 @@ label_settings = SubResource("LabelSettings_wgtu0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Summary" type="Panel" parent="Menu" unique_id=277652701]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.25
+offset_right = 11.0
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_rtje8")
+
+[node name="PanelSound" type="AudioStreamPlayer" parent="Menu/Summary" unique_id=208545424]
+unique_name_in_owner = true
+stream = ExtResource("10_re1w3")
+
+[node name="MainContainer" type="MarginContainer" parent="Menu/Summary" unique_id=799145781]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer" unique_id=1281438607]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=1900115629]
+custom_minimum_size = Vector2(2.04, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("11_ubbt3")
+
+[node name="SumDay" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel" unique_id=1286658492]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_1y7gy")
+theme_override_font_sizes/font_size = 65
+text = "Podsumowanie:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=2103549705]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("11_ubbt3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2" unique_id=1591680040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer" unique_id=2111816376]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Score" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1686017547]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_1y7gy")
+theme_override_font_sizes/font_size = 48
+text = "Punkty:"
+
+[node name="PR" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1770431225]
+unique_name_in_owner = true
+modulate = Color(1, 0.32941177, 0.32941177, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_1y7gy")
+theme_override_font_sizes/font_size = 48
+text = "Reputacja:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=2146420258]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=873690862]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtje8")
+theme_override_styles/pressed = ExtResource("13_1q4jj")
+theme_override_styles/hover = ExtResource("14_rtje8")
+theme_override_styles/hover_pressed = ExtResource("15_n6tid")
+text = "Kontynuuj"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu" unique_id=637804812]
+unique_name_in_owner = true
+process_mode = 3
+root_node = NodePath("../Summary")
+libraries/ = SubResource("AnimationLibrary_n6tid")
+
 [node name="Panel" type="Panel" parent="." unique_id=99532213]
 z_index = 9
 anchors_preset = 13
@@ -604,3 +845,5 @@ texture = ExtResource("12_it43r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1174728492]
 libraries/ = SubResource("AnimationLibrary_tgipo")
+
+[connection signal="pressed" from="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="Menu" method="_on_continue_button_pressed"]

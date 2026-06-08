@@ -21,4 +21,5 @@ func _on_amublanse_hit(value: float) -> void:
 
 func _on_continue_button_pressed() -> void:
 	print("powrot")
+	get_tree().paused = false
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
