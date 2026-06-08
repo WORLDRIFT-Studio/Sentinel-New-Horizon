@@ -14,7 +14,7 @@ signal alert # Gdy ma pojawić się alert
 var start_hour: int = 8
 var end_hour: int = 16
 var step: int = 15
-var clock_wait_time: float = 0.2
+var clock_wait_time: float = 1
 
 var current_day: int = 1
 var current_minutes: int

@@ -14,7 +14,9 @@
 [ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="11_hwgkw"]
 [ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="12_6dwx7"]
 [ext_resource type="Script" uid="uid://bacolv5jxkeqk" path="res://scripts/logic/search.gd" id="12_btq6p"]
-[ext_resource type="Texture2D" uid="uid://b2pwh4xngowu0" path="res://assets/icons/panel/arrow.png" id="15_6dwx7"]
+[ext_resource type="Texture2D" uid="uid://oa8g57tes75f" path="res://assets/icons/panel/shadow1.png" id="15_b6rna"]
+[ext_resource type="Texture2D" uid="uid://db3wa20uvuqve" path="res://assets/icons/panel/shadow2.png" id="16_1swfa"]
+[ext_resource type="Texture2D" uid="uid://e25tjymuons" path="res://assets/icons/panel/shadow3.png" id="17_qo24b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r6h2x"]
 shader = ExtResource("5_hwgkw")
@@ -53,103 +55,7 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_6dwx7"]
-font_size = 25
-
-[sub_resource type="Animation" id="Animation_hxov7"]
-resource_name = "PanelShowUp"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
-"transitions": PackedFloat32Array(1, 1, 2),
-"update": 0,
-"values": [Vector2(22, 22.5), Vector2(802, 112), Vector2(802, 794)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
-"transitions": PackedFloat32Array(1, 1, 2),
-"update": 0,
-"values": [Vector2(949, 528.75), Vector2(559, 484), Vector2(559, 184)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.39999998),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MainContainer/VBoxContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.76666665, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ccb21"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MainContainer/VBoxContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dwx7"]
-_data = {
-&"PanelShowUp": SubResource("Animation_hxov7"),
-&"RESET": SubResource("Animation_ccb21")
-}
+font_size = 40
 
 [sub_resource type="Environment" id="Environment_qwtxs"]
 background_mode = 3
@@ -738,38 +644,23 @@ size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Control" unique_id=1257644194]
+z_index = 9
 layout_mode = 0
 offset_top = 880.0
 offset_right = 1925.0
 offset_bottom = 1085.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_r6h2x")
 
-[node name="tutor_txt" type="Label" parent="Control/Panel" unique_id=1700184553]
-layout_mode = 0
-offset_left = 11.0
-offset_right = 1907.0
-offset_bottom = 201.0
-label_settings = SubResource("LabelSettings_6dwx7")
-autowrap_mode = 3
-
-[node name="Buttons" type="VBoxContainer" parent="Control" unique_id=602404991]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 18.0
-anchor_bottom = 1.825
-offset_left = 600.0
-offset_top = 896.0
-offset_right = -33240.0
-offset_bottom = -905.0
-theme_override_constants/separation = 10
-metadata/_edit_group_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Buttons" unique_id=1117151756]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel" unique_id=1117151756]
 custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
+layout_mode = 0
+offset_left = 600.0
+offset_top = 16.0
+offset_right = 1320.0
+offset_bottom = 96.0
 theme_override_constants/separation = 20
 
-[node name="Next" type="Button" parent="Control/Buttons/HBoxContainer" unique_id=1330136753]
+[node name="Next" type="Button" parent="Control/Panel/HBoxContainer" unique_id=1330136753]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -781,12 +672,38 @@ theme_override_styles/hover_pressed = ExtResource("11_hwgkw")
 action_mode = 0
 text = "Następny"
 
+[node name="tutor_txt" type="Label" parent="Control/Panel" unique_id=1700184553]
+layout_mode = 0
+offset_left = 11.0
+offset_right = 1907.0
+offset_bottom = 184.0
+label_settings = SubResource("LabelSettings_6dwx7")
+autowrap_mode = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Control" unique_id=602404991]
+z_index = 10
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 600.0
+offset_top = -92.0
+offset_right = -600.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+metadata/_edit_group_ = true
+
 [node name="Panel" type="Panel" parent="Control/Buttons" unique_id=916820225]
+z_index = 10
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("6_e547k")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Buttons/Panel" unique_id=669772398]
+z_index = 10
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -796,13 +713,14 @@ grow_vertical = 2
 
 [node name="NPCLeft" type="Label" parent="Control/Buttons/Panel/MarginContainer" unique_id=595377632]
 unique_name_in_owner = true
+z_index = 10
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 text = "Pozostało do sprawdzenia: 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Summary" type="Panel" parent="Control" unique_id=1470628606]
+[node name="EndGame" type="Panel" parent="Control" unique_id=1470628606]
 unique_name_in_owner = true
 process_mode = 3
 visible = false
@@ -814,16 +732,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -401.0
-offset_top = -356.0
-offset_right = 401.0
-offset_bottom = 438.0
+offset_left = -360.0
+offset_top = -413.0
+offset_right = 360.0
+offset_bottom = 328.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = ExtResource("6_e547k")
 
-[node name="MainContainer" type="MarginContainer" parent="Control/Summary" unique_id=881580850]
+[node name="MarginContainer" type="MarginContainer" parent="Control/EndGame" unique_id=881580850]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -835,17 +753,16 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Summary/MainContainer" unique_id=639699463]
-modulate = Color(1, 1, 1, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/EndGame/MarginContainer" unique_id=639699463]
 layout_mode = 2
 theme_override_constants/separation = 35
 
-[node name="Panel" type="Panel" parent="Control/Summary/MainContainer/VBoxContainer" unique_id=959063797]
+[node name="Panel" type="Panel" parent="Control/EndGame/MarginContainer/VBoxContainer" unique_id=959063797]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("6_6dwx7")
 
-[node name="Label" type="Label" parent="Control/Summary/MainContainer/VBoxContainer/Panel" unique_id=764715293]
+[node name="Label" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Panel" unique_id=764715293]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -857,14 +774,35 @@ text = "Minigra ukończona !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Report" type="Panel" parent="Control/Summary/MainContainer/VBoxContainer" unique_id=1237798388]
+[node name="ClickToShow" type="Panel" parent="Control/EndGame/MarginContainer/VBoxContainer" unique_id=1226064473]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("6_6dwx7")
 metadata/_edit_group_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Summary/MainContainer/VBoxContainer/Report" unique_id=1171601721]
+[node name="Label" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/ClickToShow" unique_id=1656357075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5803922, 0.5803922, 0.5882353, 1)
+theme_override_font_sizes/font_size = 24
+text = "Kliknij aby zobaczyć raport"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Report" type="Panel" parent="Control/EndGame/MarginContainer/VBoxContainer" unique_id=1237798388]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("6_6dwx7")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/EndGame/MarginContainer/VBoxContainer/Report" unique_id=1171601721]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -876,28 +814,28 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Summary/MainContainer/VBoxContainer/Report/MarginContainer" unique_id=1356466127]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer" unique_id=1356466127]
 layout_mode = 2
 
-[node name="PanelContainer" type="VBoxContainer" parent="Control/Summary/MainContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1654914443]
+[node name="PanelContainer" type="VBoxContainer" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1654914443]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TimeBonusValue" type="Label" parent="Control/Summary/MainContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1332834936]
+[node name="TimeBonusValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1332834936]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Mnożnik czasu: "
 
-[node name="StatsValue" type="Label" parent="Control/Summary/MainContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=380124228]
+[node name="StatsValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=380124228]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Bonus:"
 
-[node name="TotalValue" type="Label" parent="Control/Summary/MainContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1903292786]
+[node name="TotalValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1903292786]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
@@ -905,14 +843,14 @@ theme_override_colors/font_color = Color(1, 0.21176471, 0.3137255, 1)
 theme_override_font_sizes/font_size = 32
 text = "Suma punktów:"
 
-[node name="GradeValue" type="Label" parent="Control/Summary/MainContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1136592783]
+[node name="GradeValue" type="Label" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/PanelContainer" unique_id=1136592783]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Sprawdzono: "
 
-[node name="BackToMain" type="Button" parent="Control/Summary/MainContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1521740125]
+[node name="BackToMain" type="Button" parent="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer" unique_id=1521740125]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = ExtResource("6_e547k")
@@ -921,7 +859,7 @@ theme_override_styles/hover = ExtResource("12_6dwx7")
 theme_override_styles/hover_pressed = ExtResource("11_e547k")
 text = "Wróć do gry"
 
-[node name="Fanfare" type="AudioStreamPlayer" parent="Control/Summary" unique_id=1384210084]
+[node name="Fanfare" type="AudioStreamPlayer" parent="Control/EndGame" unique_id=1384210084]
 unique_name_in_owner = true
 stream = ExtResource("11_btq6p")
 bus = &"SFX"
@@ -951,12 +889,6 @@ text = "1:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=150947504]
-unique_name_in_owner = true
-process_mode = 3
-root_node = NodePath("../Summary")
-libraries/ = SubResource("AnimationLibrary_6dwx7")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=891899239]
 environment = SubResource("Environment_qwtxs")
 
@@ -966,35 +898,28 @@ stream = SubResource("AudioStreamMP3_ebq34")
 bus = &"SFX"
 
 [node name="arrow1" type="TextureRect" parent="." unique_id=394610297]
-offset_left = 471.0
-offset_top = 573.0
-offset_right = 867.0
-offset_bottom = 705.0
-texture = ExtResource("15_6dwx7")
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("15_b6rna")
 
 [node name="arrow2" type="TextureRect" parent="." unique_id=419117945]
-offset_left = 471.0
-offset_top = 79.0
-offset_right = 867.0
-offset_bottom = 211.0
-texture = ExtResource("15_6dwx7")
-
-[node name="arrow3" type="TextureRect" parent="." unique_id=981735406]
-offset_left = 471.0
-offset_top = 290.0
-offset_right = 867.0
-offset_bottom = 422.0
-texture = ExtResource("15_6dwx7")
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("16_1swfa")
 
 [node name="arrow4" type="TextureRect" parent="." unique_id=301415594]
-offset_left = 1013.0
-offset_top = 288.0
-offset_right = 1409.0
-offset_bottom = 420.0
-texture = ExtResource("15_6dwx7")
-flip_h = true
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("17_qo24b")
 
 [connection signal="text_changed" from="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" to="Control/CheckboxList/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" to="Control/Wanted/MarginContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
-[connection signal="pressed" from="Control/Buttons/HBoxContainer/Next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="Control/Summary/MainContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/BackToMain" to="." method="_on_back_to_main_pressed"]
+[connection signal="pressed" from="Control/Panel/HBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="gui_input" from="Control/EndGame/MarginContainer/VBoxContainer/ClickToShow" to="." method="_on_click_to_show_gui_input"]
+[connection signal="pressed" from="Control/EndGame/MarginContainer/VBoxContainer/Report/MarginContainer/VBoxContainer/BackToMain" to="." method="_on_back_to_main_pressed"]

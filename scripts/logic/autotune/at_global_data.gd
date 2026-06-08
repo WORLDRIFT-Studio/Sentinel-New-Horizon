@@ -6,8 +6,11 @@ signal reputation_changed(new_value:int)
 signal bonus_changed
 signal alerts_saved
 
+
 var reputation: int = 100
 var tutorial_airport: bool = false
+var tutorial_traffic: bool = false
+var tutorial_rush: bool = false
 var bonus: Dictionary = {
 	"day_duration": 0,
 	"daily": 0,
@@ -19,14 +22,8 @@ var penalty_today: int = 0
 var spawned_alerts: Array[Dictionary] = []
 var upgrades_bought: int = 0
 var upgrades_count: int
-var games_played: Dictionary[String, int] = {
-	"traffic": 0,
-	"airport": 0,
-	"report": 0
-}
 
 func _ready() -> void:
-	SaveLoad.load_content()
 	TimeManager.connect("day_changed", _reset_stats)
 	TimeManager.connect("day_ended", _daily_summary)
 
@@ -52,7 +49,7 @@ func set_score(score: int) -> void:
 	@warning_ignore("integer_division")
 	var points = score / 1000 
 	update_reputation(points)
-
+	
 func update_reputation(value: int) -> void:
 	var final_change = value
 	if value > 0:
@@ -65,21 +62,31 @@ func update_reputation(value: int) -> void:
 	SaveLoad.contents_to_save.reputation = reputation
 	SaveLoad.contents_to_save.bonus = bonus.duplicate()
 	SaveLoad.save_content()
-	print("Reputacja: ", reputation)
+	print(reputation, "REPUTACJA")
 
 func force_update() -> void:
 	SaveLoad.contents_to_save.reputation = reputation
 	SaveLoad.contents_to_save.bonus = bonus.duplicate()
 	SaveLoad.save_content()
 	reputation_changed.emit(reputation)
-
-func has_completed_tutorial() -> bool:
+	
+func has_completed_tutorial1() -> bool:
 	return tutorial_airport
 
-func set_tutorial_completed() -> void:
+func set_tutorial1_completed() -> void:
 	tutorial_airport = true
-	SaveLoad.contents_to_save.tutorial["airport_sec"] = tutorial_airport
-	SaveLoad.save_content()
+
+func has_completed_tutorial2() -> bool:
+	return tutorial_traffic
+
+func set_tutorial2_completed() -> void:
+	tutorial_traffic = true
+
+func has_completed_tutorial3() -> bool:
+	return tutorial_rush
+
+func set_tutorial3_completed() -> void:
+	tutorial_rush = true
 
 func alerts_save(parent: Node) -> void:
 	spawned_alerts.clear()
@@ -90,7 +97,7 @@ func alerts_save(parent: Node) -> void:
 			"position": child.position
 		})
 	self.emit_signal("alerts_saved")
-
+	
 func restore_alerts(parent: Node) -> void:
 	for child in spawned_alerts:
 		var scene = load(child["scene"])
@@ -99,3 +106,4 @@ func restore_alerts(parent: Node) -> void:
 		instance.name = child["name"]
 		parent.add_child(instance)
 	spawned_alerts.clear()
+		

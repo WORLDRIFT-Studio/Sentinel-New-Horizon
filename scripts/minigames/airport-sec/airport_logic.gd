@@ -16,11 +16,18 @@ extends Node
 @onready var panel_id: Panel = %PanelId
 @onready var panel_wanted: Panel = %PanelWanted
 @onready var chbx_container: VBoxContainer = $Control/CheckboxList/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer
+@onready var next_button: HBoxContainer = $Control/Panel/HBoxContainer
+
+# Referencje label
+@onready var time_bonus_value: Label = %TimeBonusValue
+@onready var stats_value: Label = %StatsValue
+@onready var grade_value: Label = %GradeValue
+@onready var total_value: Label = %TotalValue
+
 
 # Referencje do elementów tutorialu
 @onready var arrow1: Node = $arrow1
 @onready var arrow2: Node = $arrow2
-@onready var arrow3: Node = $arrow3
 @onready var arrow4: Node = $arrow4
 @onready var buttons_panel: Node = $Control/Buttons
 @onready var timer_node: Node = $Control/Timer
@@ -70,7 +77,13 @@ var is_tutorial: bool = false
 #region Tutorial
 
 func _is_first_run() -> bool:
-	return not GlobalData.has_completed_tutorial()
+	return not GlobalData.has_completed_tutorial1()
+	
+func set_tutor_text(new_text: String) -> void:
+	tutor_txt.text = new_text
+	tutor_txt.visible_characters = 0
+	var tween = create_tween()
+	tween.tween_property(tutor_txt, "visible_characters", new_text.length(), 0.01 * new_text.length())
 
 func start_tutorial() -> void:
 	is_tutorial = true
@@ -79,12 +92,12 @@ func start_tutorial() -> void:
 	# Ukryj wszystkie strzałki
 	arrow1.visible = false
 	arrow2.visible = false
-	arrow3.visible = false
 	arrow4.visible = false
 
 	# Wyłącz przyciski i timer
 	buttons_panel.visible = false
 	timer_node.visible = false
+	next_button.visible = false
 
 	# Zatrzymaj odliczanie czasu
 	set_process(false)
@@ -93,7 +106,7 @@ func start_tutorial() -> void:
 
 	# Pokaż pole tutoriala i ustaw tekst
 	tutor_txt.visible = true
-	tutor_txt.text = "Witaj w sekcji szkoleniowej airport-security. Aby rozpocząć szkolenie kliknij w pokazany tekst."
+	set_tutor_text("Witaj w sekcji szkoleniowej airport-security. Aby rozpocząć szkolenie kliknij w pokazany tekst.")
 
 	# Podłącz sygnał kliknięcia (jeden raz)
 	if not tutor_txt.gui_input.is_connected(_on_tutor_txt_clicked):
@@ -109,27 +122,25 @@ func _advance_tutorial() -> void:
 	match tutorial_step:
 		1:
 			arrow1.visible = true
-			tutor_txt.text = "To jest twoja lista rzeczy, które musisz sprawdzić oraz dobrze zdefiniować. UWAŻAJ, gdyż właśnie z tej listy będziesz rozliczany."
+			set_tutor_text("To jest twoja lista rzeczy, które musisz sprawdzić oraz dobrze zdefiniować. UWAŻAJ, gdyż właśnie z tej listy będziesz rozliczany.")
 
 		2:
 			arrow1.visible = false
 			arrow2.visible = true
-			arrow3.visible = true
-			tutor_txt.text = "To jest dowód oraz paszport aktualnie sprawdzanego człowieka. To stąd będziesz brał większość informacji. Lepiej sprawdzić oba, gdyż niektóre dane mogą się ze sobą nie zgadzać."
+			set_tutor_text("To jest dowód oraz paszport aktualnie sprawdzanego człowieka. To stąd będziesz brał większość informacji. Lepiej sprawdzić oba, gdyż niektóre dane mogą się ze sobą nie zgadzać.")
 
 		3:
 			arrow2.visible = false
-			arrow3.visible = false
 			arrow4.visible = true
-			tutor_txt.text = "To jest lista poszukiwanych. Tutaj sprawdzisz, czy dana osoba nie jest ścigana przez policję. Jeżeli jest, zarejestruj to na swojej liście."
+			set_tutor_text("To jest lista poszukiwanych. Tutaj sprawdzisz, czy dana osoba nie jest ścigana przez policję. Jeżeli jest, zarejestruj to na swojej liście.")
 
 		4:
 			arrow4.visible = false
-			tutor_txt.text = "To już wszystko co musisz wiedzieć. Powodzenia!"
+			set_tutor_text("To już wszystko co musisz wiedzieć. Powodzenia!")
 
 		5:
 			# Koniec tutorialu — zapisz i przeładuj scenę
-			GlobalData.set_tutorial_completed()
+			GlobalData.set_tutorial1_completed()
 			tutor_txt.gui_input.disconnect(_on_tutor_txt_clicked)
 			get_tree().reload_current_scene()
 
@@ -233,7 +244,6 @@ func _ready() -> void:
 	# Ukryj wszystkie strzałki na starcie (zawsze)
 	arrow1.visible = false
 	arrow2.visible = false
-	arrow3.visible = false
 	arrow4.visible = false
 
 	list = generate_list(10)
@@ -259,6 +269,8 @@ func _on_next_pressed() -> void:
 		display_next_npc()
 	else:
 		points = show_final_summary()
+		animation_player.play("PanelShowUp")
+		print("Play test")
 
 #endregion
 
@@ -287,10 +299,10 @@ func show_final_summary() -> int:
 		# ale dla statystyki "skuteczności" lepiej pokazać po prostu trafienia
 		accuracy = (float(perfect) / checked) * 100 if checked > 0 else 0.0
 	# --- PRZYGOTOWANIE TEKSTÓW ---
-	%TimeBonusValue.text = "PREMIA ZA CZAS: +" + str(time_bonus)
+	time_bonus_value.text = "PREMIA ZA CZAS: +" + str(time_bonus)
 	
 	# Statystyki szczegółowe
-	%StatsValue.text = (
+	stats_value.text = (
 		"RAPORT SŁUŻBY:\n" +
 		"Odprawieni pasażerowie: " + str(checked) + "\n" +
 		"Bezbłędne kontrole: " + str(perfect) + "\n" +
@@ -303,31 +315,11 @@ func show_final_summary() -> int:
 	elif final_score > 0: evaluation = "STATUS: KONTROLER ZATWIERDZONY"
 	else: evaluation = "STATUS: DO PONOWNEGO SZKOLENIA"
 	
-	%GradeValue.text = evaluation
-	%TotalValue.text = "SUMA PUNKTÓW: 0"
+	grade_value.text = evaluation
+	total_value.text = "SUMA PUNKTÓW: 0"
 	
-	
-	
-	# --- ANIMACJA ---
-	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	
-	# 1. Najpierw pokazujemy statystyki (płynne pojawienie się tekstu)
-	%StatsValue.modulate.a = 0
-	tween.tween_property(%StatsValue, "modulate:a", 1.0, 1.0)
-	
-	# 2. Licznik punktów (wolniejszy i wyraźny)
-	tween.tween_method(
-		func(value): %TotalValue.text = "WYNIK KOŃCOWY: " + str(value), 
-		0, 
-		final_score, 
-		3.0 
-	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	
-	# 3. Na koniec status/komentarz
-	tween.tween_interval(0.5)
-	%GradeValue.modulate.a = 0
-	%GradeValue.show()
-	tween.tween_property(%GradeValue, "modulate:a", 1.0, 0.8)
+	animation_player.play("PanelShowUp")
+
 	return final_score
 
 func check_single_npc(npc: NPC, answer: Dictionary) -> int:
@@ -388,13 +380,13 @@ func _time_is_up() -> void:
 	chbx_container.propagate_call("set_disabled", [true])
 	
 	points = show_final_summary()
+	animation_player.play("PanelShowUp")
+	print("Play test")
 #endregion
 
 
 func _on_click_to_show_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		%ClickToShow.hide()
-		%Report.show()
 		if !fanfare_played:
 			%Fanfare.play()
 			fanfare_played = true

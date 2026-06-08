@@ -6,15 +6,12 @@
 [ext_resource type="Script" uid="uid://e5atn1k4dx7j" path="res://scripts/Traffic Command/path_follow.gd" id="3_x4qmp"]
 [ext_resource type="Texture2D" uid="uid://brinberm23ana" path="res://assets/assets/Traffic Command/car1.png" id="5_eqncl"]
 [ext_resource type="Script" uid="uid://d3v37anq3awfc" path="res://scripts/Traffic Command/area2D.gd" id="5_forge"]
+[ext_resource type="Script" uid="uid://8vvjc64m33vq" path="res://scripts/minigames/traffic_command/Menu/MenuManager.gd" id="7_4g054"]
 [ext_resource type="FontFile" uid="uid://cb7am2tdu8esl" path="res://assets/fonts/Coolvetica Hv Comp.otf" id="7_bcpk6"]
-[ext_resource type="Script" uid="uid://5sn5la5op6c" path="res://scripts/Traffic Command/Menu/MenuManager.gd" id="8_qjc6c"]
 [ext_resource type="StyleBox" uid="uid://75h2u2x0qomg" path="res://styles/new_container.tres" id="9_j3vfk"]
-[ext_resource type="AudioStream" uid="uid://248a61er7rhm" path="res://assets/sounds/fanfare.mp3" id="10_re1w3"]
-[ext_resource type="StyleBox" uid="uid://csynecfi8a414" path="res://styles/inner_panel.tres" id="11_ubbt3"]
-[ext_resource type="FontFile" uid="uid://bqplcwamivt2b" path="res://assets/fonts/Coolvetica Rg.otf" id="12_1y7gy"]
-[ext_resource type="StyleBox" uid="uid://by28edpapi7u0" path="res://styles/button_pressed.tres" id="13_1q4jj"]
-[ext_resource type="StyleBox" uid="uid://d4u2jauk1l0o" path="res://styles/button_hover.tres" id="14_rtje8"]
-[ext_resource type="StyleBox" uid="uid://uk20ssa1vdpg" path="res://styles/button_hover_pressed.tres" id="15_n6tid"]
+[ext_resource type="Texture2D" uid="uid://olsgstcb42ps" path="res://assets/icons/panel/shadow4.png" id="10_xcgag"]
+[ext_resource type="Texture2D" uid="uid://uy2mu7oocaqm" path="res://assets/icons/panel/shadow5.png" id="11_qej24"]
+[ext_resource type="Texture2D" uid="uid://doyo2c2qrngf1" path="res://assets/icons/panel/shadow6.png" id="12_it43r"]
 
 [sub_resource type="Curve2D" id="Curve2D_03clw"]
 _data = {
@@ -105,142 +102,101 @@ glow_levels/7 = 0.81
 glow_intensity = 1.0
 glow_blend_mode = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_iwlsy"]
+[sub_resource type="LabelSettings" id="LabelSettings_wgtu0"]
 font_size = 37
 
-[sub_resource type="Animation" id="Animation_hxov7"]
-resource_name = "PanelShowUp"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
-"transitions": PackedFloat32Array(1, 1, 2),
-"update": 0,
-"values": [Vector2(22, 22.5), Vector2(802, 112), Vector2(802, 794)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.39999998, 0.59999996, 0.8333333),
-"transitions": PackedFloat32Array(1, 1, 2),
-"update": 0,
-"values": [Vector2(949, 528.75), Vector2(559, 484), Vector2(559, 184)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.39999998),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MainContainer/VBoxContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.76666665, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qej24"]
+bg_color = Color(0.10980392, 0.10980392, 0.17254902, 1)
+border_width_top = 2
+border_color = Color(0, 1, 0.6901961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 
-[sub_resource type="Animation" id="Animation_ccb21"]
-length = 0.001
+[sub_resource type="LabelSettings" id="LabelSettings_it43r"]
+font_size = 25
+
+[sub_resource type="Animation" id="Animation_qeljt"]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath("Panel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MainContainer/VBoxContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Vector2(0, 1095.41)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fc5i7"]
+[sub_resource type="Animation" id="Animation_xcgag"]
+resource_name = "panel_anim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1095.41), Vector2(0, 875)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgipo"]
 _data = {
-&"PanelShowUp": SubResource("Animation_hxov7"),
-&"RESET": SubResource("Animation_ccb21")
+&"RESET": SubResource("Animation_qeljt"),
+&"panel_anim": SubResource("Animation_xcgag")
 }
 
 [node name="MiniGame" type="Node2D" unique_id=1380433955]
 script = ExtResource("1_x4qmp")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1027030258]
+z_index = -5
 position = Vector2(1085.1626, 542.5813)
 scale = Vector2(0.36172083, 0.36172083)
 texture = ExtResource("2_2qniy")
 
 [node name="Left" type="Node2D" parent="." unique_id=249154325]
+visibility_layer = 17
+z_index = -2
 position = Vector2(950.031, 576.0155)
 rotation = 5.232033
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Left" unique_id=43909734]
+z_index = -2
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_03clw")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Right" unique_id=1896939417]
+z_index = -2
 position = Vector2(-48.629906, -973.6143)
 rotation = 1.4992082
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.42])
 
 [node name="Node2D" type="Node2D" parent="Left/Right/PathFollow2D" unique_id=406968989]
-z_index = 2
+z_index = 3
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Left/Right/PathFollow2D/Node2D" unique_id=100720868]
+light_mask = 0
+z_index = 4
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
 texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Left/Right/PathFollow2D/Node2D" unique_id=204446230]
+z_index = -2
 rotation = 1.5707964
 scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
@@ -249,13 +205,13 @@ collision_mask = 2
 script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Right/PathFollow2D/Node2D/Area2D" unique_id=595240819]
+z_index = -2
 rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Left/Right/PathFollow2D/Node2D" unique_id=1145971738]
-visible = false
-z_index = 2
+z_index = 5
 offset_left = 18.609732
 offset_top = -18.066236
 offset_right = 91.83346
@@ -263,57 +219,68 @@ offset_bottom = 45.575912
 rotation = 1.1238543
 text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
+metadata/_edit_use_anchors_ = true
 
 [node name="Straight" type="Path2D" parent="Left" unique_id=1817042041]
+z_index = -2
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_uei48")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Straight" unique_id=319670935]
+z_index = -2
 position = Vector2(-53.034607, -985.1688)
 rotation = 1.4889964
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Left" unique_id=1484532717]
+z_index = -2
 curve = SubResource("Curve2D_8ojpj")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Left/Left" unique_id=613326317]
+z_index = -2
 position = Vector2(-53.706284, -972.6312)
 rotation = 1.4918478
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.41])
 
 [node name="Down" type="Node2D" parent="." unique_id=2058267442]
+visibility_layer = 17
+z_index = -2
 position = Vector2(1022.0309, 522.01544)
 rotation = 3.5969477
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Down" unique_id=880336974]
+z_index = -2
 position = Vector2(-0.3323909, -8.947348)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_ym1ef")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Right" unique_id=1388163434]
+z_index = -2
 position = Vector2(3.5410156, -585.75134)
 rotation = 1.5805762
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.18])
 
 [node name="Node2D" type="Node2D" parent="Down/Right/PathFollow2D" unique_id=45677192]
-z_index = 2
+z_index = 3
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Down/Right/PathFollow2D/Node2D" unique_id=1741801948]
+z_index = 3
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
 texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Down/Right/PathFollow2D/Node2D" unique_id=60073816]
+z_index = -2
 rotation = 1.5707964
 scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
@@ -322,13 +289,13 @@ collision_mask = 2
 script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Right/PathFollow2D/Node2D/Area2D" unique_id=228843030]
+z_index = -2
 rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Down/Right/PathFollow2D/Node2D" unique_id=302402516]
-visible = false
-z_index = 2
+z_index = 5
 offset_left = 37.489662
 offset_top = 32.07051
 offset_right = 110.71339
@@ -338,17 +305,20 @@ text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Straight" type="Path2D" parent="Down" unique_id=1159388313]
+z_index = -2
 scale = Vector2(0.99999994, 0.99999994)
 curve = SubResource("Curve2D_forge")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Down/Straight" unique_id=214108761]
+z_index = -2
 position = Vector2(7.7858887, -591.90393)
 rotation = 1.6035781
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.22])
 
 [node name="Left" type="Path2D" parent="Down" unique_id=1224891115]
+z_index = -2
 curve = SubResource("Curve2D_p3o70")
 script = ExtResource("2_v848d")
 
@@ -359,11 +329,14 @@ script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.17])
 
 [node name="Right" type="Node2D" parent="." unique_id=1016065657]
+visibility_layer = 17
+z_index = -2
 position = Vector2(994.0311, 434.01556)
 rotation = 2.065506
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Right" unique_id=1144087363]
+z_index = -2
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_ebja2")
@@ -373,14 +346,15 @@ script = ExtResource("2_v848d")
 position = Vector2(-41.051086, -955.04517)
 rotation = 1.5192366
 script = ExtResource("3_x4qmp")
-stop_points = Array[float]([0.42])
+stop_points = Array[float]([0.46])
 
 [node name="Node2D" type="Node2D" parent="Right/Right/PathFollow2D" unique_id=714244112]
-z_index = 2
+z_index = 3
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Right/Right/PathFollow2D/Node2D" unique_id=2056813191]
+z_index = 3
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
@@ -400,8 +374,7 @@ scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Right/Right/PathFollow2D/Node2D" unique_id=262586721]
-visible = false
-z_index = 2
+z_index = 5
 offset_left = -22.893023
 offset_top = 43.09746
 offset_right = 50.330704
@@ -411,6 +384,7 @@ text = "Timer"
 label_settings = SubResource("LabelSettings_o80tv")
 
 [node name="Straight" type="Path2D" parent="Right" unique_id=717544897]
+z_index = -2
 position = Vector2(3.2522443e-08, 2.727276)
 curve = SubResource("Curve2D_yjtlv")
 script = ExtResource("2_v848d")
@@ -422,6 +396,7 @@ script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.32])
 
 [node name="Left" type="Path2D" parent="Right" unique_id=1504836895]
+z_index = -2
 curve = SubResource("Curve2D_q8vh0")
 script = ExtResource("2_v848d")
 
@@ -429,37 +404,43 @@ script = ExtResource("2_v848d")
 position = Vector2(-40.631348, -954.20276)
 rotation = 1.521088
 script = ExtResource("3_x4qmp")
-stop_points = Array[float]([0.37])
+stop_points = Array[float]([0.38])
 
 [node name="Up" type="Node2D" parent="." unique_id=289593973]
+visibility_layer = 17
+z_index = -2
 position = Vector2(1001.03094, 525.01544)
 rotation = 0.5235988
 scale = Vector2(1.1, 1.1)
 
 [node name="Right" type="Path2D" parent="Up" unique_id=399172067]
+z_index = -2
 position = Vector2(0.5253906, -6.974823)
 scale = Vector2(1.0084746, 0.98627)
 curve = SubResource("Curve2D_skpun")
 script = ExtResource("2_v848d")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Up/Right" unique_id=1075155450]
+z_index = -2
 position = Vector2(-101.22528, -497.57822)
 rotation = 1.5066593
 script = ExtResource("3_x4qmp")
 stop_points = Array[float]([0.13])
 
 [node name="Node2D" type="Node2D" parent="Up/Right/PathFollow2D" unique_id=382171048]
-z_index = 2
+z_index = 3
 rotation = -1.5707964
 scale = Vector2(0.9915965, 1.013921)
 
 [node name="Sprite2D" type="Sprite2D" parent="Up/Right/PathFollow2D/Node2D" unique_id=190210585]
+z_index = 3
 rotation = 3.1415927
 scale = Vector2(0.5779144, 0.54023343)
 skew = -0.0004453659
 texture = ExtResource("5_eqncl")
 
 [node name="Area2D" type="Area2D" parent="Up/Right/PathFollow2D/Node2D" unique_id=2015717232]
+z_index = -2
 rotation = 1.5707964
 scale = Vector2(0.9862723, 1.0084723)
 skew = 0.0004452467
@@ -468,13 +449,13 @@ collision_mask = 2
 script = ExtResource("5_forge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Right/PathFollow2D/Node2D/Area2D" unique_id=1395372807]
+z_index = -2
 rotation = 3.141129
 scale = Vector2(0.9999995, 0.999999)
 shape = SubResource("RectangleShape2D_ym1ef")
 
 [node name="Timer" type="Label" parent="Up/Right/PathFollow2D/Node2D" unique_id=459571553]
-visible = false
-z_index = 2
+z_index = 5
 offset_left = -30.847527
 offset_top = -15.127148
 offset_right = 42.376198
@@ -507,8 +488,7 @@ stop_points = Array[float]([0.11])
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2085531439]
 environment = SubResource("Environment_ekx8n")
 
-[node name="Menu" type="Control" parent="." unique_id=511618675]
-process_mode = 3
+[node name="Menu" type="Control" parent="." unique_id=1596310081]
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
@@ -517,14 +497,13 @@ offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
-script = ExtResource("8_qjc6c")
+script = ExtResource("7_4g054")
 
-[node name="Timer" type="Timer" parent="Menu" unique_id=411679765]
-unique_name_in_owner = true
+[node name="Timer" type="Timer" parent="Menu" unique_id=971441526]
 autostart = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=2143917805]
-process_mode = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=162271972]
+z_index = 5
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -534,12 +513,12 @@ offset_right = 429.0
 offset_bottom = 65.0
 grow_horizontal = 2
 
-[node name="Panel" type="Panel" parent="Menu/HBoxContainer" unique_id=700510495]
+[node name="Panel" type="Panel" parent="Menu/HBoxContainer" unique_id=1528893109]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("9_j3vfk")
 
-[node name="TimerLabel" type="Label" parent="Menu/HBoxContainer/Panel" unique_id=740114983]
+[node name="TimerLabel" type="Label" parent="Menu/HBoxContainer/Panel" unique_id=1718644784]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -547,17 +526,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "TimerLabel"
-label_settings = SubResource("LabelSettings_iwlsy")
+text = "Pozostały czas"
+label_settings = SubResource("LabelSettings_wgtu0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Menu/HBoxContainer" unique_id=1137269695]
+[node name="Panel2" type="Panel" parent="Menu/HBoxContainer" unique_id=1266211850]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("9_j3vfk")
 
-[node name="VehicleNumberLabel" type="Label" parent="Menu/HBoxContainer/Panel2" unique_id=1378268635]
+[node name="VehicleNumberLabel" type="Label" parent="Menu/HBoxContainer/Panel2" unique_id=889468228]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -565,139 +544,63 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "VehicleNumberLabel"
-label_settings = SubResource("LabelSettings_iwlsy")
+text = "Ukończone trasy"
+label_settings = SubResource("LabelSettings_wgtu0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Summary" type="Panel" parent="Menu" unique_id=1798970434]
-unique_name_in_owner = true
-process_mode = 3
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
+[node name="Panel" type="Panel" parent="." unique_id=99532213]
+z_index = 9
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -11.0
-offset_top = -11.25
-offset_right = 11.0
-offset_bottom = 11.25
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0)
-mouse_filter = 1
-theme_override_styles/panel = ExtResource("9_j3vfk")
-
-[node name="PanelSound" type="AudioStreamPlayer" parent="Menu/Summary" unique_id=710465029]
-unique_name_in_owner = true
-stream = ExtResource("10_re1w3")
-
-[node name="MainContainer" type="MarginContainer" parent="Menu/Summary" unique_id=1972461755]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1095.41
+offset_right = 1920.0
+offset_bottom = 1300.4014
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_styles/panel = SubResource("StyleBoxFlat_qej24")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer" unique_id=1975619199]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/separation = 15
+[node name="tutor_txt" type="Label" parent="Panel" unique_id=2123433015]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 2165.0
+offset_bottom = 207.0
+label_settings = SubResource("LabelSettings_it43r")
+autowrap_mode = 3
 
-[node name="Panel" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=478159455]
-custom_minimum_size = Vector2(2.04, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("11_ubbt3")
+[node name="shadow1" type="TextureRect" parent="." unique_id=664922311]
+visible = false
+visibility_layer = 17
+z_index = 4
+offset_left = 0.00012207031
+offset_top = 6.1035156e-05
+offset_right = 1920.0001
+offset_bottom = 1080.0
+texture = ExtResource("10_xcgag")
 
-[node name="SumDay" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel" unique_id=1902323793]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("12_1y7gy")
-theme_override_font_sizes/font_size = 65
-text = "Podsumowanie dnia X"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="shadow2" type="TextureRect" parent="." unique_id=1646762573]
+visible = false
+visibility_layer = 17
+z_index = 4
+offset_left = 0.00012207031
+offset_top = 6.1035156e-05
+offset_right = 1920.0001
+offset_bottom = 1080.0
+texture = ExtResource("11_qej24")
 
-[node name="Panel2" type="Panel" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=559305809]
-custom_minimum_size = Vector2(0, 500)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("11_ubbt3")
+[node name="shadow3" type="TextureRect" parent="." unique_id=580499163]
+visible = false
+visibility_layer = 17
+z_index = 4
+offset_left = 0.00012207031
+offset_top = 6.1035156e-05
+offset_right = 1920.0001
+offset_bottom = 1080.0
+texture = ExtResource("12_it43r")
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2" unique_id=458800389]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 25
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer" unique_id=1763828688]
-layout_mode = 2
-theme_override_constants/separation = 25
-
-[node name="Time" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=695581087]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_fonts/font = ExtResource("12_1y7gy")
-theme_override_font_sizes/font_size = 48
-text = "Czas bez stłuczki:"
-
-[node name="Cars" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1771219044]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_fonts/font = ExtResource("12_1y7gy")
-theme_override_font_sizes/font_size = 48
-text = "Obsłużone samochody:"
-
-[node name="Score" type="Label" parent="Menu/Summary/MainContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=897736979]
-unique_name_in_owner = true
-modulate = Color(1, 0.32941177, 0.32941177, 1)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("12_1y7gy")
-theme_override_font_sizes/font_size = 48
-text = "Punkty:"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Summary/MainContainer/VBoxContainer" unique_id=1208935045]
-custom_minimum_size = Vector2(0, 75)
-layout_mode = 2
-size_flags_vertical = 0
-alignment = 1
-
-[node name="ContinueButton" type="Button" parent="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer" unique_id=1274505612]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("9_j3vfk")
-theme_override_styles/pressed = ExtResource("13_1q4jj")
-theme_override_styles/hover = ExtResource("14_rtje8")
-theme_override_styles/hover_pressed = ExtResource("15_n6tid")
-text = "Kontynuuj"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu" unique_id=944458970]
-unique_name_in_owner = true
-process_mode = 3
-root_node = NodePath("../Summary")
-libraries/ = SubResource("AnimationLibrary_fc5i7")
-
-[connection signal="pressed" from="Menu/Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="Menu" method="_on_continue_button_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1174728492]
+libraries/ = SubResource("AnimationLibrary_tgipo")

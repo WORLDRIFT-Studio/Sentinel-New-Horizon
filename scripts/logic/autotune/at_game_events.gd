@@ -19,3 +19,5 @@ signal minigame_ended
 signal upgrades_changed
 
 signal achievements_changed
+
+signal traffic_timeout

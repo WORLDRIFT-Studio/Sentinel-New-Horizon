@@ -144,6 +144,12 @@ _data = {
 &"RESET": SubResource("Animation_ccb21")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_2rkrw"]
+font = ExtResource("6_smvv8")
+font_size = 65
+outline_size = 28
+outline_color = Color(0, 0, 0, 1)
+
 [node name="GameLevel" type="Node" unique_id=1105682545]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1562715008]
@@ -384,5 +390,13 @@ unique_name_in_owner = true
 process_mode = 3
 root_node = NodePath("../Summary")
 libraries/ = SubResource("AnimationLibrary_v78ou")
+
+[node name="Label2" type="Label" parent="." unique_id=1910152572]
+offset_left = -207.0
+offset_top = 324.0
+offset_right = 414.0
+offset_bottom = 569.0
+text = "Q     W    E     R"
+label_settings = SubResource("LabelSettings_2rkrw")
 
 [connection signal="pressed" from="Summary/MainContainer/VBoxContainer/HBoxContainer/ContinueButton" to="LevelEditor" method="_on_continue_button_pressed"]

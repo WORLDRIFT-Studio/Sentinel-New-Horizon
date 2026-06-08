@@ -1,5 +1,8 @@
 extends Control
 
+@onready var tutor_txt: Label = %tutor_txt 
+@onready var animation_panel: AnimationPlayer = %PanelAnimation
+
 var score: int = 0
 var combo_count: int = 0
 var highest_combo: int = 0
