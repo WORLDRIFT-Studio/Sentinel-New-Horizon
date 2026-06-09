@@ -7,7 +7,7 @@ signal bonus_changed
 signal alerts_saved
 
 
-var reputation: int = 100
+var reputation: int = 10
 var tutorial_airport: bool = false
 var tutorial_traffic: bool = false
 var tutorial_rush: bool = false

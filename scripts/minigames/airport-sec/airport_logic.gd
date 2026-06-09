@@ -316,7 +316,7 @@ func show_final_summary() -> int:
 	else: evaluation = "STATUS: DO PONOWNEGO SZKOLENIA"
 	
 	grade_value.text = evaluation
-	total_value.text = "SUMA PUNKTÓW: 0"
+	total_value.text = "SUMA PUNKTÓW: %s" % final_score 
 	
 	animation_player.play("PanelShowUp")
 
