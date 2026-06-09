@@ -30,6 +30,7 @@ func _on_timer_timeout():
 	else:
 		timer.stop()
 		TimerLabel.text = "Koniec czasu!"
+		_on_crash()
 		get_tree().paused = true
 
 func add_finished_vehicle() -> void:
