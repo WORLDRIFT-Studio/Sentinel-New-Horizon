@@ -86,7 +86,7 @@ func _advance_tutorial() -> void:
 func _process(delta):
 	if not is_tutorial:
 		distance += (SCROLL_SPEED / PIXELS_PER_METER) * delta
-		fuel = max(0.0, fuel - delta * 0.25)
+		fuel = max(0.0, fuel - delta * 0.15)
 		
 
 		fuel = max(0.0, fuel - delta * 0.6)

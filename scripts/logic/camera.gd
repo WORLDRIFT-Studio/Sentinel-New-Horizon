@@ -15,16 +15,6 @@ func _process(delta: float) -> void:
 	var new_pos = position + (move_input * speed * delta)	    
 	position = clamp_position(new_pos)
 
-	if Input.is_action_just_pressed("ScrollIn"):
-		if zoom < Vector2(2.0, 1.0):
-			zoom += Vector2(0.05, 0.05)
-			
-			
-	if Input.is_action_just_pressed("ScrollOut"):
-		if zoom > Vector2(1.0, 1.0):
-			zoom -= Vector2(0.05, 0.05)
-			
-
 
 func clamp_position(target_pos: Vector2) -> Vector2:
 	var view_size = get_viewport_rect().size / zoom

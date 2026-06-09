@@ -17,9 +17,11 @@ func _on_amublanse_hit(value: float) -> void:
 	score.text = "Zdobyte punkty: %d" % value
 	pr.text = "Zdobyte punkty reputacji: %d" % (value / 1000)
 	animation_player.play("PanelShowUp")
-
+	@warning_ignore("narrowing_conversion")
+	GlobalData.set_score(value)
 
 func _on_continue_button_pressed() -> void:
 	print("powrot")
 	get_tree().paused = false
+	GameEvents.minigame_ended.emit()
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")

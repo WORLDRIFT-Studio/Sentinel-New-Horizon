@@ -38,6 +38,7 @@ func add_finished_vehicle() -> void:
 
 
 func _on_continue_button_pressed() -> void:
-	
 	get_tree().paused = false
+	GlobalData.set_score(vehicles_finished * 250)
+	GameEvents.minigame_ended.emit()
 	TransitionScene.fade_to_scene("res://scenes/main_game.tscn")
