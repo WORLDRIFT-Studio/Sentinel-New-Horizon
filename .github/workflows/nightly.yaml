@@ -26,11 +26,9 @@ jobs:
         
       - name: Download Godot Export Templates
         run: |
+          godot --headless --download-templates --version
           mkdir -p /github/home/.local/share/godot/export_templates/4.7.rc2/
-          curl -L -o templates.tpz https://github.com/godotengine/godot/releases/download/4.7-rc2/Godot_v4.7-rc2_export_templates.tpz
-          unzip templates.tpz
-          mv templates/* /github/home/.local/share/godot/export_templates/4.7.rc2/
-          rm -rf templates templates.tpz
+          cp -r /github/home/.local/share/godot/export_templates/* /github/home/.local/share/godot/export_templates/4.7.rc2/ || true
           
       - name: Build project for windows
         run: |
