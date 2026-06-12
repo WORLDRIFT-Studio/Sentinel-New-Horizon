@@ -9,7 +9,7 @@ def get_nightly_version() -> str:
 
 def update_project_version() -> None:
     """Update the version number in the project.godot file to include the nightly version."""
-    with open('../../project.godot', 'r', encoding='utf-8') as f:
+    with open('project.godot', 'r', encoding='utf-8') as f:
         lines: list[str] = f.readlines()
 
     for i, line in enumerate(lines):
@@ -29,7 +29,7 @@ def get_project_info() -> None:
     game_name: str = 'game'
     game_version: str = 'dev'
 
-    with open('../../project.godot', 'r', encoding='utf-8') as f:
+    with open('project.godot', 'r', encoding='utf-8') as f:
         lines: list[str] = f.readlines()
 
     for line in lines:
