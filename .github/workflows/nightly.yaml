@@ -1,4 +1,4 @@
-name: Game Compress
+name: Nightly Build
 
 on:
   schedule:
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
       - name: Project version update  
-        run:  .github/scripts/python3 main.py
+        run:  python3 .github/scripts/main.py
         
       - name: Build project for windows
         run: |
