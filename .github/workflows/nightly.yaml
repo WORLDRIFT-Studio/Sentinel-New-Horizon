@@ -3,7 +3,6 @@ name: Game Compress
 on:
   schedule:
     - cron: '0 2 * * *'
-      timezone: 'Poland/Warsaw'
   workflow_dispatch:
 
 permissions:
@@ -15,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: ghcr.io/worldrift-studio/godot-ci:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps: 
       - name: Checkout repository
         uses: actions/checkout@v6
