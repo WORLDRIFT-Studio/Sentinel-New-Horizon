@@ -1,0 +1,42 @@
+name: Game Compress
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+      timezone: 'Poland/Warsaw'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  nightly-build:
+    runs-on: ubuntu-latest
+    container: 
+      image: ghcr.io/worldrift-studio/godot-ci:latest
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Project version update  
+        run:  .github/scripts/python3 main.py
+        
+      - name: Build project for windows
+        run: |
+          mkdir -p build/windows
+          godot --export-release "Windows Desktop" build/windows/${{env.FILE_NAME}} --path . --headless
+      - name: Build project for linux
+        run: |
+          mkdir -p build/linux
+          godot --export-release "Linux" build/linux/${{env.FILE_NAME}} --path . --headless
+      
+      - name: Release build
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: nightly
+          name: "Nightly Build"
+          body: "This is a nightly build of the game from: ${{ github.event.repository.updated_at }}."
+          prerelease: true
+          files: |
+            build/windows/${{env.FILE_NAME}}.exe
+            build/linux/${{env.FILE_NAME}}.x86_64
