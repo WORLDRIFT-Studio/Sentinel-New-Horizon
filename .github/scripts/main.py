@@ -34,9 +34,9 @@ def get_project_info() -> None:
 
     for line in lines:
         if line.startswith('config/name='):
-            game_name = line.split('"')[1]
+            game_name = line.split('"')[1].replace('-', '_').replace(':', '_')
         elif line.startswith('config/version='):
-            game_version = line.split('"')[1]   
+            game_version = line.split('"')[1].replace('-', '_').replace(':', '_')
 
     file_name: str = f'{game_name}_{game_version}'
     if 'GITHUB_ENV' in os.environ:
