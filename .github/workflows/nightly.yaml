@@ -14,7 +14,7 @@ jobs:
   nightly-build:
     runs-on: ubuntu-latest
     container: 
-      image: ghcr.io/worldrift-studio/godot-ci:latest
+      image: xeno178531/godot-ci:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
