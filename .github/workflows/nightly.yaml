@@ -24,6 +24,10 @@ jobs:
       - name: Project version update  
         run:  python3 .github/scripts/main.py
         
+      - name: Install dependencies for Linux export
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfontconfig1 libxcursor1 libxinerama1 libxi6
       - name: Import Project Assets
         run: |
           godot --headless --editor --quit
@@ -34,7 +38,7 @@ jobs:
           unzip templates.tpz
           mv templates/* /github/home/.local/share/godot/export_templates/4.7.rc2/
           rm -rf templates templates.tpz
-          
+      
       - name: Build project for windows
         run: |
           mkdir -p build/windows
