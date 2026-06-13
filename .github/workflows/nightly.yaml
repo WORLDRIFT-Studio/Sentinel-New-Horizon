@@ -42,11 +42,11 @@ jobs:
       - name: Build project for windows
         run: |
           mkdir -p build/windows
-          godot --export-release "Windows Desktop" build/windows/${{ env.FILE_NAME }} --path . --headless
+          godot --export-release "Windows Desktop" build/windows/${{ env.FILE_NAME }}.exe --path . --headless
       - name: Build project for linux
         run: |
           mkdir -p build/linux
-          godot --export-release "Linux" build/linux/${{env.FILE_NAME}} --path . --headless
+          godot --export-release "Linux" build/linux/${{env.FILE_NAME}}.x86_64 --path . --headless
       
       - name: Release build
         uses: softprops/action-gh-release@v1
