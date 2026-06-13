@@ -21,6 +21,9 @@ jobs:
       - name: Project version update  
         run:  python3 .github/scripts/main.py
         
+      - name: Import Project Assets
+        run: |
+          godot --headless --editor --quit
       - name: Download Godot Export Templates
         run: |
           godot --headless --download-templates
