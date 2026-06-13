@@ -26,8 +26,8 @@ jobs:
         
       - name: Install dependencies for Linux export
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libfontconfig1 libxcursor1 libxinerama1 libxi6
+          apt-get update
+          apt-get install -y libfontconfig1 libxcursor1 libxinerama1 libxi6
       - name: Import Project Assets
         run: |
           godot --headless --editor --quit
