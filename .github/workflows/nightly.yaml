@@ -15,9 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: xeno178531/godot-ci:latest
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
     steps: 
       - name: Checkout repository
         uses: actions/checkout@v6
