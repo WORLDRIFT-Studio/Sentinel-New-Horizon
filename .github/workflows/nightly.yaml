@@ -1,5 +1,8 @@
 name: Nightly Build
 
+env:
+  FILE_NAME: ""
+
 on:
   schedule:
     - cron: '0 2 * * *'
@@ -35,7 +38,7 @@ jobs:
       - name: Build project for windows
         run: |
           mkdir -p build/windows
-          godot --export-release "Windows Desktop" build/windows/${{env.FILE_NAME}} --path . --headless
+          godot --export-release "Windows Desktop" build/windows/${{ env.FILE_NAME }} --path . --headless
       - name: Build project for linux
         run: |
           mkdir -p build/linux
