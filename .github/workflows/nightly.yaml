@@ -26,14 +26,11 @@ jobs:
           godot --headless --editor --quit
       - name: Download Godot Export Templates
         run: |
-          godot --headless --download-templates
-          godot --version
-          if [ -d /github/home/.local/share/godot/export_templates/4.7.rc2 ]; then
-            echo "Templates already downloaded to versioned folder."
-          else
-            mkdir -p /github/home/.local/share/godot/export_templates/4.7.rc2/
-            cp -r /github/home/.local/share/godot/export_templates/* /github/home/.local/share/godot/export_templates/4.7.rc2/ || true
-          fi
+          mkdir -p /github/home/.local/share/godot/export_templates/4.7.rc2/
+          curl -L -o templates.tpz https://downloads.godotengine.org/?version=4.7&flavor=rc2&slug=export_templates.tpz&platform=templates
+          unzip templates.tpz
+          mv templates/* /github/home/.local/share/godot/export_templates/4.7.rc2/
+          rm -rf templates templates.tpz
           
       - name: Build project for windows
         run: |
